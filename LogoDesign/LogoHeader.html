@@ -7,27 +7,28 @@
     <style>
         body {
             background-color: #110916; /*background color*/
-            color: #ffffff; /* This sets the text color to white for better contrast */
+            color: #ffffff; /* Text color */
             margin: 0; /* Remove default margin */
             padding: 0; /* Remove default padding */
+            font-family: 'Helvetica', sans-serif; /* Change the font family */
+            font-size: 16px; /* Uniform text size */
         }
-      .banner {
+
+        .banner {
             background-color: #2D3559;
             padding: 40px; /* Adjust padding as needed */
             display: flex;
             justify-content: space-between;
             align-items: center;
-            
-      }
-      .banner h1 {
+        }
+
+        .banner h1 {
             margin: 0; /* Remove margin for h1 */
         }
-      .banner-links {
+
+        .banner-links {
             display: flex;
             font-size: 18px;
-            font-family: 'Helvetica', sans-serif; /* Change the font family */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
-            
         }
 
         .banner-links a {
@@ -38,36 +39,108 @@
 
         .banner-text {
             text-align: right;
-            font-size: 15px;
-            font-family: 'Helvetica', sans-serif; /* Change the font family */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a drop shadow */
+            font-size: 18px;
         }
-      .container {
+
+        .container {
             max-width: 800px; /* Set maximum width for the container */
-            
+            margin: 0 auto; /* Center the container */
             padding: 30px; /* Add some padding */
         }
 
         .text {
-            float: left; /* Float the text to the left */
-            width: 70%; /* Set width for the text */
             text-align: justify; /* Justify the text */
-          font-family: 'Helvetica', sans-serif; /* Change the font family */
-          font-size: 15px;
         }
 
         .image {
             float: right; /* Float the image to the right */
-            width: 10%; /* Set width for the image */
-            margin-left: 100px;
+            width: 20%; /* Set width for the image */
+            margin-left: 20px; /* Add some left margin to separate from text */
         }
 
-        .clear {
-            clear: both; /* Clear floats */
+        h1 {
+            font-size: 28px; /* Header 1 font size */
+        }
+
+        h2 {
+            font-size: 24px; /* Header 2 font size */
+        }
+
+        h2.underline {
+            text-decoration: underline; /* Underline for header 2 with class 'underline' */
+        }
+
+        h3 {
+            font-size: 20px; /* Header 3 font size */
+        }
+
+        p {
+            font-size: 18px; /* Paragraph font size */
+            margin-bottom: 20px; /* Add margin at the bottom to separate paragraphs */
+        }
+
+        ul {
+            margin-top: 0; /* Remove default margin for unordered lists */
+            padding-left: 20px; /* Add padding for better alignment of bullet points */
+        }
+
+        ul li {
+            list-style-type: disc; /* Bullet style */
+        }
+
+        /* Next page button */
+        .next-page {
+            position: fixed;
+            bottom: 20px; /* Distance from the bottom */
+            right: 20px; /* Distance from the left */
+            font-weight: bold; /* Bold font */
+            background-color: #702E3C; /* Button background color */
+            color: #ffffff; /* Button text color */
+            padding: 10px 20px; /* Padding for button */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Cursor style */
+        }
+
+        /* Hover effect for button */
+        .next-page:hover {
+            background-color: #016268; /* Darker background color on hover */
+        }
+
+        /* Back page button */
+        .back-page {
+            position: fixed;
+            bottom: 20px; /* Distance from the bottom */
+            left: 20px; /* Distance from the right */
+            font-weight: bold; /* Bold font */
+            background-color: #702E3C; /* Button background color */
+            color: #ffffff; /* Button text color */
+            padding: 10px 20px; /* Padding for button */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Cursor style */
+        }
+
+        /* Hover effect for button */
+        .back-page:hover {
+            background-color: #016268; /* Darker background color on hover */
+        }
+
+        /* Bottom banner */
+        .bottom-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #2D3559;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
     </style>
 </head>
-  <body>
+<body>
     <div class="banner">
         <div class="banner-links">
             <a href="LogoDesign/IntroLogoDesign.html">Course Content</a>
@@ -76,40 +149,67 @@
             <h1>Graphic Design - Logo Design</h1>
         </div>
     </div>
+
     <div class="container">
-        <div class="text">
-            <h2>Introduction to Logo Design</h2>
-            <h3>Course Title: Introduction to Logo Design<h3>
-<p>Course Overview: This 4-week course will provide students with a comprehensive understanding of the principles and techniques of logo design, equipping them with the skills to create effective and visually compelling logos.<p>
-<h3>Course Description<h3>
-<p>In this class, participants will immerse themselves in the world of logo design, uncovering the influence of visual identity and branding. They will gain knowledge on crafting an exemplary logo design brief, a comprehensive document that equips graphic designers with all the essential details to craft a logo tailored to your enterprise. Furthermore, students will acquire the skills to conceptualize, craft, and perfect logos that effectively communicate the core identity and principles of a brand.<p>
-<h3>Learning Objectives<h3>
-<p>By the end of the course, students will be able to:
-Understand the fundamental principles of logo design.
-Apply design software to bring logo concepts to life.
-Critically assess and revise logo designs based on feedback.<p>
-<h3>Course Content and Topics<h3>
-<p>Week 1: Fundamentals of Logo Design 
-Week 2: Conceptualizing and Sketching Logos
-Week 3: Digital Logo Design (Using Adobe Illustrator or similar software)
-Week 4: Logo Refinement and Presentation<p>
-<h3>Teaching Methods and Strategies<h3>
-<p>Each class will consist of a mix of lectures, practical exercises, and design critiques.
-Students will work on individual logo design projects and participate in group discussions.<p>
-<h3>Assessment and Evaluation<h3>
-<p>Assessment will be based on the quality of the logo designs created during the course.
-Evaluation will include peer reviews and instructor feedback.<p>
-  <h3>Textbooks and Learning Materials<h3>
-<p>Adobe Illustrator (or alternative design software)</p>
-            <!-- Add your paragraph text here -->
-        </div>
+        <h1>Introduction to Logo Design</h1>
+
+        <h2 class="underline">Course Overview</h2>
+        <p>Each class will consist of a mix of lectures, practical exercises, and design critiques.</p>
+
+        <h2 class="underline">Course Description</h2>
+        <p>In this class, participants will immerse themselves in the world of logo design, uncovering the influence of visual identity and branding. They will gain knowledge on crafting an exemplary logo design brief, a comprehensive document that equips graphic designers with all the essential details to craft a logo tailored to your enterprise. Furthermore, students will acquire the skills to conceptualize, craft, and perfect logos that effectively communicate the core identity and principles of a brand.</p>
+
+        <h2 class="underline">Learning Objectives</h2>
+        <h3>By the end of the course, students will be able to:</h3>
+        <ul>
+            <li>Understand the fundamental principles of logo design.</li>
+            <li>Apply design software to bring logo concepts to life.</li>
+            <li>Critically assess and revise logo designs based on feedback.</li>
+        </ul>
+
+        <h2 class="underline">Course Content and Topics</h2>
+        <ul>
+            <li>Week 1: Fundamentals of Logo Design</li>
+            <li>Week 2: Conceptualizing and Sketching Logos</li>
+            <li>Week 3: Digital Logo Design (Using Adobe Illustrator or similar software)</li>
+            <li>Week 4: Logo Refinement and Presentation</li>
+        </ul>
+
+        <h2 class="underline">Teaching Methods and Strategies</h2>
+        <ul>
+            <li>Each class will consist of a mix of lectures, practical exercises, and design critiques.</li>
+            <li>Students will work on individual logo design projects and participate in group discussions.</li>
+        </ul>
+
+        <h2 class="underline">Assessment and Evaluation</h2>
+        <ul>
+            <li>Assessment will be based on the quality of the logo designs created during the course.</li>
+            <li>Evaluation will include peer reviews and instructor feedback.</li>
+        </ul>
+
+        <h2>Textbooks and Learning Materials</h2>
+        <ul>
+            <li>Adobe Illustrator (or alternative design software)</li>
+            <li>Drawing software (Photoshop, Photopeia, Procreate)</li>
+        </ul>
+
         <div class="image">
-        <img src="LogoDesign/Images/FrontPageGif.gif" alt="Front Page Image">
+            <img src="LogoDesign/Images/FrontPageGif.gif" alt="Front Page Image">
             <!-- Replace "image.jpg" with the path to your image and add appropriate alt text -->
         </div>
         <div class="clear"></div> <!-- Add a clearing element -->
     </div>
+
+    <!-- Next page button -->
+    <button class="next-page">Next Page</button>
     
-    
+    <!-- Back page button -->
+    <button class="back-page">Back Page</button>
+
+    <!-- Bottom banner with back and next page buttons -->
+    <div class="bottom-banner">
+        <button class="back-page">Back Page</button>
+        <button class="next-page">Next Page</button>
+    </div>
 </body>
 </html>
