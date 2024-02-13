@@ -92,7 +92,7 @@
         .next-page {
             
             bottom: 20px; /* Distance from the bottom */
-            right: 20px; /* Distance from the left */
+            right: 20px; /* Distance from the right */
             font-weight: bold; /* Bold font */
             background-color: #702E3C; /* Button background color */
             color: #ffffff; /* Button text color */
@@ -135,12 +135,39 @@
             justify-content: space-between;
             align-items: center;
         }
+        /* Styles for buttons */
+  .button {
+    bottom: 20px;
+    color: white;
+    font-size: 18px;
+    background-color: #702E3C;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 10px; /* Adjust the value to change the roundness */
+    text-decoration: none; /* Remove underline */
+  }
+
+  /* Button hover effect */
+  .button:hover {
+    background-color: #016268;
+  }
+
+  /* Positioning the buttons */
+  .button.back {
+    left: 20px;
+  }
+
+  .button.next {
+    right: 20px;
+  }
     </style>
 </head>
 <body>
     <div class="banner">
         <div class="banner-links">
-            <a href="IntroLogoDesign.html">Course Content</a>
+            <a href="https://innovativecreationsworkshop.github.io/LogoDesign/IntroLogoDesign.html">Course Content</a>
         </div>
         <div class="banner-text">
             <h1>Graphic Design - Logo Design</h1>
@@ -198,8 +225,11 @@
     </div>
     <!-- Bottom banner with back and next page buttons -->
     <div class="bottom-banner">
-        <button> href="https://innovativecreationsworkshop.github.io/" class="back-page">Back Page</button>
-        <button> href="IntroLogoDesign.html" class="next-page">Next Page</button>
+        <!-- Back button -->
+    <a href="https://innovativecreationsworkshop.github.io/" class="button back">Back Page</a>
+
+  <!-- Next button -->
+   <a href="https://innovativecreationsworkshop.github.io/LogoDesign/IntroLogoDesign.html" class="button next">Next Page</a>
     </div>
 </body>
 </html>
