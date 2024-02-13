@@ -63,6 +63,52 @@
         .clear {
             clear: both; /* Clear floats */
         }
+          /* Next page button */
+        .next-page {
+            
+            bottom: 20px; /* Distance from the bottom */
+            right: 20px; /* Distance from the right */
+            font-weight: bold; /* Bold font */
+            background-color: #702E3C; /* Button background color */
+            color: #ffffff; /* Button text color */
+            padding: 10px 20px; /* Padding for button */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Cursor style */
+        }
+
+        /* Hover effect for button */
+        .next-page:hover {
+            background-color: #016268; /* Darker background color on hover */
+        }
+
+        /* Back page button */
+        .back-page {
+            
+            bottom: 20px; /* Distance from the bottom */
+            left: 20px; /* Distance from the right */
+            font-weight: bold; /* Bold font */
+            background-color: #702E3C; /* Button background color */
+            color: #ffffff; /* Button text color */
+            padding: 10px 20px; /* Padding for button */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Cursor style */
+        }
+
+        /* Hover effect for button */
+        .back-page:hover {
+            background-color: #016268; /* Darker background color on hover */
+        }
+
+        /* Bottom banner */
+        .bottom-banner {
+            width: 100%;
+            background-color: #2D3559;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
     </style>
 </head>
   <body>
@@ -87,6 +133,9 @@
             <!-- Replace "image.jpg" with the path to your image and add appropriate alt text -->
         </div>
         <div class="clear"></div> <!-- Add a clearing element -->
+        <div class="bottom-banner">
+        <a href="Index.html"><button class="back-page">Back Page</button></a>
+        <a href="LogoDesign/IntroLogoDesign.html"><button class="next-page">Next Page</button></a>
     </div>
     
     
