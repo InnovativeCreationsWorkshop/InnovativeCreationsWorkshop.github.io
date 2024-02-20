@@ -1,20 +1,15 @@
- @import url('https://fonts.cdnfonts.com/css/metropolis-2');
-
-                
+@import url("https://fonts.cdnfonts.com/css/metropolis-2");
 
 /* Reset CSS */
-@media (max-width: 768px) {
 * {
   margin: 0;
-  padding: 10;
+  padding: 0;
   box-sizing: border-box;
-  flex-direction:column;
-  align-items:center;
 }
 
 body {
   font-family: Times New Roman;
-  background-color: #181B22; /* Adjusted color for main body */
+  background-color: #181b22; /* Adjusted color for main body */
   color: #fff;
 }
 
@@ -23,16 +18,12 @@ header {
   background-color: #181619; /* Adjusted color for header */
   color: #fff;
   padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid #A76B09; /* Add horizontal line */
-  
+  border-bottom: 2px solid #a76b09; /* Add horizontal line */
 }
 
 /* Horizontal Line Styles */
 .line {
-  border: 1px solid #A76B09; /* Color of the horizontal lines */
+  border: 1px solid #a76b09; /* Color of the horizontal lines */
   margin-top: 5px; /* Adjust spacing as needed */
 }
 
@@ -49,7 +40,7 @@ header {
 
 .logo-container h1 {
   font-size: 40px; /* Adjust font size as needed */
-  font-family: 'Metropolis', Times New Roman, serif;
+  font-family: "Metropolis", Times New Roman, serif;
   font-weight: 400;
 }
 
@@ -69,19 +60,18 @@ nav ul li a {
 
 /* Highlight current page menu */
 nav ul li.current a {
-  color: #A76B09; /* Highlight color for current page */
+  color: #a76b09; /* Highlight color for current page */
 }
 
 /* Change color on hover */
 nav ul li:not(.current) a:hover {
-  color: #DDA74F; /* Hover color for other menu items */
+  color: #dda74f; /* Hover color for other menu items */
 }
 
 /* Main Styles */
 .home-section {
   text-align: center;
   margin-top: 50px;
- 
 }
 
 .home-section img {
@@ -91,31 +81,56 @@ nav ul li:not(.current) a:hover {
 .description p {
   margin-top: 20px;
   margin-bottom: 50px;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 20px; /* Adjusted left margin */
+  margin-right: 20px; /* Adjusted right margin */
   text-align: justify;
   font-size: 20px;
-  font-family: 'Metropolis', Times New Roman, serif;
+  font-family: "Metropolis", Times New Roman, serif;
   font-weight: 400;
-  
 }
 
 .description h1 {
   margin-top: 10px;
   margin-bottom: 20px;
   font-size: 40px;
-  font-family: 'Metropolis', Times New Roman, serif;
+  font-family: "Metropolis", Times New Roman, serif;
   font-weight: 600;
-  
 }
+
 /* Footer Styles */
 footer {
-   background-color: #181619; /* Adjusted color for footer */
+  background-color: #181619; /* Adjusted color for footer */
   color: #fff;
   text-align: center;
   padding: 20px;
   width: 100%;
-  border-top: 2px solid #A76B09; /* Add horizontal line */
-}
+  border-top: 2px solid #a76b09; /* Add horizontal line */
 }
 
+/* Media query for screens smaller than 768px (typical tablets and mobile phones) */
+@media (max-width: 768px) {
+  .logo-container {
+    flex-direction: column; /* Stack logo and business name vertically */
+    align-items: center; /* Center logo and business name horizontally */
+  }
+
+  .logo-container img {
+    width: 80px; /* Decrease logo size for mobile */
+    height: 80px; /* Decrease logo size for mobile */
+    margin-right: 0; /* Remove margin-right */
+    margin-bottom: 10px; /* Add space between logo and business name */
+  }
+
+  .logo-container h1 {
+    font-size: 30px; /* Decrease font size for mobile */
+  }
+
+  nav ul {
+    flex-direction: column; /* Stack menu items vertically */
+    text-align: center; /* Center menu items horizontally */
+  }
+
+  nav ul li {
+    margin: 10px 0; /* Add space between menu items */
+  }
+}
