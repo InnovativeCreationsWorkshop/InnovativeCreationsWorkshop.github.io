@@ -3,7 +3,8 @@
                 
 
 /* Reset CSS */
-@media (max-width: 768px)  {
+@media (max-width: 768px) {
+* {
   margin: 0;
   padding: 10;
   box-sizing: border-box;
@@ -115,5 +116,6 @@ footer {
   padding: 20px;
   width: 100%;
   border-top: 2px solid #A76B09; /* Add horizontal line */
+}
 }
 
