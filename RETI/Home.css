@@ -1,0 +1,117 @@
+ @import url('https://fonts.cdnfonts.com/css/metropolis-2');
+
+                
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Times New Roman;
+  background-color: #181B22; /* Adjusted color for main body */
+  color: #fff;
+}
+
+/* Header Styles */
+header {
+  background-color: #181619; /* Adjusted color for header */
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #A76B09; /* Add horizontal line */
+  
+}
+
+/* Horizontal Line Styles */
+.line {
+  border: 1px solid #A76B09; /* Color of the horizontal lines */
+  margin-top: 5px; /* Adjust spacing as needed */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center; /* Align logo and business name vertically */
+}
+
+.logo-container img {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+
+.logo-container h1 {
+  font-size: 40px; /* Adjust font size as needed */
+  font-family: 'Metropolis', Times New Roman, serif;
+  font-weight: 400;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Highlight current page menu */
+nav ul li.current a {
+  color: #A76B09; /* Highlight color for current page */
+}
+
+/* Change color on hover */
+nav ul li:not(.current) a:hover {
+  color: #DDA74F; /* Hover color for other menu items */
+}
+
+/* Main Styles */
+.home-section {
+  text-align: center;
+  margin-top: 50px;
+ 
+}
+
+.home-section img {
+  max-width: 100%;
+}
+
+.description p {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  margin-left: 300px;
+  margin-right: 300px;
+  text-align: justify;
+  font-size: 20px;
+  font-family: 'Metropolis', Times New Roman, serif;
+  font-weight: 400;
+  
+}
+
+.description h1 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-family: 'Metropolis', Times New Roman, serif;
+  font-weight: 600;
+  
+}
+/* Footer Styles */
+footer {
+   background-color: #181619; /* Adjusted color for footer */
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  border-top: 2px solid #A76B09; /* Add horizontal line */
+}
+
