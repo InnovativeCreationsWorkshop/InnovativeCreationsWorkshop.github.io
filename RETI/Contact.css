@@ -5,21 +5,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
- 
-    
 }
 
 /* Header Styles */
 header {
-    background-color:  #181619; /* Change the background color to your desired color */
-    color: #fff; /* Change the text color to ensure readability */
-    padding: 5px; /*Add padding to the header for better spacing */
-    text-align: center; /* Center align text */
+  background-color: #181619; /* Change the background color to your desired color */
+  color: #fff; /* Change the text color to ensure readability */
+  padding: 5px; /*Add padding to the header for better spacing */
+  text-align: center; /* Center align text */
   border-bottom: 2px solid #a76b09;
-  }
+}
 .header-container {
   text-align: center; /* Center all content horizontally */
- 
 }
 
 /* Horizontal Line Styles */
@@ -29,12 +26,10 @@ header {
 }
 
 .logo-container {
-  
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px; /* Add some space between logo and menu */
-   
 }
 
 .logo-container img {
@@ -96,53 +91,81 @@ nav ul li:not(.current) a:hover {
   display: block;
 }
 
-/*body Styles*/
 body {
-  font-family: Times New Roman;
-  background-color: #181b22; /* Adjusted color for main body */
+  margin: 0;
+  padding: 0;
+  background-color: #181b22;
   color: #fff;
-  
 }
 
- .container {
-    width: 80%;
-    margin: 0 auto;
-    
-  }
+/* Vertical Line Styles */
+.line-vert {
+  height: 200px; /* Adjust the height of the line */
+  width: 3px; /* Adjust the thickness of the line */
+  background-color: #a76b09; /* Gold color */
+  margin-right: 5px;
+}
 
-  /* CSS for contact section */
-  .contact-section {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 50px;
-  }
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 10px;
+}
 
-  .contact-info {
-    flex: 1;
-    text-align: left;
-    padding-right: 20px;
-  }
+.contact-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
 
-  .contact-form {
-    flex: 1;
-    text-align: left;
-    padding-left: 20px;
-  }
+.contact-info img {
+  height: auto; /* Maintain aspect ratio of the image */
+  width: 50%;
+  margin-right: 20px;
+}
 
-  .map-section {
-    margin-top: 50px;
-  }
+.info h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-family: "Metropolis", Times New Roman, serif;
+  font-weight: 400;
+  margin-left: 10px;
+}
 
-  /* CSS for social icons */
-  .social-icons {
-    margin-top: 50px;
-  }
+.info p {
+  margin: 5px 0;
+  font-size: 18px;
+  margin-left: 10px;
+}
 
-  .social-icons a {
-    display: inline-block;
-    margin-right: 10px;
-  }
+.contact-sections {
+  display: flex;
+}
+
+.contact-form,
+.map {
+  flex: 1;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background-color: #dda74f;
+  color: #181b22;
+  border: none;
+  cursor: pointer;
+}
+
+.map {
+  margin: 0 auto;
+  padding: 10px 0px;
+}
 
 /* Footer Styles */
 footer {
