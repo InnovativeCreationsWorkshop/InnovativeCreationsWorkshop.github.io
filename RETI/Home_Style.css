@@ -5,20 +5,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
-  font-family: Times New Roman;
-  background-color: #181b22; /* Adjusted color for main body */
-  color: #fff;
+ 
+    
 }
 
 /* Header Styles */
 header {
-  background-color: #181619; /* Adjusted color for header */
-  color: #fff;
-  padding: 20px;
-  border-bottom: 2px solid #a76b09; /* Add horizontal line */
+    background-color:  #181619; /* Change the background color to your desired color */
+    color: #fff; /* Change the text color to ensure readability */
+    padding: 5px; /*Add padding to the header for better spacing */
+    text-align: center; /* Center align text */
+  border-bottom: 2px solid #a76b09;
+  }
+.header-container {
+  text-align: center; /* Center all content horizontally */
+ 
 }
 
 /* Horizontal Line Styles */
@@ -28,25 +29,32 @@ header {
 }
 
 .logo-container {
+  
   display: flex;
-  align-items: center; /* Align logo and business name vertically */
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px; /* Add some space between logo and menu */
+   
 }
 
 .logo-container img {
   width: 100px;
   height: 100px;
-  margin-right: 10px;
+  margin-bottom: 10px; /* Add some space between logo and menu */
 }
 
 .logo-container h1 {
-  font-size: 40px; /* Adjust font size as needed */
-  font-family: "Metropolis", Times New Roman, serif;
+  font-size: 40px;
+  font-family: "Metropolis", sans-serif;
   font-weight: 400;
 }
 
 nav ul {
   list-style-type: none;
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow menu items to wrap to the next line if necessary */
+  margin-bottom: 20px;
 }
 
 nav ul li {
@@ -60,15 +68,77 @@ nav ul li a {
 
 /* Highlight current page menu */
 nav ul li.current a {
-  color: #a76b09; /* Highlight color for current page */
+  color: #a76b09;
 }
 
 /* Change color on hover */
 nav ul li:not(.current) a:hover {
-  color: #dda74f; /* Hover color for other menu items */
+  color: #dda74f;
 }
 
-/* Main Styles */
+/* Dropdown Styles */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #181619;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*Ad Banner*/
+.ad-banner {
+    width: 1000px; /* Adjust width as needed */
+    height: 550px; /* Adjust height as needed */
+    background-color:  #181b22; /* Background color of the ad banner */
+    
+    text-align: center; /* Center align text */
+    padding: 20px; /* Add padding */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: ;
+    margin-left: 350px;
+   
+  
+    
+  }
+
+  .ad-banner img {
+    max-width: 100%; /* Make sure image doesn't exceed the width of its container */
+    height: auto; /* Maintain aspect ratio of the image */
+  }
+
+  .ad-banner a {
+    text-decoration: none; /* Remove underline from link */
+    color: #fff; /* Link color */
+  }
+
+/* Banner Line Styles */
+.line-banner {
+  border: 1px solid #a76b09; /* Color of the horizontal lines */
+  margin-top: 5px; /* Adjust spacing as needed */
+  width: 65%; /* Adjust the width as needed */
+  margin-left: 290px;
+}
+
+/*body Styles*/
+body {
+  font-family: Times New Roman;
+  background-color: #181b22; /* Adjusted color for main body */
+  color: #fff;
+  
+}
+
 .home-section {
   text-align: center;
   margin-top: 50px;
@@ -81,8 +151,8 @@ nav ul li:not(.current) a:hover {
 .description p {
   margin-top: 20px;
   margin-bottom: 50px;
-  margin-left: 20px; /* Adjusted left margin */
-  margin-right: 20px; /* Adjusted right margin */
+  margin-left: 300px; /* Adjusted left margin */
+  margin-right: 300px; /* Adjusted right margin */
   text-align: justify;
   font-size: 20px;
   font-family: "Metropolis", Times New Roman, serif;
@@ -99,39 +169,31 @@ nav ul li:not(.current) a:hover {
 
 /* Footer Styles */
 footer {
-  background-color: #181619; /* Adjusted color for footer */
+  background-color: #181619;
   color: #fff;
   text-align: center;
   padding: 20px;
   width: 100%;
-  border-top: 2px solid #a76b09; /* Add horizontal line */
+  border-top: 2px solid #a76b09;
 }
 
 /* Media query for screens smaller than 768px (typical tablets and mobile phones) */
 @media (max-width: 768px) {
-  .logo-container {
-    flex-direction: column; /* Stack logo and business name vertically */
-    align-items: center; /* Center logo and business name horizontally */
-  }
-
   .logo-container img {
-    width: 80px; /* Decrease logo size for mobile */
-    height: 80px; /* Decrease logo size for mobile */
-    margin-right: 0; /* Remove margin-right */
-    margin-bottom: 10px; /* Add space between logo and business name */
+    width: 80px;
+    height: 80px;
   }
 
   .logo-container h1 {
-    font-size: 30px; /* Decrease font size for mobile */
+    font-size: 30px;
   }
 
   nav ul {
-    flex-direction: column; /* Stack menu items vertically */
-    text-align: center; /* Center menu items horizontally */
+    flex-direction: column;
+    text-align: center;
   }
 
   nav ul li {
-    margin: 10px 0; /* Add space between menu items */
+    margin: 10px 0;
   }
 }
-
