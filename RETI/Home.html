@@ -1,72 +1,199 @@
-<!DOCTYPE html>
-<html lang="en">
+@import url("https://fonts.cdnfonts.com/css/metropolis-2");
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="Home_Style.css"> <!-- Replace "Home_Style.css" with the path to your CSS file -->
-  <title>Roman Enterprise Trading Inc.</title>
-</head>
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ 
+    
+}
 
-<body>
-  <header>
-    <div class="logo-container">
-      <img src="https://raw.githubusercontent.com/InnovativeCreationsWorkshop/InnovativeCreationsWorkshop.github.io/main/RETI/Images/RoughLogo.png" alt="Roman Enterprise Trading Inc. Logo">
-      <h1>Roman Enterprise Trading Inc.</h1>
-    </div>
-    <nav>
-      <ul>
-        <li class="current"><a href="#">Home</a></li>
-        <li class="dropdown">
-          <a href="#">Products</a>
-          <div class="dropdown-content">
-            <a href="#">Clothing</a>
-            <a href="#">Shoes</a>
-            <a href="#">Credential</a>
-            <a href="#">Soft toys</a>
-            <a href="#">Packaging</a>
-            <a href="#">New Items</a>
-            <a href="#">Misc Items</a>
-          </div>
-        </li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+/* Header Styles */
+header {
+    background-color:  #181619; /* Change the background color to your desired color */
+    color: #fff; /* Change the text color to ensure readability */
+    padding: 5px; /*Add padding to the header for better spacing */
+    text-align: center; /* Center align text */
+  border-bottom: 2px solid #a76b09;
+  }
+.header-container {
+  text-align: center; /* Center all content horizontally */
+ 
+}
 
+/* Horizontal Line Styles */
+.line {
+  border: 1px solid #a76b09; /* Color of the horizontal lines */
+  margin-top: 5px; /* Adjust spacing as needed */
+}
+
+.logo-container {
   
-  <hr class="line">
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px; /* Add some space between logo and menu */
+   
+}
 
-  <main>
+.logo-container img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px; /* Add some space between logo and menu */
+}
+
+.logo-container h1 {
+  font-size: 40px;
+  font-family: "Metropolis", sans-serif;
+  font-weight: 400;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow menu items to wrap to the next line if necessary */
+  margin-bottom: 20px;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Highlight current page menu */
+nav ul li.current a {
+  color: #a76b09;
+}
+
+/* Change color on hover */
+nav ul li:not(.current) a:hover {
+  color: #dda74f;
+}
+
+/* Dropdown Styles */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #181619;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*Ad Banner*/
+.ad-banner {
+    width: 1000px; /* Adjust width as needed */
+    height: 550px; /* Adjust height as needed */
+    background-color:  #181b22; /* Background color of the ad banner */
     
-    <div class="ad-banner">
-  <a href="https://innovativecreationsworkshop.github.io">
-    <img src="https://github.com/InnovativeCreationsWorkshop/InnovativeCreationsWorkshop.github.io/blob/main/RETI/Images/Green%20and%20Yellow%20Simple%20Clean%20Shoes%20Sale%20Banner.png?raw=true" alt="Ad Banner">
-    <p>Visit our website for amazing deals!</p>
-  </a>
-</div>
+    text-align: center; /* Center align text */
+    padding: 20px; /* Add padding */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: ;
+    margin-left: 350px;
+   
+  
     
-    <hr class="line-banner">
-  <hr class="line-banner">
-    
-    <section class="home-section">
-      <div class="description">
-        <h1>Welcome to Roman Enterprise Trading Inc.</h1>
+  }
 
-        <img src="https://images.pexels.com/photos/4604443/pexels-photo-4604443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Photo by Enrique Hoyos">
+  .ad-banner img {
+    max-width: 100%; /* Make sure image doesn't exceed the width of its container */
+    height: auto; /* Maintain aspect ratio of the image */
+  }
 
-        <p>For over two decades, we've proudly served as a trusted distributor of quality pre-owned goods in the bustling heart of the Los Angeles area. Our diverse inventory spans a wide array of products, including clothing, shoes, toys, and housewares. With a keen eye for quality and an unwavering commitment to customer satisfaction, we've solidified our position as industry leaders, catering to the ever-evolving needs of our global clientele. <br> <br>
+  .ad-banner a {
+    text-decoration: none; /* Remove underline from link */
+    color: #fff; /* Link color */
+  }
 
-          At our facility, we offer an extensive range of services tailored to meet the unique requirements of each customer. From sourcing premium-grade merchandise to meticulously curating various mixes and grades, we strive to ensure that every order exceeds expectations. Our team understands the importance of flexibility in the marketplace, which is why we work closely with clients to accommodate their specific preferences and specifications. Whether you're seeking bulk shipments for retail resale or specialized assortments for niche markets, we have the expertise and resources to deliver unparalleled solutions. Rest assured, all our products are ethically sourced from within Southern California, reflecting our commitment to sustainability and local communities. We eagerly anticipate the opportunity to collaborate with you and surpass your expectations.
-        </p>
+/* Banner Line Styles */
+.line-banner {
+  border: 1px solid #a76b09; /* Color of the horizontal lines */
+  margin-top: 5px; /* Adjust spacing as needed */
+  width: 65%; /* Adjust the width as needed */
+  margin-left: 290px;
+}
 
-      </div>
-    </section>
-  </main>
+/*body Styles*/
+body {
+  font-family: Times New Roman;
+  background-color: #181b22; /* Adjusted color for main body */
+  color: #fff;
+  
+}
 
-  <footer>
-    <p>&copy; 2024 Roman Enterprise Trading Inc. All rights reserved.</p>
-  </footer>
-</body>
+.home-section {
+  text-align: center;
+  margin-top: 50px;
+}
 
-</html>
+.home-section img {
+  max-width: 100%;
+}
+
+.description p {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  margin-left: 300px; /* Adjusted left margin */
+  margin-right: 300px; /* Adjusted right margin */
+  text-align: justify;
+  font-size: 20px;
+  font-family: "Metropolis", Times New Roman, serif;
+  font-weight: 400;
+}
+
+.description h1 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-family: "Metropolis", Times New Roman, serif;
+  font-weight: 600;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #181619;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  border-top: 2px solid #a76b09;
+}
+
+/* Media query for screens smaller than 768px (typical tablets and mobile phones) */
+@media (max-width: 768px) {
+  .logo-container img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logo-container h1 {
+    font-size: 30px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+}
