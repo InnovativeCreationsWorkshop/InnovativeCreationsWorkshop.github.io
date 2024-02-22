@@ -166,6 +166,10 @@ body {
   margin: 0 auto;
   padding: 10px 0px;
 }
+.social-icons {
+  align-items: center;
+  margin-bottom: 20px; /* Add some space between logo and menu */
+}
 
 /* Footer Styles */
 footer {
