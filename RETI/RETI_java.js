@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const imageFolder = 'images/';
+const imageFolder = 'http://InnovativeCreationsWorkshop.github.io/RETI/Images/mixed clothing';
 
 const imageGrid = document.getElementById('imageGrid');
 
