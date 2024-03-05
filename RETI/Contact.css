@@ -198,7 +198,6 @@ body {
 }
 
 
-
 /* Media query for screens smaller than 768px */
 @media (max-width: 768px) {
   .logo-container img {
@@ -218,12 +217,6 @@ body {
 
   nav ul li {
     margin: 10px;
-  }
-}
-
-
-  nav ul li {
-    margin: 10px 0;
   }
 }
 
