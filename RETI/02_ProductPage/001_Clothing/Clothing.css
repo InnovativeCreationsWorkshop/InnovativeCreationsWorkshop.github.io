@@ -227,15 +227,16 @@ footer {
   border-top: 5px solid #a76b09;
 }
 
-/* Media query for screens smaller than 768px (typical tablets and mobile phones) */
 @media (max-width: 768px) {
     .logo-container img {
-        width: 80px;
-        height: 80px;
+        width: 50px; /* Adjust image width as desired */
+        height: auto; /* Maintain aspect ratio */
     }
 
     .logo-container h1 {
-        font-size: 30px;
+        font-size: 24px; /* Adjust font size as desired */
+        text-align: center; /* Center the text */
+        margin: 20px 0; /* Add some vertical spacing */
     }
 
     nav ul {
@@ -244,7 +245,6 @@ footer {
     }
 
     nav ul li {
-            margin: 10px 0;
-        }
- 
+        margin: 10px 0; /* Adjust margin as needed */
+    }
 }
