@@ -235,7 +235,7 @@ footer {
     .logo-container img {
         max-width: 100%; /* Ensure images don't overflow */
         height: auto; /* Maintain aspect ratio */
-        width: 200px; /* Adjust image width as needed */
+        width: 200px !important; /* Increase specificity */
         display: block; /* Ensure images are centered */
         margin: 0 auto; /* Center the images */
     }
@@ -255,4 +255,3 @@ footer {
         margin: 10px 0; /* Adjust margin as needed */
     }
 }
-
