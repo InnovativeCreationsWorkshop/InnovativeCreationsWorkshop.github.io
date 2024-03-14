@@ -234,7 +234,7 @@ footer {
 /* Add media query for smaller screens */
 @media (max-width: 768px) {
     .logo-container img {
-        width: 120px;
+        width: 220px;
     }
 
     .logo-container h1 {
