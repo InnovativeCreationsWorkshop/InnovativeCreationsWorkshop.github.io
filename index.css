@@ -118,46 +118,26 @@ h1, h2, h3 {
     text-align: center;
 }
 
-/* Contact Section */
-.contact {
-    padding: 50px 20px;
-    background-color: #a45b3b;
-    color: #ffffff;
-    text-align: center;
-}
-
-.contact form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.contact input, .contact textarea {
+/* Navigation Banner */
+.banner {
+    position: fixed;
+    bottom: 0;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 5px;
-}
-
-.contact button {
-    background-color: #d83f87;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.contact button:hover {
-    background-color: #e98074;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
     background-color: #2a1b3d;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.banner a {
     color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.banner a:hover, .banner a.active {
+    color: #d83f87;
 }
