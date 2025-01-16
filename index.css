@@ -1,10 +1,16 @@
-/* Global Styles */
+/* Global Styles
+COLOR THEME; 
+NAVY DARK BLUE #131226 
+DARK BLUE #073575
+PINK #dc086A
+BLUE #3392EF
+DARK PINK #CA397B*/
 body {
     font-family: 'Helvetica', sans-serif;
-    color: #2a1b3d;
+    color: #3392EF;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #073575;
 }
 
 h1, h2, h3 {
@@ -12,19 +18,6 @@ h1, h2, h3 {
 }
 
 /* Hero Section */
-.hero-overlay {
-    position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%);
-    width: 300px; /* Default width */
-    height: 200px; /* Default height */
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust transparency */
-    border-radius: 8px; /* Optional rounded corners */
-    pointer-events: none; /* Prevent interference with other elements */
-}
-
-
 .hero {
     position: relative;
     width: 100%;
@@ -52,10 +45,23 @@ h1, h2, h3 {
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
 }
 
+.hero-overlay {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    width: 300px; /* Default width */
+    height: 200px; /* Default height */
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust transparency */
+    border-radius: 8px; /* Optional rounded corners */
+    pointer-events: none; /* Prevent interference with other elements */
+}
+
+
 /* Portfolio Section */
 .portfolio {
     padding: 50px 20px;
-    background-color: #44318d;
+    background-color: #073575;
     color: #ffffff;
     text-align: center;
 }
@@ -114,7 +120,7 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #d83f87;
+    color: #CA397B;
     font-size: 1.2em;
     transition: opacity 0.3s ease;
 }
@@ -126,8 +132,8 @@ h1, h2, h3 {
 /* About Section */
 .about {
     padding: 50px 20px;
-    background-color: #e98074;
-    color: #2a1b3d;
+    background-color: #073575;
+    color: #CA397B;
     text-align: center;
 }
 
@@ -136,7 +142,7 @@ h1, h2, h3 {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #2a1b3d;
+    background-color: #073575;
     display: flex;
     justify-content: space-around;
     padding: 10px 0;
