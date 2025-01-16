@@ -52,7 +52,7 @@ h1, h2, h3 {
     transform: translate(-50%, -50%);
     width: 500px; /* Default width */
     height: 200px; /* Default height */
-    background-color: rgba(0, 0, 0, 0.2); /* Adjust transparency */
+    background-color: rgba(0, 0, 0, 0.3); /* Adjust transparency */
     border-radius: 8px; /* Optional rounded corners */
     pointer-events: none; /* Prevent interference with other elements */
 }
