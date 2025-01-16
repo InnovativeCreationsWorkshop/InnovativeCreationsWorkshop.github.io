@@ -107,7 +107,10 @@ h1, h2, h3 {
 
 .portfolio-item:hover img {
     transform: scale(1.1);
+    font-weight: bold;
+    color: #dc086A
 }
+
 
 .overlay a {
     color: #ffffff;
@@ -117,22 +120,12 @@ h1, h2, h3 {
     transition: color 0.3s ease;
 }
 
-.portfolio a:hover, .overlay a.active {
-    color: #d83f87;
-}
 
-/* About Section */
-.about {
-    padding: 50px 20px;
-    background-color: #073575;
-    color: #CA397B;
-    text-align: center;
-}
 
 /* Navigation Banner */
 .banner {
     position: fixed;
-    top: 0;
+    bottom: 0;
     width: 100%;
     background-color: #073575;
     display: flex;
@@ -150,5 +143,6 @@ h1, h2, h3 {
 }
 
 .banner a:hover, .banner a.active {
-    color: #d83f87;
+    font-weight: bold;
+    color: #dc086A;
 }
