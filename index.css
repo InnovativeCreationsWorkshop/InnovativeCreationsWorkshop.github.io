@@ -109,24 +109,16 @@ h1, h2, h3 {
     transform: scale(1.1);
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #CA397B;
-    font-size: 1.2em;
-    transition: opacity 0.3s ease;
+.overlay a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
 }
 
-.portfolio-item:hover .overlay {
-    opacity: 1;
+.portfolio a:hover, .overlay a.active {
+    color: #d83f87;
 }
 
 /* About Section */
