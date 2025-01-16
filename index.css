@@ -1,15 +1,14 @@
 /* Global Styles */
 body {
     font-family: 'Helvetica', sans-serif;
-    color: #131226;
+    color: #2a1b3d;
     margin: 0;
     padding: 0;
-    background-color: #073575; /* 60% primary color */
+    background-color: #f4f4f9;
 }
 
 h1, h2, h3 {
     font-family: 'Garamond', serif;
-    color: #3392ef; /* 30% secondary color */
 }
 
 /* Hero Section */
@@ -18,7 +17,6 @@ h1, h2, h3 {
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background-color: #073575;
 }
 
 .hero-video {
@@ -44,7 +42,7 @@ h1, h2, h3 {
 /* Portfolio Section */
 .portfolio {
     padding: 50px 20px;
-    background-color: #3392ef;
+    background-color: #44318d;
     color: #ffffff;
     text-align: center;
 }
@@ -103,7 +101,7 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #dc086a; /* 10% accent color */
+    color: #d83f87;
     font-size: 1.2em;
     transition: opacity 0.3s ease;
 }
@@ -115,45 +113,31 @@ h1, h2, h3 {
 /* About Section */
 .about {
     padding: 50px 20px;
-    background-color: #ca397b;
-    color: #131226;
+    background-color: #e98074;
+    color: #2a1b3d;
     text-align: center;
 }
 
-/* Navigation Bar */
-.navbar {
+/* Navigation Banner */
+.banner {
     position: fixed;
-    top: 0;
+    bottom: 0;
     width: 100%;
-    background-color: #073575;
+    background-color: #2a1b3d;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 100;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.navbar-brand {
-    font-family: 'Garamond', serif;
-    font-size: 1.5em;
+.banner a {
     color: #ffffff;
     text-decoration: none;
-}
-
-.navbar-menu {
-    display: flex;
-    gap: 20px;
-}
-
-.navbar-menu a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1em;
+    font-size: 1.1em;
     padding: 5px 10px;
     transition: color 0.3s ease;
 }
 
-.navbar-menu a:hover, .navbar-menu a.active {
-    color: #dc086a;
+.banner a:hover, .banner a.active {
+    color: #d83f87;
 }
