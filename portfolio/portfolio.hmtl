@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400;700&family=Helvetica&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Navigation Banner -->
+    <div class="banner">
+         <a href="https://innovativecreationsworkshop.github.io" </a><h1>Interactive Creations Workshop</h1>
+        <nav>
+            <a href="https://innovativecreationsworkshop.github.io" >Home</a>
+            <a href="#" class = "active">Portfolio</a>
+            <a href="https://innovativecreationsworkshop.blogspot.com/">Digital Notebook</a>
+            <a href="#about">About Me</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Portfolio Section -->
+        <section class="portfolio">
+            <h1>Portfolio</h1>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="image1.jpg" alt="MFA Thesis Experience">
+                    <div class="overlay">
+                        <h2>MFA Thesis Experience</h2>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="image2.jpg" alt="The World Beyond">
+                    <div class="overlay">
+                        <h2>The World Beyond</h2>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="image3.jpg" alt="Yesterday's Tomorrow">
+                    <div class="overlay">
+                        <h2>Yesterday's Tomorrow</h2>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="image4.jpg" alt="Art as Function">
+                    <div class="overlay">
+                        <h2>Art as Function</h2>
+                    </div>
+                </div>
+                <!-- Add more portfolio items as needed -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Innovative Creations Workshop. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
 
