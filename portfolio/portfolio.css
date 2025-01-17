@@ -81,7 +81,7 @@ img {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     margin: 20px auto;
-    max-width: 1200px;
+    max-width: 500px;
 }
 
 .portfolio-item {
