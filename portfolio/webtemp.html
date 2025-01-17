@@ -3,122 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Grid</title>
-    <style>
-        body {
-            font-family: Helvetica, sans-serif;
-            margin: 0;
-            background-color: #2a1b3d;
-            color: #ffffff;
-        }
-
-        header {
-            background-color: #44318d;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 15px;
-        }
-
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #e98074;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #d83f87;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            background-color: #44318d;
-        }
-
-        .grid-item {
-            background-color: #2a1b3d;
-            border: 2px solid #e98074;
-            border-radius: 8px;
-            overflow: hidden;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .grid-item:hover {
-            transform: scale(1.05);
-        }
-
-        .grid-item img {
-            width: 100%;
-            height: auto;
-        }
-
-        .description {
-            padding: 10px;
-            background-color: #44318d;
-            color: #ffffff;
-        }
-    </style>
+    <title>Game Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400;700&family=Helvetica&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="contenttemplate.css">
 </head>
 <body>
-
-<header>
-    <h1>My Portfolio</h1>
-    <nav>
-        <ul>
-            <li><a href="https://innovativecreationsworkshop.github.io/">Home</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Digital Notebook</a></li>
-            <li><a href="#">About Me</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main>
-    <div class="grid-container">
-        <div class="grid-item">
-            <a href="#">
-                <img src="placeholder1.jpg" alt="Project 1">
-                <div class="description">Project 1 Description</div>
-            </a>
-        </div>
-        <div class="grid-item">
-            <a href="#">
-                <img src="placeholder2.jpg" alt="Project 2">
-                <div class="description">Project 2 Description</div>
-            </a>
-        </div>
-        <div class="grid-item">
-            <a href="#">
-                <img src="placeholder3.jpg" alt="Project 3">
-                <div class="description">Project 3 Description</div>
-            </a>
-        </div>
-        <div class="grid-item">
-            <a href="#">
-                <img src="placeholder4.jpg" alt="Project 4">
-                <div class="description">Project 4 Description</div>
-            </a>
-        </div>
+    <!-- Navigation Banner -->
+    <div class="banner">
+         <a href="https://innovativecreationsworkshop.github.io"><h1>Interactive Creations Workshop</h1></a>
+        <nav>
+            <a href="https://innovativecreationsworkshop.github.io">Home</a>
+            <a href="#" class="active">Portfolio</a>
+            <a href="https://innovativecreationsworkshop.blogspot.com/">Digital Notebook</a>
+            <a href="#about">About Me</a>
+        </nav>
     </div>
-</main>
 
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Video Section -->
+        <section class="hero-video">
+            <video autoplay muted loop playsinline class="hero-video-element">
+                <source src="https://github.com/InnovativeCreationsWorkshop/InnovativeCreationsWorkshop.github.io/raw/refs/heads/main/mp4/214940_tiny.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <!-- CONTENT DETAILS -->
+        <section class="portfolio-details">
+            <h1 class="portfolio-title">Project Title</h1>
+            <h3 class="software-used">Software Used: Unreal Engine, Blender, Photoshop</h3>
+            <p class="project-description">This project is a demonstration of immersive design combining interactive elements with stunning visuals.</p>
+
+            <!-- Grid Images -->
+            <div class="portfolio-images">
+                <img src="image1.jpg" alt="Screenshot 1">
+                <img src="image2.jpg" alt="Screenshot 2">
+                <img src="image3.jpg" alt="Screenshot 3">
+                <img src="image4.jpg" alt="Screenshot 4">
+            </div>
+
+            <!-- Process Video -->
+            <div class="process-video">
+                <h2>Development Process</h2>
+                <video controls>
+                    <source src="process-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <!-- Conclusion Paragraph -->
+            <p class="conclusion">This project highlights my ability to combine technical expertise with creative vision, resulting in a compelling and interactive experience. Explore more to discover how I bring concepts to life.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Innovative Creations Workshop. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
-
