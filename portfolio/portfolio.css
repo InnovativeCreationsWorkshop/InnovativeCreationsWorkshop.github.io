@@ -98,6 +98,7 @@ img {
 
 .portfolio-item:hover img {
     transform: scale(1.1);
+    color: #CA397B;
 }
 
 .overlay {
@@ -120,7 +121,7 @@ img {
 }
 
 .overlay h2 {
-    color: #ffffff;
+    color: #CA397B;
     font-size: 1.2em;
 }
 
