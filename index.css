@@ -99,7 +99,7 @@ h1, h2, h3 {
 }
 
 .portfolio-item img {
-    width: 100%;
+    width: 25%;
     height: auto;
     display: block;
     transition: transform 0.3s ease;
