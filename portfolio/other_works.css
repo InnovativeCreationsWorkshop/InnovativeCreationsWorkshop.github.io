@@ -76,55 +76,47 @@ img {
     color: #fffff;
 }
 
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin: 20px auto;
-    max-width: 500px;
-}
-
-.portfolio-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.portfolio-item img {
-    transition: transform 0.3s ease;
-    border-radius: 10px;
-}
-
-.portfolio-item:hover img {
-    transform: scale(1.1);
-    color: #CA397B;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: 10px;
-}
-
-.portfolio-item:hover .overlay {
-    opacity: 1;
-}
-
-.overlay h2 {
-    color: #CA397B;
-    font-size: 1.2em;
-}
-
+.grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .grid-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #073575;
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit text color */
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .grid-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .grid-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .text-content {
+            max-width: calc(100% - 150px);
+        }
+        .text-content h3 {
+            margin: 0 0 5px;
+            font-size: 18px;
+            color: white; /* Main website color */
+        }
+        .text-content p {
+            margin: 0;
+            font-size: 14px;
+            color: white; /* Accent color */
+        }
 /* Footer */
 footer {
     color: #ffffff;
