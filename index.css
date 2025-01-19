@@ -120,29 +120,31 @@ h1, h2, h3 {
     transition: color 0.3s ease;
 }
 
+ /* Navigation Banner */
+        .banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #073575;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .banner a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1em;
+            margin: 0 15px;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+
+        .banner a:hover, .banner a.active {
+            font-weight: bold;
+            color: #dc086A;
+        }
 
 
-/* Navigation Banner */
-.banner {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #073575;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.banner a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.1em;
-    padding: 5px 10px;
-    transition: color 0.3s ease;
-}
-
-.banner a:hover, .banner a.active {
-    font-weight: bold;
-    color: #dc086A;
-}
