@@ -93,7 +93,7 @@ h1, h2, h3 {
 }
 
 .grid-item img {
-    width: 150px;
+    width: 250px;
     height: 150px;
     object-fit: cover;
     border-radius: 8px;
