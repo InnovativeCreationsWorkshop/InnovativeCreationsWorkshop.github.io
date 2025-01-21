@@ -94,9 +94,12 @@ img {
 }
 
 .gallery-wrapper {
-    overflow-x: scroll;
+    
+    overflow: hidden; /* Hide scrollbars */
+    position: relative; /* Ensure proper alignment */
+    width: 100%; /* Adjust as needed */
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
+   -webkit-overflow-scrolling: touch;
     width: 100%;
 }
 
