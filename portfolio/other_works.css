@@ -1,1 +1,125 @@
+/* Global Styles
+COLOR THEME; 
+NAVY DARK BLUE #131226 
+DARK BLUE #073575
+PINK #dc086A
+BLUE #3392EF
+DARK PINK #CA397B*/
+/* Global Styles */
+body {
+    font-family: 'Helvetica', sans-serif;
+    color: #3392EF;
+    margin: 0;
+    padding: 0;
+    background-color: #131226;
+}
 
+h1, h2, h3 {
+    font-family: 'Helvetica', sans-serif;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Navigation Banner */
+.banner {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #131226;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.banner h1 {
+    color: #fffff;
+    font-size: 20px;
+    margin: 0;
+}
+
+.banner nav a {
+    color: #ffffff;
+    font-size: 1em;
+    margin: 0 10px;
+    padding: 5px 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.banner a:hover, .banner a.active {
+    font-weight: bold;
+    color: #dc086A;
+}
+
+/* Portfolio Section */
+.portfolio {
+    padding: 50px 20px 330px;
+    text-align: center;
+    background-color: #131226;
+    color: #ffffff;
+}
+
+.portfolio h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #fffff;
+}
+
+.grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .grid-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            border-radius: 28px;
+            background: linear-gradient(90deg, #dc086a, #131226);
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit text color */
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .grid-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .grid-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .text-content {
+            max-width: calc(100% - 150px);
+        }
+        .text-content h3 {
+            margin: 0 0 5px;
+            font-size: 18px;
+            color: white; /* Main website color */
+        }
+        .text-content p {
+            margin: 0;
+            font-size: 14px;
+            color: white; /* Accent color */
+        }
+/* Footer */
+footer {
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+}
