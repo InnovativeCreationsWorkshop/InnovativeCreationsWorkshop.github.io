@@ -26,78 +26,13 @@
         <!-- Portfolio Section -->
         <section class="portfolio">
             <h1>Other Works</h1>
-           
-          
-          <!--THEME 1-->
-          <h2>Animation</h2>
-          
-           <section class="scroll-gallery">
-            <button class="scroll-btn left" onclick="scrollGallery(-1)">&#8249;</button>
-            <div class="gallery-wrapper">
-                <div class="gallery-container">
-                    <!-- Item 1 -->
-                    <div class="gallery-item">
-                        <a href="https://innovativecreationsworkshop.github.io/portfolio/webtemp.html" class="grid-item">
-            <img src="https://innovativecreationsworkshop.github.io/photo/house.jpg" alt="Image 1">
-            <div class="description">
-                <h3>Title 1</h3>
-                <p>Slogan for the first item</p>
-                        </div>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="gallery-item">
-                        <a href="https://innovativecreationsworkshop.github.io/portfolio/webtemp.html" class="grid-item">
-            <img src="https://innovativecreationsworkshop.github.io/photo/house.jpg" alt="Image 1">
-            <div class="description">
-                <h3>Title 1</h3>
-                <p>Slogan for the first item</p>
-                        </div>
-                    </div>
-                      
-                       <!-- Item 3 -->
-                    <div class="gallery-item">
-                        <a href="https://innovativecreationsworkshop.github.io/portfolio/webtemp.html" class="grid-item">
-            <img src="https://innovativecreationsworkshop.github.io/photo/house.jpg" alt="Image 1">
-            <div class="description">
-                <h3>Title 1</h3>
-                <p>Slogan for the first item</p>
-                        </div>
-                    </div>
-                       <!-- Item 4 -->
-                    <div class="gallery-item">
-                        <a href="https://innovativecreationsworkshop.github.io/portfolio/webtemp.html" class="grid-item">
-            <img src="https://innovativecreationsworkshop.github.io/photo/house.jpg" alt="Image 1">
-            <div class="description">
-                <h3>Title 1</h3>
-                <p>Slogan for the first item</p>
-                        </div>                
-            </div>
-            <button class="scroll-btn right" onclick="scrollGallery(1)">&#8250;</button>
-        </section>
-                      
-<!-- THEME 2 -->
-                       <h2>Tutorial</h2>
-                      
-                      <section class="scroll-gallery">
-            <button class="scroll-btn left" onclick="scrollGallery(-1, 'tutorials-gallery')">&#8249;</button>
-            <div class="gallery-wrapper tutorials-gallery">
-                <div class="gallery-container">
-                    <!-- Item 1 -->
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/300x200" alt="Tutorial 1">
-                        <div class="description">
-                            <h3>Tutorial 1</h3>
-                            <p>A brief description of Tutorial 1.</p>
-                        </div>
-                    </div>
-                    <!-- Add more items as needed -->
-                </div>
-            </div>
-            <button class="scroll-btn right" onclick="scrollGallery(1, 'tutorials-gallery')">&#8250;</button>
-        </section>
+            <!-- Placeholder for Animation Section -->
+        <div id="theme-section"></div>
+
+        <!-- Placeholder for Tutorials Section -->
+        <div id="tutorials-section"></div>
           
 
-        </section>
     </main>
 
     <!-- Footer -->
@@ -110,6 +45,20 @@
             const scrollAmount = container.offsetWidth / 2;
             container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
+
+     // Load Animation Section
+        fetch('Theme_1.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('theme-section').innerHTML = data;
+            });
+
+        // Load Tutorials Section
+        fetch('Theme_1.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('tutorials-section').innerHTML = data;
+            });
     </script>
 </body>
 </html>
