@@ -107,6 +107,7 @@ h1, h2, h3 {
     margin: 0 0 5px;
     font-size: 18px;
     color: #ffffff;
+    text-align: left;
 }
 
 .text-content p {
