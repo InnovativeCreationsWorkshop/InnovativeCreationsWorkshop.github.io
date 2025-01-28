@@ -1,19 +1,19 @@
-​<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Developer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400;700&family=Helvetica&display=swap" rel="stylesheet">
-  
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="house.css">
+    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400;700&family=Helvetica&family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation Banner -->
-    <div class="banner">
-        <a href="https://innovativecreationsworkshop.github.io"><h1>Interactive Creations Workshop</h1></a>
+    <header class="banner">
+        <a href="https://innovativecreationsworkshop.github.io">
+            <h1>Interactive Creations Workshop</h1>
+        </a>
         <nav>
             <a href="https://innovativecreationsworkshop.github.io">Home</a>
             <a href="https://innovativecreationsworkshop.github.io/portfolio/portfolio.html">Portfolio</a>
@@ -21,12 +21,12 @@
             <a href="https://innovativecreationsworkshop.blogspot.com/">Digital Notebook</a>
             <a href="#about">About Me</a>
         </nav>
-    </div>
+    </header>
 
-    <!-- Hero Image Slideshow Section -->
+    <!-- Hero Image Slideshow -->
     <section class="hero-slideshow">
         <div class="overlay-box">
-            <h1>A House in Time:<br> A VR Experience</h1>
+            <h1>A House in Time: A VR Experience</h1>
         </div>
         <div class="slideshow-images">
             <img src="https://innovativecreationsworkshop.github.io/photo/house1.jpg" alt="Slide 1" class="active">
@@ -36,22 +36,37 @@
         </div>
     </section>
 
-    <!-- Content Details -->
-    <section class="portfolio-details">
+    <!-- Portfolio Details -->
+    <main class="portfolio-details">
         <h1 class="portfolio-title">A House in Time: A VR Experience</h1>
         <h3 class="software-used">Software Used: Maya, Unreal Engine, Substance Designer, Photoshop, Oculus Rift Interactive Touch Controls</h3>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/w-gQ3Cw6NhQ?si=z6mwwT1fjkuEORy-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <h3 class="software-used">In Game Walk Through</h3>
-      <h2 class= "portfolio-title">The Story</h2>
-        <p class="project-description">
-            Based on the short fiction by Tina Mahagamage<br><br>
-            Logline: “A contemporary photographer struggles to overcome terrifying historical events in order to understand and connect with a mysterious woman who owns a house with a portal through time in Eastern Europe’s secluded Forests.” <br><br>
-            The inspiration for “A House in Time” was the desire to write a story for a Virtual Reality Experience. The audience is the protagonist, Caleb, following his mysterious counterpart Sasha as she travels through time using a 1000-year-old house as a portal. The goal is to plunge the viewer in different time periods in order to experience historical events. <br><br> 
-
-For this VR Demo I want the viewer to experience an example of this experience could be if fully realized. It consists of the viewer's first experience of the house in modern times. Inside of the house will be various crucial objects that are embedded within the story that will be used to give the feel of the story. <br><br>
-
-Now Avaliable at the Otis College of Art and Design Library
-        </p>
+        <iframe 
+            width="960" 
+            height="515" 
+            src="https://www.youtube.com/embed/w-gQ3Cw6NhQ" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+      <h3 class = "software-used"> In Game Walk Through</h3>
+        <section class="portfolio-details">
+    <div class="story-section">
+        <div class="story-text">
+            <h2 class="title">The Story</h2>
+            <p class="project-description">
+                Based on the short fiction by Tina Mahagamage<br><br>
+                Logline: “A contemporary photographer struggles to overcome terrifying historical events in order to understand and connect with a mysterious woman who owns a house with a portal through time in Eastern Europe’s secluded Forests.” <br><br>
+                The inspiration for “A House in Time” was the desire to write a story for a Virtual Reality Experience. The audience is the protagonist, Caleb, following his mysterious counterpart Sasha as she travels through time using a 1000-year-old house as a portal. The goal is to plunge the viewer in different time periods in order to experience historical events. <br><br> 
+                For this VR Demo, I want the viewer to experience an example of what this experience could be if fully realized. It consists of the viewer's first experience of the house in modern times. Inside of the house will be various crucial objects that are embedded within the story that will be used to give the feel of the story. <br><br>
+                Now Available at the Otis College of Art and Design Library.
+            </p>
+        </div>
+        <div class="story-image">
+            <img src="https://innovativecreationsworkshop.github.io/photo/Book_Cover_print%20copy.jpg" alt="House Illustration" />
+        </div>
+    </div>
+</section>
 
         <div class="portfolio-images">
             <img src="https://innovativecreationsworkshop.github.io/photo/house1.jpg" alt="Screenshot 1">
@@ -59,32 +74,80 @@ Now Avaliable at the Otis College of Art and Design Library
             <img src="https://innovativecreationsworkshop.github.io/photo/house3.jpg" alt="Screenshot 3">
             <img src="https://innovativecreationsworkshop.github.io/photo/house4.jpg" alt="Screenshot 4">
         </div>
-
-        <h2>The Experience</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/m2Sij-Ey_Hs?si=GJwSTARO74PIgj-D" 
-            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+        
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/m2Sij-Ey_Hs" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
         </iframe>
+      <h3 class = "software-used"> The Experience</h3>
+      
+        <br><br>
+      
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/AUl2v97mfeU?si=pKyg4BvLygre12WF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      
+      <h3 class = "software-used"> Steroscopic View</h3>
+      
+      <br><br> 
+      <h2> Process </h2>
+         <h3 class = "software-used"> Concept Art by Jon Yousef</h3>
+      <div class="concept-image">
+        <img src="https://innovativecreationsworkshop.github.io/photo/HouseIn%20Time/EnchantedForest.png" alt="Concept Art">
+      </div>
+      <h3 class = "software-used">Layout and Models </h3>
+      <div class="portfolio-images">
+            <img src="https://innovativecreationsworkshop.github.io/photo/HouseIn%20Time/House_Layout.jpg" alt="Screenshot 1">
+            <img src="https://innovativecreationsworkshop.github.io/photo/HouseIn%20Time/Property_layout.jpg" alt="Screenshot 2">
+            <img src="https://innovativecreationsworkshop.github.io/photo/HouseIn%20Time/Screen%20Shot%202017-02-14%20at%203.40.17%20PM.png" alt="Screenshot 3">
+            <img src="https://innovativecreationsworkshop.github.io/photo/HouseIn%20Time/Screen%20Shot%202017-03-03%20at%201.01.11%20AM.png" alt="Screenshot 4">
+        
+         <img src="https://innovativecreationsworkshop.github.io/photo/HouseIn Time/Screen Shot 2017-02-14 at 3.40.46 PM.png" alt="Screenshot 5">
+            <img src="https://innovativecreationsworkshop.github.io/photo/HouseIn Time/Screen Shot 2017-03-03 at 1.02.59 AM.png " alt="Screenshot 6">
+            <img src="https://innovativecreationsworkshop.github.io/photo/HouseIn Time/Screen Shot 2017-03-03 at 1.03.33 AM.png " alt="Screenshot 7">
+            <img src="https://innovativecreationsworkshop.github.io/photo/HouseIn Time/Screen Shot 2017-03-03 at 1.04.54 AM.png " alt="Screenshot 8">
+        
+        
+        
+        
+        
+        
+        
+        
+        </div>
+      
+      <h3 class ="software-used"> Credits </h3>
+      <p>Creator/ Designer Tina M <br><br>
+ 
+          Sound Designer<br>
+          Camden Barkley<br><br>
 
-        <p class="conclusion">For this VR Demo, I want the viewer to experience an example of what this experience could be if fully realized. It consists of the viewer's first experience of the house in modern times. Inside the house will be various crucial objects that are embedded within the story to give the feel of the narrative. Now Available at the Otis College of Art and Design Library.</p>
-    </section>
+          Technical Artist <br>
+          Michael Fiefer<br><br>
+
+          Concept Art<br>
+          Jon Yousef<br><br>
+
+          Model <br>
+          Ryan Liyanaralage <br>
+          Kevin Ginsberg<br>
+          Lanea Bowie<br><br> 
+        
+          Narration<br>
+        Anna Solomko </p>
+      
+      
+      
+    </main>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Innovative Creations Workshop. All Rights Reserved.</p>
     </footer>
 
-    <script> 
-        
-        const images = document.querySelectorAll('.slideshow-images img');
-let currentIndex = 0;
-
-function showNextImage() {
-    images[currentIndex].classList.remove('active');
-    currentIndex = (currentIndex + 1) % images.length;
-    images[currentIndex].classList.add('active');
-}
-
-setInterval(showNextImage, 5000);
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
