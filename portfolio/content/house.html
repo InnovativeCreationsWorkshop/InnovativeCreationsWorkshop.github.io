@@ -148,6 +148,18 @@
         <p>&copy; 2025 Innovative Creations Workshop. All Rights Reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script> 
+    const images = document.querySelectorAll('.slideshow-images img');
+let currentIndex = 0;
+
+function showNextImage() {
+    images[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % images.length;
+    images[currentIndex].classList.add('active');
+}
+
+setInterval(showNextImage, 5000);
+
+    </script>
 </body>
 </html>
