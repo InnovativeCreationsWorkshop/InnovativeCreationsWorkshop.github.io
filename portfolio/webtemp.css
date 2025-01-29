@@ -106,7 +106,18 @@ img {
 }
 
 .portfolio-images img {
-    width: calc(25% - 20px);
+    width: 100%;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
+
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #131226;
+    color: #ffffff;
+}
