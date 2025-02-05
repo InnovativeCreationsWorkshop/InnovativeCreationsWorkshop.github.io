@@ -56,6 +56,61 @@ a:hover {
 }
 
 
+
+/*about the business*/
+.about-us h1{
+  font-size: 60px;
+  color: white;
+  text-align: center;
+  transform: translateY(80px);
+}
+
+.about-business {
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 20px;
+   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('https://raw.githubusercontent.com/InnovativeCreationsWorkshop/InnovativeCreationsWorkshop.github.io/refs/heads/main/photo/ians.png') center/cover no-repeat; 
+    border-radius: 10px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 150px;
+    transform: translateY(100px);
+    
+
+}
+
+.about-business p{
+  font-size: 1.2rem;
+  color: white;
+  text-align: justify;
+  max-width: 500px; /* Keeps text in a readable container */
+  margin: 0 auto; /* Centers it horizontally */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Business Image (Fixed to Left) */
+.bus-img {
+    display: flex;
+    justify-content: flex-start; /* Ensures image stays on the left */
+}
+
+.bus-img img {
+    width: 100%;
+    max-width: 500px; /* Ensures image remains a good size */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+
+
+
+
 /* Meet the Founder Section */
 .meet-founder {
     display: flex;
@@ -63,7 +118,6 @@ a:hover {
     justify-content: center;
     gap: 40px;
     padding: 60px 20px;
-    margin-top: 80px;
     background: rgba(202, 57, 123, 0.7); /* Transparent #CA397B */
     border-radius: 10px;
     max-width: 900px;
@@ -127,11 +181,19 @@ a:hover {
     color: #073575;
 }
 
-.social-links a:hover {
-    color: #1DB954;
-    transform: scale(1.1);
-    color: #3392EF;
+.social-links a img {
+    width: 40px; /* Adjust icon size */
+    height: 40px;
+    border-radius: 50%; /* Makes it circular (optional) */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
+
+/* Hover effect */
+.social-links a img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    opacity: 0.8; /* Light fade effect */
+}
+
 
 /* Image Gallery */
 .image-gallery {
@@ -148,37 +210,3 @@ a:hover {
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
 }
-
-.about-business h1{
-  font-size: 60px;
-  color: white;
-  text-align: center;
-  transform: translateY(50px);
-}
-
-.about-business p{
-  font-size: 1.2rem;
-  color: white;
-  text-align: justify;
-  transform: translateX(200px) translateY(50px);
-  max-width: 550px; /* Keeps text in a readable container */
-  margin: 0 auto; /* Centers it horizontally */
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-.bus-img img{
-   width: 250px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
-    transform: translateX(-300px) translateY(-340px); /* Moves image 100px to the right */
-}
-
-.about-us {
-     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusts based on screen size */
-    gap: 20px;
-}
-
-
