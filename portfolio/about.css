@@ -1,1 +1,184 @@
+/* Global Styles 
+COLOR THEME: 
+NAVY DARK BLUE #131226
+DARK BLUE #073575
+PINK #dc086A
+BLUE #3392EF
+DARK PINK #CA397B
+*/
+
+body {
+    font-family: 'Helvetica', sans-serif;
+    color: #3392EF;
+    margin: 0;
+    padding: 0;
+    background-color: #131226;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: #ffffff;
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #dc086A;
+}
+
+/* Navigation Banner */
+.banner {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #131226;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.banner h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.banner nav a {
+    margin: 0 10px;
+    padding: 5px 10px;
+}
+
+
+/* Meet the Founder Section */
+.meet-founder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 20px;
+    margin-top: 80px;
+    background: rgba(202, 57, 123, 0.7); /* Transparent #CA397B */
+    border-radius: 10px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Founder Text Content */
+.founder-content {
+    text-align: left;
+    max-width: 50%;
+}
+
+.founder-content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.founder-content p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: white;
+    text-align: justify;
+}
+
+/* Founder Image */
+.founder-image img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    transform: translateX(20px) translateY(-75px); /* Moves image 100px to the right */
+}
+
+
+/* Contact Section */
+.contact h3 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    
+}
+
+.contact p {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: white;
+}
+
+/* Social Media Icons */
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    font-size: 2rem;
+    margin: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s ease-in-out;
+    color: #073575;
+}
+
+.social-links a:hover {
+    color: #1DB954;
+    transform: scale(1.1);
+    color: #3392EF;
+}
+
+/* Image Gallery */
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+    margin-top: 40px;
+}
+
+.image-gallery img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+.about-business h1{
+  font-size: 60px;
+  color: white;
+  text-align: center;
+  transform: translateY(50px);
+}
+
+.about-business p{
+  font-size: 1.2rem;
+  color: white;
+  text-align: justify;
+  transform: translateX(200px) translateY(50px);
+  max-width: 550px; /* Keeps text in a readable container */
+  margin: 0 auto; /* Centers it horizontally */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.bus-img img{
+   width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    transform: translateX(-300px) translateY(-340px); /* Moves image 100px to the right */
+}
+
+.about-us {
+     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusts based on screen size */
+    gap: 20px;
+}
+
 
