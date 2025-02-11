@@ -117,12 +117,13 @@ img {
 
 .text-content h3 {
     margin: 0;
-    font-size: 18px;
+    font-size: 24px;
+    padding: 10px;
     color: white;
 }
 
 .text-content p {
     margin: 0;
-    font-size: 14px;
+    font-size: 18px;
     color: white;
 }
