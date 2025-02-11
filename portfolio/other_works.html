@@ -27,10 +27,21 @@
         <section class="portfolio">
             <h1>Other Works</h1>
             <!-- Placeholder for Animation Section -->
-        <div id="theme-section"></div>
+          <h2>Interactive Design</h2>
+        <div id="interactive-section"></div>
+          <!-- Placeholder for Animation Section -->
+          <h2>Environment Design</h2>
+        <div id="environment-section"></div>
+          <!-- Placeholder for Animation Section -->
+          <h2>Animation + VFX</h2>
+        <div id="animation-section"></div>
+          <!-- Placeholder for Animation Section -->
+          <h2>Tutorials</h2>
+        <div id="tutorial-section"></div>
 
         <!-- Placeholder for Tutorials Section -->
-        <div id="tutorials-section"></div>
+          <h2>Concept Art</h2>
+        <div id="concept-section"></div>
           
 
     </main>
@@ -46,19 +57,37 @@
             container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
 
-     // Load Animation Section
-        fetch('Theme_1.html')
+     // Load Interactive Design Section
+        fetch('https://innovativecreationsworkshop.github.io/portfolio/worksTheme/interactive.html')
             .then(response => response.text())
             .then(data => {
-                document.getElementById('theme-section').innerHTML = data;
+                document.getElementById('interactive-section').innerHTML = data;
             });
-
-        // Load Tutorials Section
-        fetch('Theme_1.html')
+   // Load Animation Section
+        fetch('https://innovativecreationsworkshop.github.io/portfolio/worksTheme/envir.html')
             .then(response => response.text())
             .then(data => {
-                document.getElementById('tutorials-section').innerHTML = data;
+                document.getElementById('environment-section').innerHTML = data;
             });
+   // Load Animation Section
+        fetch('https://innovativecreationsworkshop.github.io/portfolio/worksTheme/anim.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('animation-section').innerHTML = data;
+            });
+   // Load Animation Section
+        fetch('https://innovativecreationsworkshop.github.io/portfolio/worksTheme/tuts.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('tutorial-section').innerHTML = data;
+            });
+   // Load Animation Section
+        fetch('https://innovativecreationsworkshop.github.io/portfolio/worksTheme/concept.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('concept-section').innerHTML = data;
+            });
+   
     </script>
 </body>
 </html>
