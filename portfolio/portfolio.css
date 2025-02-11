@@ -5,7 +5,77 @@ DARK BLUE #073575
 PINK #dc086A
 BLUE #3392EF
 DARK PINK #CA397B*/
-/* Global Styles */
+
+
+body {
+    font-family: 'Helvetica', sans-serif;
+    color: #3392EF;
+    margin: 0;
+    padding: 0;
+    background-color: #131226;
+}
+
+h1, h2, h3 {
+    font-family: 'Helvetica', sans-serif;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Navigation Banner */
+.banner {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #131226;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.banner h1 {
+    color: #ffffff;
+    font-size: 20px;
+    margin: 0;
+}
+
+.banner nav a {
+    color: #ffffff;
+    font-size: 1em;
+    margin: 0 10px;
+    padding: 5px 10px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.banner a:hover, .banner a.active {
+    font-weight: bold;
+    color: #dc086A;
+}
+
+/* Portfolio Section */
+.portfolio {
+    padding: 50px 20px 330px;
+    text-align: center;
+    background-color: #073575;
+    color: #ffffff;
+}
+
+.portfolio h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
 .grid-item {
     position: relative;
     display: flex;
