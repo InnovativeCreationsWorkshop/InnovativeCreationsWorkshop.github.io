@@ -6,80 +6,11 @@ PINK #dc086A
 BLUE #3392EF
 DARK PINK #CA397B*/
 /* Global Styles */
-body {
-    font-family: 'Helvetica', sans-serif;
-    color: #3392EF;
-    margin: 0;
-    padding: 0;
-    background-color: #131226;
-}
-
-h1, h2, h3 {
-    font-family: 'Helvetica', sans-serif;
-    color: #ffffff;
-}
-
-a {
-    text-decoration: none;
-}
-
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-/* Navigation Banner */
-.banner {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #131226;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
-
-.banner h1 {
-    color: #fffff;
-    font-size: 20px;
-    margin: 0;
-}
-
-.banner nav a {
-    color: #ffffff;
-    font-size: 1em;
-    margin: 0 10px;
-    padding: 5px 10px;
-    transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-.banner a:hover, .banner a.active {
-    font-weight: bold;
-    color: #dc086A;
-}
-
-/* Portfolio Section */
-.portfolio {
-    padding: 50px 20px 330px;
-    text-align: center;
-    background-color: #073575;
-    color: #ffffff;
-}
-
-.portfolio h1 {
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    color: #fffff;
-}
-
-       .grid-item {
-    position: relative; /* Make sure we can position the title on top of the image */
+.grid-item {
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content: center; /* Center the content horizontally */
     gap: 15px;
     border: 1px solid #073575;
     padding: 10px;
@@ -88,6 +19,7 @@ img {
     text-decoration: none;
     color: inherit;
     transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden; /* Make sure content doesn't overflow the item */
 }
 
 .grid-item:hover {
@@ -96,21 +28,21 @@ img {
 }
 
 .grid-item img {
-    width: 3000px;
-    height: 400px;
+    width: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 8px;
 }
 
+/* Fix and center the text-content */
 .text-content {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%); /* Center the title horizontally */
+    position: absolute; /* Fixed position within the grid-item */
+    top: 50%; /* Vertically center */
+    left: 50%; /* Horizontally center */
+    transform: translate(-50%, -50%); /* Center by shifting half of its own width/height */
     color: #ffffff;
     text-align: center;
-   transform: translate(-50%, 500%); /* Center the title horizontally and vertically */
-    z-index: 1; /* Ensure it stays on top of the image */
+    z-index: 1;
 }
 
 .text-content h3 {
@@ -124,11 +56,3 @@ img {
     font-size: 14px;
     color: white;
 }
-/* Footer */
-footer {
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 0.9em;
-}
-
