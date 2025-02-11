@@ -26,20 +26,23 @@
         <!-- Portfolio Section -->
         <section class="portfolio">
             <h1>Other Works</h1>
-            <!-- Placeholder for Animation Section -->
+            <!-- Placeholder for interactive Section -->
           <h2>Interactive Design</h2>
         <div id="interactive-section"></div>
-          <!-- Placeholder for Animation Section -->
+          <!-- Placeholder for envir Section -->
           <h2>Environment Design</h2>
         <div id="environment-section"></div>
           <!-- Placeholder for Animation Section -->
-          <h2>Animation + VFX</h2>
+          <h2>Animation</h2>
         <div id="animation-section"></div>
-          <!-- Placeholder for Animation Section -->
+             <!-- Placeholder for vfx Section -->
+          <h2>VFX</h2>
+        <div id="vfx-section"></div>
+          <!-- Placeholder for tutorial Section -->
           <h2>Tutorials</h2>
         <div id="tutorial-section"></div>
 
-        <!-- Placeholder for Tutorials Section -->
+        <!-- Placeholder for concept Section -->
           <h2>Concept Art</h2>
         <div id="concept-section"></div>
           
@@ -63,7 +66,7 @@
             .then(data => {
                 document.getElementById('interactive-section').innerHTML = data;
             });
-   // Load Animation Section
+   // Load envir Section
         fetch('https://innovativecreationsworkshop.github.io/portfolio/worksTheme/envir.html')
             .then(response => response.text())
             .then(data => {
@@ -75,13 +78,19 @@
             .then(data => {
                 document.getElementById('animation-section').innerHTML = data;
             });
-   // Load Animation Section
+      // Load vfx Section
+        fetch('https://innovativecreationsworkshop.github.io/portfolio/worksTheme/anim.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('vfx-section').innerHTML = data;
+            });
+   // Load tutorial Section
         fetch('https://innovativecreationsworkshop.github.io/portfolio/worksTheme/tuts.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('tutorial-section').innerHTML = data;
             });
-   // Load Animation Section
+   // Load concept Section
         fetch('https://innovativecreationsworkshop.github.io/portfolio/worksTheme/concept.html')
             .then(response => response.text())
             .then(data => {
