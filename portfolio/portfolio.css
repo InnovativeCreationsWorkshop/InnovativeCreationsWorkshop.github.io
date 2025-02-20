@@ -113,6 +113,11 @@ img {
     color: #ffffff;
     text-align: center;
     z-index: 1;
+
+    background: rgba(0, 0, 0, 0.25); /* Black with 60% transparency */
+    border-radius: 20px; /* Rounded edges for the box */
+    padding: 20px; /* Space around the text */
+    box-sizing: border-box; /* Include padding in width calculations */
 }
 
 .text-content h3 {
