@@ -1,0 +1,140 @@
+/* Global Styles */
+body {
+    font-family: 'Helvetica', sans-serif;
+    color: #3392EF;
+    margin: 0;
+    padding: 0;
+    background-color: #131226;
+}
+
+h1, h2, h3 {
+    font-family: 'Helvetica', sans-serif;
+    color: #ffffff;
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #dc086A;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Navigation Banner */
+.banner {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #131226;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.banner h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.banner nav a {
+    margin: 0 10px;
+    padding: 5px 10px;
+}
+
+.banner a.active {
+    font-weight: bold;
+    color: #dc086A;
+}
+
+/* Hero Video */
+.hero-video {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+}
+
+.hero-video-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Portfolio Details */
+.portfolio-details {
+    text-align: center;
+    padding: 20px 20px;
+    background-color: #073575;
+    color: #ffffff;
+}
+
+.portfolio-title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.sub-title {
+  font-family: 'Helvetica';
+  font-style: italic;
+    color: #ffffff;
+    margin: 20px 0;
+}
+
+.software-used {
+    font-size: 1.2em;
+    color: #dc086A;
+    margin-bottom: 20px;
+}
+
+.project-description {
+    font-size: 1em;
+    margin-bottom: 40px;
+}
+
+.google-doc {
+    width: 100%; /* Adjust width */
+    height: 700px;
+    border: none;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    display: block;
+    margin: 20px auto; /* Center the iframe */
+  }
+
+/* Portfolio Images */
+.portfolio-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.portfolio-images img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #131226;
+    color: #ffffff;
+}
