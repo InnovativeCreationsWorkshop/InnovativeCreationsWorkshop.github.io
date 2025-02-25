@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I.C.W</title>
+    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400;700&family=Helvetica&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://innovativecreationsworkshop.github.io/portfolio/webtemp.css">
+</head>
+<body>
+    <!-- Navigation Banner -->
+    <header class="banner">
+        <a href="https://innovativecreationsworkshop.github.io"><h1>Interactive Creations Workshop</h1></a>
+        <nav>
+            <a href="https://innovativecreationsworkshop.github.io">Home</a>
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/portfolio.html">Portfolio</a>
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/other_works.html">Other Works</a>
+            <a href="https://innovativecreationsworkshop.blogspot.com/">Digital Notebook</a>
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/about.html">About Us</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Image Display -->
+        <section class="hero-display">
+            <img id="hero-image" src="https://innovativecreationsworkshop.github.io/photo/1.png" alt="Selected Image">
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="image-gallery">
+            <div class="gallery-grid">
+                <img src="https://innovativecreationsworkshop.github.io/photo/1.png" alt="Image 1" onclick="showImage(this)">
+                <img src="https://innovativecreationsworkshop.github.io/photo/10.png" alt="Image 2" onclick="showImage(this)">
+                <img src="https://innovativecreationsworkshop.github.io/photo/11.png" alt="Image 3" onclick="showImage(this)">
+                <img src="https://innovativecreationsworkshop.github.io/photo/12.png" alt="Image 4" onclick="showImage(this)">
+                <img src="https://innovativecreationsworkshop.github.io/photo/1.png" alt="Image 5" onclick="showImage(this)">
+                <img src="https://innovativecreationsworkshop.github.io/photo/10.png" alt="Image 6" onclick="showImage(this)">
+                <img src="https://innovativecreationsworkshop.github.io/photo/11.png" alt="Image 7" onclick="showImage(this)">
+                <img src="https://innovativecreationsworkshop.github.io/photo/12.png" alt="Image 8" onclick="showImage(this)">
+                <img src="https://innovativecreationsworkshop.github.io/photo/1.png" alt="Image 9" onclick="showImage(this)">
+                <img src="https://innovativecreationsworkshop.github.io/photo/10.png" alt="Image 10" onclick="showImage(this)">
+                <img src="https://innovativecreationsworkshop.github.io/photo/11.png" alt="Image 11" onclick="showImage(this)">
+                <img src="https://innovativecreationsworkshop.github.io/photo/12.png" alt="Image 12" onclick="showImage(this)">
+                <img src="https://innovativecreationsworkshop.github.io/photo/1.png" alt="Image 13" onclick="showImage(this)">
+                <img src="https://innovativecreationsworkshop.github.io/photo/10.png" alt="Image 14" onclick="showImage(this)">
+                <img src="https://innovativecreationsworkshop.github.io/photo/11.png" alt="Image 15" onclick="showImage(this)">
+            </div>
+        </section>
+
+        <!-- Portfolio Details -->
+        <section class="portfolio-details">
+            <h1 class="portfolio-title">GlowAR: <br> An Interactive Wall Painting</h1>
+            <h3 class="software-used">Technology Used: TouchDesigner, Microsoft Kinect</h3>
+            <p class="project-description">Art and technology collide in this immersive augmented reality drawing experience, where participants use glow sticks to create luminous, real-time digital paintings. Evolving from previous Interactive Drawing projects, this piece reimagines artistic expression by leveraging the Microsoft Kinect and Touch Designer to transform movement into dynamic visual compositions. Unlike earlier iterations that relied on skeletal tracking or depth mapping, this version captures live color data, allowing for a more fluid and spontaneous artistic interaction.</p>
+          
+           <!-- Process Video -->
+            <div class="process-video">
+                <h2>Development Process</h2>
+                <video controls>
+                    <source src="process-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+          
+          <p class="project-description">At the core of this piece, a custom-built system in Touch Designer isolates and amplifies the brightness of certain color pixels using GLSL nodes and Python scripting. This technique generates a mesmerizing feedback loop, creating the effect of glowing brushstrokes in a digital space. By using glow sticks, the system effectively detects and translates movement into vibrant trails of light, offering participants complete creative freedom.
+            
+            <br><br>
+
+During the three-day exhibition, visitors stepped into the interactive installation, using glow sticks to craft ephemeral artworks in real time. This unique experience not only blurred the boundaries between the physical and digital worlds but also fostered a sense of community and dialogue—each participant contributing to a continuously evolving collaborative masterpiece. The project transcended traditional artistic mediums, highlighting the power of technology to create new forms of shared human expression.</p>
+
+            <!-- Grid Images -->
+            <div class="portfolio-images">
+                <img src="image1.jpg" alt="Screenshot 1">
+                <img src="image2.jpg" alt="Screenshot 2">
+                <img src="image3.jpg" alt="Screenshot 3">
+                
+            </div>
+
+          <h2> Iterations and Process </h2>
+          <h3> Luminous Expressions </h3>
+          <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExemd4NTY1MHBsYWoxd2lqZjJ5dGI5MWttdnp1dTRrcTRmNW4xMTJlYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5vJ0P4f38KMo0/giphy.gif" alt="Animated GIF">
+          <p>This interactive experience invites users to step into a dynamic visual world where their movements directly influence the art created. Using the Microsoft Kinect, the system tracks the user’s figure and gestures, allowing them to draw in real-time with their hands. As they move, the system generates colorful lines that follow their motions, creating unique, fluid shapes on the screen.  In addition to this, the experience incorporates an audio-reactive visualizer that responds to the surrounding sound. The visualizer, which appears within the user’s silhouette, dances and morphs with the rhythm and intensity of the audio, adding another layer of interaction to the artwork.</p>
+          
+          <br><br><br>
+          
+          <h3> Interactive Light Experience </h3>
+          <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDM1OTRqNXA2dDYzamY4ZTE3MnFuYTZ1bGgwMzN6YzhuNWFxbWZjcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f7dofsYKTBzyh6zVEJ/giphy.gif" alt="Animated GIF">
+          <p>This project creates an immersive experience where users interact with light traces generated by their smartphone screens. Using a webcam to capture the light, the system transforms it into glowing lines that evolve into particles as they move. These particles are influenced by the surrounding music, with audio inputs triggering dynamic changes in the particle system. The result is a fluid, audio-reactive visual experience where the movement of light and the rhythm of the music create an ever-changing, atmospheric composition.</p>
+
+
+          
+          
+            <!-- Conclusion Paragraph -->
+          <h2>Conclusion</h2>
+            <p class="conclusion">The thesis showcase featured a collection of curated works that represented the final iterations of a daily sketch practice. Included in the showcase were an interactive wall, an interactive hologram, and an augmented/virtual reality experience. Throughout the show, both individuals and groups engaged with the artwork, generating emotional responses, particularly a sense of joy. The showcase was designed to demonstrate that art objects, when paired with technology, can transcend traditional forms and offer a deeper engagement with the viewer. By presenting interactive works in a public space, the experience invited viewers to actively participate, aligning with the principles of the dialogic aesthetic, where the audience becomes an integral part of the art itself.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Innovative Creations Workshop. All Rights Reserved.</p>
+    </footer>
+
+    <style>
+      
+      p {
+        text-align: justify;
+      }
+        .hero-display {
+            text-align: center;
+            padding: 20px;
+            background-color: #131226;
+        }
+
+        #hero-image {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-gallery {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    grid-template-rows: repeat(3, auto); /* 3 rows */
+    gap: 10px; /* Space between images */
+    justify-content: center; /* Center the grid */
+    max-width: 1000px; /* Adjust as needed */
+    margin: auto; /* Center the grid on the page */
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+
+    <script>
+        function showImage(imgElement) {
+            document.getElementById('hero-image').src = imgElement.src;
+        }
+    </script>
+</body>
+</html>
