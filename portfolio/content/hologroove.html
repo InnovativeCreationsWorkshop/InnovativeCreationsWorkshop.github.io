@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I.C.W</title>
+    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400;700&family=Helvetica&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://innovativecreationsworkshop.github.io/portfolio/webtemp.css">
+</head>
+<body>
+    <!-- Navigation Banner -->
+    <div class="banner">
+         <a href="https://innovativecreationsworkshop.github.io"><h1>Interactive Creations Workshop</h1></a>
+        <nav>
+            <a href="https://innovativecreationsworkshop.github.io">Home</a>
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/portfolio.html">Portfolio</a>
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/other_works.html">Other Works</a>
+            <a href="https://innovativecreationsworkshop.blogspot.com/">Digital Notebook</a>
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/about.html">About Us</a>
+        </nav>
+    </div>
+  
+<style>
+  /* Ensure paragraphs inside .des are not italicized and are justified */
+  .des p {
+    font-style: normal; 
+    text-align: justify;
+  }
 
+  /* Apply italic style to headings h2, h3, h4, h5 and justify text */
+  .des h2, .des h3, .des h4, .des h5 {
+    font-style: italic; 
+    text-align: justify;
+  }
+</style>
+
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Video Section -->
+        <section class="hero-video">
+            <video autoplay muted loop playsinline class="hero-video-element">
+                <source src="https://github.com/InnovativeCreationsWorkshop/InnovativeCreationsWorkshop.github.io/raw/refs/heads/main/mp4/214940_tiny.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <!-- CONTENT DETAILS -->
+        <section class="portfolio-details">
+            <h1 class="portfolio-title">HoloGroove</h1>
+          <h2><i>An Interactive Hologram<i></h2>
+            <h3 class="software-used">Technology Used: Autodesk Maya, Touch Designer, Leap Motion</h3>
+            <div class="des">
+            <p>The hologram project challenges traditional concepts of surface by augmenting a physical space. In most augmented or mixed reality experiences, a surface device such as a phone places digital objects within the physical space through the phone's lens. However, this project takes it further by bringing the digital object into the physical space as a projected sculpture.
+</p>
+            
+            <h2 align="justify"><b><u> HoloLeap Girl</u></b></h2>
+            <p align="justify">The Holo Leap Dancing Girl hologram builds upon previous iterations, with the key difference being the use of the Leap Motion haptic sensor instead of the Microsoft Kinect. <br><br>
+
+The Leap Motion is an optical hand-tracking controller that captures hand movements, enabling near-seamless interaction with digital devices. For this experience, TouchDesigner was paired with the Leap Motion to control the movement of the dancing girl. Participants could hover their hands over the sensor to trigger various dance moves and music.</p>
+
+            <!-- Grid Videos -->
+<div class="portfolio-videos">
+    <video controls>
+        <source src="video1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <video controls>
+        <source src="video2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <video controls>
+        <source src="video3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<p align="justify">The character used is Michelle from Adobe Mixamo, an online platform providing pre-rigged characters and animations for film and video games. Mixamo’s library offers downloadable pre-programmed animations, simplifying the process. The character was placed in Unity, textured, and lit before recording the animations as MP4 files. The hologram was then mapped in Adobe After Effects, where each hand movement was assigned a specific value through coding. When a participant moved their hand, a corresponding value was triggered, causing the character to dance. If no interaction occurred, an idle animation played, creating the illusion that she was waiting for engagement. <br><br>
+
+Similar to the Interactive Wall, this experience heightens users' awareness of their hand movements as they interact with the character, blending digital and physical space seamlessly.</p>
+            </div>
+            <!-- Process Video -->
+            <div class="process-video">
+                <h2>Iterations</h2>
+                <video controls>
+                    <source src="process-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="des">
+            <h4 align="justify"><b><u> Holo-Kinect Hologram</u></b></h4>
+            <p align="justify">In this iterative process, this project uses the Microsoft Kinect to make out the movements of an actor.  The hologram therefore will mimic the movement of the actor.  The concept was to build a holographic AI system, however, due to some engineering limitations, it ended up into a performance piece instead of a true AI system.  The viewer can talk to and interact with the hologram through a behind-the-scenes controller and receive real-time responses from the hologram through the actor.  This ties back with the dialogic aesthetics in that the viewers as a group have an opportunity to discuss the advancements and limitations of this sort of technology.</p><br>
+
+            <h4 align="justify"><i>Process<i></h4>
+<pThe design process is similar to the previous iteration.  Using the interactive Hologram project as a road map, a model is imported into Unity with a holographic shader giving the illusion of a hologram.  The orientation and mapping are exactly the same.  The main difference is that actions are not pre-programmed.  Instead, with the Microsoft Kinect and using their built-in skeletal tracking system (Kinect v2 Examples with MS-SDK and Nultitrack SDK) the Kinect is able to track the movement of the actor in real-time.  
+
+The Setup
+“Pay no attention to that man behind the curtain”
+-Wizard of Oz (1939)
+
+For the set up all of the hardware was hidden away behind a wall.  A functioning computer with the Kinect attached was set up behind the scenes with the actor present.  
+
+The Kinect tracks the actor, allowing for real-time responses.  Unity then executes the Hologram connected to a monitor.  Using a built-in camera on the laptop the actor can see her own movement as well as a microphone system.  On the other side of the wall, a webcam is relaying, giving her the ability to see and interact with anyone in real-time.  Simply, the actor can control the hologram. 
+
+The Display
+Using a black cart, a TV was placed flat with the prism attached for optimal projection of the holographic map.  A webcam was placed below it, as the “eyes” of the Hologram.  Below the webcam was a wireless speaker for the actor to communicate with the audience.
+
+The Performance
+With everything set up, it was time for the performance.  The purpose was to give the illusion of a complex AI System.  The audience was gathered and had the ability to walk around the hologram in full 360.  
+
+For my part, I began a conversation with the hologram and received real-time responses.  Then encouraged the audience to talk to it and ask it questions.  The audience was reluctant to talk to it.  </p>
+
+            <!-- Conclusion Paragraph -->
+            <p class="conclusion">This project highlights my ability to combine technical expertise with creative vision, resulting in a compelling and interactive experience. Explore more to discover how I bring concepts to life.</p> </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Innovative Creations Workshop. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
