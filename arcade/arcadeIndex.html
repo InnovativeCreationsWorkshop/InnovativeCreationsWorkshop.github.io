@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I.C.W</title>
+    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400;700&family=Helvetica&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://innovativecreationsworkshop.github.io/portfolio/webtemp.css">
+   <style>
+        
+        main {
+            text-align: center;
+            padding: 20px;
+          background-color: #131226;
+            color: #fff;
+            font-family: 'Press Start 2P', cursive;
+            margin: 0;
+            padding: 0;
+          transform: translateY(50px);
+        }
+        .welcome {
+            font-size: 2.5rem;
+            color: #dc086A;
+            margin: 40px 0;
+        }
+        .game-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .game {
+            background-color: #073575;
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .game:hover {
+            transform: scale(1.05);
+        }
+        .game img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .game a {
+            display: block;
+            color: #3392EF;
+            text-decoration: none;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+        .game a:hover {
+            color: #CA397B;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Banner -->
+    <div class="banner">
+         <a href="https://innovativecreationsworkshop.github.io"><h1>Interactive Creations Workshop</h1></a>
+        <nav>
+            <a href="https://innovativecreationsworkshop.github.io">Home</a>
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/portfolio.html">Portfolio</a>
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/other_works.html">Other Works</a>
+            <a href="https://innovativecreationsworkshop.blogspot.com/">Digital Notebook</a>
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/about.html">About Us</a>
+        </nav>
+    </div>
+
+   <main>
+    <div class="welcome">Welcome to the Arcade!</div>
+    <div class="game-gallery">
+        <div class="game">
+            <img src="https://innovativecreationsworkshop.github.io/photo/dots1.png" alt="Pong">
+            <a href="https://innovativecreationsworkshop.github.io/arcade/pong/pong.html">Play Pong</a>
+        </div>
+        <div class="game">
+            <img src="https://innovativecreationsworkshop.github.io/photo/dots1.png" alt="Flappy">
+            <a href="#">Play Snake</a>
+        </div>
+        <div class="game">
+            <img src="https://innovativecreationsworkshop.github.io/photo/dots1.png" alt="Snake">
+            <a href="#">Play Flappy</a>
+        </div>
+        <div class="game">
+            <img src="https://innovativecreationsworkshop.github.io/photo/dots1.png" alt="Sandwich">
+            <a href="#">Play Sandwich</a>
+        </div>
+    </div>
+  </main>
+        
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Innovative Creations Workshop. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
