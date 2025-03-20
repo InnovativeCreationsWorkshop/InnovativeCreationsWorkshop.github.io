@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I.C.W</title>
+    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400;700&family=Helvetica&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://innovativecreationsworkshop.github.io/portfolio/webtemp.css">
+</head>
+<body>
+    <!-- Navigation Banner -->
+    <div class="banner">
+         <a href="https://innovativecreationsworkshop.github.io"><h1>Interactive Creations Workshop</h1></a>
+        <nav>
+            <a href="https://innovativecreationsworkshop.github.io">Home</a>
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/portfolio.html">Portfolio</a>
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/other_works.html">Other Works</a>
+            <a href="https://innovativecreationsworkshop.blogspot.com/">Digital Notebook</a>
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/about.html">About Us</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Video Section -->
+        <section class="hero-video">
+            <video autoplay muted loop playsinline class="hero-video-element">
+                <source src="https://github.com/InnovativeCreationsWorkshop/InnovativeCreationsWorkshop.github.io/raw/refs/heads/main/mp4/214940_tiny.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <!-- CONTENT DETAILS -->
+        <section class="portfolio-details">
+            <h1 class="portfolio-title">Interactive Light Experience</h1>
+            <h2>An Installation<h2>
+            <h3 class="software-used">Technology Used: TouchDesigner, Microsoft Kinect</h3>
+            <p class="project-description">I sought out to create an immersive experience that users could experience using an item that almost everyone carries, a smartphone/cellphone.  For this piece, I was inspired by  
+              <a href="https://derivative.ca/community-post/asset/flashlight-paint-3d-trace-sop" style="color: #3392EF; text-decoration: none;"  
+      onmouseover="this.style.color='#dc086a'"  
+      onmouseout="this.style.color='#3392EF'">Xinmax's</a> tutorial on flashlight painting in 3D and is very much the backbone of this piece.  However,  I wanted to add an audio reactive element to it as well.</p>
+              
+              <!-- Process Video -->
+            <div class="process-video">
+                <h2>Examples</h2>
+                <video controls>
+                    <source src="process-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+              <video controls>
+                    <source src="process-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+             
+            </div>
+
+          
+<p class="project-description">This video introduces the nodal network in TouchDesigner, showcasing all the key components behind this interactive experience.  <br><br>
+
+At its core, the project uses light tracing. A webcam detects bright light from a phone screen, and a series of nodes track its movement. A geometry node then brings the trace to life using a line sprite material.  
+<br><br>
+A second geometry node is linked to the trace, generating particles that gradually dissipate as the line moves. Inside this node, an intricate audio processing system is set up. <br><br>  
+
+</p>
+              <!-- Process Video -->
+            <div class="process-video">
+                <h2>Process</h2>
+                <video controls>
+                    <source src="process-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+               
+             
+            </div>
+               
+
+
+<p class="project-description">Audio input is resampled and multiplied to extract frequency values, which are then mapped to the particle system through Drag and Turbulence parameters. This makes the particles dynamically respond to sound.  
+
+A secondary layer of particles, using a similar technique, enhances the atmospheric and audio-reactive elements. All these nodal networks are then composited to create the final immersive experience—where both user interaction and audio influence the visuals.</p>
+              
+          
+           
+           
+              
+              
+              <div>
+        <h2> Credits</h2>
+       <a href="https://derivative.ca/community-post/asset/flashlight-paint-3d-trace-sop" 
+                   style="color: #3392EF;" 
+                   onmouseover="changeColor(this, '#dc086A')" 
+                   onmouseout="changeColor(this, '#3392EF')">
+                   Flashlight paint in 3D with Trace SOP by Xnimaz
+                </a><br>
+            
+       <a href="https://youtu.be/M8X_FFB-ikQ?si=j_SuWxq7YkTFdSdk" 
+                   style="color: #3392EF;" 
+                   onmouseover="changeColor(this, '#dc086A')" 
+                   onmouseout="changeColor(this, '#3392EF')">
+                   Audioreactive Particle Cloud – TouchDesigner Tutorial 10 by bileam tschepe (elekktronaut)
+                </a><br>
+            
+        <a href="https://youtu.be/OViW60JTexw?si=xpBgAGnWLliFkGfm" 
+                   style="color: #3392EF;" 
+                   onmouseover="changeColor(this, '#dc086A')" 
+                   onmouseout="changeColor(this, '#3392EF')">
+                   Motion tracking exercise with TouchDesigner 1 - Wai Ching Chung
+                </a><br>
+           
+          <a href="https://youtu.be/TqWGQeAbkSM" 
+                   style="color: #3392EF;" 
+                   onmouseover="changeColor(this, '#dc086A')" 
+                   onmouseout="changeColor(this, '#3392EF')">
+                   Music-3:00am - Last day in space - lofi mix
+                </a>
+            
+    </div>
+
+
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Innovative Creations Workshop. All Rights Reserved.</p>
+    </footer>
+</body>
+          <script>
+        function changeColor(element, color) {
+            element.style.color = color;
+        }
+    </script>
+</html>
