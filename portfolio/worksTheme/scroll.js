@@ -1,15 +1,25 @@
-let scrollPosition = 0;
-const scrollAmount = 300; // Adjust this value based on image width
-const container = document.querySelector('.gallery-container');
 
-function scrollGallery(direction) {
-    const maxScroll = container.scrollWidth - container.clientWidth;
-    
-    scrollPosition += direction * scrollAmount;
-    
-    // Prevent scrolling beyond limits
-    if (scrollPosition < 0) scrollPosition = 0;
-    if (scrollPosition > maxScroll) scrollPosition = maxScroll;
+document.addEventListener("DOMContentLoaded", function () {
+    let scrollPosition = 0;
+    const scrollAmount = 300;
+    const container = document.querySelector('.gallery-container');
 
-    container.style.transform = `translateX(-${scrollPosition}px)`;
-}
+    function scrollGallery(direction) {
+        if (!container) {
+            console.error("Gallery container not found!");
+            return;
+        }
+
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        scrollPosition += direction * scrollAmount;
+
+        if (scrollPosition < 0) scrollPosition = 0;
+        if (scrollPosition > maxScroll) scrollPosition = maxScroll;
+
+        container.style.transform = `translateX(-${scrollPosition}px)`;
+        console.log("Scrolling to:", scrollPosition);
+    }
+
+    window.scrollGallery = scrollGallery;
+});
+
