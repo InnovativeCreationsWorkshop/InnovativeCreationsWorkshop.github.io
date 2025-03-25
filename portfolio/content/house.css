@@ -28,23 +28,46 @@ a:hover {
     top: 0;
     width: 100%;
     background-color: #131226;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+    padding: 10px; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between title and nav */
+    align-items: center; /* Vertically center items */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Prevent overflow when resizing */
 }
 
+/* Title - Innovative Creations Workshop */
 .banner h1 {
+    color: #ffffff;
     font-size: 20px;
     margin: 0;
+    white-space: nowrap; /* Prevent title from wrapping */
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+    overflow: hidden;
+}
+
+/* Navigation Menu */
+.banner nav {
+    display: flex; /* Arrange nav items horizontally */
+    gap: 10px; /* Add spacing between the menu items */
+    padding-right: 20px;
 }
 
 .banner nav a {
-    margin: 0 10px;
+    color: #ffffff;
+    font-size: 1em;
     padding: 5px 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    white-space: nowrap; /* Prevent wrapping of the links */
 }
+
+.banner a:hover, .banner a.active {
+    font-weight: bold;
+    color: #dc086A;
+}
+
 
 /* Hero Slideshow */
 .hero-slideshow {
