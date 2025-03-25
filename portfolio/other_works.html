@@ -1,16 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I.C.W</title>
-    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400;700&family=Helvetica&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="other_works.css">
-    <script src="https://innovativecreationsworkshop.github.io/portfolio/worksTheme/scroll.js"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Other Works</title>
+ 
 </head>
+  <style>
+   /* Global Styles
+COLOR THEME; 
+NAVY DARK BLUE #131226 
+DARK BLUE #073575
+PINK #dc086A
+BLUE #3392EF
+DARK PINK #CA397B*/
+/* Global Styles */
+body {
+    font-family: 'Helvetica', sans-serif;
+    color: #3392EF;
+    margin: 0;
+    padding: 0;
+    background-color: #131226;
+}
+
+h1, h3 {
+    font-family: 'Helvetica', sans-serif;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2{
+    font-family: 'Helvetica', sans-serif;
+    color: #ffffff;
+    text-align: left;
+  font-style: italic;
+}
+
+
+
+/* Navigation Banner */
+.banner {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #131226;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.banner h1 {
+    color: #fffff;
+    font-size: 20px;
+    margin: 0;
+}
+
+.banner nav a {
+    color: #ffffff;
+    font-size: 1em;
+    margin: 0 10px;
+    padding: 5px 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.banner a:hover, .banner a.active {
+    font-weight: bold;
+    color: #dc086A;
+}
+
+/* Portfolio Section */
+.portfolio {
+    padding: 50px 20px 330px;
+    text-align: center;
+    background-color: #131226;
+    color: #ffffff;
+}
+
+.portfolio h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #fffff;
+}
+
+    
+    h5 {
+      color: #ffffff;
+    }
+    
+
+
+    .scroll-gallery {
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        padding: 20px 0;
+    }
+
+   .gallery-wrapper {
+    
+    overflow: hidden; /* Hide scrollbars */
+    position: relative; /* Ensure proper alignment */
+    width: 100%; /* Adjust as needed */
+    scroll-behavior: smooth;
+   -webkit-overflow-scrolling: touch;
+    width: 100%;
+}
+
+    .gallery-container {
+        display: flex;
+        gap: 30px;
+      
+    }
+        .gallery-container a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+    width: 200px; /* Ensures uniform width */
+}
+
+.gallery-container img {
+    width: 200px; /* Set a fixed width */
+    height: 150px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the images fill the dimensions without distortion */
+    border-radius: 15px; /* Rounds the edges */
+  
+}
+    
+.gallery-container img:hover {
+    filter: brightness(70%) sepia(100%) hue-rotate(290deg); /* Adjusted to match #CA397B */
+}
+}
+
+.gallery-container h5 {
+    margin-top: 10px;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    width: 100%; /* Ensures text stays aligned with the image */
+}
+
+
+    .scroll-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #ffffff;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 10;
+    }
+    
+    .scroll-btn:hover {
+    background-color: rgba(220, 8, 106, 0.8);
+}
+
+    .scroll-btn.left {
+        left: 10px;
+    }
+
+    .scroll-btn.right {
+        right: 10px;
+    }
+  </style> 
+  
+  
+  
 <body>
-    <!-- Navigation Banner -->
+  
+  <!-- Navigation Banner -->
     <div class="banner">
          <a href="https://innovativecreationsworkshop.github.io" </a><h1>Interactive Creations Workshop</h1>
         <nav>
@@ -21,84 +193,113 @@
             <a href="https://innovativecreationsworkshop.github.io/portfolio/about.html">About us</a>
         </nav>
     </div>
-
-    <!-- Main Content -->
-    <main>
   
-        <!-- Portfolio Section -->
-        <section class="portfolio">
-            <h1>Other Works</h1>
-            <!-- Placeholder for interactive Section -->
-          <h2>Interactive Design</h2>
-        <div id="interactive-section"></div>
-          <!-- Placeholder for envir Section -->
-          <h2>Environment Design</h2>
-        <div id="environment-section"></div>
-          <!-- Placeholder for Animation Section -->
-          <h2>Animation</h2>
-        <div id="animation-section"></div>
-             <!-- Placeholder for vfx Section -->
-          <h2>VFX</h2>
-        <div id="vfx-section"></div>
-          <!-- Placeholder for tutorial Section 
-          <h2>Tutorials</h2>
-        <div id="tutorial-section"></div>
+  
+  <div class="sections">
+    <h1 style="text-align: center; margin-top: 150px;">Other Works</h1>
 
-        <!-- Placeholder for concept Section
-          <h2>Concept Art</h2>
-        <div id="concept-section"></div>-->
-          
+    <!--Interactive-->
+    <section id="inter" class="portfolio">
+      <h2>Interactive Design</h2>
+      <div class="scroll-gallery">
+        <button class="scroll-btn left" onclick="scrollGallery(-1, 'inter')">&#60;</button>
+        <div class="gallery-wrapper">
+          <div class="gallery-container">
+            <a href="#"><img src="env1.jpg" alt="rainbowtrace"><h5>RainbowTrace: A Body in Motion</h5></a>
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/content/otherworks/light.html"><img src="env2.jpg" alt="interlight"><h5>Interactive Light Project</h5></a>
+             <a href="https://innovativecreationsworkshop.github.io/portfolio/content/otherworks/webar.html"><img src="https://innovativecreationsworkshop.github.io/photo/castlear.png" alt="webar"><h5>WebAR</h5></a> 
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/content/otherworks/box.html"><img src="innov2.jpg" alt="partbox"><h5>Reactive Particle Box</h5></a> 
+            <a href="#"><img src="innov2.jpg" alt="mirror"><h5>Mirrors: An Interactive Reflection of Self</h5></a>
+            <a href="#"><img src="innov2.jpg" alt="understand"><h5>I Don't Understand: An Interactive Installation</h5></a>
+          </div>
+        </div>
+        <button class="scroll-btn right" onclick="scrollGallery(1, 'inter')">&#62;</button>
+      </div>
+    </section>
 
-    </main>
+    <!-- environment -->
+    <section id="envi" class="portfolio">
+      <h2>Environment Design</h2>
+      <div class="scroll-gallery">
+        <button class="scroll-btn left" onclick="scrollGallery(-1, 'envi')">&#60;</button>
+        <div class="gallery-wrapper">
+          <div class="gallery-container">
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/content/otherworks/diner.html"><img src="https://innovativecreationsworkshop.github.io/photo/ians.png" alt="diner"><h5>Ian's Diner</h5></a>
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/content/otherworks/mount.html"><img src="anim2.jpg" alt="mount"><h5>Mountains</h5></a>
+             <a href="https://innovativecreationsworkshop.github.io/portfolio/content/otherworks/trop.html"><img src="innov2.jpg" alt="trop"><h5>Tropical Island</h5></a> 
+            <a href="#"><img src="innov2.jpg" alt="vamp"><h5>Vampire Throne</h5></a> 
+            <a href="https://innovativecreationsworkshop.github.io/portfolio/content/otherworks/bunbun.html"><img src="https://innovativecreationsworkshop.github.io/photo/Screen%20Shot%202017-04-11%20at%209.01.31%20AM.png" alt="bun"><h5>Bunny Burrow</h5></a> 
+            
+          </div>
+        </div>
+        <button class="scroll-btn right" onclick="scrollGallery(1, 'envi')">&#62;</button>
+      </div>
+    </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Innovative Creations Workshop. All Rights Reserved.</p>
-    </footer>
- <script>
-        function scrollGallery(direction) {
-            const container = document.querySelector('.gallery-container');
-            const scrollAmount = container.offsetWidth / 2;
-            container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+<section id="anim" class="portfolio">
+      <h2>Animation</h2>
+      <div class="scroll-gallery">
+        <button class="scroll-btn left" onclick="scrollGallery(-1, 'anim')">&#60;</button>
+        <div class="gallery-wrapper">
+          <div class="gallery-container">
+            <a href="#"><img src="innov1.jpg" alt="Innovation Image 1"><h5>Pink's Donut Co.</h5></a>
+            <a href="#"><img src="https://innovativecreationsworkshop.github.io/photo/motioncover.JPG" alt="Innovation Image 2"><h5>Motion Graphics Reel 2019</h5></a>
+             <a href="#"><img src="innov2.jpg" alt="Innovation Image 2"><h5>Rocket Shootout Mobil Game Mock</h5></a>
+             <a href="#"><img src="https://innovativecreationsworkshop.github.io/photo/Screen%20Shot%202017-04-10%20at%205.37.19%20PM.png" alt="Innovation Image 2"><h5>Rescue Remedy Mock Ad</h5></a> 
+            <a href="#"><img src="innov2.jpg" alt="Innovation Image 2"><h5>Traditional Effects Reel</h5></a>
+             <a href="#"><img src="https://innovativecreationsworkshop.github.io/photo/Creature_2.png" alt="Innovation Image 2"><h5>Animation Compilation 2015</h5></a>
+           
+          </div>
+        </div>
+        <button class="scroll-btn right" onclick="scrollGallery(1, 'anim')">&#62;</button>
+      </div>
+    </section>
+
+    <section id="vfx" class="portfolio">
+      <h2>VFX</h2>
+      <div class="scroll-gallery">
+        <button class="scroll-btn left" onclick="scrollGallery(-1, 'vfx')">&#60;</button>
+        <div class="gallery-wrapper">
+          <div class="gallery-container">
+            <a href="#"><img src="vfx1.jpg" alt="VFX Image 1"><h5>Made for Kids: Malawi</h5></a>
+            <a href="#"><img src="vfx2.jpg" alt="VFX Image 2"><h5>Nightmare of Elm Street Title Sequence Mock</h5></a>
+             <a href="#"><img src="https://innovativecreationsworkshop.github.io/photo/dante3.png" alt="Innovation Image 2"><h5>Dante's Inferno Title Sequence Mock</h5></a>
+             <a href="#"><img src="https://innovativecreationsworkshop.github.io/photo/breathless1.png" alt="Innovation Image 2"><h5>Breathless Mock Trailer</h5></a>
+             <a href="#"><img src="innov2.jpg" alt="Innovation Image 2"><h5>Inception Title Sequence Mock</h5></a>
+             <a href="#"><img src="innov2.jpg" alt="Innovation Image 2"><h5>News</h5></a>
+             <a href="#"><img src="innov2.jpg" alt="Innovation Image 2"><h5>Carnival of the Souls Add In</h5></a>
+          </div>
+        </div>
+        <button class="scroll-btn right" onclick="scrollGallery(1, 'vfx')">&#62;</button>
+      </div>
+    </section>
+
+    
+  </div>
+
+  <script>
+    let scrollPosition = {}; 
+    const scrollAmount = 300;
+
+    function scrollGallery(direction, galleryId) {
+        const container = document.querySelector(`#${galleryId} .gallery-container`);
+        if (!container) {
+            console.error("Gallery container not found for:", galleryId);
+            return;
         }
 
-     // Load Interactive Design Section
-        fetch('https://innovativecreationsworkshop.github.io/portfolio/worksTheme/interactive.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('interactive-section').innerHTML = data;
-            });
-   // Load envir Section
-        fetch('https://innovativecreationsworkshop.github.io/portfolio/worksTheme/envir.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('environment-section').innerHTML = data;
-            });
-   // Load Animation Section
-        fetch('https://innovativecreationsworkshop.github.io/portfolio/worksTheme/anim.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('animation-section').innerHTML = data;
-            });
-      // Load vfx Section
-        fetch('https://innovativecreationsworkshop.github.io/portfolio/worksTheme/vfx.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('vfx-section').innerHTML = data;
-            });
-   // Load tutorial Section
-        fetch('https://innovativecreationsworkshop.github.io/portfolio/worksTheme/tuts.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('tutorial-section').innerHTML = data;
-            });
-   // Load concept Section
-        fetch('https://innovativecreationsworkshop.github.io/portfolio/worksTheme/concept.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('concept-section').innerHTML = data;
-            });
-   
-    </script>
+        if (!scrollPosition[galleryId]) {
+            scrollPosition[galleryId] = 0;
+        }
+
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        scrollPosition[galleryId] += direction * scrollAmount;
+
+        if (scrollPosition[galleryId] < 0) scrollPosition[galleryId] = 0;
+        if (scrollPosition[galleryId] > maxScroll) scrollPosition[galleryId] = maxScroll;
+
+        container.style.transform = `translateX(-${scrollPosition[galleryId]}px)`;
+    }
+  </script>
 </body>
 </html>
