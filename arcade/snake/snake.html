@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake Game</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #434343; /* Dark gray background */
+      margin: 0;
+      flex-direction: column;
+    }
+    canvas {
+      background-color: #ceddbb; /* Light green canvas */
+    }
+    .game-over {
+      color: white;
+      font-size: 30px;
+      text-align: center;
+    }
+    .score {
+      color: white;
+      font-size: 20px;
+    }
+    button {
+      background-color: #ce9a60; /* Beige */
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #b9375e; /* Dark pink */
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <canvas id="gameCanvas" width="700" height="500"></canvas>
+    <div id="gameOverMessage" class="game-over"></div>
+    <div id="score" class="score"></div>
+    <button id="restartButton" style="display: none;" onclick="restartGame()">Restart</button>
+  </main>
+
+  <script>
+    var canvas, canvasContext;
+    var snakeArray, direction, food, foodSize, score, gameInterval;
+    var isGameOver = false;
+
+    window.onload = function () {
+      setupGame();
+      canvas = document.getElementById('gameCanvas');
+      canvasContext = canvas.getContext('2d');
+
+      // Listen for keydown events
+      document.addEventListener('keydown', changeDirection);
+      
+      // Start the game loop
+      gameInterval = setInterval(gameLoop, 100);
+    };
+
+    function setupGame() {
+      snakeArray = [{x: 50, y: 50}, {x: 40, y: 50}, {x: 30, y: 50}];
+      direction = 'RIGHT';
+      food = {};
+      foodSize = 10;
+      score = 0;
+      isGameOver = false;
+      document.getElementById('gameOverMessage').innerHTML = '';
+      document.getElementById('score').innerHTML = 'Score: ' + score;
+      document.getElementById('restartButton').style.display = 'none'; // Hide restart button
+      generateFood();
+    }
+
+    function gameLoop() {
+      moveSnake();
+      if (checkWallCollision() || checkSelfCollision()) {
+        gameOver();
+        return;
+      }
+      checkFoodCollision();
+      drawCanvas();
+      drawSnake();
+      drawFood();
+      drawScore();
+    }
+
+    function drawCanvas() {
+      canvasContext.fillStyle = '#ceddbb'; // Light green canvas background
+      canvasContext.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function drawSnake() {
+      canvasContext.fillStyle = '#ce9a60'; // Beige snake
+      for (var i = 0; i < snakeArray.length; i++) {
+        canvasContext.fillRect(snakeArray[i].x, snakeArray[i].y, 10, 10); // Snake segments
+      }
+    }
+
+    function moveSnake() {
+      var head = {...snakeArray[0]}; // Create a new head based on the current head
+
+      // Update the head's position based on direction
+      if (direction === 'RIGHT') head.x += 10;
+      if (direction === 'LEFT') head.x -= 10;
+      if (direction === 'UP') head.y -= 10;
+      if (direction === 'DOWN') head.y += 10;
+
+      snakeArray.unshift(head); // Add new head to the front
+      snakeArray.pop(); // Remove the last segment (tail)
+    }
+
+    function changeDirection(event) {
+      if (event.key === 'ArrowRight' && direction !== 'LEFT') {
+        direction = 'RIGHT';
+      }
+      if (event.key === 'ArrowLeft' && direction !== 'RIGHT') {
+        direction = 'LEFT';
+      }
+      if (event.key === 'ArrowUp' && direction !== 'DOWN') {
+        direction = 'UP';
+      }
+      if (event.key === 'ArrowDown' && direction !== 'UP') {
+        direction = 'DOWN';
+      }
+    }
+
+    function generateFood() {
+      // Random position for food (multiples of 10 for alignment with snake)
+      food.x = Math.floor(Math.random() * (canvas.width / foodSize)) * foodSize;
+      food.y = Math.floor(Math.random() * (canvas.height / foodSize)) * foodSize;
+    }
+
+    function drawFood() {
+      canvasContext.fillStyle = '#b9375e'; // Dark pink food
+      canvasContext.fillRect(food.x, food.y, foodSize, foodSize);
+    }
+
+    function checkFoodCollision() {
+      var head = snakeArray[0];
+
+      // Check if the snake's head collides with the food
+      if (head.x === food.x && head.y === food.y) {
+        // Grow the snake
+        snakeArray.push({x: head.x, y: head.y});
+        generateFood(); // Generate a new food
+        score++; // Increment score
+      }
+    }
+
+    function checkWallCollision() {
+      var head = snakeArray[0];
+
+      // Check if the snake hits the walls (canvas boundaries)
+      if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height) {
+        return true;
+      }
+      return false;
+    }
+
+    function checkSelfCollision() {
+      var head = snakeArray[0];
+
+      // Check if the snake's head collides with its body
+      for (var i = 1; i < snakeArray.length; i++) {
+        if (head.x === snakeArray[i].x && head.y === snakeArray[i].y) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function gameOver() {
+      isGameOver = true;
+      clearInterval(gameInterval); // Stop the game loop
+      document.getElementById('gameOverMessage').innerHTML = 'Game Over!';
+      document.getElementById('score').innerHTML = 'Final Score: ' + score;
+      document.getElementById('restartButton').style.display = 'block'; // Show the restart button
+    }
+
+    function drawScore() {
+      canvasContext.fillStyle = 'black';
+      canvasContext.font = '20px Arial';
+      canvasContext.fillText('Score: ' + score, 10, 20); // Display score in top left
+    }
+
+    function restartGame() {
+      setupGame(); // Reset the game state
+      gameInterval = setInterval(gameLoop, 100); // Restart the game loop
+    }
+  </script>
+</body>
+</html>
