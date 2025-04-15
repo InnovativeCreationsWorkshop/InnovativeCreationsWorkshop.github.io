@@ -1,4 +1,4 @@
-import { generateFood } from './food.js';
+import { generateFood } from './Snake/food.js';
 
 export let snakeArray = [];
 export let direction = 'RIGHT';
