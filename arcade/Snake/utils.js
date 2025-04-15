@@ -1,5 +1,5 @@
-import { canvas, canvasContext } from './main.js';
-import { snakeArray, score } from './gameSetup.js';
+import { canvas, canvasContext } from './Snake/snake_main.js';
+import { snakeArray, score } from './Snake/gameSetup.js';
 
 export function drawCanvas() {
   canvasContext.fillStyle = '#ceddbb';
