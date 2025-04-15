@@ -1,5 +1,5 @@
-import { canvas } from './main.js';
-import { food, foodSize } from './gameSetup.js';
+import { canvas } from './Snake/snake_main.js';
+import { food, foodSize } from './Snake/gameSetup.js';
 
 export function drawFood() {
   const ctx = canvas.getContext('2d');
