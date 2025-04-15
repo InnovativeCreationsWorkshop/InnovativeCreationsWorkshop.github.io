@@ -1,5 +1,4 @@
-import { startGame, setupGame } from './Snake/gameSetup.js';
-import { theGame } from './Snake/gameLoop.js';
+
 
 const canvas = document.getElementById('gameCanvas');
 const canvasContext = canvas.getContext('2d');
