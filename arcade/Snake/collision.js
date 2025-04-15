@@ -1,7 +1,7 @@
-import { snakeArray, food, foodSize, score } from './gameSetup.js';
-import { generateFood } from './food.js';
-import { canvas } from './main.js';
-import { updateInterval } from './main.js';
+import { snakeArray, food, foodSize, score } from './Snake/gameSetup.js';
+import { generateFood } from './Snake/food.js';
+import { canvas } from './Snake/snake_main.js';
+import { updateInterval } from './Snake/snake_main.js';
 
 let gameSpeed = 100;
 
