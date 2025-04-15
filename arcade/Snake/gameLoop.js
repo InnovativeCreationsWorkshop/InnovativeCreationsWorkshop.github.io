@@ -1,6 +1,6 @@
-import { drawCanvas } from './utils.js';
-import { drawSnake, moveSnake } from './snake.js';
-import { drawFood } from './food.js';
+import { drawCanvas } from './Snake/utils.js';
+import { drawSnake, moveSnake } from './Snake/snake.js';
+import { drawFood } from './Snake/food.js';
 import { checkWallCollision, checkSelfCollision, checkFoodCollision } from './collision.js';
 
 export function theGame() {
