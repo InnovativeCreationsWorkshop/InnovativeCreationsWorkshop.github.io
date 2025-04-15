@@ -8,13 +8,20 @@ export { canvas, canvasContext };
 let gameInterval;
 let speed = 100;
 
+// Pre-import the changeDirection function from snake.js
+import { changeDirection } from './snake.js';
+
 window.onload = () => {
   console.log("Page is loaded!");
   startGame();
   setupGame();
 
   gameInterval = setInterval(theGame, speed);
-  document.addEventListener('keydown', (e) => import('./snake.js').then(mod => mod.changeDirection(e)));
+  
+  // Use the pre-imported changeDirection function
+  document.addEventListener('keydown', (e) => {
+    changeDirection(e);
+  });
 };
 
 export function updateInterval(newSpeed) {
