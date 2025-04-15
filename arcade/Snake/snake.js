@@ -1,5 +1,5 @@
-import { canvasContext } from './main.js';
-import { snakeArray, direction } from './gameSetup.js';
+import { canvasContext } from './Snake/snake_main.js';
+import { snakeArray, direction } from './Snake/gameSetup.js';
 
 export function drawSnake() {
   canvasContext.fillStyle = '#ce9a60';
