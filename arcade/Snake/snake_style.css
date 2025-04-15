@@ -1,0 +1,52 @@
+/* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #434343; /* Dark gray background */
+      margin: 0;
+      flex-direction: column;
+    }
+
+/* General page styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+splashScreen {
+  text-align: center;
+  background-color: #f78a8a; /* Light pink background */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+splashScreen h1 {
+  font-size: 70px;
+  margin-bottom: 30px;
+}
+
+playButton {
+  padding: 15px 30px;
+  background-color: #b9375e; /* Dark pink background */
+  color: #76d7c4; /* Green text */
+  font-size: 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+playButton:hover {
+  background-color: #a63153; /* Darker pink on hover */
+}
