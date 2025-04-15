@@ -9,7 +9,7 @@ let gameInterval;
 let speed = 100;
 
 // Pre-import the changeDirection function from snake.js
-import { changeDirection } from './snake.js';
+import { changeDirection } from 'https://innovativecreationsworkshop.github.io/arcade/Snake/snake.js';
 
 window.onload = () => {
   console.log("Page is loaded!");
