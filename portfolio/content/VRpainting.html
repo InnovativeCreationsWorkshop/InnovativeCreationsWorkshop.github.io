@@ -50,29 +50,25 @@ This is the question posed in this work.  The work consisted of four digital mov
 
 GalleryVR incorporates the concepts of immersion in that is participants walk into a static image and be met with a lively changing environment, complete with audio spatialization and full 360 views giving the participant the perception that they are there.  It also plays with the idea of experiential interactivity because in order to move about these different space in VR the viewer uses a teleportation system that transports them to these spaces.  In order to experience these spaces, the viewer must virtually walk through the paintings to be transported to these worlds.  </p>
               
-            <!-- Process Video -->
-<h1> User Experience</h1><br>
-
-          <div class="video-container">
-            <div class="process-video">
-                
-                
-            </div>
+             <!-- Process Video -->
+<div class="process-video">
+  <h2>Development Process</h2>
+  <div class="video-wrapper">
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/niFb7uEsKJg?si=T-9v8WunGxz_Ayn4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</div>
           
-          <div class="process-video">
-                
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/niFb7uEsKJg?si=T-9v8WunGxz_Ayn4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-          </div>
-
+        
             <!-- More Description -->
-            <p class="conclusion">By presenting this in a public sphere such as a gallery space, the viewers participating in it can share their experiences with each other and question the depth of what technology can do and where it is heading.  This also breaks Joselit’s ideas on the surface because of the immersion within the experience.  Participants are not looking at a flat surface, they are fully immersed in an experience meant for exploration.</p>
+            <p class="project-description">By presenting this in a public sphere such as a gallery space, the viewers participating in it can share their experiences with each other and question the depth of what technology can do and where it is heading.  This also breaks Joselit’s ideas on the surface because of the immersion within the experience.  Participants are not looking at a flat surface, they are fully immersed in an experience meant for exploration.</p>
           <h1> Design</h1><br>
-           <!-- Grid Images -->
-            <div class="portfolio-images">
-                <img src="image1.jpg" alt="Screenshot 1">
-                <img src="image2.jpg" alt="Screenshot 2">
-            </div>
+            <!-- Grid Images -->
+      <div class="portfolio-images">
+        <img src="https://innovativecreationsworkshop.github.io/photo/Screen%20Shot%202017-05-07%20at%206.01.57%20PM.png" alt="Screenshot 1" />
+        <img src="https://innovativecreationsworkshop.github.io/photo/Screen%20Shot%202017-05-07%20at%206.01.57%20PM.png" alt="Screenshot 2" />
+        <img src="https://innovativecreationsworkshop.github.io/photo/Screen%20Shot%202017-05-07%20at%206.01.57%20PM.png" alt="Screenshot 3" />
+        <img src="https://innovativecreationsworkshop.github.io/photo/Screen%20Shot%202017-05-07%20at%206.01.57%20PM.png" alt="Screenshot 4" />
+      </div>
  <p> The concept for this project was the desire to be immersed in a painting.  I wanted to build a sort of window into a world and have all of the spaces presented in a gallery.  There have been several attempts at this, most notably, Van Gogh: The Immersive Experience, which is an 360 digital experience.  The difference is that the Van Gogh piece is not interactive and focuses more on the immersion of Van Gogh’s paintings.  The goal of GalleryVR was to create a fantastical space with full immersion as well as the ability to explore and discover new features. 
    
    <br><br>
@@ -98,7 +94,10 @@ This was done through a level loading network created by triggers so that as the
                 <img src="image2.jpg" alt="Screenshot 2">
               <img src="image2.jpg" alt="Screenshot 2">
             </div>
-          
+          <!-- Lightbox Overlay -->
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Expanded Image" />
+</div>
           
         </section>
     </main>
@@ -107,5 +106,21 @@ This was done through a level loading network created by triggers so that as the
     <footer>
         <p>&copy; 2025 Innovative Creations Workshop. All Rights Reserved.</p>
     </footer>
+
+     <script> const images = document.querySelectorAll('.portfolio-images img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.classList.add('active');
+      lightboxImg.src = img.src;
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+  });    </script>
 </body>
 </html>
