@@ -1,157 +1,101 @@
-/* Global Styles */
-body {
-    font-family: 'Helvetica', sans-serif;
-    color: #3392EF;
-    margin: 0;
-    padding: 0;
-    background-color: #131226;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I.C.W</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://innovativecreationsworkshop.github.io/portfolio/webtemp.css" />
+</head>
+<body>
+  <!-- Navigation Banner -->
+  <div class="banner">
+    <a href="https://innovativecreationsworkshop.github.io">
+      <h1>Interactive Creations Workshop</h1>
+    </a>
+    <nav>
+      <a href="https://innovativecreationsworkshop.github.io">Home</a>
+      <a href="https://innovativecreationsworkshop.github.io/portfolio/portfolio.html">Portfolio</a>
+      <a href="https://innovativecreationsworkshop.github.io/portfolio/other_works.html">Other Works</a>
+      <a href="https://innovativecreationsworkshop.blogspot.com/">Digital Notebook</a>
+      <a href="https://innovativecreationsworkshop.github.io/portfolio/about.html">About Us</a>
+    </nav>
+  </div>
 
-h1, h2, h3 {
-    font-family: 'Helvetica', sans-serif;
-    color: #ffffff;
-    margin: 10px 0;
-}
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Video Section -->
+    <section class="hero-video">
+      <iframe 
+        class="hero-video-element"
+        src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+        frameborder="0" 
+        allow="autoplay; encrypted-media" 
+        allowfullscreen>
+      </iframe>
+    </section>
 
-a {
-    text-decoration: none;
-    color: #ffffff;
-    transition: color 0.3s ease;
-}
+    <!-- CONTENT DETAILS -->
+    <section class="portfolio-details">
+      <h1 class="portfolio-title">Project Title</h1>
+      <h3 class="software-used">Software Used: Unreal Engine, Blender, Photoshop</h3>
+      <p class="project-description">
+        This project is a demonstration of immersive design combining interactive elements with stunning visuals.
+      </p>
 
-a:hover {
-    color: #dc086A;
-}
+      <!-- Grid Images -->
+      <div class="portfolio-images">
+        <img src="https://innovativecreationsworkshop.github.io/photo/Screen%20Shot%202017-05-07%20at%206.01.57%20PM.png" alt="Screenshot 1" />
+        <img src="https://innovativecreationsworkshop.github.io/photo/Screen%20Shot%202017-05-07%20at%206.01.57%20PM.png" alt="Screenshot 2" />
+        <img src="https://innovativecreationsworkshop.github.io/photo/Screen%20Shot%202017-05-07%20at%206.01.57%20PM.png" alt="Screenshot 3" />
+        <img src="https://innovativecreationsworkshop.github.io/photo/Screen%20Shot%202017-05-07%20at%206.01.57%20PM.png" alt="Screenshot 4" />
+      </div>
 
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-/* Navigation Banner */
-.banner {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #131226;
-    padding: 10px; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space between title and nav */
-    align-items: center; /* Vertically center items */
-    white-space: nowrap; /* Prevent text wrapping */
-    overflow: hidden; /* Prevent overflow when resizing */
-}
-
-/* Title - Innovative Creations Workshop */
-.banner h1 {
-    color: #ffffff;
-    font-size: 20px;
-    margin: 0;
-    white-space: nowrap; /* Prevent title from wrapping */
-    text-overflow: ellipsis; /* Add ellipsis if text overflows */
-    overflow: hidden;
-}
-
-/* Navigation Menu */
-.banner nav {
-    display: flex; /* Arrange nav items horizontally */
-    gap: 10px; /* Add spacing between the menu items */
-    padding-right: 20px;
-}
-
-.banner nav a {
-    color: #ffffff;
-    font-size: 1em;
-    padding: 5px 10px;
-    transition: color 0.3s ease, background-color 0.3s ease;
-    white-space: nowrap; /* Prevent wrapping of the links */
-}
-
-.banner a:hover, .banner a.active {
-    font-weight: bold;
-    color: #dc086A;
-}
-
-/* Hero Video */
-.hero-video {
-    position: relative;
-    width: 100%;
-    height: calc(100vh - 60px);
-    overflow: hidden;
-}
-
-.hero-video-element {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Portfolio Details */
-.portfolio-details {
-    text-align: center;
-    padding: 20px 20px;
-    background-color: #073575;
-    color: #ffffff;
-}
-
-.portfolio-title {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
+      <!-- Process Video -->
+<div class="process-video">
+  <h2>Development Process</h2>
+  <div class="video-wrapper">
+    <iframe 
+      src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+      frameborder="0" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
 
 
-.software-used {
-    font-size: 1.2em;
-    color: #dc086A;
-    margin-bottom: 20px;
-}
+      <!-- Conclusion Paragraph -->
+      <p class="project-description">
+        This project highlights my ability to combine technical expertise with creative vision, resulting in a compelling and interactive experience. Explore more to discover how I bring concepts to life.
+      </p>
+      
+      <!-- Lightbox Overlay -->
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Expanded Image" />
+</div>
+    </section>
+  </main>
 
-.project-description {
-    font-size: 1em;
-    margin-bottom: 40px;
-}
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Innovative Creations Workshop. All Rights Reserved.</p>
+  </footer>
+  
+  <script> const images = document.querySelectorAll('.portfolio-images img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
 
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.classList.add('active');
+      lightboxImg.src = img.src;
+    });
+  });
 
-
-/* Portfolio Images */
-.portfolio-images {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
-   }
-
-.portfolio-images img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.video-container {
-    display: flex;
-    justify-content: center; /* Center the videos */
-    gap: 20px; /* Add spacing between videos */
-  }
-
-   @media (max-width: 768px) {
-    .video-container {
-      flex-direction: column; /* Stack videos on small screens */
-      align-items: center;
-    }
-    video {
-      width: 90%; /* Make videos take more width on small screens */
-    }
-  }
-
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #131226;
-    color: #ffffff;
-}
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+  });    </script>
+</body>
+</html>
