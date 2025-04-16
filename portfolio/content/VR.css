@@ -173,6 +173,13 @@ img {
   display: flex;
 }
 
+.grid-vid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
 .video-wrapper {
   position: relative;
   padding-bottom: 50%; /* slightly less height = larger appearance */
