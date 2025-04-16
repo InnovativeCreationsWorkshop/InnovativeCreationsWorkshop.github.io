@@ -13,6 +13,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #131226;
+    
 }
 
 h1, h2, h3 {
@@ -121,25 +122,77 @@ img {
     font-size: 1em;
     margin-bottom: 40px;
     text-align: justify;
+   width: 80%; /* Adjust as needed */
+  margin: 2rem auto; /* Top/bottom margin, center horizontally */
+  padding: 1.5rem;
+    
 }
 
 /* Portfolio Images */
 .portfolio-images {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .portfolio-images img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%; /* keep this */
+  height: auto;
+  max-width: 250px; /* adjust to make them smaller */
+  justify-self: center; /* center image inside each grid cell */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+.portfolio-images img:hover {
+  transform: scale(1.03);
+}
 
+/* Lightbox overlay */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
 
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 50%; /* slightly less height = larger appearance */
+  height: 0;
+  overflow: hidden;
+  max-width: 80%; /* increase max width */
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 16px;
+}
 
 /* Footer */
 footer {
