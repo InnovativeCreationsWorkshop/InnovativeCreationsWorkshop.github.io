@@ -185,7 +185,7 @@ img {
   padding-bottom: 50%; /* slightly less height = larger appearance */
   height: 0;
   overflow: hidden;
-  max-width: 80%; /* increase max width */
+  max-width: 70%; /* increase max width */
   margin: 0 auto;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
