@@ -6,34 +6,15 @@
   <title>Pong Game</title>
   <link rel="stylesheet" href="https://innovativecreationsworkshop.github.io/portfolio/webtemp.css" />
   <style>
-    .game-container {
+    .game-wrapper {
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      gap: 40px;
-      margin-top: 30px;
-      padding: 20px;
+      align-items: center;
+      margin-top: 40px;
     }
 
     #gameCanvas {
       border: 2px solid black;
-    }
-
-    .instructions {
-      max-width: 300px;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .instructions h2 {
-      margin-top: 0;
-    }
-
-    .instructions ul {
-      padding-left: 20px;
     }
   </style>
 </head>
@@ -51,20 +32,9 @@
     </nav>
   </div>
 
-  <!-- Game and Instructions -->
-  <div class="game-container">
+  <!-- Centered Game Canvas -->
+  <div class="game-wrapper">
     <canvas id="gameCanvas" width="800" height="600"></canvas>
-
-    <div class="instructions">
-      <h2>How to Play Pong</h2>
-      <ul>
-        <li>Use <strong>W</strong> and <strong>S</strong> to move Player 1 paddle up/down.</li>
-        <li>Use <strong>Up</strong> and <strong>Down</strong> arrow keys for Player 2.</li>
-        <li>Prevent the ball from passing your paddle.</li>
-        <li>First to score 10 points wins!</li>
-        <li>Enjoy the game!</li>
-      </ul>
-    </div>
   </div>
 
   <script src="main.js"></script>
