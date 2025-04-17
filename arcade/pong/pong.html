@@ -1,29 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pong Game</title>
-    <link rel="stylesheet" href="https://innovativecreationsworkshop.github.io/portfolio/webtemp.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pong Game</title>
+  <link rel="stylesheet" href="https://innovativecreationsworkshop.github.io/portfolio/webtemp.css" />
+  <style>
+    .game-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      margin-top: 30px;
+      padding: 20px;
+    }
 
+    #gameCanvas {
+      border: 2px solid black;
+    }
+
+    .instructions {
+      max-width: 300px;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .instructions h2 {
+      margin-top: 0;
+    }
+
+    .instructions ul {
+      padding-left: 20px;
+    }
+  </style>
 </head>
 <body>
-     <!-- Navigation Banner -->
-    <div class="banner">
-         <a href="https://innovativecreationsworkshop.github.io" </a><h1>Interactive Creations Workshop</h1>
-        <nav>
-            <a href="https://innovativecreationsworkshop.github.io">Home</a>
-            <a href="https://innovativecreationsworkshop.github.io/portfolio/portfolio.html">Portfolio</a>
-            <a href="https://innovativecreationsworkshop.github.io/portfolio/other_works.html" class="active" >Other Works</a>
-            <a href="https://innovativecreationsworkshop.blogspot.com/">Digital Notebook</a>
-            <a href="https://innovativecreationsworkshop.github.io/portfolio/about.html">About us</a>
-          <a href="#">Arcade</a>
-          
-        </nav>
-    </div>
-  
+  <!-- Navigation Banner -->
+  <div class="banner">
+    <a href="https://innovativecreationsworkshop.github.io"><h1>Interactive Creations Workshop</h1></a>
+    <nav>
+      <a href="https://innovativecreationsworkshop.github.io">Home</a>
+      <a href="https://innovativecreationsworkshop.github.io/portfolio/portfolio.html">Portfolio</a>
+      <a href="https://innovativecreationsworkshop.github.io/portfolio/other_works.html" class="active">Other Works</a>
+      <a href="https://innovativecreationsworkshop.blogspot.com/">Digital Notebook</a>
+      <a href="https://innovativecreationsworkshop.github.io/portfolio/about.html">About us</a>
+      <a href="#">Arcade</a>
+    </nav>
+  </div>
+
+  <!-- Game and Instructions -->
+  <div class="game-container">
     <canvas id="gameCanvas" width="800" height="600"></canvas>
-    <script src="main.js"></script>
- 
+
+    <div class="instructions">
+      <h2>How to Play Pong</h2>
+      <ul>
+        <li>Use <strong>W</strong> and <strong>S</strong> to move Player 1 paddle up/down.</li>
+        <li>Use <strong>Up</strong> and <strong>Down</strong> arrow keys for Player 2.</li>
+        <li>Prevent the ball from passing your paddle.</li>
+        <li>First to score 10 points wins!</li>
+        <li>Enjoy the game!</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
