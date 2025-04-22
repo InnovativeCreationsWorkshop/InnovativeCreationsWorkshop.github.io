@@ -1,3 +1,61 @@
+to do:
+Front Page:
+- edit a reel
+
+GalleryVR:
+-second set of paintings video
+-center them side by side
+-4 still images
+-4 development images
+
+GlowAR:
+-make user experience video larger
+-center gallery images
+-4 gallery images of experience
+-center text
+-interactive light experience video
+
+Beyond Gallvr:
+-two still images
+-center text
+
+Magic Particles
+-hero video
+-two still images
+-center text
+-process video and/or user experience video
+
+HoloGroove
+-hero video
+-center text
+-two more videos
+-interactive hologram video
+
+insights
+-downloadable pdf, remove all content, just link
+
+T-rojvr
+-3 screen shots
+-process video
+-fix link at bottom
+
+AphasiaVR
+-Hero Video
+-center text
+-two stills
+-proof of concept video
+
+RainbowTrace
+-hero video
+-two user experience videos
+-4 stills
+-center text
+-remove space
+
+
+
+
+
 1.  download media from former website
 2. Reel 2025:
   what to add -
