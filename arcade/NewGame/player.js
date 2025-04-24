@@ -1,5 +1,34 @@
-// Draw a white dot on the canvas
-ctx.beginPath();
-ctx.arc(300, 200, 10, 0, 2 * Math.PI);  // Draw a circle at position (300, 200) with radius 10
-ctx.fillStyle = 'white';  // Set the fill color to white
-ctx.fill();  // Fill the circle
+function mousePressed() {
+  let flower = createFlower();
+
+  // reassign x to be mouseX
+  flower.x = mouseX; 
+  
+  // reassign y to be mouseY
+  flower.y = mouseY;
+
+  // add the flower to the flowers array
+  flowers.push(flower);
+}
+
+function updateAndDrawFlowers() {
+  for (let flower of flowers) {
+
+    // Draw the flower.
+    drawFlower(flower);
+
+    // Apply wilting effect by reducing size by 1%
+    flower.size *= 0.99;
+
+    // Reduce lifespan
+    flower.lifespan -= 1;
+    
+    if (flower.lifespan <= 0) {
+      // Save index of the flower.
+      let i = flowers.indexOf(flower);
+      
+      // Remove wilted flower.
+      flowers.splice(i, 1);
+    }
+  }
+}
