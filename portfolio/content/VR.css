@@ -128,19 +128,19 @@ img {
     
 }
 
-/* Portfolio Images */
 .portfolio-images {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
-  margin-top: 2rem;
+  justify-items: center;
 }
 
 .portfolio-images img {
-  width: 100%; /* keep this */
-  height: auto;
-  max-width: 250px; /* adjust to make them smaller */
-  justify-self: center; /* center image inside each grid cell */
+  width: 100%;
+  max-width: 250px;
+  height: 160px; /* fixed height to make them uniform */
+  object-fit: cover; /* crop if necessary to keep uniformity */
+  justify-self: center;
   cursor: pointer;
   transition: transform 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -185,7 +185,7 @@ img {
   padding-bottom: 50%; /* slightly less height = larger appearance */
   height: 0;
   overflow: hidden;
-  max-width: 80%; /* increase max width */
+  max-width: 90%; /* increase max width */
   margin: 0 auto;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
