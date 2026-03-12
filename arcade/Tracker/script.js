@@ -312,6 +312,19 @@ safeListen("addvegBtn", addVeg);
 safeListen("addHydrationBtn", addHydration);
 safeListen("addwarmBtn", addWarm);
 
+    function saveData() {
+
+localStorage.setItem("dailyXP", dailyXP);
+localStorage.setItem("weeklyXP", weeklyXP);
+localStorage.setItem("gold", gold);
+
+localStorage.setItem("movementGoal", movementGoal);
+localStorage.setItem("goalXP", goalXP);
+localStorage.setItem("goalCompleted", goalCompleted);
+localStorage.setItem("goalLocked", goalLocked);
+
+}
+
 
 // ===== INITIAL DISPLAY =====
 updateDisplay();
