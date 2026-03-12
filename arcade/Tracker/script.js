@@ -325,6 +325,20 @@ localStorage.setItem("goalLocked", goalLocked);
 
 }
 
+    function loadData(){
+
+dailyXP = Number(localStorage.getItem("dailyXP")) || 0;
+weeklyXP = Number(localStorage.getItem("weeklyXP")) || 0;
+gold = Number(localStorage.getItem("gold")) || 0;
+
+movementGoal = Number(localStorage.getItem("movementGoal")) || 0;
+goalXP = Number(localStorage.getItem("goalXP")) || 0;
+
+goalCompleted = localStorage.getItem("goalCompleted") === "true";
+goalLocked = localStorage.getItem("goalLocked") === "true";
+
+}
+
 
 // ===== INITIAL DISPLAY =====
 updateDisplay();
