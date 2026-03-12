@@ -1,21 +1,162 @@
+/* ==============================
+   BODY / BACKGROUND
+============================== */
 body {
-  font-family: sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background-image: url("https://raw.githubusercontent.com/InnovativeCreationsWorkshop/InnovativeCreationsWorkshop.github.io/refs/heads/main/arcade/Tracker/img/backgroundv1.PNG");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
+  margin: 0;
+  padding: 0;
+  color: #F5D091;
 }
 
+/* ==============================
+   CONTENT BOX
+============================== */
 .content-box {
-     background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 40px;
-    width: 60%;
-    margin: 100px auto;
-    border-radius: 15px;
-    color: white;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 40px;
+  width: 90%;
+  max-width: 700px;
+  margin: 50px auto;
+  border-radius: 15px;
+  color: #F5D091;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7), 0 0 20px rgba(212,136,104,0.4);
+  position: relative;
+}
 
-    text-align: center; /* centers text */
+/* ==============================
+   HEADINGS
+============================== */
+h1 {
+  font-size: 2.5em;
+  color: #D48868;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(255,255,255,0.3);
+}
+
+h2 {
+  color: #C67699;
+  margin: 20px 0 10px 0;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+
+h3 {
+  color: #6F8D6B;
+  margin: 15px 0 5px 0;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+
+/* ==============================
+   BUTTONS - SHINY
+============================== */
+button {
+  background: linear-gradient(145deg, #457589, #6F8D6B);
+  color: #F5D091;
+  border: none;
+  padding: 12px 24px;
+  margin: 5px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5), 0 0 5px rgba(255,255,255,0.2) inset;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+button:hover {
+  background: linear-gradient(145deg, #6F8D6B, #457589);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7), 0 0 10px rgba(255,255,255,0.3) inset;
+}
+
+button:disabled {
+  background-color: rgba(69,117,137,0.5);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ==============================
+   SPANS / COUNTERS
+============================== */
+span {
+  font-weight: bold;
+  color: #F5D091;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* ==============================
+   INPUT FIELDS
+============================== */
+input[type="number"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #C67699;
+  margin: 5px 0;
+  width: 120px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.4) inset;
+  background: rgba(255,255,255,0.1);
+  color: #F5D091;
+}
+
+/* ==============================
+   PROGRESS BAR - SHINY
+============================== */
+progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 80%;
+  height: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.5) inset;
+}
+
+/* Chrome / Safari */
+progress::-webkit-progress-bar {
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 15px;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(145deg, #D48868, #C67699);
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5) inset;
+}
+
+/* Firefox */
+progress::-moz-progress-bar {
+  background: linear-gradient(145deg, #D48868, #C67699);
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5) inset;
+}
+
+/* ==============================
+   OUTPUT TEXT
+============================== */
+#extraMovementOutput, #glucoseOutput {
+  margin: 10px 0;
+  font-weight: bold;
+  color: #C67699;
+  min-height: 24px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+/* ==============================
+   STATS INLINE
+============================== */
+.stats {
+  margin-bottom: 20px;
+}
+
+.stats h2, .stats div {
+  display: inline-block;
+  margin-right: 20px;
 }
