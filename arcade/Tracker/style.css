@@ -8,16 +8,6 @@ body {
 }
 
 .content-box {
-   body {
-  font-family: sans-serif;
-  background-image: url("https://raw.githubusercontent.com/InnovativeCreationsWorkshop/InnovativeCreationsWorkshop.github.io/refs/heads/main/arcade/Tracker/img/backgroundv1.PNG");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-}
-
-.content-box {
      background: rgba(0,0,0,0.55);
     backdrop-filter: blur(6px);
     border: 1px solid rgba(255,255,255,0.2);
@@ -28,5 +18,4 @@ body {
     color: white;
 
     text-align: center; /* centers text */
-}
 }
