@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Betty’s Life RPG</title>
+    
+</head>
+<body>
+
+<h1>Betty’s Life RPG</h1>
+
+<!-- XP Display -->
+<h2 style="display:inline;">Daily XP: </h2>
+<div id="xpResult" style="display:inline; margin-right: 40px;">0</div>
+
+<h2 style="display:inline;">Weekly XP: </h2>
+<div id="weeklyXpResult" style="display:inline; margin-right: 40px;">0</div>
+
+<h2 style="display:inline;">Gold: </h2>
+<div id="goldResult" style="display:inline;">0</div>
+
+
+<hr>
+
+<!-- Movement Section -->
+<h2>Daily Movement</h2>
+<button id="movementDoneBtn">Set New Goal</button>
+<p>Move Goal: <span id="movementGoalDisplay">Not Set</span></p>
+<input type="number" id="extraMovementInput" placeholder="Enter minutes" min="0" />
+<button id="logExtraMovementBtn">Log Movement</button>
+
+<p id="extraMovementOutput"></p>
+
+<hr>
+
+  <h2>Food</h2>
+<button id="addProteinBtn">+ 20 Protein</button>
+<span id="proteinCount">0</span>
+<br><br>
+<button id="addvegBtn">+ 10 Fruit/ Veggies</button>
+<span id="vegCount">0</span>
+
+
+<hr>
+
+<h2>Hydration</h2>
+<button id="addHydrationBtn">+ 2 Drink water / tea</button>
+<span id="hydrationCount">0</span>
+<br><br>
+<button id="addwarmBtn">+ 2 Bonus Warm Water </button>
+<span id="warmCount">0</span>
+<hr>
+  
+<h2>Glucose Check</h2>
+
+<p>Glucose value (mg/dL):</p>
+<input type="number" id="glucoseInput" placeholder="Enter glucose" />
+<br><br>
+<label>
+  <input type="checkbox" id="fastingCheck" />
+  Fasting
+</label>
+
+<label>
+  <input type="checkbox" id="postMealCheck" />
+  Post-meal
+</label>
+<br><br>
+
+<button id="logGlucoseBtn">Log Glucose</button>
+
+<p id="glucoseOutput"></p>
+
+  
+<!-- Day Controls -->
+<h2>Day Controls</h2>
+<button id="lockInBtn">Lock In Today</button>
+<button id="clearTodayBtn">Clear Today</button>
+<button id="clearAllBtn">Reset All</button>
+
+</body>
+</html>
