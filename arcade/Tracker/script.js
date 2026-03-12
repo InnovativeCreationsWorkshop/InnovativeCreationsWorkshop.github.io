@@ -341,6 +341,7 @@ goalLocked = localStorage.getItem("goalLocked") === "true";
 
 
 // ===== INITIAL DISPLAY =====
+loadData();
 updateDisplay();
 
 });
