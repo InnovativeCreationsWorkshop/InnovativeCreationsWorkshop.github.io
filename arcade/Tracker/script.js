@@ -1,323 +1,388 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-// =============================
-// STATE
-// =============================
+    // =============================
+    // CONSTANTS
+    // =============================
+    const TODAY = new Date().toISOString().slice(0, 10);
+    const STORAGE_KEY = "betty_rpg_state";
 
-let movementGoal = 0;
-let goalXP = 0;
-let goalLocked = false;
-let goalCompleted = false;
+    // =============================
+    // STATE
+    // =============================
+    const state = {
+        movementGoal: 0,
+        goalXP: 0,
+        goalLocked: false,
+        goalCompleted: false,
 
-let dailyMovementMinutes = 0;
-let dailyXP = 0;
-let weeklyXP = 0;
-let gold = 0;
+        dailyMovementMinutes: 0,
+        dailyXP: 0,
+        weeklyXP: 0,
+        gold: 0,
 
-let todayLocked = false;
-let today = new Date().toISOString().slice(0,10);
+        todayLocked: false,
 
-let proteinCount = Number(localStorage.getItem("protein_"+today)) || 0;
-let vegCount = Number(localStorage.getItem("veg_"+today)) || 0;
-let hydrationCount = Number(localStorage.getItem("hydration_"+today)) || 0;
-let warmCount = Number(localStorage.getItem("warm_"+today)) || 0;
+        nutrition: {
+            protein: 0,
+            veg: 0,
+            hydration: 0,
+            warm: 0
+        },
 
-let convertThreshold = 500;
+        glucoseLogs: [],
 
-// =============================
-// DOM ELEMENTS
-// =============================
+        convertThreshold: 500,
 
-const xpResult = document.getElementById("xpResult");
-const weeklyXpResult = document.getElementById("weeklyXpResult");
-const goldResult = document.getElementById("goldResult");
+        goldSpentThisWeek: 0,
+        lastSpendReset: TODAY
+    };
 
-const movementGoalDisplay = document.getElementById("movementGoalDisplay");
-const extraMovementInput = document.getElementById("extraMovementInput");
-const extraMovementOutput = document.getElementById("extraMovementOutput");
-
-const proteinDisplay = document.getElementById("proteinCount");
-const vegDisplay = document.getElementById("vegCount");
-const hydrationDisplay = document.getElementById("hydrationCount");
-const warmDisplay = document.getElementById("warmCount");
-
-const glucoseInput = document.getElementById("glucoseInput");
-const fastingCheck = document.getElementById("fastingCheck");
-const postMealCheck = document.getElementById("postMealCheck");
-const glucoseOutput = document.getElementById("glucoseOutput");
-
-const xpProgressBar = document.getElementById("xpProgressBar");
-const xpProgressText = document.getElementById("xpProgressText");
-const convertGoldBtn = document.getElementById("convertGoldBtn");
-
-// =============================
-// STORAGE
-// =============================
-
-function saveData(){
-    localStorage.setItem("movementGoal", movementGoal);
-    localStorage.setItem("goalXP", goalXP);
-    localStorage.setItem("goalLocked", goalLocked);
-    localStorage.setItem("goalCompleted", goalCompleted);
-
-    localStorage.setItem("dailyMovementMinutes", dailyMovementMinutes);
-    localStorage.setItem("dailyXP", dailyXP);
-    localStorage.setItem("weeklyXP", weeklyXP);
-    localStorage.setItem("gold", gold);
-    localStorage.setItem("todayLocked", todayLocked);
-
-    localStorage.setItem("protein_"+today, proteinCount);
-    localStorage.setItem("veg_"+today, vegCount);
-    localStorage.setItem("hydration_"+today, hydrationCount);
-    localStorage.setItem("warm_"+today, warmCount);
-}
-
-function loadData(){
-    movementGoal = Number(localStorage.getItem("movementGoal")) || 0;
-    goalXP = Number(localStorage.getItem("goalXP")) || 0;
-    goalLocked = localStorage.getItem("goalLocked") === "true";
-    goalCompleted = localStorage.getItem("goalCompleted") === "true";
-
-    dailyMovementMinutes = Number(localStorage.getItem("dailyMovementMinutes")) || 0;
-    dailyXP = Number(localStorage.getItem("dailyXP")) || 0;
-    weeklyXP = Number(localStorage.getItem("weeklyXP")) || 0;
-    gold = Number(localStorage.getItem("gold")) || 0;
-    todayLocked = localStorage.getItem("todayLocked") === "true";
-
-    proteinCount = Number(localStorage.getItem("protein_"+today)) || 0;
-    vegCount = Number(localStorage.getItem("veg_"+today)) || 0;
-    hydrationCount = Number(localStorage.getItem("hydration_"+today)) || 0;
-    warmCount = Number(localStorage.getItem("warm_"+today)) || 0;
-}
-
-// =============================
-// DISPLAY
-// =============================
-
-function updateDisplay(){
-    if(xpResult) xpResult.textContent = dailyXP;
-    if(weeklyXpResult) weeklyXpResult.textContent = weeklyXP;
-    if(goldResult) goldResult.textContent = gold;
-
-    if(movementGoalDisplay && goalLocked)
-        movementGoalDisplay.textContent = `${movementGoal} min +${goalXP} XP`;
-
-    if(proteinDisplay) proteinDisplay.textContent = proteinCount;
-    if(vegDisplay) vegDisplay.textContent = vegCount;
-    if(hydrationDisplay) hydrationDisplay.textContent = hydrationCount;
-    if(warmDisplay) warmDisplay.textContent = warmCount;
-
-    updateGoldTracker();
-}
-
-// =============================
-// GOLD / XP PROGRESS
-// =============================
-
-function updateGoldTracker(){
-    // Upgrade threshold if weeklyXP exceeds 600
-    if(weeklyXP >= 600){
-        convertThreshold = 1000;
+    // =============================
+    // STORAGE
+    // =============================
+    function saveState() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     }
 
-    if(xpProgressBar){
-        xpProgressBar.max = convertThreshold;
-        xpProgressBar.value = weeklyXP;
+    function loadState() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (!saved) return;
+
+        try {
+            const parsed = JSON.parse(saved);
+
+            if (!parsed.glucoseLogs) parsed.glucoseLogs = [];
+
+            if (parsed.lastDate !== TODAY) {
+                parsed.dailyXP = 0;
+                parsed.dailyMovementMinutes = 0;
+                parsed.glucoseLogs = [];
+                parsed.lastDate = TODAY;
+            }
+
+            Object.assign(state, parsed);
+
+        } catch (e) {
+            console.warn("Load failed:", e);
+        }
     }
 
-    if(xpProgressText){
-        xpProgressText.textContent = `${weeklyXP} / ${convertThreshold} XP`;
+    // =============================
+    // REWARDS
+    // =============================
+    const rewards = {
+        5: ["Cookie", "Hot Cocoa", "Chips", "Pudding", "Soda/Juice", "Candy"],
+        10: ["Boba/Starbee Drink", "Ice cream", "Milk Shake", "Bakery Treat", "Cake/Pie", "Alcohol"]
+    };
+
+    // =============================
+    // DOM ELEMENTS
+    // =============================
+    const el = {
+        xpResult: document.getElementById("xpResult"),
+        weeklyXpResult: document.getElementById("weeklyXpResult"),
+        goldResult: document.getElementById("goldResult"),
+
+        xpProgressBar: document.getElementById("xpProgressBar"),
+        xpProgressText: document.getElementById("xpProgressText"),
+        convertGoldBtn: document.getElementById("convertGoldBtn"),
+
+        dateTimeDisplay: document.getElementById("dateTimeDisplay"),
+
+        shopPanel: document.getElementById("shopPanel"),
+        spendCountDisplay: document.getElementById("spendCountDisplay"),
+        rewardPreview: document.getElementById("rewardPreview"),
+
+        extraMovementInput: document.getElementById("extraMovementInput"),
+        extraMovementOutput: document.getElementById("extraMovementOutput"),
+
+        glucoseInput: document.getElementById("glucoseInput"),
+        fastingCheck: document.getElementById("fastingCheck"),
+        postMealCheck: document.getElementById("postMealCheck"),
+        glucoseOutput: document.getElementById("glucoseOutput"),
+        glucoseAlert: document.getElementById("glucoseAlert"),
+
+        proteinCount: document.getElementById("proteinCount"),
+        vegCount: document.getElementById("vegCount"),
+        hydrationCount: document.getElementById("hydrationCount"),
+        warmCount: document.getElementById("warmCount"),
+
+        movementGoalDisplay: document.getElementById("movementGoalDisplay")
+    };
+
+    // =============================
+    // UTILITIES
+    // =============================
+    function addXP(amount) {
+        state.dailyXP += amount;
+        state.weeklyXP += amount;
+        updateDisplay();
     }
 
-    if(convertGoldBtn){
-        convertGoldBtn.disabled = weeklyXP < convertThreshold;
+    function getFormattedDateTime() {
+        return new Date().toLocaleString([], {
+            year: "numeric",
+            month: "short",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit"
+        });
     }
-}
 
-function convertXPtoGold(){
-    if(weeklyXP < 100){
-        alert("You need at least 100 XP to convert!");
-        return;
+    function resetWeeklySpendIfNeeded() {
+        const today = new Date().toISOString().slice(0, 10);
+        if (state.lastSpendReset !== today) {
+            state.goldSpentThisWeek = 0;
+            state.lastSpendReset = today;
+        }
     }
 
-    const goldEarned = Math.floor(weeklyXP / 100);
-    gold += goldEarned;
-    weeklyXP = weeklyXP % 100;
+    // =============================
+    // DISPLAY
+    // =============================
+    function updateDisplay() {
+        // Stats
+        el.xpResult.textContent = state.dailyXP;
+        el.weeklyXpResult.textContent = state.weeklyXP;
+        el.goldResult.textContent = state.gold;
 
-    alert(`Converted to ${goldEarned} Gold! Remaining XP: ${weeklyXP}`);
-    saveData();
+        // Date/Time
+        el.dateTimeDisplay.textContent = getFormattedDateTime();
+
+        // Nutrition
+        el.proteinCount.textContent = state.nutrition.protein;
+        el.vegCount.textContent = state.nutrition.veg;
+        el.hydrationCount.textContent = state.nutrition.hydration;
+        el.warmCount.textContent = state.nutrition.warm;
+
+        // Movement
+        el.movementGoalDisplay.textContent = state.movementGoal ? state.movementGoal + " min" : "Not Set";
+
+        // Gold cap
+        if (state.gold > 1000) {
+            state.gold = 1000;
+            alert("Gold cap reached (1000)");
+        }
+
+        // XP progress
+        el.xpProgressBar.max = state.convertThreshold;
+        el.xpProgressBar.value = state.weeklyXP;
+        el.xpProgressText.textContent = `${state.weeklyXP} / ${state.convertThreshold} XP`;
+        el.convertGoldBtn.disabled = state.weeklyXP < state.convertThreshold;
+
+        resetWeeklySpendIfNeeded();
+        el.spendCountDisplay.textContent = `Used: ${state.goldSpentThisWeek} / 2 purchases this week`;
+
+        // Glucose Logs
+        const glucoseListEl = document.getElementById("glucoseLogItems");
+        glucoseListEl.innerHTML = "";
+        state.glucoseLogs.forEach(log => {
+            const li = document.createElement("li");
+            li.textContent = `${log.time} — ${log.type}: ${log.value} (${log.xp} XP)`;
+            if (log.critical) {
+                li.style.color = "red";
+                li.style.fontWeight = "bold";
+            }
+            glucoseListEl.appendChild(li);
+        });
+    }
+
+    // =============================
+    // XP → GOLD
+    // =============================
+    function convertXPtoGold() {
+        const threshold = 100;
+        if (state.weeklyXP < threshold) {
+            alert("Need at least 100 XP to convert");
+            return;
+        }
+        const goldEarned = Math.floor(state.weeklyXP / threshold);
+        state.weeklyXP = state.weeklyXP % threshold;
+        state.gold += goldEarned;
+        saveState();
+        updateDisplay();
+        alert(`Converted ${goldEarned} Gold`);
+    }
+
+    // =============================
+    // MOVEMENT
+    // =============================
+    function setMovementGoal() {
+        const goal = parseInt(prompt("Enter movement goal (minutes)"), 10);
+        if (!goal || goal < 3 || goal > 600) {
+            alert("Goal must be between 3 and 600 minutes");
+            return;
+        }
+        const xp = parseInt(prompt("Enter XP reward"), 10);
+        if (!xp) return;
+
+        state.movementGoal = goal;
+        state.goalXP = xp;
+        state.goalLocked = true;
+        state.goalCompleted = false;
+        state.dailyMovementMinutes = 0;
+        saveState();
+        updateDisplay();
+    }
+
+    function logMovement() {
+        const extra = parseInt(el.extraMovementInput.value, 10);
+        if (!extra) return;
+
+        state.dailyMovementMinutes += extra;
+
+        if (!state.goalCompleted && state.dailyMovementMinutes >= state.movementGoal) {
+            state.goalCompleted = true;
+            addXP(state.goalXP);
+            const bonus = state.dailyMovementMinutes - state.movementGoal;
+            if (bonus > 0) addXP(Math.floor(bonus / 2));
+            el.extraMovementOutput.textContent = "Goal completed!";
+        } else if (state.goalCompleted) {
+            addXP(extra);
+            el.extraMovementOutput.textContent = `Bonus +${extra} XP`;
+        } else {
+            el.extraMovementOutput.textContent = `${state.dailyMovementMinutes} / ${state.movementGoal}`;
+        }
+
+        el.extraMovementInput.value = "";
+        saveState();
+        updateDisplay();
+    }
+
+    // =============================
+    // SHOP
+    // =============================
+    function spendGold(cost, label) {
+        resetWeeklySpendIfNeeded();
+        if (state.goldSpentThisWeek >= 2) {
+            alert("Weekly spend limit reached");
+            document.getElementById("tier5Btn").disabled = true;
+            document.getElementById("tier10Btn").disabled = true;
+            return;
+        }
+        if (state.gold < cost) {
+            alert("Not enough gold");
+            return;
+        }
+        state.gold -= cost;
+        state.goldSpentThisWeek++;
+        alert(`Purchased ${label} (-${cost})`);
+        saveState();
+        updateDisplay();
+    }
+
+    function showRewardPreview(tier) {
+        const items = rewards[tier];
+        if (!items || !el.rewardPreview) return;
+        el.rewardPreview.innerHTML = `<strong>${tier} Gold Tier Rewards:</strong>
+            <ul>${items.map(i => `<li>${i}</li>`).join("")}</ul>`;
+    }
+
+    function bindTierPreview(id, tier) {
+        const btn = document.getElementById(id);
+        if (!btn) return;
+        btn.addEventListener("mouseenter", () => showRewardPreview(tier));
+    }
+
+    // =============================
+    // GLUCOSE
+    // =============================
+    function logGlucose() {
+        const value = Number(el.glucoseInput.value);
+        if (isNaN(value)) {
+            alert("Enter glucose");
+            return;
+        }
+
+        if (el.fastingCheck.checked && el.postMealCheck.checked) {
+            alert("Select only one: fasting OR post-meal");
+            return;
+        }
+
+        let xp = 0;
+        let type = "";
+        if (el.fastingCheck.checked) {
+            type = "Fasting";
+            xp = value < 130 ? 5 : 0;
+        } else if (el.postMealCheck.checked) {
+            type = "Post-meal";
+            xp = value < 180 ? 10 : 0;
+        }
+
+        // Critical check
+        let critical = false;
+        let alertMessage = "";
+
+        if (value <= 70) {
+            critical = true;
+            alertMessage = "⚠️ Low glucose! Consume 15g of quick-acting carbs (juice, glucose tabs, candy). Stay calm and recheck in 15 minutes.";
+        } else if (value >= 200) {
+            critical = true;
+            alertMessage = "⚠️ High glucose! Hydrate with 1-2 cups water or sugar-free fluids. Consider a light 10-minute walk if you feel well.";
+        } else {
+            alertMessage = "Glucose within target range. Keep up the good work!";
+        }
+
+        addXP(xp);
+
+        // Save entry
+        state.glucoseLogs.push({
+            value,
+            type,
+            xp,
+            critical,
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        });
+
+        el.glucoseOutput.textContent = `Logged: ${value} (${xp} XP)`;
+        el.glucoseAlert.textContent = alertMessage;
+        el.glucoseAlert.style.color = critical ? "red" : "green";
+
+        el.glucoseInput.value = "";
+        el.fastingCheck.checked = false;
+        el.postMealCheck.checked = false;
+
+        saveState();
+        updateDisplay();
+    }
+
+    // =============================
+    // BIND HELPER
+    // =============================
+    function bind(id, fn) {
+        const node = document.getElementById(id);
+        if (node) node.addEventListener("click", fn);
+    }
+
+    // =============================
+    // BUTTON BINDINGS
+    // =============================
+    bind("movementDoneBtn", setMovementGoal);
+    bind("logExtraMovementBtn", logMovement);
+    bind("logGlucoseBtn", logGlucose);
+    bind("convertGoldBtn", convertXPtoGold);
+
+    bind("openShopBtn", () => { if (el.shopPanel) el.shopPanel.style.display = "block"; });
+    bind("closeShopBtn", () => { if (el.shopPanel) el.shopPanel.style.display = "none"; });
+    bind("tier5Btn", () => spendGold(5, "Tier 5 Reward"));
+    bind("tier10Btn", () => spendGold(10, "Tier 10 Reward"));
+    bindTierPreview("tier5Btn", 5);
+    bindTierPreview("tier10Btn", 10);
+
+    bind("addProteinBtn", () => { state.nutrition.protein += 20; addXP(20); saveState(); updateDisplay(); });
+    bind("addvegBtn", () => { state.nutrition.veg += 10; addXP(15); saveState(); updateDisplay(); });
+    bind("addHydrationBtn", () => { state.nutrition.hydration += 2; addXP(2); saveState(); updateDisplay(); });
+    bind("addwarmBtn", () => { state.nutrition.warm += 2; addXP(2); saveState(); updateDisplay(); });
+
+    bind("lockInBtn", () => { state.todayLocked = true; saveState(); updateDisplay(); });
+    bind("clearTodayBtn", () => { state.dailyXP = 0; state.dailyMovementMinutes = 0; state.goalCompleted = false; state.glucoseLogs = []; saveState(); updateDisplay(); });
+    bind("clearAllBtn", () => { if (confirm("Are you sure you want to reset all progress?")) { localStorage.removeItem(STORAGE_KEY); location.reload(); } });
+
+    // =============================
+    // INIT
+    // =============================
+    loadState();
     updateDisplay();
-}
-
-// =============================
-// MOVEMENT
-// =============================
-
-function setNewGoal(){
-    const goal = parseInt(prompt("Movement goal minutes"),10);
-    if(!goal) return;
-    const xp = parseInt(prompt("XP reward"),10);
-    if(!xp) return;
-
-    movementGoal = goal;
-    goalXP = xp;
-    goalLocked = true;
-    goalCompleted = false;
-    dailyMovementMinutes = 0;
-
-    saveData();
-    updateDisplay();
-}
-
-function logMovement(){
-    if(!goalLocked) return alert("Set goal first");
-    if(todayLocked) return alert("Day locked");
-
-    const extra = parseInt(extraMovementInput.value,10);
-    if(!extra) return;
-
-    dailyMovementMinutes += extra;
-
-    if(!goalCompleted && dailyMovementMinutes >= movementGoal){
-        goalCompleted = true;
-        dailyXP += goalXP;
-        const bonus = dailyMovementMinutes - movementGoal;
-        if(bonus>0) dailyXP += bonus;
-        extraMovementOutput.textContent = "Goal completed!";
-    } else if(goalCompleted){
-        dailyXP += extra;
-        extraMovementOutput.textContent = `Bonus +${extra} XP`;
-    } else {
-        extraMovementOutput.textContent = `${dailyMovementMinutes} / ${movementGoal} minutes`;
-    }
-
-    extraMovementInput.value="";
-    saveData();
-    updateDisplay();
-}
-
-// =============================
-// FOOD / HYDRATION
-// =============================
-
-function addProtein(){ if(proteinCount>=5) return; proteinCount++; dailyXP+=20; saveData(); updateDisplay();}
-function addVeg(){ if(vegCount>=5) return; vegCount++; dailyXP+=10; saveData(); updateDisplay();}
-function addHydration(){ hydrationCount++; dailyXP+=2; saveData(); updateDisplay();}
-function addWarm(){ warmCount++; dailyXP+=2; saveData(); updateDisplay();}
-
-// =============================
-// GLUCOSE
-// =============================
-
-function logGlucose(){
-    const value = Number(glucoseInput.value);
-    if(!value) return alert("Enter glucose");
-
-    let earnedXP = 0;
-    let message = "";
-
-    if(fastingCheck.checked){
-        earnedXP = value < 130 ? 5 : 0;
-        message = earnedXP ? `Fasting ${value}: +5 XP` : `Fasting ${value}: 0 XP`;
-    }
-
-    if(postMealCheck.checked){
-        earnedXP = value < 180 ? 10 : 0;
-        message = earnedXP ? `Post-meal ${value}: +10 XP` : `Post-meal ${value}: 0 XP`;
-    }
-
-    dailyXP += earnedXP;
-    glucoseOutput.textContent = message;
-
-    glucoseInput.value="";
-    fastingCheck.checked=false;
-    postMealCheck.checked=false;
-
-    saveData();
-    updateDisplay();
-}
-
-// =============================
-// DAY CONTROLS
-// =============================
-
-function lockInToday(){
-    if(todayLocked) return alert("Already locked");
-
-    if(goalLocked && !goalCompleted){
-        dailyXP -= 150;
-        alert("Goal not met: -150 XP");
-    }
-
-    weeklyXP += dailyXP;
-    todayLocked = true;
-    saveData();
-    updateDisplay();
-}
-
-function clearToday(){
-    dailyMovementMinutes = 0;
-    dailyXP = 0;
-    goalCompleted = false;
-    todayLocked = false;
-
-    proteinCount = 0;
-    vegCount = 0;
-    hydrationCount = 0;
-    warmCount = 0;
-
-    saveData();
-    updateDisplay();
-}
-
-function resetAll(){
-    localStorage.clear();
-
-    movementGoal = 0;
-    goalXP = 0;
-    goalLocked = false;
-    goalCompleted = false;
-
-    dailyMovementMinutes = 0;
-    dailyXP = 0;
-    weeklyXP = 0;
-    gold = 0;
-    todayLocked = false;
-
-    proteinCount = 0;
-    vegCount = 0;
-    hydrationCount = 0;
-    warmCount = 0;
-
-    updateDisplay();
-}
-
-// =============================
-// EVENT LISTENERS
-// =============================
-
-function bind(id, func){
-    const el = document.getElementById(id);
-    if(el) el.addEventListener("click", func);
-}
-
-bind("movementDoneBtn", setNewGoal);
-bind("logExtraMovementBtn", logMovement);
-bind("addProteinBtn", addProtein);
-bind("addvegBtn", addVeg);
-bind("addHydrationBtn", addHydration);
-bind("addwarmBtn", addWarm);
-bind("logGlucoseBtn", logGlucose);
-bind("lockInBtn", lockInToday);
-bind("clearTodayBtn", clearToday);
-bind("clearAllBtn", resetAll);
-bind("convertGoldBtn", convertXPtoGold);
-
-// =============================
-// INITIALIZE
-// =============================
-
-loadData();
-updateDisplay();
+    setInterval(() => { el.dateTimeDisplay.textContent = getFormattedDateTime(); }, 60000);
 
 });
