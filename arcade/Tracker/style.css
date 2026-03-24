@@ -160,3 +160,30 @@ progress::-moz-progress-bar {
   display: inline-block;
   margin-right: 20px;
 }
+
+/* ==============================
+   SHOP
+============================== */
+
+.section {
+  margin-bottom: 20px;
+}
+
+.shop-panel {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  background: white;
+  border: 2px solid #ccc;
+  padding: 15px;
+  z-index: 1000;
+}
+
+.shop-options button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+}
+
