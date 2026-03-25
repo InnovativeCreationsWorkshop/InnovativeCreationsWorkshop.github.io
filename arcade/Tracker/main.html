@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Betty's Life RPG</title>
-<link rel="stylesheet" href="https://innovativecreationsworkshop.github.io/arcade/Tracker/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -77,16 +77,29 @@
 
     <hr>
 
+    <!-- ✅ FOOD SECTION FIXED -->
     <div class="section">
         <h2>Food</h2>
 
-        <button type="button" id="addProteinBtn">+20 Protein</button>
-        <span id="proteinCount">0</span>
+        <div class="nutrition-grid">
 
-        <br><br>
+            <button type="button" id="addProteinBtn" class="stat-btn">
+                <div class="stat-top">
+                    <span class="stat-label">Protein</span>
+                    <span class="stat-count" id="proteinCount">0</span>
+                </div>
+                <div class="stat-bottom">+20 XP</div>
+            </button>
 
-        <button type="button" id="addvegBtn">+10 Fruit / Veggies</button>
-        <span id="vegCount">0</span>
+            <button type="button" id="addvegBtn" class="stat-btn">
+                <div class="stat-top">
+                    <span class="stat-label">Fruits / Veggies</span>
+                    <span class="stat-count" id="vegCount">0</span>
+                </div>
+                <div class="stat-bottom">+10 XP</div>
+            </button>
+
+        </div>
     </div>
 
     <hr>
@@ -94,38 +107,53 @@
     <div class="section">
         <h2>Hydration</h2>
 
-        <button type="button" id="addHydrationBtn">+2 Drink water / tea</button>
-        <span id="hydrationCount">0</span>
+    <div class="nutrition-grid">
 
-        <br><br>
+            <button type="button" id="addHydrationBtn" class="stat-btn">
+                <div class="stat-top">
+                    <span class="stat-label">Drink Water / Tea </span>
+                    <span class="stat-count" id="hydrationCount">0</span>
+                </div>
+                <div class="stat-bottom">+4 XP</div>
+            </button>
 
-        <button type="button" id="addwarmBtn">+2 Bonus Warm Water</button>
-        <span id="warmCount">0</span>
+            <button type="button" id="addwarmBtn" class="stat-btn">
+                <div class="stat-top">
+                    <span class="stat-label">Bonus Warm Water</span>
+                    <span class="stat-count" id="warmCount">0</span>
+                </div>
+                <div class="stat-bottom">+2 XP</div>
+            </button>
+
+        </div>
+ 
+
+
+
     </div>
 
     <hr>
 
     <div class="section">
-    <h2>Glucose Check</h2>
+        <h2>Glucose Check</h2>
 
-    <input type="number" id="glucoseInput" placeholder="Enter glucose">
+        <input type="number" id="glucoseInput" placeholder="Enter glucose">
 
-    <br><br>
+        <br><br>
 
-    <label><input type="checkbox" id="fastingCheck"> Fasting</label>
-    <label><input type="checkbox" id="postMealCheck"> Post-meal</label>
+        <label><input type="checkbox" id="fastingCheck"> Fasting</label>
+        <label><input type="checkbox" id="postMealCheck"> Post-meal</label>
 
-    <br><br>
+        <br><br>
 
-    <button type="button" id="logGlucoseBtn">Log Glucose</button>
-    <p id="glucoseOutput"></p>
+        <button type="button" id="logGlucoseBtn">Log Glucose</button>
+        <p id="glucoseOutput"></p>
 
-    <!-- ✅ ADD THIS -->
-    <h3>Today's Logs</h3>
-    <ul id="glucoseLogItems"></ul>
+        <h3>Today's Logs</h3>
+        <ul id="glucoseLogItems"></ul>
 
-<p id="glucoseAlert" style="font-weight:bold; margin-top:10px;"></p>
-</div>
+        <p id="glucoseAlert" style="font-weight:bold; margin-top:10px;"></p>
+    </div>
 
     <hr>
 
@@ -139,7 +167,7 @@
 
 </div>
 
-<script src="https://innovativecreationsworkshop.github.io/arcade/Tracker/script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
