@@ -45,27 +45,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function loadState() {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (!saved) return;
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
 
-        try {
-            const parsed = JSON.parse(saved);
+    try {
+        const parsed = JSON.parse(saved);
 
-            if (!parsed.glucoseLogs) parsed.glucoseLogs = [];
+        if (!parsed.glucoseLogs) parsed.glucoseLogs = [];
 
-            if (parsed.lastDate !== TODAY) {
-                parsed.dailyXP = 0;
-                parsed.dailyMovementMinutes = 0;
-                parsed.glucoseLogs = [];
-                parsed.lastDate = TODAY;
-            }
+        Object.assign(state, parsed);
 
-            Object.assign(state, parsed);
-
-        } catch (e) {
-            console.warn("Load failed:", e);
-        }
+    } catch (e) {
+        console.warn("Load failed:", e);
     }
+}
 
     // =============================
     // REWARDS
@@ -156,7 +149,12 @@ document.addEventListener("DOMContentLoaded", function () {
         el.warmCount.textContent = state.nutrition.warm;
 
         // Movement
-        el.movementGoalDisplay.textContent = state.movementGoal ? state.movementGoal + " min" : "Not Set";
+       if (state.movementGoal) {
+    el.movementGoalDisplay.textContent =
+        `${state.dailyMovementMinutes} / ${state.movementGoal} min`;
+} else {
+    el.movementGoalDisplay.textContent = "Not Set";
+}
 
         // Gold cap
         if (state.gold > 1000) {
@@ -375,8 +373,29 @@ document.addEventListener("DOMContentLoaded", function () {
     bind("addwarmBtn", () => { state.nutrition.warm += 2; addXP(2); saveState(); updateDisplay(); });
 
     bind("lockInBtn", () => { state.todayLocked = true; saveState(); updateDisplay(); });
-    bind("clearTodayBtn", () => { state.dailyXP = 0; state.dailyMovementMinutes = 0; state.goalCompleted = false; state.glucoseLogs = []; saveState(); updateDisplay(); });
-    bind("clearAllBtn", () => { if (confirm("Are you sure you want to reset all progress?")) { localStorage.removeItem(STORAGE_KEY); location.reload(); } });
+    bind("clearTodayBtn", () => {
+    state.dailyXP = 0;
+    state.dailyMovementMinutes = 0;
+    state.goalCompleted = false;
+    state.glucoseLogs = [];
+
+  // ✅ RESET NUTRITION
+    state.nutrition = {
+        protein: 0,
+        veg: 0,
+        hydration: 0,
+        warm: 0
+    };
+
+    saveState();
+    updateDisplay();
+});
+    bind("clearAllBtn", () => {
+    if (confirm("Are you sure you want to reset all progress?")) {
+        localStorage.removeItem(STORAGE_KEY);
+        location.reload();
+    }
+});
 
     // =============================
     // INIT
