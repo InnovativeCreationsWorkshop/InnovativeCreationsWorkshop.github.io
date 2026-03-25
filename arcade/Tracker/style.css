@@ -119,19 +119,17 @@ progress {
   box-shadow: 0 3px 10px rgba(0,0,0,0.5) inset;
 }
 
-/* Chrome / Safari */
 progress::-webkit-progress-bar {
   background-color: rgba(255,255,255,0.2);
   border-radius: 15px;
 }
 
 progress::-webkit-progress-value {
-  background: linear-gradient(145deg, #D48868, #C67699);
+  background: linear-gradient(145deg, #F5D091, #D48868);
   border-radius: 15px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.5) inset;
 }
 
-/* Firefox */
 progress::-moz-progress-bar {
   background: linear-gradient(145deg, #D48868, #C67699);
   border-radius: 15px;
@@ -141,7 +139,8 @@ progress::-moz-progress-bar {
 /* ==============================
    OUTPUT TEXT
 ============================== */
-#extraMovementOutput, #glucoseOutput {
+#extraMovementOutput,
+#glucoseOutput {
   margin: 10px 0;
   font-weight: bold;
   color: #C67699;
@@ -156,15 +155,78 @@ progress::-moz-progress-bar {
   margin-bottom: 20px;
 }
 
-.stats h2, .stats div {
+.stats h2,
+.stats div {
   display: inline-block;
   margin-right: 20px;
 }
 
 /* ==============================
+   NUTRITION BUTTON LAYOUT (CENTERED)
+============================== */
+.nutrition-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* ==============================
+   STAT BUTTON (CARD STYLE)
+============================== */
+.stat-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+
+  background: #457589;
+  color: #fff;
+
+  cursor: pointer;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+
+  min-width: 140px;
+}
+
+.stat-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+.stat-btn:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+.stat-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px; /* ensures breathing room between label and number */
+}
+.stat-label {
+  opacity: 0.9;
+}
+
+.stat-count {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.stat-bottom {
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* ==============================
    SHOP
 ============================== */
-
 .section {
   margin-bottom: 20px;
 }
@@ -174,10 +236,24 @@ progress::-moz-progress-bar {
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  width: 300px;
-  background: white;
-  border: 2px solid #ccc;
-  padding: 15px;
+  width: 320px;
+
+  background-image: url("https://raw.githubusercontent.com/InnovativeCreationsWorkshop/InnovativeCreationsWorkshop.github.io/refs/heads/main/arcade/Tracker/img/backgroundv1.PNG");
+  background-size: cover;
+  background-position: center;
+
+  background-color: rgba(0,0,0,0.6);
+  background-blend-mode: overlay;
+
+  color: #F5D091;
+
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 15px;
+  padding: 20px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7),
+              0 0 20px rgba(212,136,104,0.4);
+
   z-index: 1000;
 }
 
@@ -187,3 +263,16 @@ progress::-moz-progress-bar {
   margin: 5px 0;
 }
 
+.shop-panel ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0;
+}
+
+.shop-panel li {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  margin: 6px 0;
+  border: 1px solid rgba(255,255,255,0.1);
+}
