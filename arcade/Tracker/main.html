@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Betty's Life RPG</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,28 +19,42 @@
     <hr>
 
     <div class="stats">
-        <h2>Daily XP:</h2>
-        <div id="xpResult">0</div>
+        
 
-        <h2>Total XP:</h2>
-        <div id="weeklyXpResult">0</div>
+       <!-- No visible text, only the counter updates -->
+	<div id="weeklyXpResult" style="display:inline-block;"></div>
+      
+<div class = "stats-container">
+	<div class="stat-Blue">	
+		<h2>Daily XP:</h2>
+        	<div id="xpResult">0</div>
+	</div>
+	
+	<div class="stat-Gold">
+        	<h2>Gold:</h2>
+        	<div id="goldResult">0</div>
+		
+	</div>
 
-        <h2>Gold:</h2>
-        <div id="goldResult">0</div>
-
-        <button type="button" id="openShopBtn">Spend Gold</button>
-    </div>
-
-    <hr>
+       
+</div>
+</div>
 
     <div class="section">
-        <h2>XP Progress to Gold</h2>
+          <progress id="xpProgressBar" value="0" max="500"></progress>
+          <h2>Total XP: <span id="xpProgressText"> 0 / 500 </span></h2>
+       
+      
+        <div class ="button-group">
 
-        <progress id="xpProgressBar" value="0" max="500"></progress>
-        <p><span id="xpProgressText">0 / 500 XP</span></p>
-
-        <button type="button" id="convertGoldBtn">Convert XP to Gold</button>
-    </div>
+            
+            <button class="btn-green" type="button" id="convertGoldBtn">
+              Convert XP to Gold</button>
+            <button class="btn-gold" type="button" id="openShopBtn">Spend Gold</button>
+    
+      </div>
+   
+    
 
     <div id="shopPanel" class="shop-panel" style="display:none;">
         <h2>Gold Shop</h2>
@@ -47,9 +62,11 @@
         <p>Spend Limit: 2 purchases per week</p>
         <p id="spendCountDisplay"></p>
 
-        <div class="shop-options">
-            <button type="button" id="tier5Btn" data-tier="5">5 Gold Tier</button>
-            <button type="button" id="tier10Btn" data-tier="10">10 Gold Tier</button>
+       <div class="button-group">
+	<div class="shop-options">
+	
+            <button class="btn-orange" type="button" id="tier5Btn" data-tier="5">5 Gold Tier</button>
+            <button class="btn-gold" type="button" id="tier10Btn" data-tier="10">10 Gold Tier</button>
         </div>
 
         <div id="rewardPreview" style="margin-top:10px; padding:10px; border:1px solid #ccc;">
@@ -58,116 +75,120 @@
 
         <br>
 
-        <button type="button" id="closeShopBtn">Close</button>
+        <button class="btn-blue" type="button" id="closeShopBtn">Close</button>
     </div>
+</div>
 
     <hr>
 
     <div class="section">
         <h2>Daily Movement</h2>
-
-        <button type="button" id="movementDoneBtn">Set New Goal</button>
+		
+	<center>
+       
+	 <button class="btn-purple" type="button" id="movementDoneBtn">Set New Goal</button>
         <p>Move Goal: <span id="movementGoalDisplay">Not Set</span></p>
 
         <input type="number" id="extraMovementInput" placeholder="Enter minutes" min="0">
-        <button type="button" id="logExtraMovementBtn">Log Movement</button>
+        <button class="btn-blue" type="button" id="logExtraMovementBtn">Log Movement</button>
 
         <p id="extraMovementOutput"></p>
+    </center>
     </div>
+   
+
 
     <hr>
 
-    <!-- ✅ FOOD SECTION FIXED -->
-    <div class="section">
-        <h2>Food</h2>
-
-        <div class="nutrition-grid">
-
-            <button type="button" id="addProteinBtn" class="stat-btn">
-                <div class="stat-top">
-                    <span class="stat-label">Protein</span>
-                    <span class="stat-count" id="proteinCount">0</span>
-                </div>
-                <div class="stat-bottom">+20 XP</div>
-            </button>
-
-            <button type="button" id="addvegBtn" class="stat-btn">
-                <div class="stat-top">
-                    <span class="stat-label">Fruits / Veggies</span>
-                    <span class="stat-count" id="vegCount">0</span>
-                </div>
-                <div class="stat-bottom">+10 XP</div>
-            </button>
-
-        </div>
-    </div>
-
-    <hr>
-
-    <div class="section">
-        <h2>Hydration</h2>
-
-    <div class="nutrition-grid">
-
-            <button type="button" id="addHydrationBtn" class="stat-btn">
-                <div class="stat-top">
-                    <span class="stat-label">Drink Water / Tea </span>
-                    <span class="stat-count" id="hydrationCount">0</span>
-                </div>
-                <div class="stat-bottom">+4 XP</div>
-            </button>
-
-            <button type="button" id="addwarmBtn" class="stat-btn">
-                <div class="stat-top">
-                    <span class="stat-label">Bonus Warm Water</span>
-                    <span class="stat-count" id="warmCount">0</span>
-                </div>
-                <div class="stat-bottom">+2 XP</div>
-            </button>
-
-        </div>
+<!--Nutrition-->
  
+<h2>Nutrition</h2>
+    <div class="section">
 
+    <table width="100%">
+        <tr> 
+            <!-- LEFT SIDE -->
+            <td valign="top" width="50%">
+                
 
+                <input type="text" id="nutritionInput" placeholder="Enter Nutrition">
 
-    </div>
+                
+
+                
+
+                
+                <center><button class="btn-purple" type="button" id="logFoodBtn">Log Nutrition</button> </center>
+
+                <p id="nutritionOutput"></p>
+            </td>
+
+            <!-- RIGHT SIDE -->
+            <td valign="top" width="50%">
+                <h3>Today's Nutrition Logs</h3>
+                <div id="nutritionItems"></div>
+
+                
+            </td>
+        </tr>
+    </table>
+
+</div>
 
     <hr>
 
+<h2>Glucose Check</h2>
     <div class="section">
-        <h2>Glucose Check</h2>
 
-        <input type="number" id="glucoseInput" placeholder="Enter glucose">
+    <table width="100%">
+        <tr>
+            <!-- LEFT SIDE -->
+            <td valign="top" width="50%">
+                
 
-        <br><br>
+                <input type="number" id="glucoseInput" placeholder="Enter glucose">
 
-        <label><input type="checkbox" id="fastingCheck"> Fasting</label>
-        <label><input type="checkbox" id="postMealCheck"> Post-meal</label>
+                <br><br>
 
-        <br><br>
+                <label><input type="checkbox" id="fastingCheck"> Fasting</label>
+                <label><input type="checkbox" id="postMealCheck"> Non-Fasting</label>
 
-        <button type="button" id="logGlucoseBtn">Log Glucose</button>
-        <p id="glucoseOutput"></p>
+                <br><br>
 
-        <h3>Today's Logs</h3>
-        <ul id="glucoseLogItems"></ul>
+                <center><button class="btn-purple" type="button" id="logGlucoseBtn">Log Glucose</button> </center>
 
-        <p id="glucoseAlert" style="font-weight:bold; margin-top:10px;"></p>
-    </div>
+                <p id="glucoseOutput"></p>
+            </td>
+
+            <!-- RIGHT SIDE -->
+            <td valign="top" width="50%">
+                <h3>Today's Logs</h3>
+                <div id="glucoseLogItems"></div>
+
+                <p id="glucoseAlert" style="font-weight:bold; margin-top:10px;"></p>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+
 
     <hr>
 
     <div class="section">
         <h2>Day Controls</h2>
-
-        <button type="button" id="lockInBtn">Lock In Today</button>
-        <button type="button" id="clearTodayBtn">Clear Today</button>
-        <button type="button" id="clearAllBtn">Reset All</button>
+      <div class="button-group">
+        <button class="btn-blue" type="button" id="lockInBtn">Lock In Today</button>
+        <button class="btn-purple" type="button" id="clearTodayBtn">Clear Today</button>
+        <button class="btn-green" type="button" id="clearAllBtn">Reset All</button>
+      </div>  
     </div>
 
-</div>
+
 
 <script src="script.js"></script>
+<script src="dataset.js"></script>
 
 </body>
 </html>
