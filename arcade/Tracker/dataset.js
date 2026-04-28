@@ -178,6 +178,20 @@ const mealDataset = {
     // Other
     "hainan rice": ["carbs", "protein"],
     "egg rolls": ["carbs"],
+    "mushu chicken":["protein","carbs"],
+    "mushu pork": ["protein","carbs"],
+    "Thai beef": ["protein", "veg"],
+    "thai beef larb": ["veg", "protein"],
+    "Hotdog": ["carbs", "protein"],
+    "hot dog": ["carbs", "protein"],
+    "cheese sticks": ["carbs"],
+    "cheese stick": ["carbs"],
+    "cheesy bread": ["carbs"],
+    "pesto sticks": ["carbs"],
+    "charcuterie": ["carbs", "protein"],
+    "pickles": ["veg"],
+    "Lunchables": ["carbs", "protein"],
+    
    
 
       // Asian
@@ -291,7 +305,13 @@ const diabeticFriendlyDesserts = {
     "blueberry": { category: "dessert", value: 5 },
     "banana": { category: "dessert", value: 5 },
     "peach": { category: "dessert", value: 5 },
-    "fruit cocktail": { category: "dessert", value: 5 },
+    "fruit cocktail": { category: "dessert", value: 2 },
+    "yogurt with jam": {category: "dessert", value: 2},
+    "yogurt and jam": {category: "dessert", value:2},
+    "Jelly": { category: "dessert", value: 2 },
+    "Jam": { category: "dessert", value: 2 },
+    "pop": { category: "dessert", value: 2 },
+    "soda": { category: "dessert", value: 2 },
     "test": { category: "dessert", value: 50 },
     "tests": { category: "dessert", value: 500 }
 };
@@ -341,6 +361,8 @@ const nonDiabeticDesserts = {
     "pancakes": { category: "dessert", value: -40 },
     "waffles": { category: "dessert", value: -40 },
     "cake": { category: "dessert", value: -40 },
+    "cookie": { category: "dessert", value: -20 },
+    "cookies": { category: "dessert", value: -20 },
 
     "mcflurry": { category: "dessert", value: -40 },
     "hot cocoa": { category: "dessert", value: -40 },
@@ -350,7 +372,6 @@ const nonDiabeticDesserts = {
     "alcohol": { category: "dessert", value: -40 },
     "starbucks": { category: "dessert", value: -40 },
     "juice": { category: "dessert", value: -40 },
-    "latte": { category: "dessert", value: -40 },
     "ferrero rocher": { category: "dessert", value: -40 }
 };
 
