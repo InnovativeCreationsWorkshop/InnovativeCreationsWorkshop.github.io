@@ -165,6 +165,7 @@ const mealDataset = {
     // Southern / Cajun
     "jambalaya": ["protein", "carbs"],
     "gumbo": ["protein"],
+    "red beans and rice": ["carbs", "protein"],
 
     // Comfort foods
     "chili": ["protein", "veg"],
