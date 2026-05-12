@@ -58,17 +58,22 @@ const foodDataset = {
     "corn": { category: "veg", value: 5 },
     "cabbage": { category: "veg", value: 5 },
     "cauliflower": { category: "veg", value: 5 },
+    "veg": { category: "veg", value: 7 },
+    "vegtables": { category: "veg", value: 7 },
+    "mix veggies": { category: "veg", value: 7 },
+    "veggies": { category: "veg", value: 7 },
 
     // Hydration
     "water": { category: "hydration", value: 2 },
     "orange juice": { category: "hydration", value: 2 },
     "tea": { category: "hydration", value: 2 },
-    "coffee": { category: "hydration", value: 2 },
+    "coffee": { category: "hydration", value: -1 },
     "milk": { category: "hydration", value: 2 },
     "almond milk": { category: "hydration", value: 2 },
-    "olipop": { category: "hydration", value: 2 },
+    "olipop": { category: "hydration", value: -1 },
     "lemon water": { category: "hydration", value: 2 },
     "sparkling water": { category: "hydration", value: 2 },
+    "kampot": { category: "hydration", value: 2 },
 
     // Carbs (value = 0)
     "bread": { category: "carbs", value: 0 },
