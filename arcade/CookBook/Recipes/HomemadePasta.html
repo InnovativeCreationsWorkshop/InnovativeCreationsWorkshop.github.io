@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Homemade Pasta</title>
+
+</head>
+<body data-page="HomemadePasta">
+
+<div class="card">
+    <div class="left">
+        <h1>HOMEMADE PASTA</h1>
+
+        <div class="stars"> ★★ <p>Medium</p></div>
+        <div class="meta">total time: 1 hour</div>
+        <div class="meta">
+            Fresh pasta with simple ingredients and a little arm workout built in.
+        </div>
+
+        <img src="../image/tempimage.jpg" alt="Homemade Pasta preview" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <li>100 grams of all-purpose flour is about 3/4 cup.</li>
+            <li>The dough should feel smooth and spring back when pressed.</li>
+            <li>Roll the pasta very thin — almost translucent — for the best texture.</li>
+        </div>
+
+        <button class="video-btn" onclick="playVideo()">
+            Watch Video
+        </button>
+
+        <br><br>
+
+        <video id="recipeVideo" width="800" controls style="display:none;">
+            <source src="../Video/HomemadePasta.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>3/4 cup all-purpose flour</li>
+                <li>3 eggs</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Place the flour onto a clean flat surface and form it into a mound.</li>
+                <li>Create a well in the center like a small cup shape.</li>
+                <li>Add the eggs into the center and whisk with a fork.</li>
+                <li>Slowly pull flour into the eggs until the center becomes pasty.</li>
+                <li>Use your hands to combine everything into a dough.</li>
+                <li>Knead vigorously for about 10 minutes until smooth.</li>
+                <li>Press the dough lightly — it should spring back.</li>
+                <li>Wrap the dough in a cloth and rest for 30 minutes.</li>
+                <li>Use a rolling pin to flatten and stretch the dough very thin.</li>
+                <li>Roll the sheet of pasta, then slice into strips.</li>
+                <li>Boil in salted water until cooked through and tender.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="../Recipes/nav.js"></script>
+
+<script>
+function playVideo() {
+    const video = document.getElementById("recipeVideo");
+    video.style.display = "block";
+    video.play();
+}
+</script>
+
+</body>
+</html>
