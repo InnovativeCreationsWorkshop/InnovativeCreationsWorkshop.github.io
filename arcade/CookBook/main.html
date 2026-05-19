@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PALATE — Cookbook</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="mainstyle.css">
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <div class="card">
+
+    <!-- TOP -->
+
+    <div class="top-panel">
+
+      <header>
+        <div class="sys-label">
+          // CYBERDECK — RECIPE OS v1.0 //
+        </div>
+
+        <div class="title" data-text="PALATE">
+          PALATE
+        </div>
+
+        <div class="subtitle">
+          A DIGITAL COOKBOOK
+        </div>
+
+        <div class="tagline">
+          eat well. cook fast. no wifi required.
+        </div>
+      </header>
+
+  <!-- BOTTOM -->
+
+<div class="bottom-panel">
+
+  <!-- SEARCH -->
+
+  <div class="search-row">
+
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+
+      <input
+        type="text"
+        placeholder="search recipes..."
+        id="searchInput"
+      />
+    </div>
+
+    <button class="btn-search" onclick="handleSearch()">
+      SEARCH
+    </button>
+
+  </div>
+
+  <!-- DIVIDER -->
+
+  <div class="divider">
+
+    <div class="divider-line"></div>
+
+    <div class="divider-label">
+      OR BROWSE
+    </div>
+
+    <div class="divider-line"></div>
+
+  </div>
+
+  <!-- BUTTONS -->
+
+  <div class="main-btns">
+
+    <button class="main-btn btn-categories" onclick="handleCategories()">
+
+      <div class="btn-icon">▦</div>
+
+      <div class="btn-label">
+        CATEGORIES
+      </div>
+
+      <div class="btn-desc">
+        browse by type or ingredient
+      </div>
+
+    </button>
+
+    <button class="main-btn btn-random" onclick="handleRandom()">
+
+      <div class="btn-icon">⚄</div>
+
+      <div class="btn-label">
+        RANDOM
+      </div>
+
+      <div class="btn-desc">
+        surprise me — pick a recipe
+      </div>
+
+    </button>
+
+  </div>
+
+  <!-- STATUS -->
+
+  <div class="status-bar">
+
+    <span>
+      <span class="status-dot"></span>
+      COOKBOOK LOADED — ALL RECIPES READY
+    </span>
+
+    <span class="status-right">
+      PALATE.EXE // v1.0
+    </span>
+
+  </div>
+
+</div>
+</div>
+</div>
+
+<script src="mainscript.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Big Mac Salad</title>
+
+</head>
+<body data-page="BigMacSalad">
+
+<div class="card">
+    <div class="left">
+        <h1>BIG MAC SALAD</h1>
+
+        <div class="stars"> ★ <p>Easy</p></div>
+        <div class="meta">total time: 20–25 minutes</div>
+        <div class="meta">
+            All the burger joy, none of the carb scaffolding. A forkable backyard cookout illusion.
+        </div>
+
+        <img src="../image/tempimage.jpg" alt="Big Mac Salad preview" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <li>Add mustard for full burger illusion mode. Toasted sesame seeds give subtle bun vibes.</li>
+            <li>Don’t over-stir the beef if you want crispy edges. Perfect for fast food energy with slightly better decisions.</li>
+        </div>
+
+        <button class="video-btn" onclick="playVideo()">
+            Watch Video
+        </button>
+
+        <br><br>
+
+        <video id="recipeVideo" width="800" controls style="display:none;">
+            <source src="../Video/BigMacSalad.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Iceberg Lettuce</li>
+                <li>Ground beef</li>
+                <li>Salt, Black pepper</li>
+                <li>Garlic (minced or powder)</li>
+                <li>White onion, chopped</li>
+            </ul>
+            <ul>
+                <li>Tomatoes, chopped</li>
+                <li>Pickles, chopped</li>
+                <li>Cheese (shredded or crumbled)</li>
+                <li>Thousand Island dressing</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Cook beef in a pan over medium-high heat. Season and brown until slightly crispy.</li>
+                <li>Place lettuce in a large bowl.</li>
+                <li>Add tomatoes, onion, pickles, and cheese.</li>
+                <li>Add hot beef on top.</li>
+                <li>Drizzle with Thousand Island dressing and serve.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="../Recipes/nav.js"></script>
+
+<script>
+function playVideo() {
+    const video = document.getElementById("recipeVideo");
+    video.style.display = "block";
+    video.play();
+}
+</script>
+
+</body>
+</html>
