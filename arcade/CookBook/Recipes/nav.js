@@ -5,18 +5,28 @@ const routes = {
     ====================== */
 
     "BigMacSalad": {
-        next: "CreamyCucumberSalad.html",
+        next: "ChineseSteamedEgg.html",
         prev: "BeefVindaloo.html"
+    },
+
+    "ChineseSteamedEgg": {
+        next: "CreamyCucumberSalad.html",
+        prev: "BigMacSalad.html"
     },
 
     "CreamyCucumberSalad": {
         next: "CreamyMushroomSoup.html",
-        prev: "BigMacSalad.html"
+        prev: "ChineseSteamedEgg.html"
     },
 
     "GreekChickpeaSalad": {
-        next: "ItalianWeddingSoup.html",
+        next: "HomemadePasta.html",
         prev: "GoldenChickenSoup.html"
+    },
+
+    "HomemadePasta": {
+        next: "ItalianWeddingSoup.html",
+        prev: "GreekChickpeaSalad.html"
     },
 
     "KoreanSalad": {
@@ -65,7 +75,7 @@ const routes = {
 
     "ItalianWeddingSoup": {
         next: "JapaneseCurry.html",
-        prev: "GreekChickpeaSalad.html"
+        prev: "HomemadePasta.html"
     },
 
     "JapaneseCurry": {
@@ -94,13 +104,18 @@ const routes = {
     },
 
     "SopadeLentejas": {
-        next: "SriLankanDahl.html",
+        next: "SpaghettiWithMeatSauce.html",
         prev: "Soondubujigae.html"
+    },
+
+    "SpaghettiWithMeatSauce": {
+        next: "SriLankanDahl.html",
+        prev: "SopadeLentejas.html"
     },
 
     "SriLankanDahl": {
         next: "TofuPot.html",
-        prev: "SopadeLentejas.html"
+        prev: "SpaghettiWithMeatSauce.html"
     },
 
     "TofuPot": {
