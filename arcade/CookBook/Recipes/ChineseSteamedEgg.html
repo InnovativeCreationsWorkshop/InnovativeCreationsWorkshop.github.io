@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Chinese Steamed Egg</title>
+
+</head>
+<body data-page="ChineseSteamedEgg">
+
+<div class="card">
+    <div class="left">
+        <h1>CHINESE STEAMED EGG</h1>
+
+        <div class="stars"> ★ <p>Easy</p></div>
+        <div class="meta">total time: 20 minutes</div>
+        <div class="meta">
+            Silky, savory steamed eggs with comforting texture and simple flavors.
+        </div>
+
+        <img src="../image/tempimage.jpg" alt="Chinese Steamed Egg preview" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <li>Eat with rice or enjoy by itself.</li>
+            <li>Optional toppings: nori, bonito flakes, or chili oil for spice.</li>
+        </div>
+
+        <button class="video-btn" onclick="playVideo()">
+            Watch Video
+        </button>
+
+        <br><br>
+
+        <video id="recipeVideo" width="800" controls style="display:none;">
+            <source src="../Video/ChineseSteamedEgg.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>3 eggs, beaten</li>
+                <li>Warm water</li>
+                <li>Soy sauce</li>
+            </ul>
+            <ul>
+                <li>Sesame oil</li>
+                <li>Scallions, chopped</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Beat the eggs in a bowl.</li>
+                <li>Add warm water and mix gently.</li>
+                <li>Place the bowl into a steam basket.</li>
+                <li>Steam for about 15 minutes until set.</li>
+                <li>Drizzle with soy sauce and sesame oil.</li>
+                <li>Top with chopped scallions and serve.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="../Recipes/nav.js"></script>
+
+<script>
+function playVideo() {
+    const video = document.getElementById("recipeVideo");
+    video.style.display = "block";
+    video.play();
+}
+</script>
+
+</body>
+</html>
