@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Kabsa</title>
+
+</head>
+<body data-page="Kabsa">
+
+<div class="card">
+    <div class="left">
+        <h1>KABSA</h1>
+
+        <div class="stars"> ★ ★ ★ ★ <p>Medium-Hard</p></div>
+        <div class="meta">total time: 1.5–2 hours</div>
+        <div class="meta">
+            Fragrant Gulf-style spiced rice layered with citrusy chicken, deep aromatics, and fresh daqoos sauce.
+        </div>
+
+        <img src="../image/tempimage.jpg" alt="Kabsa preview" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <li>The layering of flavors is what makes kabsa special — take your time with the spice base.</li>
+            <li>Loomi (dried black lime) gives the dish its signature earthy citrus flavor.</li>
+            <li>Broiling the chicken after simmering creates the classic golden crispy finish.</li>
+            <li>For an easier version, cook the rice in a rice cooker using the seasoned stock.</li>
+        </div>
+
+        <button class="video-btn" onclick="playVideo()">
+            Watch Video
+        </button>
+
+        <br><br>
+
+        <video id="recipeVideo" width="800" controls style="display:none;">
+            <source src="../Video/Kabsa.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+
+        <div class="ingredients">
+            <ul>
+                <li>Chicken pieces</li>
+                <li>Basmati rice</li>
+                <li>Onion, finely diced</li>
+                <li>Carrot, grated</li>
+                <li>Ghee or butter</li>
+                <li>Cinnamon sticks</li>
+                <li>Bay leaves</li>
+                <li>Cardamom pods</li>
+                <li>Cloves</li>
+                <li>Star anise</li>
+                <li>Loomi (dried lime)</li>
+            </ul>
+
+            <ul>
+                <li>Black pepper</li>
+                <li>Garlic powder</li>
+                <li>Ginger powder</li>
+                <li>Paprika</li>
+                <li>Chili powder</li>
+                <li>Coriander powder</li>
+                <li>Nutmeg</li>
+                <li>Cinnamon powder</li>
+                <li>Cardamom powder</li>
+                <li>Cumin</li>
+                <li>Turmeric</li>
+                <li>Loomi powder</li>
+                <li>Tomato puree</li>
+                <li>Chicken bouillon</li>
+                <li>Salt</li>
+                <li>Orange zest</li>
+            </ul>
+        </div>
+
+        <h2>DAQOOS SAUCE</h2>
+        <div class="directions">
+            <ul>
+                <li>Tomatoes</li>
+                <li>Onion</li>
+                <li>Chilies</li>
+                <li>Lemon juice</li>
+                <li>Garlic</li>
+                <li>Fresh mint</li>
+                <li>Fresh coriander</li>
+                <li>Cumin</li>
+                <li>Salt</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Heat ghee or butter in a large pot.</li>
+                <li>Add diced onion and grated carrot. Cook until softened.</li>
+                <li>Add cinnamon sticks, bay leaves, cardamom pods, cloves, star anise, and loomi.</li>
+                <li>Add black pepper, garlic powder, ginger powder, paprika, chili powder, coriander powder, nutmeg, cinnamon powder, cardamom powder, cumin, turmeric, and loomi powder.</li>
+                <li>Mix in tomato puree, chicken bouillon, and salt.</li>
+                <li>Cook everything down until it forms a rich fragrant paste.</li>
+                <li>Add chicken and fry until lightly colored.</li>
+                <li>Add water and orange zest, then simmer for about 30 minutes or until chicken is fully cooked.</li>
+                <li>Remove chicken and broil until crispy and golden.</li>
+                <li>Wash and soak basmati rice until doubled slightly in size.</li>
+                <li>Add rice to the remaining seasoned stock and cook until fluffy and tender.</li>
+                <li>Add extra orange zest for brightness before serving.</li>
+                <li>Blend or finely chop all daqoos ingredients together and serve alongside the kabsa.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="../Recipes/nav.js"></script>
+
+<script>
+function playVideo() {
+    const video = document.getElementById("recipeVideo");
+    video.style.display = "block";
+    video.play();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Roti</title>
+
+</head>
+<body data-page="Roti">
+
+<div class="card">
+    <div class="left">
+        <h1>ROTI</h1>
+
+        <div class="stars"> ★ <p>Easy</p></div>
+        <div class="meta">total time: 30–40 minutes</div>
+        <div class="meta">
+            Soft, flaky flatbread perfect for scooping up rich curries, stews, and sauces.
+        </div>
+
+        <img src="../image/tempimage.jpg" alt="Roti preview" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <li>Boiling water helps create a softer and more pliable dough.</li>
+            <li>Roll the dough as thin as possible for classic layered roti texture.</li>
+            <li>Optional garlic butter adds extra flavor and richness.</li>
+        </div>
+
+        <button class="video-btn" onclick="playVideo()">
+            Watch Video
+        </button>
+
+        <br><br>
+
+        <video id="recipeVideo" width="800" controls style="display:none;">
+            <source src="../Video/Roti.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>2 cups flour</li>
+                <li>Pinch of salt</li>
+                <li>2 tbsp oil</li>
+                <li>2 tbsp butter or ghee</li>
+            </ul>
+
+            <ul>
+                <li>1 cup boiling water</li>
+                <li>Extra oil for frying</li>
+                <li>Optional garlic butter</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>In a bowl, combine flour and salt.</li>
+                <li>Add oil and butter or ghee.</li>
+                <li>Slowly pour in boiling water while mixing.</li>
+                <li>Knead until the dough becomes soft and smooth.</li>
+                <li>Roll dough into a large ball and divide into 8 equal pieces.</li>
+                <li>Shape each piece into a smaller ball.</li>
+                <li>Flatten and roll each ball as thin as possible.</li>
+                <li>Optional: spread garlic butter over the rolled dough.</li>
+                <li>Heat oil in a pan over medium heat.</li>
+                <li>Pan fry each roti until golden spots appear on both sides.</li>
+                <li>Serve warm with your favorite curries or stews.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="../Recipes/nav.js"></script>
+
+<script>
+function playVideo() {
+    const video = document.getElementById("recipeVideo");
+    video.style.display = "block";
+    video.play();
+}
+</script>
+
+</body>
+</html>
