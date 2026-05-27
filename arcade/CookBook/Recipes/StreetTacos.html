@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Street Tacos</title>
+
+</head>
+<body data-page="StreetTacos">
+
+<div class="card">
+    <div class="left">
+        <h1>STREET TACOS</h1>
+
+        <div class="stars"> ★★ <p>Medium</p></div>
+        <div class="meta">total time: 35–45 minutes</div>
+        <div class="meta">
+            Messy hands, dripping salsa, zero regrets. Backyard taqueria energy without the parking lot line.
+        </div>
+
+        <img src="../image/Tacos.jpg" alt="Street Tacos preview" class="food-image">
+
+        <h2>NOTES</h2>
+        <ul class="meta">
+            <li>Add Mexican-style cheese for extra richness and taco shop vibes.</li>
+            <li>Char the salsa ingredients hard — the blackened edges build the flavor.</li>
+        </ul>
+
+        <button class="video-btn" onclick="playVideo()">
+            Watch Video
+        </button>
+
+        <br><br>
+
+        <video id="recipeVideo" width="800" controls style="display:none;">
+            <source src="../Video/StreetTacos.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+
+            <ul>
+                <li>Choice of protein</li>
+                <li>Carne asada</li>
+                <li>Orange juice</li>
+                <li>Lime juice</li>
+                <li>Onion</li>
+                <li>Fresh cilantro</li>
+                <li>Taco seasoning</li>
+            </ul>
+
+            <ul>
+                <li>Salt</li>
+                <li>Black pepper</li>
+                <li>Oregano</li>
+                <li>Cumin</li>
+                <li>Chili powder</li>
+                <li>Cayenne pepper (optional)</li>
+                <li>Corn tortillas</li>
+                <li>Mexican-style cheese (optional)</li>
+            </ul>
+
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Marinate the carne asada with orange juice, lime juice, onion, cilantro, taco seasoning, salt, black pepper, oregano, cumin, chili powder, and cayenne if using.</li>
+
+                <li>Let the meat marinate for at least 20 minutes or longer for deeper flavor.</li>
+
+                <li>Cook the protein in a hot pan or grill until browned and fully cooked.</li>
+
+                <li>Chop the cooked meat into small taco-sized pieces.</li>
+
+                <li>Finely chop fresh onion and cilantro for topping.</li>
+
+                <li>For the salsa, pan fry jalapeños and tomatoes until blackened.</li>
+
+                <li>Add the charred vegetables to a blender with onion, lemon juice, and salt. Blend until smooth.</li>
+
+                <li>Warm the corn tortillas.</li>
+
+                <li>Assemble tacos with meat, onion, cilantro, salsa, and optional Mexican-style cheese.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="../Recipes/nav.js"></script>
+
+<script>
+function playVideo() {
+    const video = document.getElementById("recipeVideo");
+
+    if (video.style.display === "none" || video.style.display === "") {
+        video.style.display = "block";
+    }
+
+    video.play();
+}
+</script>
+
+</body>
+</html>
