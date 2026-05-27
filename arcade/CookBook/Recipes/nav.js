@@ -2,175 +2,215 @@ const routes = {
 
     /* ======================
        🥗 START / SALADS
-    ====================== */
+====================== */
 
-    "BigMacSalad": {
-        next: "ChineseSteamedEgg.html",
-        prev: "BeefVindaloo.html"
-    },
+"BigMacSalad": {
+    next: "CapreseSalad.html",
+    prev: "Roti.html"
+},
 
-    "ChineseSteamedEgg": {
-        next: "CreamyCucumberSalad.html",
-        prev: "BigMacSalad.html"
-    },
+"CapreseSalad": {
+    next: "ChineseSteamedEgg.html",
+    prev: "BigMacSalad.html"
+},
 
-    "CreamyCucumberSalad": {
-        next: "CreamyMushroomSoup.html",
-        prev: "ChineseSteamedEgg.html"
-    },
+"ChineseSteamedEgg": {
+    next: "CreamyCucumberSalad.html",
+    prev: "CapreseSalad.html"
+},
 
-    "GreekChickpeaSalad": {
-        next: "HomemadePasta.html",
-        prev: "GoldenChickenSoup.html"
-    },
+"CreamyCucumberSalad": {
+    next: "GreekChickpeaSalad.html",
+    prev: "ChineseSteamedEgg.html"
+},
 
-    "HomemadePasta": {
-        next: "ItalianWeddingSoup.html",
-        prev: "GreekChickpeaSalad.html"
-    },
+"GreekChickpeaSalad": {
+    next: "KoreanSalad.html",
+    prev: "CreamyCucumberSalad.html"
+},
 
-    "KoreanSalad": {
-        next: "KoreanSpinachSalad.html",
-        prev: "Kompot.html"
-    },
+"KoreanSalad": {
+    next: "KoreanSpinachSalad.html",
+    prev: "GreekChickpeaSalad.html"
+},
 
-    "KoreanSpinachSalad": {
-        next: "LazyChickenBiryani.html",
-        prev: "KoreanSalad.html"
-    },
+"KoreanSpinachSalad": {
+    next: "YamitsukiShioKyabetsu.html",
+    prev: "KoreanSalad.html"
+},
 
-    /* ======================
+"YamitsukiShioKyabetsu": {
+    next: "BeefStew.html",
+    prev: "KoreanSpinachSalad.html"
+},
+
+/* ======================
        🍲 SOUPS / STEWS
-    ====================== */
+====================== */
 
-    "BeefStew": {
-        next: "BeefVindaloo.html",
-        prev: "AsianMarinade.html"
-    },
+"BeefStew": {
+    next: "BeefVindaloo.html",
+    prev: "YamitsukiShioKyabetsu.html"
+},
 
-    "BeefVindaloo": {
-        next: "BigMacSalad.html",
-        prev: "BeefStew.html"
-    },
+"BeefVindaloo": {
+    next: "CajunSausagePotatoSoup.html",
+    prev: "BeefStew.html"
+},
 
-    "CajunSausagePotatoSoup": {
-        next: "CreamyCucumberSalad.html",
-        prev: "BigMacSalad.html"
-    },
+"CajunSausagePotatoSoup": {
+    next: "CreamyMushroomSoup.html",
+    prev: "BeefVindaloo.html"
+},
 
-    "CreamyMushroomSoup": {
-        next: "EggCurry.html",
-        prev: "CreamyCucumberSalad.html"
-    },
+"CreamyMushroomSoup": {
+    next: "EggCurry.html",
+    prev: "CajunSausagePotatoSoup.html"
+},
 
-    "EggCurry": {
-        next: "FriedRice.html",
-        prev: "CreamyMushroomSoup.html"
-    },
+"EggCurry": {
+    next: "GoldenChickenSoup.html",
+    prev: "CreamyMushroomSoup.html"
+},
 
-    "GoldenChickenSoup": {
-        next: "GreekChickpeaSalad.html",
-        prev: "FriedRice.html"
-    },
+"GoldenChickenSoup": {
+    next: "ItalianWeddingSoup.html",
+    prev: "EggCurry.html"
+},
 
-    "ItalianWeddingSoup": {
-        next: "JapaneseCurry.html",
-        prev: "HomemadePasta.html"
-    },
+"ItalianWeddingSoup": {
+    next: "JapaneseCurry.html",
+    prev: "GoldenChickenSoup.html"
+},
 
-    "JapaneseCurry": {
-        next: "Kompot.html",
-        prev: "ItalianWeddingSoup.html"
-    },
+"JapaneseCurry": {
+    next: "NabeSoup.html",
+    prev: "ItalianWeddingSoup.html"
+},
 
-    "NabeSoup": {
-        next: "NordicLeekSoup.html",
-        prev: "LazyChickenBiryani.html"
-    },
+"NabeSoup": {
+    next: "NordicLeekSoup.html",
+    prev: "JapaneseCurry.html"
+},
 
-    "NordicLeekSoup": {
-        next: "Okonomiyaki.html",
-        prev: "NabeSoup.html"
-    },
+"NordicLeekSoup": {
+    next: "PolloChileColorado.html",
+    prev: "NabeSoup.html"
+},
 
-    "PolloChileColorado": {
-        next: "RedbeansRice.html",
-        prev: "Okonomiyaki.html"
-    },
+"PolloChileColorado": {
+    next: "Soondubujigae.html",
+    prev: "NordicLeekSoup.html"
+},
 
-    "Soondubujigae": {
-        next: "SopadeLentejas.html",
-        prev: "RiceCookerBowl.html"
-    },
+"Soondubujigae": {
+    next: "SopadeLentejas.html",
+    prev: "PolloChileColorado.html"
+},
 
-    "SopadeLentejas": {
-        next: "SpaghettiWithMeatSauce.html",
-        prev: "Soondubujigae.html"
-    },
+"SopadeLentejas": {
+    next: "SpaghettiWithMeatSauce.html",
+    prev: "Soondubujigae.html"
+},
 
-    "SpaghettiWithMeatSauce": {
-        next: "SriLankanDahl.html",
-        prev: "SopadeLentejas.html"
-    },
+"SpaghettiWithMeatSauce": {
+    next: "SriLankanDahl.html",
+    prev: "SopadeLentejas.html"
+},
 
-    "SriLankanDahl": {
-        next: "TofuPot.html",
-        prev: "SpaghettiWithMeatSauce.html"
-    },
+"SriLankanDahl": {
+    next: "TofuPot.html",
+    prev: "SpaghettiWithMeatSauce.html"
+},
 
-    "TofuPot": {
-        next: "TuscanSoup.html",
-        prev: "SriLankanDahl.html"
-    },
+"TofuPot": {
+    next: "TuscanSoup.html",
+    prev: "SriLankanDahl.html"
+},
 
-    "TuscanSoup": {
-        next: "UmamiSeaweedRiceRolls.html",
-        prev: "TofuPot.html"
-    },
+"TuscanSoup": {
+    next: "DoroWat.html",
+    prev: "TofuPot.html"
+},
 
-    /* ======================
-       🍚 RICE / OTHER
-    ====================== */
+"DoroWat": {
+    next: "AsianMarinade.html",
+    prev: "TuscanSoup.html"
+},
 
-    "AsianMarinade": {
-        next: "BeefStew.html",
-        prev: "UmamiSeaweedRiceRolls.html"
-    },
+/* ======================
+       🍚 RICE / MAINS
+====================== */
 
-    "FriedRice": {
-        next: "GoldenChickenSoup.html",
-        prev: "EggCurry.html"
-    },
+"AsianMarinade": {
+    next: "HomemadePasta.html",
+    prev: "DoroWat.html"
+},
 
-    "Kompot": {
-        next: "KoreanSalad.html",
-        prev: "JapaneseCurry.html"
-    },
+"HomemadePasta": {
+    next: "Burrito.html",
+    prev: "AsianMarinade.html"
+},
 
-    "LazyChickenBiryani": {
-        next: "NabeSoup.html",
-        prev: "KoreanSpinachSalad.html"
-    },
+"Burrito": {
+    next: "StreetTacos.html",
+    prev: "HomemadePasta.html"
+},
 
-    "Okonomiyaki": {
-        next: "PolloChileColorado.html",
-        prev: "NordicLeekSoup.html"
-    },
+"StreetTacos": {
+    next: "FriedRice.html",
+    prev: "Burrito.html"
+},
 
-    "RedbeansRice": {
-        next: "RiceCookerBowl.html",
-        prev: "PolloChileColorado.html"
-    },
+"FriedRice": {
+    next: "Kompot.html",
+    prev: "StreetTacos.html"
+},
 
-    "RiceCookerBowl": {
-        next: "Soondubujigae.html",
-        prev: "RedbeansRice.html"
-    },
+"Kompot": {
+    next: "LazyChickenBiryani.html",
+    prev: "FriedRice.html"
+},
 
-    "UmamiSeaweedRiceRolls": {
-        next: "AsianMarinade.html",
-        prev: "TuscanSoup.html"
-    }
+"LazyChickenBiryani": {
+    next: "Okonomiyaki.html",
+    prev: "Kompot.html"
+},
+
+"Okonomiyaki": {
+    next: "RedBeansRice.html",
+    prev: "LazyChickenBiryani.html"
+},
+
+"RedBeansRice": {
+    next: "RiceCookerBowl.html",
+    prev: "Okonomiyaki.html"
+},
+
+"RiceCookerBowl": {
+    next: "UmamiSeaweedRiceRolls.html",
+    prev: "RedBeansRice.html"
+},
+
+"UmamiSeaweedRiceRolls": {
+    next: "EthiopianBeefTibs.html",
+    prev: "RiceCookerBowl.html"
+},
+
+"EthiopianBeefTibs": {
+    next: "Kabsa.html",
+    prev: "UmamiSeaweedRiceRolls.html"
+},
+
+"Kabsa": {
+    next: "Roti.html",
+    prev: "EthiopianBeefTibs.html"
+},
+
+"Roti": {
+    next: "BigMacSalad.html",
+    prev: "Kabsa.html"
+}
 };
 
 document.addEventListener("DOMContentLoaded", () => {
