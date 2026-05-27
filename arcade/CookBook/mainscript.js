@@ -1,71 +1,402 @@
 // ── CATEGORIES DATA ──────────────────────────────────────
-
 const CATEGORIES = {
   cuisine: [
-    { key: 'asian',    label: 'ASIAN',    icon: '🥡', recipes: ['NabeSoup', 'JapaneseCurry', 'Okonomiyaki', 'Soondubujigae', 'KoreanSalad', 'KoreanSpinachSalad', 'YamitsukiShioKyabetsu', 'FriedRice', 'AsianMarinade', 'UmamiSeaweedRiceRolls', 'RiceCookerBowl', 'EggCurry', 'BeefVindaloo', 'SriLankanDahl', 'TofuPot', 'ChineseSteamedEgg'] },
-    { key: 'european', label: 'EUROPEAN', icon: '🫕', recipes: ['ItalianWeddingSoup', 'TuscanSoup', 'NordicLeekSoup', 'Kompot', 'HomemadePasta', 'SpaghettiWithMeatSauce', 'CapreseSalad'] },
-    { key: 'latin',    label: 'LATIN',    icon: '🌶', recipes: ['PolloChileColorado', 'SopadeLentejas', 'RedbeansRice', 'Burrito', 'StreetTacos'] },
-    { key: 'american', label: 'AMERICAN', icon: '🦅', recipes: ['BigMacSalad', 'CajunSausagePotatoSoup'] },
+    {
+      key: 'asian',
+      label: 'ASIAN',
+      icon: '🥡',
+      recipes: [
+        'NabeSoup',
+        'JapaneseCurry',
+        'Okonomiyaki',
+        'Soondubujigae',
+        'KoreanSalad',
+        'KoreanSpinachSalad',
+        'YamitsukiShioKyabetsu',
+        'FriedRice',
+        'AsianMarinade',
+        'UmamiSeaweedRiceRolls',
+        'RiceCookerBowl',
+        'TofuPot',
+        'ChineseSteamedEgg'
+      ]
+    },
+
+    {
+      key: 'south-asian',
+      label: 'SOUTH ASIAN',
+      icon: '🫙',
+      recipes: [
+        'EggCurry',
+        'BeefVindaloo',
+        'SriLankanDahl',
+        'LazyChickenBiryani',
+        'Roti'
+      ]
+    },
+
+    {
+      key: 'latin',
+      label: 'LATIN',
+      icon: '🌶',
+      recipes: [
+        'PolloChileColorado',
+        'SopadeLentejas',
+        'Burrito',
+        'StreetTacos'
+      ]
+    },
+
+    {
+      key: 'european',
+      label: 'EUROPEAN',
+      icon: '🫕',
+      recipes: [
+        'NordicLeekSoup',
+        'Kompot'
+      ]
+    },
+
+    {
+      key: 'american',
+      label: 'AMERICAN',
+      icon: '🦅',
+      recipes: [
+        'BigMacSalad',
+        'CajunSausagePotatoSoup',
+        'RedBeansRice',
+        'ChocoChipCookie'
+      ]
+    },
+
+    {
+      key: 'african',
+      label: 'AFRICAN',
+      icon: '🌍',
+      recipes: [
+        'DoroWat',
+        'EthiopianBeefTibs'
+      ]
+    },
+
+    {
+      key: 'arab',
+      label: 'ARAB',
+      icon: '🫖',
+      recipes: [
+        'Kabsa'
+      ]
+    },
+
+    {
+      key: 'mediterranean',
+      label: 'MEDITERRANEAN',
+      icon: '🫒',
+      recipes: [
+        'ItalianWeddingSoup',
+        'TuscanSoup',
+        'HomemadePasta',
+        'SpaghettiWithMeatSauce',
+        'CapreseSalad',
+        'GreekChickpeaSalad'
+      ]
+    }
   ],
+
   ingredient: [
-    { key: 'chicken',  label: 'CHICKEN',  icon: '🍗', recipes: ['GoldenChickenSoup', 'LazyChickenBiryani', 'PolloChileColorado', 'JapaneseCurry', 'Burrito', 'StreetTacos'] },
-    { key: 'rice',     label: 'RICE',     icon: '🍚', recipes: ['FriedRice', 'RiceCookerBowl', 'LazyChickenBiryani', 'RedbeansRice', 'UmamiSeaweedRiceRolls'] },
-    { key: 'tofu',     label: 'TOFU',     icon: '⬜', recipes: ['TofuPot', 'Soondubujigae'] },
-    { key: 'beef',     label: 'BEEF',     icon: '🥩', recipes: ['BeefStew', 'BeefVindaloo', 'BigMacSalad', 'SpaghettiWithMeatSauce'] },
-    { key: 'eggs',     label: 'EGGS',     icon: '🥚', recipes: ['EggCurry', 'Okonomiyaki', 'ChineseSteamedEgg'] },
-    { key: 'lentils',  label: 'LENTILS',  icon: '🫘', recipes: ['SopadeLentejas', 'SriLankanDahl'] },
-    { key: 'mushroom', label: 'MUSHROOM', icon: '🍄', recipes: ['CreamyMushroomSoup', 'NabeSoup'] },
-    { key: 'sausage',  label: 'SAUSAGE',  icon: '🌭', recipes: ['CajunSausagePotatoSoup', 'Okonomiyaki'] },
+
+    // ── Proteins ──
+
+    {
+      key: 'chicken',
+      label: 'CHICKEN',
+      icon: '🍗',
+      recipes: [
+        'GoldenChickenSoup',
+        'LazyChickenBiryani',
+        'PolloChileColorado',
+        'JapaneseCurry',
+        'Burrito',
+        'StreetTacos',
+        'DoroWat',
+        'Kabsa'
+      ]
+    },
+
+    {
+      key: 'beef',
+      label: 'BEEF',
+      icon: '🥩',
+      recipes: [
+        'BeefStew',
+        'BeefVindaloo',
+        'BigMacSalad',
+        'SpaghettiWithMeatSauce',
+        'EthiopianBeefTibs'
+      ]
+    },
+
+    {
+      key: 'seafood',
+      label: 'SEAFOOD',
+      icon: '🐟',
+      recipes: [],
+      empty: true
+    },
+
+    {
+      key: 'pork',
+      label: 'PORK',
+      icon: '🥓',
+      recipes: [
+        'CajunSausagePotatoSoup',
+        'Okonomiyaki'
+      ]
+    },
+
+    {
+      key: 'veg-protein',
+      label: 'VEG PROTEIN',
+      icon: '🫘',
+      recipes: [
+        'TofuPot',
+        'Soondubujigae',
+        'EggCurry',
+        'ChineseSteamedEgg',
+        'SopadeLentejas',
+        'SriLankanDahl',
+        'GreekChickpeaSalad'
+      ]
+    },
+
+    // ── Carbs / Other ──
+
+    {
+      key: 'rice',
+      label: 'RICE',
+      icon: '🍚',
+      recipes: [
+        'FriedRice',
+        'RiceCookerBowl',
+        'LazyChickenBiryani',
+        'RedBeansRice',
+        'UmamiSeaweedRiceRolls',
+        'Kabsa'
+      ]
+    },
+
+    {
+      key: 'pasta-bread',
+      label: 'PASTA/BREAD',
+      icon: '🍝',
+      recipes: [
+        'HomemadePasta',
+        'SpaghettiWithMeatSauce',
+        'Burrito',
+        'StreetTacos',
+        'Roti'
+      ]
+    },
+
+    {
+      key: 'quick',
+      label: 'QUICK',
+      icon: '⚡',
+      recipes: [
+        'FriedRice',
+        'RiceCookerBowl',
+        'KoreanSalad',
+        'KoreanSpinachSalad',
+        'YamitsukiShioKyabetsu',
+        'CreamyCucumberSalad',
+        'ChineseSteamedEgg',
+        'CapreseSalad',
+        'AsianMarinade',
+        'BigMacSalad',
+        'Roti'
+      ]
+    }
   ],
+
   type: [
-    { key: 'soups',    label: 'SOUPS',    icon: '🍲', recipes: ['NabeSoup', 'GoldenChickenSoup', 'CreamyMushroomSoup', 'ItalianWeddingSoup', 'TuscanSoup', 'NordicLeekSoup', 'CajunSausagePotatoSoup', 'SopadeLentejas', 'Soondubujigae', 'BeefStew', 'TofuPot'] },
-    { key: 'salads',   label: 'SALADS',   icon: '🥗', recipes: ['BigMacSalad', 'CreamyCucumberSalad', 'GreekChickpeaSalad', 'KoreanSalad', 'KoreanSpinachSalad', 'YamitsukiShioKyabetsu', 'CapreseSalad'] },
-    { key: 'carbs',    label: 'CARBS',    icon: '🍜', recipes: ['FriedRice', 'RiceCookerBowl', 'LazyChickenBiryani', 'RedbeansRice', 'UmamiSeaweedRiceRolls', 'Okonomiyaki', 'JapaneseCurry', 'PolloChileColorado', 'HomemadePasta', 'SpaghettiWithMeatSauce', 'Burrito', 'StreetTacos'] },
-    { key: 'no-carbs', label: 'NO CARBS', icon: '🥩', recipes: ['BeefVindaloo', 'EggCurry', 'SriLankanDahl', 'AsianMarinade', 'GoldenChickenSoup', 'CreamyMushroomSoup', 'NordicLeekSoup', 'GreekChickpeaSalad', 'CreamyCucumberSalad', 'Kompot', 'ChineseSteamedEgg', 'CapreseSalad'] },
+
+    {
+      key: 'soups',
+      label: 'SOUPS',
+      icon: '🍲',
+      recipes: [
+        'NabeSoup',
+        'GoldenChickenSoup',
+        'CreamyMushroomSoup',
+        'ItalianWeddingSoup',
+        'TuscanSoup',
+        'NordicLeekSoup',
+        'CajunSausagePotatoSoup',
+        'SopadeLentejas',
+        'Soondubujigae',
+        'BeefStew',
+        'TofuPot'
+      ]
+    },
+
+    {
+      key: 'salads',
+      label: 'SALADS',
+      icon: '🥗',
+      recipes: [
+        'BigMacSalad',
+        'CreamyCucumberSalad',
+        'GreekChickpeaSalad',
+        'KoreanSalad',
+        'KoreanSpinachSalad',
+        'YamitsukiShioKyabetsu',
+        'CapreseSalad'
+      ]
+    },
+
+    {
+      key: 'carbs',
+      label: 'CARBS',
+      icon: '🍜',
+      recipes: [
+        'FriedRice',
+        'RiceCookerBowl',
+        'LazyChickenBiryani',
+        'RedBeansRice',
+        'UmamiSeaweedRiceRolls',
+        'Okonomiyaki',
+        'JapaneseCurry',
+        'PolloChileColorado',
+        'HomemadePasta',
+        'SpaghettiWithMeatSauce',
+        'Burrito',
+        'StreetTacos',
+        'Kabsa',
+        'Roti'
+      ]
+    },
+
+    {
+      key: 'no-carbs',
+      label: 'NO CARBS',
+      icon: '🥩',
+      recipes: [
+        'BeefVindaloo',
+        'EggCurry',
+        'SriLankanDahl',
+        'AsianMarinade',
+        'GoldenChickenSoup',
+        'CreamyMushroomSoup',
+        'NordicLeekSoup',
+        'GreekChickpeaSalad',
+        'CreamyCucumberSalad',
+        'Kompot',
+        'ChineseSteamedEgg',
+        'CapreseSalad',
+        'DoroWat',
+        'EthiopianBeefTibs'
+      ]
+    },
+
+    {
+      key: 'dessert',
+      label: 'DESSERT',
+      icon: '🍰',
+      recipes: [
+        'ChocoChipCookie'
+      ]
+    }
   ]
 };
+
+
 
 const COLORS = ['olive', 'coral', 'orange', 'dark'];
 
 // ── RECIPE INDEX (for search) ─────────────────────────────
 
 const RECIPE_INDEX = [
-  { key: 'AsianMarinade',          label: 'Asian Marinade',            tags: ['asian', 'marinade', 'easy', 'no-carbs'] },
+  { key: 'AsianMarinade',          label: 'Asian Marinade',            tags: ['asian', 'marinade', 'easy', 'quick'] },
+
   { key: 'BeefStew',               label: 'Beef Stew',                 tags: ['beef', 'soup', 'stew', 'hearty'] },
-  { key: 'BeefVindaloo',           label: 'Beef Vindaloo',             tags: ['beef', 'asian', 'indian', 'no-carbs', 'spicy'] },
-  { key: 'BigMacSalad',            label: 'Big Mac Salad',             tags: ['beef', 'salad', 'american', 'no-carbs', 'easy'] },
-  { key: 'Burrito',                label: 'Burrito',                   tags: ['chicken', 'latin', 'carbs', 'easy', 'wrap'] },
-  { key: 'CajunSausagePotatoSoup', label: 'Cajun Sausage Potato Soup', tags: ['sausage', 'soup', 'american', 'cajun', 'potato', 'spicy'] },
-  { key: 'CapreseSalad',           label: 'Caprese Salad',             tags: ['salad', 'european', 'italian', 'no-carbs', 'vegetarian', 'easy', 'quick'] },
-  { key: 'ChineseSteamedEgg',      label: 'Chinese Steamed Egg',       tags: ['eggs', 'asian', 'chinese', 'no-carbs', 'easy', 'quick'] },
-  { key: 'CreamyCucumberSalad',    label: 'Creamy Cucumber Salad',     tags: ['salad', 'cucumber', 'no-carbs', 'vegetarian', 'easy', 'quick'] },
-  { key: 'CreamyMushroomSoup',     label: 'Creamy Mushroom Soup',      tags: ['mushroom', 'soup', 'no-carbs', 'vegetarian', 'creamy'] },
-  { key: 'EggCurry',               label: 'Egg Curry',                 tags: ['eggs', 'asian', 'indian', 'curry', 'no-carbs', 'vegetarian', 'spicy'] },
-  { key: 'FriedRice',              label: 'Fried Rice',                tags: ['rice', 'asian', 'carbs', 'easy', 'quick'] },
-  { key: 'GoldenChickenSoup',      label: 'Golden Chicken Soup',       tags: ['chicken', 'soup', 'no-carbs', 'easy'] },
-  { key: 'GreekChickpeaSalad',     label: 'Greek Chickpea Salad',      tags: ['salad', 'european', 'greek', 'chickpea', 'no-carbs', 'vegetarian', 'easy'] },
-  { key: 'HomemadePasta',          label: 'Homemade Pasta',            tags: ['european', 'italian', 'carbs', 'pasta', 'vegetarian'] },
-  { key: 'ItalianWeddingSoup',     label: 'Italian Wedding Soup',      tags: ['soup', 'european', 'italian'] },
-  { key: 'JapaneseCurry',          label: 'Japanese Curry',            tags: ['chicken', 'asian', 'curry', 'carbs', 'japanese'] },
-  { key: 'Kompot',                 label: 'Kompot',                    tags: ['european', 'drink', 'no-carbs', 'fruit', 'easy'] },
-  { key: 'KoreanSalad',            label: 'Korean Salad',              tags: ['asian', 'salad', 'korean', 'easy', 'quick'] },
-  { key: 'KoreanSpinachSalad',     label: 'Korean Spinach Salad',      tags: ['asian', 'salad', 'korean', 'spinach', 'vegetarian', 'easy'] },
-  { key: 'LazyChickenBiryani',     label: 'Lazy Chicken Biryani',      tags: ['chicken', 'rice', 'asian', 'indian', 'carbs', 'easy'] },
-  { key: 'NabeSoup',               label: 'Nabe Soup',                 tags: ['asian', 'soup', 'mushroom', 'japanese'] },
-  { key: 'NordicLeekSoup',         label: 'Nordic Leek Soup',          tags: ['european', 'soup', 'leek', 'no-carbs', 'vegetarian'] },
-  { key: 'Okonomiyaki',            label: 'Okonomiyaki',               tags: ['asian', 'eggs', 'sausage', 'japanese', 'carbs', 'savory'] },
-  { key: 'PolloChileColorado',     label: 'Pollo Chile Colorado',      tags: ['chicken', 'latin', 'carbs', 'spicy'] },
-  { key: 'RedbeansRice',           label: 'Red Beans & Rice',          tags: ['rice', 'latin', 'carbs', 'beans', 'easy'] },
-  { key: 'RiceCookerBowl',         label: 'Rice Cooker Bowl',          tags: ['rice', 'asian', 'carbs', 'easy', 'quick'] },
-  { key: 'Soondubujigae',          label: 'Soondubujigae',             tags: ['tofu', 'asian', 'soup', 'korean', 'spicy'] },
-  { key: 'SopadeLentejas',         label: 'Sopa de Lentejas',          tags: ['lentils', 'latin', 'soup', 'vegetarian'] },
-  { key: 'SpaghettiWithMeatSauce', label: 'Spaghetti with Meat Sauce', tags: ['beef', 'european', 'italian', 'carbs', 'pasta'] },
-  { key: 'SriLankanDahl',          label: 'Sri Lankan Dahl',           tags: ['lentils', 'asian', 'no-carbs', 'vegetarian', 'spicy'] },
-  { key: 'StreetTacos',            label: 'Street Tacos',              tags: ['chicken', 'latin', 'carbs', 'easy', 'spicy'] },
-  { key: 'TofuPot',                label: 'Tofu Pot',                  tags: ['tofu', 'asian', 'soup', 'vegetarian', 'easy'] },
-  { key: 'TuscanSoup',             label: 'Tuscan Soup',               tags: ['european', 'soup', 'italian', 'hearty'] },
-  { key: 'UmamiSeaweedRiceRolls',  label: 'Umami Seaweed Rice Rolls',  tags: ['rice', 'asian', 'carbs', 'japanese', 'seaweed', 'easy'] },
-  { key: 'YamitsukiShioKyabetsu',  label: 'Yamitsuki Shio Kyabetsu',   tags: ['asian', 'salad', 'japanese', 'cabbage', 'vegetarian', 'easy', 'quick'] },
+
+  { key: 'BeefVindaloo',           label: 'Beef Vindaloo',             tags: ['beef', 'south-asian', 'indian', 'spicy', 'curry'] },
+
+  { key: 'BigMacSalad',            label: 'Big Mac Salad',             tags: ['beef', 'salad', 'american', 'easy', 'quick'] },
+
+  { key: 'Burrito',                label: 'Burrito',                   tags: ['chicken', 'latin', 'wrap', 'easy', 'carbs'] },
+
+  { key: 'CajunSausagePotatoSoup', label: 'Cajun Sausage Potato Soup', tags: ['pork', 'sausage', 'soup', 'american', 'cajun', 'potato', 'spicy'] },
+
+  { key: 'CapreseSalad',           label: 'Caprese Salad',             tags: ['salad', 'italian', 'mediterranean', 'vegetarian', 'easy', 'quick'] },
+
+  { key: 'ChineseSteamedEgg',      label: 'Chinese Steamed Egg',       tags: ['eggs', 'asian', 'chinese', 'vegetarian', 'easy', 'quick'] },
+
+  { key: 'ChocoChipCookie',        label: 'Chocolate Chip Cookies',    tags: ['dessert', 'baking', 'american', 'sweet', 'easy'] },
+
+  { key: 'CreamyCucumberSalad',    label: 'Creamy Cucumber Salad',     tags: ['salad', 'vegetarian', 'cucumber', 'easy', 'quick'] },
+
+  { key: 'CreamyMushroomSoup',     label: 'Creamy Mushroom Soup',      tags: ['mushroom', 'soup', 'vegetarian', 'creamy'] },
+
+  { key: 'DoroWat',                label: 'Doro Wat',                  tags: ['chicken', 'ethiopian', 'african', 'stew', 'spicy', 'eggs'] },
+
+  { key: 'EggCurry',               label: 'Egg Curry',                 tags: ['eggs', 'indian', 'south-asian', 'curry', 'vegetarian', 'spicy'] },
+
+  { key: 'EthiopianBeefTibs',      label: 'Ethiopian Beef Tibs',       tags: ['beef', 'ethiopian', 'african', 'spicy', 'skillet'] },
+
+  { key: 'FriedRice',              label: 'Fried Rice',                tags: ['rice', 'asian', 'quick', 'easy'] },
+
+  { key: 'GoldenChickenSoup',      label: 'Golden Chicken Soup',       tags: ['chicken', 'soup', 'easy', 'comfort-food'] },
+
+  { key: 'GreekChickpeaSalad',     label: 'Greek Chickpea Salad',      tags: ['salad', 'greek', 'mediterranean', 'chickpea', 'vegetarian', 'healthy'] },
+
+  { key: 'HomemadePasta',          label: 'Homemade Pasta',            tags: ['italian', 'pasta', 'carbs', 'vegetarian'] },
+
+  { key: 'ItalianWeddingSoup',     label: 'Italian Wedding Soup',      tags: ['soup', 'italian', 'mediterranean', 'hearty'] },
+
+  { key: 'JapaneseCurry',          label: 'Japanese Curry',            tags: ['curry', 'japanese', 'asian', 'comfort-food', 'rice'] },
+
+  { key: 'Kabsa',                  label: 'Kabsa',                     tags: ['chicken', 'rice', 'middle-eastern', 'arabic', 'spiced', 'hearty'] },
+
+  { key: 'Kompot',                 label: 'Kompot',                    tags: ['drink', 'fruit', 'eastern-european', 'easy'] },
+
+  { key: 'KoreanSalad',            label: 'Korean Salad',              tags: ['salad', 'korean', 'asian', 'quick', 'easy'] },
+
+  { key: 'KoreanSpinachSalad',     label: 'Korean Spinach Salad',      tags: ['spinach', 'salad', 'korean', 'asian', 'vegetarian', 'easy'] },
+
+  { key: 'LazyChickenBiryani',     label: 'Lazy Chicken Biryani',      tags: ['chicken', 'rice', 'indian', 'south-asian', 'easy', 'spiced'] },
+
+  { key: 'NabeSoup',               label: 'Nabe Soup',                 tags: ['soup', 'japanese', 'asian', 'hotpot', 'comfort-food'] },
+
+  { key: 'NordicLeekSoup',         label: 'Nordic Leek Soup',          tags: ['soup', 'leek', 'nordic', 'european', 'vegetarian'] },
+
+  { key: 'Okonomiyaki',            label: 'Okonomiyaki',               tags: ['japanese', 'asian', 'savory-pancake', 'cabbage', 'eggs'] },
+
+  { key: 'PolloChileColorado',     label: 'Pollo Chile Colorado',      tags: ['chicken', 'latin', 'mexican', 'spicy', 'stew'] },
+
+  { key: 'RedBeansRice',           label: 'Red Beans & Rice',          tags: ['rice', 'beans', 'cajun', 'american', 'comfort-food'] },
+
+  { key: 'RiceCookerBowl',         label: 'Rice Cooker Bowl',          tags: ['rice', 'asian', 'easy', 'quick'] },
+
+  { key: 'Roti',                   label: 'Roti',                      tags: ['bread', 'flatbread', 'south-asian', 'indian', 'easy'] },
+
+  { key: 'Soondubujigae',          label: 'Soondubujigae',             tags: ['tofu', 'korean', 'asian', 'soup', 'spicy'] },
+
+  { key: 'SopadeLentejas',         label: 'Sopa de Lentejas',          tags: ['lentils', 'latin', 'soup', 'vegetarian', 'hearty'] },
+
+  { key: 'SpaghettiWithMeatSauce', label: 'Spaghetti with Meat Sauce', tags: ['beef', 'italian', 'pasta', 'comfort-food'] },
+
+  { key: 'SriLankanDahl',          label: 'Sri Lankan Dahl',           tags: ['lentils', 'south-asian', 'curry', 'vegetarian', 'spicy'] },
+
+  { key: 'StreetTacos',            label: 'Street Tacos',              tags: ['tacos', 'latin', 'mexican', 'spicy', 'easy'] },
+
+  { key: 'TofuPot',                label: 'Tofu Pot',                  tags: ['tofu', 'asian', 'vegetarian', 'soup', 'comfort-food'] },
+
+  { key: 'TuscanSoup',             label: 'Tuscan Soup',               tags: ['soup', 'italian', 'hearty', 'comfort-food'] },
+
+  { key: 'UmamiSeaweedRiceRolls',  label: 'Umami Seaweed Rice Rolls',  tags: ['rice', 'seaweed', 'japanese', 'asian', 'easy'] },
+
+  { key: 'YamitsukiShioKyabetsu',  label: 'Yamitsuki Shio Kyabetsu',   tags: ['cabbage', 'salad', 'japanese', 'asian', 'vegetarian', 'quick'] },
 ];
 
 // ── SEARCH ────────────────────────────────────────────────
@@ -167,7 +498,6 @@ function resetHome() {
     </div>
   `;
 
-  // re-bind enter key on the new input
   document.getElementById('searchInput').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') handleSearch();
   });
@@ -188,45 +518,8 @@ function handleRandom() {
     <div class="btn-desc">selecting random recipe</div>
   `;
 
-  const recipes = [
-    'Recipes/AsianMarinade.html',
-    'Recipes/BeefStew.html',
-    'Recipes/BeefVindaloo.html',
-    'Recipes/BigMacSalad.html',
-    'Recipes/Burrito.html',
-    'Recipes/CajunSausagePotatoSoup.html',
-    'Recipes/CapreseSalad.html',
-    'Recipes/ChineseSteamedEgg.html',
-    'Recipes/CreamyCucumberSalad.html',
-    'Recipes/CreamyMushroomSoup.html',
-    'Recipes/EggCurry.html',
-    'Recipes/FriedRice.html',
-    'Recipes/GoldenChickenSoup.html',
-    'Recipes/GreekChickpeaSalad.html',
-    'Recipes/HomemadePasta.html',
-    'Recipes/ItalianWeddingSoup.html',
-    'Recipes/JapaneseCurry.html',
-    'Recipes/Kompot.html',
-    'Recipes/KoreanSalad.html',
-    'Recipes/KoreanSpinachSalad.html',
-    'Recipes/LazyChickenBiryani.html',
-    'Recipes/NabeSoup.html',
-    'Recipes/NordicLeekSoup.html',
-    'Recipes/Okonomiyaki.html',
-    'Recipes/PolloChileColorado.html',
-    'Recipes/RedbeansRice.html',
-    'Recipes/RiceCookerBowl.html',
-    'Recipes/Soondubujigae.html',
-    'Recipes/SopadeLentejas.html',
-    'Recipes/SpaghettiWithMeatSauce.html',
-    'Recipes/SriLankanDahl.html',
-    'Recipes/StreetTacos.html',
-    'Recipes/TofuPot.html',
-    'Recipes/TuscanSoup.html',
-    'Recipes/UmamiSeaweedRiceRolls.html',
-    'Recipes/YamitsukiShioKyabetsu.html',
-  ];
-
+  // Derive list from RECIPE_INDEX so it never goes stale
+  const recipes = RECIPE_INDEX.map(r => `Recipes/${r.key}.html`);
   const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
 
   setTimeout(() => {
@@ -245,6 +538,9 @@ function handleCategories() {
   overlay.innerHTML = buildModalHTML();
   document.body.appendChild(overlay);
 
+  // Prevent body scroll while modal is open (mobile-friendly)
+  document.body.style.overflow = 'hidden';
+
   overlay.addEventListener('click', e => {
     if (e.target === overlay) closeCategories();
   });
@@ -257,6 +553,7 @@ function handleCategories() {
 function closeCategories() {
   const el = document.getElementById('cat-modal-overlay');
   if (el) el.remove();
+  document.body.style.overflow = '';
 }
 
 function switchCatTab(tab) {
@@ -268,14 +565,18 @@ function switchCatTab(tab) {
 
 function openCategoryList(key, tab) {
   const catData = CATEGORIES[tab].find(c => c.key === key);
-  if (!catData) return;
+  if (!catData || catData.empty) return;
 
-  const listHTML = catData.recipes.map(r => `
-    <a class="cat-recipe-link" href="Recipes/${r}.html">
-      <span class="cat-recipe-arrow">→</span>
-      ${r.replace(/([A-Z])/g, ' $1').trim()}
-    </a>
-  `).join('');
+  const listHTML = catData.recipes.map(r => {
+    const recipe = RECIPE_INDEX.find(ri => ri.key === r);
+    const label = recipe ? recipe.label : r.replace(/([A-Z])/g, ' $1').trim();
+    return `
+      <a class="cat-recipe-link" href="Recipes/${r}.html">
+        <span class="cat-recipe-arrow">→</span>
+        ${label}
+      </a>
+    `;
+  }).join('');
 
   document.querySelector('.cat-modal-inner').innerHTML = `
     <div class="cat-header">
@@ -300,15 +601,24 @@ function openCategoryList(key, tab) {
 }
 
 function buildModalHTML() {
-  const buildGrid = (tab) =>
-    CATEGORIES[tab].map((cat, i) => `
-      <button class="cat-btn ${COLORS[i % COLORS.length]}"
-              onclick="openCategoryList('${cat.key}', '${tab}')">
-        <div class="cat-btn-icon">${cat.icon}</div>
-        <div class="cat-btn-name">${cat.label}</div>
-        <div class="cat-btn-count">${cat.recipes.length} recipe${cat.recipes.length !== 1 ? 's' : ''}</div>
-      </button>
-    `).join('');
+  const buildGrid = (tab) => {
+    let html = '';
+    CATEGORIES[tab].forEach((cat, i) => {
+      const emptyClass = cat.empty ? ' cat-btn-empty' : '';
+      const clickHandler = cat.empty ? '' : `onclick="openCategoryList('${cat.key}', '${tab}')"`;
+
+      html += `
+        <button class="cat-btn ${COLORS[i % COLORS.length]}${emptyClass}"
+                ${clickHandler}
+                ${cat.empty ? 'disabled' : ''}>
+          <div class="cat-btn-icon">${cat.icon}</div>
+          <div class="cat-btn-name">${cat.label}</div>
+          <div class="cat-btn-count">${cat.empty ? 'coming soon' : `${cat.recipes.length} recipe${cat.recipes.length !== 1 ? 's' : ''}`}</div>
+        </button>
+      `;
+    });
+    return html;
+  };
 
   return `
     <div class="cat-modal-inner">
@@ -323,9 +633,9 @@ function buildModalHTML() {
         <button class="cat-close" onclick="closeCategories()">✕ CLOSE</button>
       </div>
       <div class="cat-tabs">
-        <button class="cat-tab active" data-tab="cuisine">BY CUISINE</button>
-        <button class="cat-tab" data-tab="ingredient">BY INGREDIENT</button>
-        <button class="cat-tab" data-tab="type">BY TYPE</button>
+        <button class="cat-tab active" data-tab="cuisine">CUISINE</button>
+        <button class="cat-tab" data-tab="ingredient">INGREDIENT</button>
+        <button class="cat-tab" data-tab="type">TYPE</button>
       </div>
       <div class="cat-body">
         <div class="cat-panel active" data-panel="cuisine">
@@ -341,7 +651,7 @@ function buildModalHTML() {
           <div class="cat-grid">${buildGrid('type')}</div>
         </div>
         <div class="cat-status">
-          <span><span class="cat-dot"></span>36 RECIPES INDEXED</span>
+          <span><span class="cat-dot"></span>${RECIPE_INDEX.length} RECIPES INDEXED</span>
           <span class="cat-status-right">PALATE.EXE // v1.0</span>
         </div>
       </div>
