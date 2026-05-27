@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Betty's Life RPG</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ MAIN HOME SCREEN ============ -->
+<div id="screen-home" class="screen active">
+
+  <!-- Hamburger -->
+  <div class="top-bar">
+    <div class="hbtn" id="hbtn" aria-label="Menu">
+      <span class="hline"></span>
+      <span class="hline"></span>
+      <span class="hline"></span>
+      <div class="dropdown" id="dropdown">
+        <button class="dd-btn" id="clearTodayBtn">🌙 Clear Today</button>
+        <button class="dd-btn" id="clearAllBtn">⚠️ Reset All</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-content">
+    <div class="title-wrap">
+      <h1 class="game-title">✨ Betty's Life RPG</h1>
+      <p class="datetime" id="dateTimeDisplay"></p>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="stats-row">
+      <div class="scard scard-blue">
+        <div class="s-emoji">⚡</div>
+        <div class="s-label">Daily XP</div>
+        <div class="s-val" id="xpResult">0</div>
+      </div>
+      <div class="scard scard-orange">
+        <div class="s-emoji">🪙</div>
+        <div class="s-label">Gold</div>
+        <div class="s-val" id="goldResult">0</div>
+      </div>
+    </div>
+
+    <!-- XP Progress bar -->
+    <div class="prog-card">
+      <div class="prog-top">
+        <span class="prog-title">🏆 Weekly XP</span>
+        <span class="prog-nums" id="xpProgressText">0 / 500</span>
+      </div>
+      <div class="prog-track">
+        <div class="prog-fill" id="xpProgressBar"></div>
+      </div>
+    </div>
+
+    <!-- Activity nav -->
+    <p class="section-label">— Activities —</p>
+
+    <div class="nav-list">
+      <button class="nav-row move" data-screen="screen-movement">
+        <span class="nav-emoji">🏃‍♀️</span>
+        <span class="nav-info">
+          <span class="nav-name">Movement</span>
+          <span class="nav-desc">Log your daily steps & minutes</span>
+        </span>
+        <span class="nav-arrow">›</span>
+      </button>
+      <button class="nav-row nutr" data-screen="screen-nutrition">
+        <span class="nav-emoji">🥗</span>
+        <span class="nav-info">
+          <span class="nav-name">Nutrition</span>
+          <span class="nav-desc">Track meals & earn XP</span>
+        </span>
+        <span class="nav-arrow">›</span>
+      </button>
+      <button class="nav-row gluc" data-screen="screen-glucose">
+        <span class="nav-emoji">💉</span>
+        <span class="nav-info">
+          <span class="nav-name">Glucose Check</span>
+          <span class="nav-desc">Log fasting & post-meal readings</span>
+        </span>
+        <span class="nav-arrow">›</span>
+      </button>
+      <button class="nav-row rep" data-screen="screen-repair">
+        <span class="nav-emoji">🛠️</span>
+        <span class="nav-info">
+          <span class="nav-name">Repair Quest</span>
+          <span class="nav-desc">Bonus movement challenge</span>
+        </span>
+        <span class="nav-arrow">›</span>
+      </button>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Bottom action buttons -->
+    <div class="bot-row">
+      <button class="bot-btn achieve-btn" data-screen="screen-achievements">
+        <span class="bot-emoji">🏅</span>
+        <span class="bot-label">Achievements</span>
+      </button>
+      <button class="bot-btn shop-btn" data-screen="screen-shop">
+        <span class="bot-emoji">🛍️</span>
+        <span class="bot-label">Rewards Shop</span>
+      </button>
+    </div>
+
+   
+  </div>
+</div>
+
+
+<!-- ============ MOVEMENT SCREEN ============ -->
+<div id="screen-movement" class="screen">
+  <div class="screen-header move-header">
+    <button class="back-btn" data-back="screen-home">‹</button>
+    <h2>🏃‍♀️ Movement</h2>
+  </div>
+  <div class="screen-body">
+
+    <div class="info-card">
+      <p class="info-label">Current Goal</p>
+      <p class="info-val" id="movementGoalDisplay">Not Set</p>
+    </div>
+
+    <button class="action-btn btn-pink" id="movementDoneBtn">🎯 Set New Goal</button>
+
+    <div class="input-group">
+      <label class="input-label">Minutes to log</label>
+      <input type="number" id="extraMovementInput" placeholder="Enter minutes" min="0" class="rpg-input">
+      <button class="action-btn btn-blue" id="logExtraMovementBtn">➕ Log Movement</button>
+    </div>
+
+    <p class="output-text" id="extraMovementOutput"></p>
+  </div>
+</div>
+
+
+<!-- ============ NUTRITION SCREEN ============ -->
+<div id="screen-nutrition" class="screen">
+  <div class="screen-header nutr-header">
+    <button class="back-btn" data-back="screen-home">‹</button>
+    <h2>🥗 Nutrition</h2>
+  </div>
+  <div class="screen-body">
+
+    <div class="input-group">
+      <label class="input-label">What did you eat?</label>
+      <input type="text" id="nutritionInput" placeholder="Enter food or meal" class="rpg-input">
+      <button class="action-btn btn-green" id="logFoodBtn">➕ Log Nutrition</button>
+    </div>
+  
+    <p class="output-text" id="nutritionOutput"></p>
+
+    <div class="log-section">
+      <p class="log-title">Today's Logs</p>
+      <div id="nutritionItems" class="log-list"></div>   
+    </div>
+
+    <button class="action-btn btn-orange" onclick="window.open('https://innovativecreationsworkshop.github.io/arcade/CookBook/main.html', '_blank')">📖 Cookbook</button>
+  </div>
+</div>
+
+
+<!-- ============ GLUCOSE SCREEN ============ -->
+<div id="screen-glucose" class="screen">
+  <div class="screen-header gluc-header">
+    <button class="back-btn" data-back="screen-home">‹</button>
+    <h2>💉 Glucose Check</h2>
+  </div>
+  <div class="screen-body">
+
+    <div class="input-group">
+      <label class="input-label">Glucose reading</label>
+      <input type="number" id="glucoseInput" placeholder="Enter glucose value" class="rpg-input">
+    </div>
+
+    <div class="check-group">
+      <label class="check-pill">
+        <input type="checkbox" id="fastingCheck">
+        <span>Fasting</span>
+      </label>
+      <label class="check-pill">
+        <input type="checkbox" id="postMealCheck">
+        <span>Non-Fasting</span>
+      </label>
+    </div>
+
+    <button class="action-btn btn-blue" id="logGlucoseBtn">➕ Log Glucose</button>
+
+    <p class="output-text" id="glucoseOutput"></p>
+    <p class="alert-text" id="glucoseAlert"></p>
+
+    <div class="log-section">
+      <p class="log-title">Today's Logs</p>
+      <div id="glucoseLogItems" class="log-list"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============ REPAIR QUEST SCREEN ============ -->
+<div id="screen-repair" class="screen">
+  <div class="screen-header rep-header">
+    <button class="back-btn" data-back="screen-home">‹</button>
+    <h2>🛠️ Repair Quest</h2>
+  </div>
+  <div class="screen-body">
+
+    <div class="quest-card">
+      <p class="quest-title">⚔️ Active Quest</p>
+      <p class="quest-desc">Complete +30 extra movement minutes to repair your stats!</p>
+      <p class="quest-progress" id="repairProgress">Progress: 0 / 30 min</p>
+    </div>
+
+    <button class="action-btn btn-orange" id="acceptRepairBtn">⚔️ Accept Quest</button>
+
+    <div class="input-group" id="repairInputGroup" style="display:none;">
+      <label class="input-label">Log repair minutes</label>
+      <input type="number" id="repairMinInput" placeholder="Enter minutes" min="0" class="rpg-input">
+      <button class="action-btn btn-blue" id="logRepairBtn">➕ Log Repair Minutes</button>
+    </div>
+
+    <p class="output-text" id="repairOutput"></p>
+  </div>
+</div>
+
+
+<!-- ============ ACHIEVEMENTS SCREEN ============ -->
+<div id="screen-achievements" class="screen">
+  <div class="screen-header achieve-header">
+    <button class="back-btn" data-back="screen-home">‹</button>
+    <h2>🏅 Achievements</h2>
+  </div>
+  <div class="screen-body">
+
+    <div class="weekly-xp-card">
+      <p class="wk-label">Weekly XP Total</p>
+      <p class="wk-val" id="weeklyXpBig">0</p>
+      <div class="prog-track" style="margin-top:10px;">
+        <div class="prog-fill" id="achieveBar"></div>
+      </div>
+      <p class="wk-sub" id="achieveSub">0 / 500 XP to next Gold conversion</p>
+    </div>
+
+    <button class="action-btn btn-green" id="convertGoldBtn">⚗️ Convert XP → Gold</button>
+
+    <div class="achieve-grid" id="achieveGrid"></div>
+  </div>
+</div>
+
+
+<!-- ============ REWARDS SHOP SCREEN ============ -->
+<div id="screen-shop" class="screen">
+  <div class="screen-header shop-header">
+    <button class="back-btn" data-back="screen-home">‹</button>
+    <h2>🛍️ Rewards Shop</h2>
+  </div>
+  <div class="screen-body">
+
+    <div class="shop-limit-card">
+      <p>📋 Spend Limit: <strong>2 purchases per week</strong></p>
+      <p id="spendCountDisplay" class="spend-count">Used: 0 / 2 this week</p>
+    </div>
+
+    <p class="section-label" style="margin-top:16px;">— Pick a Tier —</p>
+
+    <div class="tier-row">
+      <button class="tier-btn tier5" id="tier5Btn">
+        <span class="tier-cost">5 🪙</span>
+        <span class="tier-name">Sweet Tier</span>
+      </button>
+      <button class="tier-btn tier10" id="tier10Btn">
+        <span class="tier-cost">10 🪙</span>
+        <span class="tier-name">Treat Tier</span>
+      </button>
+    </div>
+
+    <div class="reward-preview" id="rewardPreview">
+      <p class="preview-hint">Tap a tier to see rewards ✨</p>
+    </div>
+
+    <div id="pendingPenaltyBanner" class="penalty-banner" style="display:none;">
+      ⚠️ Spend 5 Gold to avoid -40 XP penalty!
+    </div>
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+<script src="https://innovativecreationsworkshop.github.io/arcade/Tracker/dataset.js"></script>
+</body>
+</html>
