@@ -1,347 +1,794 @@
-/*| Hex     | RGBA                   | Color Description           |
-| ------- | ---------------------- | --------------------------- |
-| #D48868 | rgba(212, 136, 104, 1) | Warm orange / coral         |
-| #C67699 | rgba(198, 118, 153, 1) | Soft purple / mauve         |
-| #F5D091 | rgba(245, 208, 145, 1) | Golden beige / sandy gold   |
-| #6F8D6B | rgba(111, 141, 107, 1) | Muted green / olive         |
-| #457589 | rgba(69, 117, 137, 1)  | Deep teal blue / blue-green |
-*/
-
 /* ==============================
-   BODY / BACKGROUND
-============================== */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  color: #F5D091;
-
-  background: url("https://raw.githubusercontent.com/InnovativeCreationsWorkshop/InnovativeCreationsWorkshop.github.io/refs/heads/main/arcade/Tracker/img/backgroundv1.PNG") 
-              center/cover no-repeat;
-}
-
-/* ==============================
-   HEADINGS
-============================== */
-h1 {
-  font-size: 2.5em;
-  color: #F5D091;
-  text-shadow: 0 0 12px rgba(212,136,104,0.7), 2px 2px 10px rgba(0,0,0,0.8);
-
-}
-
-h2 {
-  font-family: 'Merriweather', serif;
-  color: #F5D091;
-  margin: 20px 0 10px;
-  text-shadow: 0 0 8px rgba(198,118,153,0.6);
-}
-
-#weeklyXpResult {
-  display: inline-block; /* keeps it inline if needed */
-  /* no text label, no padding, just the number */
-}
-
-
-/* ==============================
-   CONTENT BOX
-============================== */
-.content-box {
-  width: 90%;
-  max-width: 700px;
-  margin: 50px auto;
-  padding: 30px;
-  text-align: center;
-
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(10px);
-
-  border: 5px solid rgba(245,208,145,0.6);
-  border-radius: 22px;
-
-  box-shadow:
-    0 20px 50px rgba(0,0,0,0.9),
-    0 0 30px rgba(212,136,104,0.35);
-}
-
-/* ==============================
-   Stats
-============================== */
-.stats-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-
-  margin: 20px 0;
-}
-
-.stat-Blue {
-  width: 200px;
-  height: 70px;
-  
-  padding: 12px 18px;
-  border-radius: 12px;
-  
-  background: rgba(69, 117, 137, 0.7);
-  border: 2px solid #F5D091; /* gold border */
-
-  box-shadow:
-    0 6px 15px rgba(0,0,0,0.6),
-    0 0 10px rgba(245,208,145,0.5); /* subtle glow */
- 
-
-  text-align: center;
-  
-}
-
-.stat-Gold {
-  width: 200px;
-  height: 70px;
-  
-  padding: 12px 18px;
-  border-radius: 12px;
-  
-  background: rgba(212, 136, 104, 0.8);
-  border: 2px solid #F5D091; /* gold border */
-
-  box-shadow:
-    0 6px 15px rgba(0,0,0,0.6),
-    0 0 10px rgba(245,208,145,0.5); /* subtle glow */
-
-  text-align: center;
-  
-}
-.stat-Green {
-  width: 200px;
-  height: 70px;
-  
-  padding: 12px 18px;
-  border-radius: 12px;
-  
-  background: rgba(111, 141, 107, 1);
-  border: 2px solid #F5D091; /* gold border */
-
-  box-shadow:
-    0 6px 15px rgba(0,0,0,0.6),
-    0 0 10px rgba(245,208,145,0.5); /* subtle glow */
-
-  text-align: center;
-  
-}
-
-#xpResult,
-#weeklyXpResult,
-#goldResult {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #F5D091;
-
-  text-shadow: 0 0 6px rgba(245,208,145,0.5);
-}
-
-
-/* ==============================
-   STATS
-============================== */
-.stats { margin-bottom: 20px; }
-.stats h2, .stats div { display: inline-block; margin-right: 15px; }
-
-/* ==============================
-   PROGRESS BAR
-============================== */
-progress {
-  width: 85%;
-  height: 28px;
-  margin-bottom: 10px;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: inset 0 3px 10px rgba(0,0,0,0.6);
-}
-
-progress::-webkit-progress-bar { background: rgba(255,255,255,0.15); }
-progress::-webkit-progress-value { background: linear-gradient(90deg, #F5D091, #D48868); box-shadow: 0 0 10px rgba(245,208,145,0.8); }
-progress::-moz-progress-bar { background: linear-gradient(90deg, #F5D091, #D48868); }
-
-
-/* ==============================
-   BUTTONS
+   PALETTE
+   #D48868 warm orange/coral
+   #C67699 soft purple/mauve
+   #F5D091 sandy gold
+   #6F8D6B muted green
+   #457589 deep teal blue
 ============================== */
 
-button {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 200px;
-  height: 70px;
-  padding: 16px 18px;
-  margin: 12px 0;
-
-  border-radius: 18px;
-  border: 2px solid #F5D091;
-
-  font-weight: bold;
-  font-size: 1.05em;
-
-  color: var(--btn-text, #F5D091);
-  background: var(--btn-bg, rgba(225,225,225,0.7));
-
-  box-shadow:
-    inset 0 2px 6px rgba(255,255,255,0.25),
-    inset 0 -4px 8px rgba(0,0,0,0.6),
-    0 6px 15px rgba(0,0,0,0.6),
-    0 0 10px rgba(245,208,145,0.35);
-
-  transition: all 0.2s ease;
-  cursor: pointer;
+:root {
+  --gold:   #F5D091;
+  --coral:  #D48868;
+  --pink:   #C67699;
+  --green:  #6F8D6B;
+  --blue:   #457589;
+  --bg:     #0d0818;
+  --card:   rgba(255,255,255,0.06);
+  --border: rgba(245,208,145,0.28);
 }
 
-/* ==============================
-   SHINE OVERLAY
-============================== */
-button::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 18px;
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
-  background: linear-gradient(
-    to bottom,
-    rgba(255,255,255,0.25),
-    transparent 40%
-  );
-
-  pointer-events: none;
+html, body {
+  height: 100%;
+  background: var(--bg);
+  font-family: 'Nunito', sans-serif;
+  color: var(--gold);
+  overflow-x: hidden;
 }
 
-/* ==============================
-   INTERACTIONS
-============================== */
-button:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    inset 0 2px 8px rgba(255,255,255,0.35),
-    inset 0 -5px 10px rgba(0,0,0,0.7),
-    0 10px 20px rgba(0,0,0,0.85),
-    0 0 14px rgba(245,208,145,0.5);
-}
-
-button:active {
-  transform: scale(0.97);
-}
-
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-/* ==============================
-   COLOR VARIANTS
-============================== */
-.btn-green {
-  --btn-bg: rgba(111,141,107,0.7);
-}
-
-.btn-gold {
-  --btn-bg: rgba(245, 208, 145, 0.6);
-  
-}
-
-.btn-purple {
-  --btn-bg: rgba(198,118,153,0.7);
-}
-
-.btn-blue {
-  --btn-bg: rgba(69, 117, 137, 0.7);
-}
-
-.btn-orange{
-    --btn-bg: rgba(212, 136, 104, 0.7); 
-}
-
-
-
-/* ==============================
-   BUTTON CONTAINER (OPTIONAL)
-============================== */
-.button-group {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-
-  margin: 20px 0;
-}
-
-/* ==============================
-   BUTTON CONTENT
-============================== */
-.btn-label { font-size: 1.1em; }
-.btn-reward { font-size: 0.95em; opacity: 0.9; }
-
-
-
-/* ==============================
-   INPUTS
-============================== */
-input[type="number" ],
-input[type="text"] {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #F5D091;
-  background: rgba(255,255,255,0.1);
-  color: #F5D091;
-  text-align: center;
-}
-
-
-
-/* ==============================
-   OUTPUT TEXT
-============================== */
-#extraMovementOutput, #glucoseOutput, #nutritionOutput, #nutritionItems, #glucoseLogItems  {
-  list-style: none;
-  margin: 10px 0;
-  font-weight: bold;
-  color: #F5D091;
-  padding-left: 0;    /* remove default indentation */
-  
-}
-
-
-
-/* ==============================
-   SHOP PANEL
-============================== */
-.shop-panel {
+/* Soft starfield bg */
+body::before {
+  content: '';
   position: fixed;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 320px;
-  padding: 20px;
-  color: #F5D091;
-
-  background: 
-    rgba(0,0,0,0.7) url("https://raw.githubusercontent.com/InnovativeCreationsWorkshop/InnovativeCreationsWorkshop.github.io/refs/heads/main/arcade/Tracker/img/backgroundv1.PNG") 
-    center/cover no-repeat;
-  background-blend-mode: overlay;
-
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 20px;
-
-  box-shadow: 0 20px 50px rgba(0,0,0,0.9), 0 0 25px rgba(212,136,104,0.4);
-  z-index: 1000;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(198,118,153,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 80%, rgba(69,117,137,0.2) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 50%, rgba(212,136,104,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.shop-panel ul { list-style: none; padding: 0; }
-.shop-panel li {
-  padding: 8px 10px;
-  margin: 6px 0;
-  border-radius: 10px;
+/* ==============================
+   SCREENS / ROUTING
+============================== */
+.screen {
+  display: none;
+  position: relative;
+  z-index: 1;
+  min-height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+.screen.active { display: block; }
+
+/* ==============================
+   HOME — TOP BAR / HAMBURGER
+============================== */
+.top-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 18px 0;
+}
+
+.hbtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(245,208,145,0.12);
+  border: 1.5px solid rgba(245,208,145,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s;
+}
+.hbtn:hover { background: rgba(245,208,145,0.2); }
+.hline { width: 15px; height: 2px; background: var(--gold); border-radius: 2px; display: block; }
+
+.dropdown {
+  position: absolute;
+  top: 46px;
+  right: 0;
+  background: rgba(14,8,30,0.97);
+  border: 1.5px solid rgba(245,208,145,0.3);
+  border-radius: 18px;
+  padding: 8px;
+  min-width: 150px;
+  z-index: 100;
+  display: none;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+.dropdown.open { display: block; }
+
+.dd-btn {
+  width: 100%;
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 14px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: var(--gold);
+  background: none;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.dd-btn:hover { background: rgba(245,208,145,0.1); }
+
+/* ==============================
+   HOME CONTENT
+============================== */
+.home-content { padding: 4px 16px 0; }
+
+.title-wrap { text-align: center; margin-bottom: 18px; }
+
+.game-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 32px;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 24px rgba(245,208,145,0.4);
+  line-height: 1.1;
+}
+
+.datetime {
+  font-size: 12px;
+  color: rgba(245,208,145,0.5);
+  margin-top: 4px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+/* ==============================
+   STAT CARDS
+============================== */
+.stats-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.scard {
+  flex: 1;
+  border-radius: 22px;
+  padding: 14px 10px 12px;
+  text-align: center;
+  border: 2px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.scard-blue { background: rgba(69,117,137,0.45); }
+.scard-orange { background: rgba(212,136,104,0.5); }
+
+.s-emoji { font-size: 20px; display: block; margin-bottom: 3px; }
+.s-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: rgba(245,208,145,0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 4px;
+}
+.s-val {
+  font-family: 'Fredoka One', cursive;
+  font-size: 32px;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+}
+
+/* ==============================
+   PROGRESS CARD
+============================== */
+.prog-card {
+  background: var(--card);
+  border-radius: 22px;
+  border: 2px solid var(--border);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.prog-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.prog-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(245,208,145,0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.prog-nums {
+  font-family: 'Fredoka One', cursive;
+  font-size: 14px;
+  color: var(--gold);
+}
+
+.prog-track {
+  height: 20px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+  border: 1px solid rgba(245,208,145,0.15);
+}
+
+.prog-fill {
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #F5D091, #D48868);
+  width: 0%;
+  transition: width 0.5s ease;
+  position: relative;
+}
+.prog-fill::after {
+  content: '';
+  position: absolute;
+  top: 4px; left: 8px; right: 30%;
+  height: 5px;
+  background: rgba(255,255,255,0.28);
+  border-radius: 4px;
+}
+
+/* ==============================
+   SECTION LABEL
+============================== */
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(245,208,145,0.4);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+  margin: 6px 0 12px;
+}
+
+/* ==============================
+   NAV BUTTONS (ACTIVITY LIST)
+============================== */
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.nav-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-radius: 22px;
+  border: 2px solid var(--border);
+  padding: 14px 16px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-family: 'Nunito', sans-serif;
+  transition: transform 0.15s, box-shadow 0.15s;
+  background: none;
+}
+.nav-row:active { transform: scale(0.97); }
+.nav-row:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+
+.nav-row.move { background: linear-gradient(135deg, rgba(198,118,153,0.5), rgba(198,118,153,0.22)); }
+.nav-row.nutr { background: linear-gradient(135deg, rgba(111,141,107,0.5), rgba(111,141,107,0.22)); }
+.nav-row.gluc { background: linear-gradient(135deg, rgba(69,117,137,0.5), rgba(69,117,137,0.22)); }
+.nav-row.rep  { background: linear-gradient(135deg, rgba(212,136,104,0.5), rgba(212,136,104,0.22)); }
+
+.nav-emoji { font-size: 28px; flex-shrink: 0; }
+
+.nav-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.nav-name {
+  font-family: 'Fredoka One', cursive;
+  font-size: 17px;
+  color: var(--gold);
+}
+.nav-desc {
+  font-size: 11.5px;
+  color: rgba(245,208,145,0.6);
+  font-weight: 600;
+}
+.nav-arrow {
+  font-size: 22px;
+  color: rgba(245,208,145,0.4);
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+/* ==============================
+   DIVIDER
+============================== */
+.divider {
+  border: none;
+  border-top: 1.5px solid rgba(245,208,145,0.12);
+  margin: 4px 0 14px;
+}
+
+/* ==============================
+   BOTTOM ACTION BUTTONS
+============================== */
+.bot-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.bot-btn {
+  flex: 1;
+  border-radius: 22px;
+  border: 2px solid var(--border);
+  padding: 14px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: transform 0.15s;
+  background: none;
+}
+.bot-btn:active { transform: scale(0.96); }
+
+.achieve-btn { background: rgba(111,141,107,0.4); }
+.shop-btn    { background: rgba(245,208,145,0.14); }
+
+.bot-emoji { font-size: 22px; }
+.bot-label {
+  font-family: 'Fredoka One', cursive;
+  font-size: 13px;
+  color: var(--gold);
+}
+
+/* ==============================
+   LOCK IN BUTTON
+============================== */
+.lock-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 22px;
+  border: 2px solid rgba(245,208,145,0.4);
+  background: rgba(69,117,137,0.35);
+  font-family: 'Fredoka One', cursive;
+  font-size: 17px;
+  color: var(--gold);
+  cursor: pointer;
+  transition: transform 0.15s, background 0.2s;
+  letter-spacing: 0.3px;
+}
+.lock-btn:active { transform: scale(0.97); }
+.lock-btn:hover  { background: rgba(69,117,137,0.55); }
+
+/* ==============================
+   INNER SCREENS — HEADER
+============================== */
+.screen-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 16px 14px;
+  border-bottom: 1.5px solid rgba(245,208,145,0.12);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+}
+
+.screen-header h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 22px;
+  color: var(--gold);
+  margin: 0;
+}
+
+.move-header   { background: rgba(198,118,153,0.22); }
+.nutr-header   { background: rgba(111,141,107,0.22); }
+.gluc-header   { background: rgba(69,117,137,0.22); }
+.rep-header    { background: rgba(212,136,104,0.22); }
+.achieve-header{ background: rgba(111,141,107,0.22); }
+.shop-header   { background: rgba(245,208,145,0.1); }
+
+.back-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(245,208,145,0.12);
+  border: 1.5px solid rgba(245,208,145,0.35);
+  font-size: 22px;
+  color: var(--gold);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  flex-shrink: 0;
+  transition: background 0.15s;
+  line-height: 1;
+  padding-bottom: 2px;
+}
+.back-btn:hover { background: rgba(245,208,145,0.22); }
+
+/* ==============================
+   INNER SCREEN BODY
+============================== */
+.screen-body {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ==============================
+   SHARED FORM ELEMENTS
+============================== */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(245,208,145,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.rpg-input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 2px solid var(--border);
+  background: rgba(255,255,255,0.07);
+  color: var(--gold);
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.rpg-input::placeholder { color: rgba(245,208,145,0.35); }
+.rpg-input:focus { border-color: rgba(245,208,145,0.6); }
+
+/* ==============================
+   ACTION BUTTONS (INNER SCREENS)
+============================== */
+.action-btn {
+  width: 100%;
+  padding: 15px;
+  border-radius: 18px;
+  border: 2px solid var(--border);
+  font-family: 'Fredoka One', cursive;
+  font-size: 16px;
+  color: var(--gold);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  letter-spacing: 0.3px;
+}
+.action-btn:active { transform: scale(0.97); }
+.action-btn:hover  { box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+
+.btn-pink  { background: rgba(198,118,153,0.5); }
+.btn-green { background: rgba(111,141,107,0.5); }
+.btn-blue  { background: rgba(69,117,137,0.5); }
+.btn-orange{ background: rgba(212,136,104,0.5); }
+
+/* ==============================
+   INFO CARD (MOVEMENT GOAL)
+============================== */
+.info-card {
+  background: var(--card);
+  border-radius: 18px;
+  border: 2px solid var(--border);
+  padding: 14px 16px;
+  text-align: center;
+}
+.info-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(245,208,145,0.55);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.info-val {
+  font-family: 'Fredoka One', cursive;
+  font-size: 22px;
+  color: var(--gold);
+}
+
+/* ==============================
+   OUTPUT / ALERT TEXT
+============================== */
+.output-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(245,208,145,0.85);
+  text-align: center;
+  min-height: 18px;
+}
+
+.alert-text {
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  min-height: 18px;
+}
+
+/* ==============================
+   LOG SECTION
+============================== */
+.log-section {
+  background: var(--card);
+  border-radius: 18px;
+  border: 2px solid var(--border);
+  padding: 14px 16px;
+}
+.log-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(245,208,145,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+}
+.log-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.log-list li, .log-entry {
+  list-style: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
   background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+/* ==============================
+   GLUCOSE CHECKBOXES
+============================== */
+.check-group {
+  display: flex;
+  gap: 10px;
+}
+.check-pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  color: rgba(245,208,145,0.75);
+  transition: background 0.15s, border-color 0.15s;
+}
+.check-pill input { display: none; }
+.check-pill:has(input:checked) {
+  background: rgba(245,208,145,0.18);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ==============================
+   REPAIR QUEST CARD
+============================== */
+.quest-card {
+  background: rgba(212,136,104,0.18);
+  border-radius: 18px;
+  border: 2px solid rgba(212,136,104,0.45);
+  padding: 18px;
+  text-align: center;
+}
+.quest-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 18px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.quest-desc {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(245,208,145,0.7);
+  margin-bottom: 10px;
+}
+.quest-progress {
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  color: var(--gold);
+}
+
+/* ==============================
+   ACHIEVEMENTS SCREEN
+============================== */
+.weekly-xp-card {
+  background: rgba(111,141,107,0.25);
+  border-radius: 22px;
+  border: 2px solid rgba(111,141,107,0.55);
+  padding: 20px;
+  text-align: center;
+}
+.wk-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(245,208,145,0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.wk-val {
+  font-family: 'Fredoka One', cursive;
+  font-size: 52px;
+  color: var(--gold);
+  line-height: 1;
+}
+.wk-sub {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(245,208,145,0.55);
+  margin-top: 8px;
+}
+
+.achieve-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.achieve-badge {
+  background: var(--card);
+  border-radius: 18px;
+  border: 2px solid var(--border);
+  padding: 14px 10px;
+  text-align: center;
+}
+.achieve-badge.unlocked {
+  background: rgba(245,208,145,0.12);
+  border-color: rgba(245,208,145,0.5);
+}
+.badge-emoji { font-size: 28px; display: block; margin-bottom: 4px; }
+.badge-name {
+  font-family: 'Fredoka One', cursive;
+  font-size: 13px;
+  color: var(--gold);
+  display: block;
+}
+.badge-desc {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(245,208,145,0.5);
+  display: block;
+  margin-top: 2px;
+}
+.achieve-badge:not(.unlocked) .badge-emoji { filter: grayscale(1) opacity(0.4); }
+.achieve-badge:not(.unlocked) .badge-name  { color: rgba(245,208,145,0.35); }
+
+/* ==============================
+   SHOP SCREEN
+============================== */
+.shop-limit-card {
+  background: var(--card);
+  border-radius: 18px;
+  border: 2px solid var(--border);
+  padding: 14px 16px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(245,208,145,0.8);
+  line-height: 1.7;
+}
+.spend-count {
+  font-family: 'Fredoka One', cursive;
+  font-size: 16px;
+  color: var(--gold);
+}
+
+.tier-row {
+  display: flex;
+  gap: 12px;
+}
+.tier-btn {
+  flex: 1;
+  border-radius: 22px;
+  border: 2px solid var(--border);
+  padding: 18px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: transform 0.15s, border-color 0.2s;
+  background: none;
+}
+.tier-btn:active { transform: scale(0.96); }
+.tier5  { background: rgba(212,136,104,0.35); }
+.tier10 { background: rgba(245,208,145,0.18); }
+.tier-btn.selected { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(245,208,145,0.3); }
+
+.tier-cost {
+  font-family: 'Fredoka One', cursive;
+  font-size: 24px;
+  color: var(--gold);
+}
+.tier-name {
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(245,208,145,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.reward-preview {
+  background: var(--card);
+  border-radius: 18px;
+  border: 2px solid var(--border);
+  padding: 16px;
+  min-height: 80px;
+  text-align: center;
+}
+.preview-hint {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(245,208,145,0.4);
+  margin-top: 14px;
+}
+.preview-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 16px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.preview-item {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(245,208,145,0.8);
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.confirm-purchase-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  background: rgba(111,141,107,0.5);
+  font-family: 'Fredoka One', cursive;
+  font-size: 17px;
+  color: var(--gold);
+  cursor: pointer;
+  transition: transform 0.15s;
+  display: none;
+}
+.confirm-purchase-btn.visible { display: block; }
+.confirm-purchase-btn:active { transform: scale(0.97); }
+
+.penalty-banner {
+  background: rgba(212,136,104,0.3);
+  border: 2px solid rgba(212,136,104,0.6);
+  border-radius: 16px;
+  padding: 14px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  text-align: center;
 }
