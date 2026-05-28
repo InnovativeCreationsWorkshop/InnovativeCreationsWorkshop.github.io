@@ -297,6 +297,7 @@ const diabeticFriendlyDesserts = {
     "banana": { category: "dessert", value: 5 },
     "peach": { category: "dessert", value: 5 },
     "fruit cocktail": { category: "dessert", value: 5 },
+    "fruit": { category: "dessert", value: 5 },
     "test": { category: "dessert", value: 50 },
     "tests": { category: "dessert", value: 500 }
 };
