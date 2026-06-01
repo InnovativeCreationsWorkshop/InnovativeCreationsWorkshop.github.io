@@ -26,6 +26,9 @@ const foodDataset = {
     "chickpeas": { category: "protein", value: 10 },
     "almonds": { category: "protein", value: 10 },
     "cheese": { category: "protein", value: 10 },
+    "protein": { category: "protein", value: 10 },
+    "meat": { category: "protein", value: 10 },
+    
 
     // Veg
     "broccoli": { category: "veg", value: 5 },
@@ -58,9 +61,13 @@ const foodDataset = {
     "corn": { category: "veg", value: 5 },
     "cabbage": { category: "veg", value: 5 },
     "cauliflower": { category: "veg", value: 5 },
+    "mushroom": { category: "veg", value: 5 },
+    "mushrooms": { category: "veg", value: 5 },
+    "seaweed": { category: "veg", value: 5 },
     "veg": { category: "veg", value: 7 },
     "vegtables": { category: "veg", value: 7 },
     "mix veggies": { category: "veg", value: 7 },
+    "avocado": { category: "veg", value: 7 },
     "veggies": { category: "veg", value: 7 },
 
     // Hydration
@@ -74,6 +81,7 @@ const foodDataset = {
     "lemon water": { category: "hydration", value: 2 },
     "sparkling water": { category: "hydration", value: 2 },
     "kampot": { category: "hydration", value: 2 },
+    "kompot": { category: "hydration", value: 2 },
 
     // Carbs (value = 0)
     "bread": { category: "carbs", value: 0 },
@@ -90,7 +98,8 @@ const foodDataset = {
     "chips": { category: "carbs", value: 0 },
     "crackers": { category: "carbs", value: 0 },
     "granola": { category: "carbs", value: 0 },
-    "quinoa": { category: "carbs", value: 0 }
+    "quinoa": { category: "carbs", value: 0 },
+    "roti": { category: "carbs", value: 0 },
 };
 
 const mealDataset = {
@@ -103,16 +112,34 @@ const mealDataset = {
     "enchiladas": ["protein", "carbs"],
     "quesadilla": ["protein", "carbs"],
     "chicken tinga": ["protein", "veg"],
+    "salsa": ["protein", "veg"],
+    "bao bun": ["protein", "carbs", "veg"],
+    "chips and salsa": ["protein", "carbs", "veg"],
+    "street tacos": ["protein", "veg", "carbs"],
+    "pollo chile colorado": ["protein", "veg"],
+    "curried ground beef and rice with lettuce": ["protein", "carbs", "veg"],
 
     // American / Western
     "burger": ["protein", "carbs"],
+    "burgers": ["protein", "carbs"],
     "sandwich": ["protein", "carbs"],
     "tuna sandwich": ["protein", "carbs"],
     "fried egg sandwich": ["protein", "carbs"],
     "salad": ["veg"],
     "crunchy steakhouse salad": ["protein", "veg"],
     "mediterranean bowl": ["protein", "veg", "carbs"],
-    "toast":["carbs"],
+    "mediterranean rice bowl": ["protein", "veg", "carbs"],
+    "toast": ["carbs"],
+    "big mac salad": ["protein", "veg"],
+    "caprese salad": ["veg", "protein"],
+    "creamy cucumber salad": ["veg"],
+    "greek chickpea salad": ["protein", "veg"],
+    "california roll salad": ["protein", "veg", "carbs"],
+    "steak wild rice and salad": ["protein", "veg", "carbs"],
+    "grilled chicken roasted potatoes and green beans": ["protein", "veg", "carbs"],
+    "chicken wings": ["protein"],
+    "bbq ribs": ["protein"],
+    "chili": ["protein", "veg"],
 
     // Italian
     "pizza": ["carbs", "protein"],
@@ -120,6 +147,9 @@ const mealDataset = {
     "lasagna": ["carbs", "protein"],
     "bolognese": ["protein", "carbs"],
     "butter noodles": ["carbs"],
+    "homemade pasta": ["carbs", "protein"],
+    "spaghetti with meat sauce": ["protein", "carbs"],
+    "italian wedding soup": ["protein", "veg", "hydration"],
 
     // Asian
     "stir fry": ["protein", "veg"],
@@ -133,6 +163,7 @@ const mealDataset = {
     "okonomiyaki": ["carbs", "veg"],
     "katsu": ["protein"],
     "katsu curry": ["protein", "carbs"],
+    "katsu chicken jap curry": ["protein", "carbs"],
     "japanese curry": ["protein", "veg"],
     "soondubu jjigae": ["protein", "veg"],
     "miso soup": ["hydration"],
@@ -142,6 +173,22 @@ const mealDataset = {
     "gyoza": ["carbs", "protein"],
     "scallion pancake": ["carbs"],
     "scallion pancakes": ["carbs"],
+    "chinese steamed egg": ["protein"],
+    "asian marinade": ["protein"],
+    "umami seaweed rice rolls": ["carbs", "veg", "protein"],
+    "yamitsuki shio kyabetsu": ["veg"],
+    "nabe soup": ["protein", "veg", "hydration"],
+    "tofu pot": ["protein", "veg"],
+    "kimbap": ["carbs", "protein", "veg"],
+    "eggrolls": ["carbs"],
+    "egg rolls": ["carbs"],
+    "hainan rice": ["carbs", "protein"],
+
+    // Korean
+    "sang chu geot jeori": ["veg"],
+    "sang chu geot jeori salad": ["veg"],
+    "korean salad": ["veg"],
+    "korean spinach salad": ["veg"],
 
     // Indian / Curry
     "curry": ["protein", "veg"],
@@ -152,6 +199,11 @@ const mealDataset = {
     "prawn curry": ["protein"],
     "shrimp curry": ["protein"],
     "biriyani": ["protein", "carbs"],
+    "lazy chicken biryani": ["protein", "carbs"],
+    "egg curry": ["protein", "veg"],
+    "beef vindaloo": ["protein", "veg"],
+    "sri lankan dahl": ["protein", "veg"],
+    "jackfruit curry": ["protein", "veg"],
 
     // Soups / Stews
     "soup": ["veg", "protein"],
@@ -161,31 +213,47 @@ const mealDataset = {
     "leek soup": ["veg"],
     "potato leek soup": ["veg"],
     "nordic potato soup": ["veg"],
+    "nordic leek soup": ["veg"],
     "white bean soup": ["protein", "veg"],
     "bean soup": ["protein"],
     "tomato and grilled cheese soup": ["carbs", "veg"],
     "tuscan white bean soup": ["protein", "veg"],
+    "tuscan soup": ["protein", "veg"],
     "beef stew": ["protein", "veg"],
+    "cajun sausage potato soup": ["protein", "veg", "carbs"],
+    "creamy mushroom soup": ["veg"],
+    "sopa de lentejas": ["protein", "veg"],
 
     // Southern / Cajun
     "jambalaya": ["protein", "carbs"],
+    "jambalyay": ["protein", "carbs"],
     "gumbo": ["protein"],
 
     // Comfort foods
-    "chili": ["protein", "veg"],
     "shepherd's pie": ["protein", "carbs"],
     "potato chicken bake": ["protein", "carbs"],
 
-    // Korean
-    "sang chu geot jeori": ["veg"],
-    "sang chu geot jeori salad": ["veg"],
+    // Bowls
+    "chickpea bowl": ["protein", "veg"],
+    "rice cooker bowl": ["protein", "carbs", "veg"],
+    "rice bowl": ["protein", "carbs", "veg"],
 
-    // Other
-    "hainan rice": ["carbs", "protein"],
-    "egg rolls": ["carbs"],
-   
+    // Protein + Veg combos
+    "protein and veg": ["protein", "veg"],
+    "protein and beg": ["protein", "veg"],
 
-      // Asian
+    // African / Middle Eastern
+    "doro wat": ["protein", "veg"],
+    "injera with doro wat": ["protein", "carbs", "veg"],
+    "ethiopian beef tibs": ["protein", "veg"],
+    "kabsa": ["protein", "carbs", "veg"],
+
+    // Other / Global
+    "red beans & rice": ["protein", "carbs"],
+    "red beans and rice": ["protein", "carbs"],
+    "roti": ["carbs"],
+
+    // Asian (extended)
     "pho": ["protein", "carbs", "veg"],
     "pad thai": ["protein", "carbs", "veg"],
     "green curry": ["protein", "veg"],
@@ -195,7 +263,6 @@ const mealDataset = {
     "teriyaki chicken": ["protein", "carbs", "veg"],
     "sushi": ["protein", "carbs"],
     "tempura": ["protein", "veg", "carbs"],
-    "bao bun": ["protein", "carbs", "veg"],
 
     // European
     "paella": ["protein", "carbs", "veg"],
@@ -213,7 +280,6 @@ const mealDataset = {
     "jollof rice": ["carbs", "protein", "veg"],
     "tagine": ["protein", "veg", "carbs"],
     "bunny chow": ["carbs", "protein", "veg"],
-    "injera with doro wat": ["protein", "carbs", "veg"],
     "egusi soup": ["protein", "veg"],
 
     // Middle Eastern
@@ -242,10 +308,10 @@ const mealDataset = {
     "clam chowder": ["protein", "hydration"],
     "chicken pot pie": ["protein", "carbs", "veg"],
     "pulled pork sandwich": ["protein", "carbs"],
-    "bbq ribs": ["protein"],
     "cornbread": ["carbs"],
     "boil": ["carbs", "protein"],
     "seafood boil": ["carbs", "protein"],
+    "buffet": ["carbs", "protein", "veg"],
     "grilled cheese": ["carbs", "protein", "veg"]
 };
 
@@ -282,10 +348,12 @@ const diabeticFriendlyDesserts = {
     "nuts and berries": { category: "dessert", value: 5 },
     "pumpkin puree dessert": { category: "dessert", value: 5 },
     "baked apples unsweetened": { category: "dessert", value: 5 },
-    "cinnamon pear dessert": { category: "dessert", value: 5 },
     "frozen berries": { category: "dessert", value: 5 },
-    "fruit salad sugar-free": { category: "dessert", value: 5 },
+    "fruit salad": { category: "dessert", value: 5 },
     "banana slices in cocoa": { category: "dessert", value: 5 },
+    "orange": { category: "dessert", value: 5 },
+    "mandarin": { category: "dessert", value: 5 },
+    "tangerine": { category: "dessert", value: 5 },
     "peaches": { category: "dessert", value: 5 },
     "sugar-free ice cream": { category: "dessert", value: 5 },
     "carrot cake sugar-free": { category: "dessert", value: 5 },
@@ -298,6 +366,7 @@ const diabeticFriendlyDesserts = {
     "peach": { category: "dessert", value: 5 },
     "fruit cocktail": { category: "dessert", value: 5 },
     "fruit": { category: "dessert", value: 5 },
+    "fruits": { category: "dessert", value: 5 },
     "test": { category: "dessert", value: 50 },
     "tests": { category: "dessert", value: 500 }
 };
