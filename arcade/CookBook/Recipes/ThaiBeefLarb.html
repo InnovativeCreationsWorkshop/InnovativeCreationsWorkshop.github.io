@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Thai Beef Larb</title>
+
+</head>
+<body data-page="ThaiBeefLarb">
+
+<div class="card">
+    <div class="left">
+        <h1>THAI BEEF LARB</h1>
+
+        <div class="stars"> ★ <p>Easy</p></div>
+
+        <div class="meta">total time: 15–20 minutes</div>
+
+        <div class="meta">
+            Savory, bright, and herb-packed. A quick Thai-inspired dish with bold flavor and fresh crunch.
+        </div>
+
+        <img src="" alt="" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <ul>
+                <li>Add sriracha or chili paste on top for extra heat.</li>
+                <li>Adjust sweetness to taste for balance.</li>
+                <li>Serve with butter lettuce cups for a fresh, wrap-style bite.</li>
+            </ul>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">
+            Watch Video
+        </button>
+
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+
+        <div class="ingredients">
+            <ul>
+                <li>Ground beef</li>
+                <li>Sugar</li>
+                <li>Fish sauce</li>
+                <li>Lime juice</li>
+                <li>Mirin</li>
+            </ul>
+
+            <ul>
+                <li>Shallot (julienned)</li>
+                <li>Thai chilies</li>
+                <li>Cilantro</li>
+                <li>Mint</li>
+                <li>Butter lettuce (for serving)</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+
+        <div class="directions">
+            <ol>
+                <li>Cook ground beef in a pan over medium-high heat.</li>
+                <li>Add sugar, fish sauce, lime juice, and mirin. Cook until beef is browned and fully cooked.</li>
+                <li>Turn off the heat.</li>
+                <li>Add shallot, Thai chilies, cilantro, and mint.</li>
+                <li>Mix until herbs are lightly wilted from the residual heat.</li>
+                <li>Serve in butter lettuce cups.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn">Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>

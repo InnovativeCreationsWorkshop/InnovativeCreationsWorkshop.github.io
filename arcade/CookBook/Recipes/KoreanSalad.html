@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>KBBQ Sangchu Geotjeori</title>
+
+</head>
+<body data-page="KoreanSalad">
+
+<div class="card">
+    <div class="left">
+        <h1>KBBQ SANGCHU GEOTJEORI</h1>
+
+        <div class="stars"> ★ <p>Easy</p></div>
+        <div class="meta">total time: 15–20 minutes</div>
+        <div class="meta">
+            Fresh, spicy, and built to wrap grilled meat like edible origami.
+        </div>
+
+        <img src="" alt="" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <ul>
+                <li>See also KBBQ Marinade:</li>
+                <li>
+                    <a href="..\Recipes\AsianMarinade.html" class="recipe-link">
+                        Asian Style Protein Marinade →
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">
+            Watch Video
+        </button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Butter lettuce</li>
+                <li>Carrot</li>
+                <li>Green onion, sliced</li>
+                <li>Thinly sliced steak</li>
+                <li>Minced garlic</li>
+            </ul>
+            <ul>
+                <li>Soy sauce</li>
+                <li>Brown sugar</li>
+                <li>Rice vinegar</li>
+                <li>Gochugaru (Korean chili flakes)</li>
+                <li>Sesame oil</li>
+                <li>Sesame seeds</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>In a large bowl, combine butter lettuce, shredded carrot, and green onion.</li>
+                <li>In a separate bowl, mix garlic, soy sauce, brown sugar, rice vinegar, gochugaru, sesame oil, and sesame seeds.</li>
+                <li>Pour sauce over vegetables and gently toss to keep lettuce crisp.</li>
+                <li>Sear thin steak slices quickly on high heat until browned and slightly caramelized.</li>
+                <li>Serve steak with salad and wrap in lettuce leaves to eat.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+
+<script>
+  const key = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>

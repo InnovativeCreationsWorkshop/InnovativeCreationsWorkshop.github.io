@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Chicken Tinga Tostadas</title>
+
+</head>
+<body data-page="ChickenTinga">
+
+<div class="card">
+    <div class="left">
+        <h1>CHICKEN TINGA TOSTADAS</h1>
+
+        <div class="stars"> ★ <p>Easy</p></div>
+        <div class="meta">total time: 20–25 minutes</div>
+        <div class="meta">
+            Smoky, saucy shredded chicken layered over crispy tostadas with creamy toppings and plenty of texture. Also works as a scoopable party-style platter with tortilla chips.
+        </div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+        <div class="meta">
+            <li>Rotisserie chicken works best for quick prep and extra flavor.</li>
+            <li>Adding red enchilada sauce creates a richer, saucier tinga.</li>
+            <li>Customize toppings with avocado, jalapeños, or extra cheese.</li>
+            <li>For a chip version, layer ingredients on a platter and scoop with tortilla chips instead of building individual tostadas.</li>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Olive oil</li>
+                <li>1 medium onion, diced</li>
+                <li>Shredded rotisserie chicken</li>
+                <li>Salsa</li>
+                <li>Red enchilada sauce</li>
+                <li>Cotija cheese</li>
+            </ul>
+            <ul>
+                <li>Refried beans</li>
+                <li>Tostada shells or tortilla chips</li>
+                <li>Crema Mexicana or sour cream</li>
+                <li>Shredded lettuce</li>
+                <li>Red onion</li>
+                <li>Cilantro</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Heat olive oil in a skillet over medium heat.</li>
+                <li>Add diced onion and cook until softened.</li>
+                <li>Stir in shredded chicken and salsa.</li>
+                <li>Add red enchilada sauce and cook for about 10 minutes.</li>
+                <li>Mix in cotija cheese until incorporated into the chicken mixture.</li>
+                <li>Spread a layer of refried beans onto each tostada shell.</li>
+                <li>Drizzle with crema or sour cream.</li>
+                <li>Top with the chicken tinga mixture.</li>
+                <li>Finish with lettuce, salsa, red onion, cotija cheese, cilantro, and any additional toppings.</li>
+                <li>Serve immediately.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>

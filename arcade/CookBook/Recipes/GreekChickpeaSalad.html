@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Greek Chickpea Salad</title>
+
+</head>
+<body data-page="GreekChickpeaSalad">
+
+<div class="card">
+    <div class="left">
+        <h1>GREEK CHICKPEA SALAD</h1>
+
+        <div class="stars"> ★ <p>Easy</p></div>
+        <div class="meta">total time: 25–30 minutes</div>
+        <div class="meta">
+            Bright, salty, crunchy, and packed with roasted chickpeas for extra texture and spice.
+        </div>
+
+        <img src="" alt="" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <li>Roasting the chickpeas gives the salad extra crunch and warmth.</li>
+            <li>Harissa seasoning and chili powder add a smoky heat that balances the fresh vegetables.</li>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Chickpeas</li>
+                <li>Olive oil</li>
+                <li>Red wine vinegar</li>
+                <li>Lemon juice</li>
+                <li>Garlic powder</li>
+                <li>Dried oregano</li>
+            </ul>
+            <ul>
+                <li>Salt and black pepper</li>
+                <li>Red onion, diced</li>
+                <li>Cherry tomatoes, halved</li>
+                <li>Cucumber, diced</li>
+                <li>Mozzarella mini balls (or cheese of choice)</li>
+                <li>Harissa seasoning</li>
+                <li>Chili powder</li>
+                <li>Fresh parsley</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Preheat oven to 425°F.</li>
+                <li>Toss chickpeas with olive oil, harissa seasoning, salt, pepper, and chili powder.</li>
+                <li>Roast chickpeas until crispy, about 20 minutes.</li>
+                <li>In a large bowl, combine red onion, cherry tomatoes, cucumber, and mozzarella.</li>
+                <li>Whisk together olive oil, red wine vinegar, lemon juice, garlic powder, oregano, and salt for the dressing.</li>
+                <li>Add roasted chickpeas to the salad and pour over the dressing.</li>
+                <li>Top with fresh parsley, toss everything together, and serve.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Rice Cooker Bowl</title>
+
+</head>
+
+<body data-page="RiceCookerBowl">
+
+<div class="card">
+
+    <div class="left">
+        <h1>RICE COOKER BOWL</h1>
+
+        <div class="stars">★ <p>Easy</p></div>
+
+        <div class="meta">total time: 30–40 minutes</div>
+
+        <div class="meta">
+            Minimal effort, one appliance, and somehow still feels like you planned your life correctly.
+        </div>
+
+        <img src="" alt="" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <ul>
+                <li>Extremely versatile — swap in any vegetables, protein, or sauce.</li>
+                <li>Frozen vegetables work perfectly and require zero prep.</li>
+                <li>Try sesame oil, sriracha, teriyaki, or chili crisp at the end.</li>
+                <li>Works with chicken, beef, tofu, shrimp, or anything available.</li>
+            </ul>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">
+            Watch Video
+        </button>
+
+    </div>
+
+    <div class="right">
+
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Rice</li>
+                <li>Chicken (cubed or sliced)</li>
+                <li>Dark soy sauce</li>
+                <li>Mirin</li>
+                <li>Garlic</li>
+                <li>Ginger</li>
+                <li>Frozen peas</li>
+                <li>Broccoli</li>
+                <li>Carrots</li>
+                <li>Salt</li>
+                <li>Water (for rice cooker)</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Marinate chicken with soy sauce, mirin, garlic, and ginger.</li>
+                <li>Add rice and water to rice cooker.</li>
+                <li>Add chicken and vegetables on top.</li>
+                <li>Season lightly with salt.</li>
+                <li>Cook on standard rice cycle.</li>
+                <li>Fluff and serve hot.</li>
+            </ol>
+        </div>
+
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn">Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+
+<script>
+  const key = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>

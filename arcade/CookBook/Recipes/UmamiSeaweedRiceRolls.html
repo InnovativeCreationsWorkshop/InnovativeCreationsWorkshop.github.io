@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Umami Seaweed Rice Rolls</title>
+
+</head>
+<body data-page="UmamiSeaweedRiceRolls">
+
+<div class="card">
+    <div class="left">
+        <h1>UMAMI SEAWEED RICE ROLLS</h1>
+
+        <div class="stars"> ★★ <p>Medium</p></div>
+
+        <div class="meta">total time: 35–45 minutes</div>
+
+        <div class="meta">
+            A fusion-style seaweed rice roll inspired by sushi and kimbap — flexible, customizable, and packed with umami.
+        </div>
+
+        <img src="" alt="" class="food-image">
+
+        <h2>NOTES</h2>
+
+        <div class="meta">
+            <ul>
+                <li>Proteins: canned tuna, baked salmon, pan-seared tuna, shrimp. For kimbap style: shredded beef, pork, tamago-yaki, or tofu.</li>
+                <li>Let rice cool slightly before rolling so the seaweed doesn’t tear.</li>
+                <li>Press rice evenly for a tight roll that holds together when sliced.</li>
+                <li>Substitute sushi rice with Calrose rice if needed.</li>
+                <li>Use rice seasoning if sushi mix is unavailable.</li>
+            </ul>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">
+            Watch Video
+        </button>
+
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+
+        <div class="ingredients">
+            <ul>
+                <li>Sushi rice</li>
+                <li>Vinegar sushi mix</li>
+                <li>Nori (seaweed)</li>
+                <li>Soy sauce</li>
+                <li>Protein</li>
+                <li>Green onion</li>
+            </ul>
+        </div>
+
+        <h2>SUGGESTED TOPPINGS</h2>
+
+        <div class="ingredients">
+            <ul>
+                <li>Carrot</li>
+                <li>Cucumber</li>
+                <li>Avocado</li>
+                <li>Asparagus</li>
+                <li>Jalapeño</li>
+                <li>Pickled radish</li>
+                <li>Pickled ginger</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+
+        <div class="directions">
+            <ol>
+                <li>Cook sushi rice according to package instructions.</li>
+                <li>Mix in sushi seasoning while warm, then let cool slightly.</li>
+                <li>Lay seaweed sheet flat on a bamboo mat or surface.</li>
+                <li>Spread a thin, even layer of rice, leaving a small border.</li>
+                <li>Add protein and toppings in a line across the center.</li>
+                <li>Roll tightly while pressing to keep shape compact.</li>
+                <li>Slice into bite-sized pieces with a sharp knife.</li>
+                <li>Serve with soy sauce and optional sides like miso soup or tea.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn">Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+
+<script>
+  const key = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>

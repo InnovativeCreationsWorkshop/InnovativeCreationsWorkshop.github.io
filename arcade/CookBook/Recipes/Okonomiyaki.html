@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Okonomiyaki</title>
+
+</head>
+
+<body data-page="Okonomiyaki">
+
+<div class="card">
+
+    <div class="left">
+        <h1>OKONOMIYAKI</h1>
+
+        <div class="stars">★★ <p>Medium</p></div>
+
+        <div class="meta">total time: 25–35 minutes</div>
+
+        <div class="meta">
+            Part pancake, part cabbage engineering project, completely delicious.
+        </div>
+
+        <img src="" alt="" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <ul>
+                <li>Use napa cabbage or regular cabbage sliced thin like noodles.</li>
+                <li>Customize freely with shrimp, bacon, squid, or any protein you like.</li>
+                <li>Store-bought okonomiyaki sauce works great, but homemade is easy too.</li>
+                <li>Top with kewpie mayo, bonito flakes, seaweed, or whatever sounds good.</li>
+            </ul>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">
+            Watch Video
+        </button>
+
+    </div>
+
+    <div class="right">
+
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Shredded cabbage</li>
+                <li>Spring onion</li>
+                <li>Egg</li>
+                <li>Flour</li>
+                <li>Water</li>
+                <li>Salt</li>
+                <li>Black pepper</li>
+            </ul>
+
+            <ul>
+                <li>Oil for frying</li>
+                <li>Worcestershire sauce</li>
+                <li>Ketchup</li>
+                <li>Sugar</li>
+                <li>Oyster sauce</li>
+                <li>Kewpie mayo</li>
+                <li>Bonito flakes</li>
+                <li>Optional proteins/toppings</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Shred cabbage thinly and combine with spring onion.</li>
+                <li>Add salt, pepper, egg, flour, and water to form a thick batter.</li>
+                <li>Mix until fully combined.</li>
+                <li>Heat oil in a pan over medium heat.</li>
+                <li>Pour mixture into pan and shape into a round pancake.</li>
+                <li>Cook until golden brown, then flip and cook the other side.</li>
+                <li>Mix Worcestershire sauce, ketchup, sugar, and oyster sauce for topping.</li>
+                <li>Finish with sauce, kewpie mayo, bonito flakes, and toppings.</li>
+            </ol>
+        </div>
+
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn">Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+
+<script>
+  const key = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>

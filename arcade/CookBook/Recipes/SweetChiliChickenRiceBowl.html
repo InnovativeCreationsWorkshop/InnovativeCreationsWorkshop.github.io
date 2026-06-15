@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Sweet Chili Chicken Rice Bowl</title>
+</head>
+
+<body data-page="SweetChiliChickenRiceBowl">
+
+<div class="card">
+    <div class="left">
+        <h1>SWEET CHILI CHICKEN RICE BOWL</h1>
+
+        <div class="stars"> ★★ <p>Medium</p></div>
+
+        <div class="meta">total time: 30–40 minutes</div>
+
+        <div class="meta">
+            A sweet, spicy, and tangy wok-style chicken bowl with crisp vegetables and a glossy chili glaze.
+        </div>
+
+        <img src="" alt="Recipe image" class="food-image">
+
+        <h2>NOTES</h2>
+        <ul class="meta">
+            <li>If lazy, use store-bought kung pao or sweet & sour sauce instead of making sauce from scratch.</li>
+            <li>Do not overuse sauce—start small and adjust as needed.</li>
+            <li>For a low-carb option, replace rice with shredded cabbage.</li>
+            <li>Add lime at the end for extra brightness (especially if not using store-bought sauce).</li>
+        </ul>
+
+        <button class="video-btn" onclick="openVideo()">
+            Watch Video
+        </button>
+    </div>
+
+    <div class="right">
+
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Jasmine rice (or shredded cabbage for low-carb option)</li>
+                <li>Chicken breast, diced</li>
+                <li>Green beans or snap peas</li>
+                <li>Onion, sliced</li>
+                <li>Garlic powder</li>
+                <li>Chili pepper</li>
+                <li>Cornstarch (optional)</li>
+            </ul>
+
+            <ul>
+                <li>Sweet soy glaze</li>
+                <li>Sweet Thai chili sauce</li>
+                <li>Sesame seeds (for garnish)</li>
+                <li>Fresh cilantro</li>
+                <li>Lime</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Heat a wok over high heat and add a little oil.</li>
+                <li>Add diced chicken and season with garlic powder, chili pepper, and onion.</li>
+                <li>Cook until chicken is browned and nearly cooked through.</li>
+                <li>Add sweet soy glaze and/or sweet Thai chili sauce (skip cornstarch if using store-bought sauce).</li>
+                <li>Toss in green beans or snap peas and stir-fry.</li>
+                <li>Cook for about 10 minutes or until vegetables reach desired tenderness and sauce thickens.</li>
+                <li>Serve over jasmine rice or shredded cabbage for a low-carb option.</li>
+                <li>Garnish with sesame seeds, cilantro, and a squeeze of lime.</li>
+            </ol>
+        </div>
+
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn">Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="../Script/recipes.js"></script>
+<script src="../Script/nav.js"></script>
+
+<script>
+const key = document.body.dataset.page;
+const recipe = RECIPES.find(r => r.key === key);
+
+if (recipe?.image) {
+    document.querySelector('.food-image').src = recipe.image;
+}
+
+function openVideo() {
+    if (recipe?.video) {
+        window.open(recipe.video, '_blank');
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Roti</title>
+
+</head>
+
+<body data-page="Roti">
+
+<div class="card">
+
+    <div class="left">
+        <h1>ROTI</h1>
+
+        <div class="stars">★ <p>Easy</p></div>
+
+        <div class="meta">total time: 30–40 minutes</div>
+
+        <div class="meta">
+            Soft, flaky flatbread perfect for scooping up rich curries, stews, and sauces.
+        </div>
+
+        <img src="" alt="" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <ul>
+                <li>Boiling water helps create a softer and more pliable dough.</li>
+                <li>Roll the dough as thin as possible for classic layered roti texture.</li>
+                <li>Optional garlic butter adds extra flavor and richness.</li>
+            </ul>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">
+            Watch Video
+        </button>
+
+    </div>
+
+    <div class="right">
+
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>2 cups flour</li>
+                <li>Pinch of salt</li>
+                <li>2 tbsp oil</li>
+                <li>2 tbsp butter or ghee</li>
+                <li>1 cup boiling water</li>
+                <li>Extra oil for frying</li>
+                <li>Optional garlic butter</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Mix flour and salt in a bowl.</li>
+                <li>Add oil and butter or ghee.</li>
+                <li>Slowly pour in boiling water while mixing.</li>
+                <li>Knead until soft and smooth.</li>
+                <li>Divide into equal dough balls.</li>
+                <li>Roll each piece as thin as possible.</li>
+                <li>Optional: brush with garlic butter.</li>
+                <li>Cook on a hot pan with light oil until golden spots appear.</li>
+                <li>Serve warm with curries or stews.</li>
+            </ol>
+        </div>
+
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn">Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+
+<script>
+  const key = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>

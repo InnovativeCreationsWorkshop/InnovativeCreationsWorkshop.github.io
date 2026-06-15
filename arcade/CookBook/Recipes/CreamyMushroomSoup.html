@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Creamy Mushroom Soup</title>
+
+</head>
+<body data-page="CreamyMushroomSoup">
+
+<div class="card">
+    <div class="left">
+        <h1>CREAMY GARLIC MUSHROOM SOUP</h1>
+
+        <div class="stars"> ★★<p> Medium</p></div>
+        <div class="meta">total time: 35–45 minutes</div>
+        <div class="meta">Earthy mushrooms, layered spices, and a silky finish that tastes like comfort with depth.</div>
+
+        <img src="" alt="" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            The fried mushroom topping adds texture and a restaurant-style finish.
+        </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Mushrooms</li>
+                <li>Butter</li>
+                <li>Garlic</li>
+                <li>Onion</li>
+                <li>Paprika</li>
+                <li>Cayenne pepper</li>
+                <li>Oregano</li>
+                <li>Fresh thyme</li>
+                <li>Vegeta or all-purpose seasoning</li>
+            </ul>
+            <ul>
+                <li>White wine</li>
+                <li>Bone broth</li>
+                <li>Water</li>
+                <li>Cornstarch</li>
+                <li>Milk or Cream</li>
+                <li>Parsley (chopped)</li>
+                <li>Optional: sour cream or extra cream</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Brown mushrooms in a pan until deeply golden. Set some aside for topping.</li>
+                <li>Sauté onion and garlic in butter until soft and fragrant.</li>
+                <li>Add mushrooms back in and stir to coat in the butter base.</li>
+                <li>Mix in paprika, cayenne, oregano, thyme, and seasoning blend.</li>
+                <li>Pour in white wine to deglaze the pan and simmer until reduced.</li>
+                <li>Add bone broth and water, then bring to a gentle simmer.</li>
+                <li>Whisk cornstarch with milk or cream, then slowly stir into the soup.</li>
+                <li>Simmer until thick and silky.</li>
+                <li>Adjust seasoning and add extra cream or sour cream if desired.</li>
+                <li>Serve topped with parsley and reserved mushrooms.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>

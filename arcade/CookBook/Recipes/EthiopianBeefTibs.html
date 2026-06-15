@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Ethiopian Beef Tibs</title>
+
+</head>
+<body data-page="EthiopianBeefTibs">
+
+<div class="card">
+    <div class="left">
+        <h1>ETHIOPIAN BEEF TIBS</h1>
+
+        <div class="stars"> ★ ★ <p>Medium</p></div>
+        <div class="meta">total time: 1 hour 25 minutes</div>
+        <div class="meta">
+            Spiced Ethiopian-style beef with smoky skillet char, fragrant aromatics, and deep warming heat.
+        </div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+        <div class="meta">
+            <li>Korerima can be substituted with cardamom if unavailable.</li>
+            <li>Mitmita can be replaced with a chili blend or cayenne-heavy seasoning mix.</li>
+            <li>An iron skillet gives the beef the best grilled flavor and crispy edges.</li>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Beef round, sliced</li>
+                <li>Garlic, minced</li>
+                <li>Onion, sliced</li>
+                <li>Jalapeño, sliced</li>
+                <li>Poultry blend seasoning</li>
+            </ul>
+            <ul>
+                <li>Rosemary</li>
+                <li>Oregano</li>
+                <li>All-purpose seasoning</li>
+                <li>Salt</li>
+                <li>Korerima (or cardamom)</li>
+                <li>Mitmita (or chili blend)</li>
+                <li>Kibe (or butter/oil)</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Place beef in a bowl with garlic, onion, and jalapeño.</li>
+                <li>Season with poultry blend, rosemary, oregano, all-purpose seasoning, salt, korerima, and mitmita.</li>
+                <li>Mix thoroughly and marinate for at least 1 hour.</li>
+                <li>Heat kibe in an iron skillet over medium-high heat.</li>
+                <li>Cook beef until nicely grilled and slightly charred on the edges.</li>
+                <li>Serve hot with injera, rice, or roti.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>

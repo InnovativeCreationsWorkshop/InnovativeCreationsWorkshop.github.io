@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Doro Wat</title>
+
+</head>
+<body data-page="DoroWat">
+
+<div class="card">
+    <div class="left">
+        <h1>DORO WAT</h1>
+
+        <div class="stars"> ★ ★ ★ <p>Advanced</p></div>
+        <div class="meta">total time: 2–2.5 hours</div>
+        <div class="meta">
+            Deeply spiced Ethiopian chicken stew with slow-cooked onions, rich berbere heat, and eggs soaked in flavorful sauce.
+        </div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+        <div class="meta">
+            <li>The onions are the foundation of the stew — use an excessive amount and cook them patiently.</li>
+            <li>Berbere is powerful and spicy, so add gradually and taste as you go.</li>
+            <li>Korerima can be substituted with cardamom if unavailable.</li>
+            <li>Cutting shallow slits into the eggs helps them absorb the sauce.</li>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Chicken legs or wings</li>
+                <li>Lemon juice</li>
+                <li>Hardboiled eggs</li>
+                <li>Red onions or shallots (large amount)</li>
+                <li>Berbere spice</li>
+                <li>Tomato paste</li>
+            </ul>
+            <ul>
+                <li>Korerima (or cardamom)</li>
+                <li>Kibe (or butter)</li>
+                <li>Maklesha spice blend</li>
+                <li>Water, as needed</li>
+                <li>Salt, to taste</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Boil eggs until hardboiled, then set aside to cool.</li>
+                <li>Wash chicken and marinate with lemon juice while preparing the stew base.</li>
+                <li>Finely chop a very large amount of onions or shallots.</li>
+                <li>Cook onions on low to medium heat for a long time until deeply caramelized.</li>
+                <li>Add berbere spice carefully, stirring constantly so it does not burn.</li>
+                <li>Mix in tomato paste and korerima.</li>
+                <li>Add water as needed to keep the stew from drying out.</li>
+                <li>Add chicken to the stew and cook until tender and fully done.</li>
+                <li>Stir in kibe and 1 tablespoon of maklesha spice blend.</li>
+                <li>Peel eggs and make shallow slits around each egg.</li>
+                <li>Add eggs to the stew and simmer so they absorb the flavor.</li>
+                <li>Serve hot with injera, roti, or string hoppers.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>

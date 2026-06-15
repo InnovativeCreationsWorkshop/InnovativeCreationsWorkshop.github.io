@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Buffalo Wings</title>
+
+</head>
+<body data-page="BuffaloWings">
+
+<div class="card">
+    <div class="left">
+        <h1>BUFFALO WINGS</h1>
+
+        <div class="stars"> ★ <p>Easy</p></div>
+        <div class="meta">total time: 1 hour 15 minutes–2 hours</div>
+        <div class="meta">
+            Crispy, tangy buffalo wings with a buttery RedHot finish. Great for game day, movie night, or whenever spicy comfort food sounds right.
+        </div>
+
+        <img src="" alt="" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <li>For saucier wings, keep them covered for the full bake time.</li>
+            <li>For crispier wings with less sauce retention, uncover halfway through cooking.</li>
+            <li>Flip the wings during baking for even cooking and browning.</li>
+            <li>Serve with Caesar salad and ranch dressing for dipping.</li>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Chicken wings</li>
+                <li>Water</li>
+                <li>Vinegar</li>
+                <li>Salt</li>
+                <li>Black pepper</li>
+            </ul>
+            <ul>
+                <li>Garlic powder</li>
+                <li>2 tbsp butter</li>
+                <li>Frank's RedHot Sauce</li>
+                <li>Ranch dressing (for serving)</li>
+                <li>Caesar salad (optional side)</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Soak the wings in water and vinegar for at least 1 hour.</li>
+                <li>Pat the wings dry thoroughly.</li>
+                <li>Season with salt, black pepper, and garlic powder.</li>
+                <li>Place wings on a baking sheet and bake covered at 375°F (190°C) for 45 minutes.</li>
+                <li>For less sauce and more crispiness, uncover halfway through cooking. Flip the wings during baking.</li>
+                <li>Remove from the oven and toss with butter and RedHot Sauce until evenly coated.</li>
+                <li>Return to the oven and broil for about 15 minutes, or until crispy and nicely colored.</li>
+                <li>Serve hot with ranch dressing and your favorite side.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>

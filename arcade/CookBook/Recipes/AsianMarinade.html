@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Asian Style Protein Marinade</title>
+
+</head>
+<body data-page="AsianMarinade">
+
+<div class="card">
+    <div class="left">
+        <h1>ASIAN STYLE PROTEIN MARINADE</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">prep time: 15 minutes</div>
+        <div class="meta">A versatile marinade that works with chicken, shrimp, beef, or pork for multiple Asian-style dishes.</div>
+
+        <img src="" alt="" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <li>This base works across multiple cooking styles, so think of it as a flavor foundation rather than a strict recipe.</li>
+            <li>For spice add : Chili oil or sriracha or chili paste or gochugaru or gochujang depending on the dish.</li>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Soy sauce</li>
+                <li>Oyster sauce</li>
+                <li>Sugar</li>
+                <li>Fish sauce (or mushroom sauce)</li>
+                <li>Mirin</li>
+            </ul>
+            <ul>
+                <li>Garlic (minced)</li>
+                <li>Sesame oil</li>
+                <li>For heat see notes.</li>
+                <li>Protein of choice (chicken, shrimp, beef, pork)</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Mix all sauce ingredients in a bowl until fully combined.</li>
+                <li>Add protein and coat evenly in the marinade.</li>
+                <li>Marinate for at least 30 minutes, up to 12 hours (overnight for deeper flavor).</li>
+                <li>Cook protein using your desired method or recipe.</li>
+            </ol>
+        </div>
+
+        <h2>USES</h2>
+        <div class="directions">
+            <ul>
+                <li>Korean BBQ (KBBQ)</li>
+                <li>Fried rice</li>
+                <li>Stir-fry noodles</li>
+                <li>Lettuce wraps</li>
+                <li>Rice bowls</li>
+                <li>Grilled skewers</li>
+                <li>Ramen topping</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>

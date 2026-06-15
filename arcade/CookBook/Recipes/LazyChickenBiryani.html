@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Lazy Chicken Biryani</title>
+
+</head>
+<body data-page="LazyChickenBiryani">
+
+<div class="card">
+    <div class="left">
+        <h1>LAZY CHICKEN BIRYANI</h1>
+
+        <div class="stars"> ★ <p>Easy</p></div>
+        <div class="meta">total time: 45–60 minutes</div>
+        <div class="meta">
+            Minimal effort, big flavor. A shortcut biryani made right in the rice cooker.
+        </div>
+
+        <img src="" alt="" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <ul>
+                <li>Use bone broth with water for a richer, deeper flavor.</li>
+                <li>If the rice turns out too watery, leave it in the rice cooker for an extra 10–15 minutes.</li>
+                <li>Marinate longer for more tender, flavorful chicken.</li>
+                <li>Add dried or fresh curry leaves for more flavor.</li>
+            </ul>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">
+            Watch Video
+        </button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Chicken (cubed)</li>
+                <li>Salt</li>
+                <li>Turmeric</li>
+                <li>Biryani spice mix</li>
+                <li>Garlic (minced)</li>
+                <li>Chili</li>
+                <li>Yogurt</li>
+            </ul>
+
+            <ul>
+                <li>Leek (chopped)</li>
+                <li>Vegetable oil</li>
+                <li>Rice (washed)</li>
+                <li>Water or broth</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Marinate cubed chicken with salt, turmeric, biryani spice mix, garlic, chili, and yogurt. Let sit for at least 30 minutes (longer for better flavor and tenderness).</li>
+                <li>Chop the leek.</li>
+                <li>In a rice cooker, add vegetable oil, chopped leek, washed rice, and water or broth.</li>
+                <li>Layer the marinated chicken on top of the rice.</li>
+                <li>Cook using the standard rice setting.</li>
+                <li>Let rest for a few minutes, then mix before serving.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+
+<script>
+  const key = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>

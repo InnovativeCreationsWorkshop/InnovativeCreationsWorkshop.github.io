@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Street Tacos</title>
+</head>
+
+<body data-page="StreetTacos">
+
+<div class="card">
+
+    <div class="left">
+        <h1>STREET TACOS</h1>
+
+        <div class="stars"> ★★ <p>Medium</p></div>
+        <div class="meta">total time: 35–45 minutes</div>
+
+        <div class="meta">
+            Messy hands, dripping salsa, zero regrets. Backyard taqueria energy without the parking lot line.
+        </div>
+
+        <img src="" alt="" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <ul>
+                <li>Add Mexican-style cheese for extra richness and taco shop vibes.</li>
+                <li>Char the salsa ingredients hard — the blackened edges build flavor.</li>
+            </ul>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">
+            Watch Video
+        </button>
+    </div>
+
+    <div class="right">
+
+        <h2>INGREDIENTS</h2>
+
+        <div class="ingredients">
+            <ul>
+                <li>Choice of protein</li>
+                <li>Carne asada</li>
+                <li>Orange juice</li>
+                <li>Lime juice</li>
+                <li>Onion</li>
+                <li>Fresh cilantro</li>
+                <li>Taco seasoning</li>
+                <li>Corn tortillas</li>
+            </ul>
+
+            <ul>
+                <li>Salt</li>
+                <li>Black pepper</li>
+                <li>Oregano</li>
+                <li>Cumin</li>
+                <li>Chili powder</li>
+                <li>Cayenne pepper (optional)</li>
+                <li>Mexican-style cheese (optional)</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+
+        <div class="directions">
+            <ol>
+                <li>Marinate carne asada with orange juice, lime juice, onion, cilantro, and seasonings.</li>
+                <li>Let sit at least 20 minutes (longer improves flavor).</li>
+                <li>Cook meat in a hot pan or grill until browned and fully cooked.</li>
+                <li>Chop into taco-sized pieces.</li>
+                <li>Finely chop fresh onion and cilantro for topping.</li>
+                <li>Char jalapeños and tomatoes in a pan until blackened for salsa.</li>
+                <li>Blend charred vegetables with onion, lemon juice, and salt until smooth.</li>
+                <li>Warm corn tortillas.</li>
+                <li>Assemble tacos with meat, onion, cilantro, salsa, and optional cheese.</li>
+            </ol>
+        </div>
+
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn">Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+
+<script>
+const key = document.body.dataset.page;
+const recipe = RECIPES.find(r => r.key === key);
+
+if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+}
+
+function openVideo() {
+    if (recipe && recipe.video) {
+        window.open(recipe.video, '_blank');
+    }
+}
+</script>
+
+</body>
+</html>
