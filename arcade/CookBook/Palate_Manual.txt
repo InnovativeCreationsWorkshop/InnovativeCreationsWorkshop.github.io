@@ -1,0 +1,194 @@
+╔═══════════════════════════════════════════════════════════╗
+║           PALATE — HOW TO ADD A NEW RECIPE                ║
+║                    INSTRUCTION MANUAL                     ║
+╚═══════════════════════════════════════════════════════════╝
+
+The entire cookbook is driven by one file: recipes.js
+If you do this correctly you will never need to touch
+mainscript.js, nav.js, or masterlist.html ever again.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 1 — ADD THE RECIPE TO recipes.js
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Open recipes.js and add a new object inside the RECIPES array.
+Place it wherever you want it to appear in the nav order —
+the recipe above it will be PREV, the recipe below it will be NEXT.
+
+Copy this template and fill it in:
+
+  {
+    key:        'RecipeNameHere',
+    label:      'Recipe Name Here',
+    tags:       ['tag1', 'tag2', 'tag3'],
+    categories: {
+      cuisine:    'cuisine-key',
+      ingredient: ['ingredient-key'],
+      type:       ['type-key']
+    }
+  },
+
+
+── FIELD REFERENCE ─────────────────────────────────────────
+
+  key
+    The unique ID for this recipe. No spaces. PascalCase.
+    Must exactly match the filename (without .html).
+    Example: 'ChickenTinga' matches ChickenTinga.html
+
+  label
+    The display name shown everywhere in the app.
+    Example: 'Chicken Tinga'
+
+  tags
+    Words people might search for. Lowercase, no spaces.
+    Include the protein, cuisine, cooking style, and texture.
+    Example: ['chicken', 'mexican', 'latin', 'spicy', 'easy']
+
+  categories.cuisine
+    One value only (a string, not an array).
+    Pick from the list below.
+
+  categories.ingredient
+    One or more values (always use square brackets).
+    Pick from the list below.
+
+  categories.type
+    One or more values (always use square brackets).
+    Pick from the list below.
+
+
+── VALID CATEGORY KEYS ──────────────────────────────────────
+
+  CUISINE (pick one):
+    asian         south-asian     latin
+    european      american        african
+    arab          mediterranean
+
+  INGREDIENT (pick all that apply):
+    chicken       beef            pork
+    seafood       veg-protein     rice
+    pasta-bread   quick
+
+    NOTE: use 'quick' if the recipe takes under 20 minutes.
+    NOTE: use 'veg-protein' for eggs, tofu, beans, lentils.
+
+  TYPE (pick all that apply):
+    soups         salads          carbs
+    no-carbs      dessert
+
+    NOTE: a recipe can be in both 'soups' and 'no-carbs' etc.
+    NOTE: 'carbs' = rice, pasta, bread, wraps as the main base.
+    NOTE: 'no-carbs' = protein or veg forward, no starchy base.
+
+
+── EXAMPLE (Chicken Tinga) ──────────────────────────────────
+
+  {
+    key:        'ChickenTinga',
+    label:      'Chicken Tinga',
+    tags:       ['chicken', 'mexican', 'latin', 'spicy', 'easy', 'tomato'],
+    categories: {
+      cuisine:    'latin',
+      ingredient: ['chicken'],
+      type:       ['carbs']
+    }
+  },
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 2 — CREATE THE RECIPE HTML FILE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Go into the Recipes/ folder and duplicate any existing
+recipe HTML file. Rename it to match your key exactly.
+
+  Example: ChickenTinga.html
+
+Open the file and make these changes:
+
+  1. Change the <title> tag:
+       <title>Chicken Tinga</title>
+
+  2. Change the <body> data-page attribute:
+       <body data-page="ChickenTinga">
+       This must match your key exactly or nav will break.
+
+  3. Fill in the recipe content:
+       - The <h1> heading
+       - Difficulty and time in the .meta divs
+       - Ingredients list
+       - Directions list
+       - Notes
+       - Video src path if you have one
+
+  4. Make sure these two script tags are at the bottom,
+     in this exact order:
+       <script src="../recipes.js"></script>
+       <script src="../Recipes/nav.js"></script>
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 3 — CHECK YOUR WORK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+After saving both files, open the app and verify:
+
+  □ The recipe appears in masterlist.html under the
+    correct section
+
+  □ The recipe appears in the Categories modal under
+    the correct cuisine, ingredient, and type tabs
+
+  □ Searching a tag or the recipe name returns it
+
+  □ The PREV and NEXT buttons on the recipe page
+    go to the correct neighboring recipes
+
+  □ The RANDOM button can land on the new recipe
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+QUICK REFERENCE CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  □ Added object to RECIPES array in recipes.js
+  □ key matches the filename exactly (case sensitive)
+  □ Placed in the array where I want it in nav order
+  □ Created Recipes/RecipeName.html from the template
+  □ <body data-page="RecipeName"> matches the key
+  □ recipes.js loads before nav.js in the recipe file
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMMON MISTAKES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ✗ Key has a space or lowercase first letter
+      WRONG:  'chicken tinga'  or  'chickenTinga'
+      RIGHT:  'ChickenTinga'
+
+  ✗ Key doesn't match the filename
+      WRONG:  key: 'ChickenTinga'  →  file: Tinga.html
+      RIGHT:  key: 'ChickenTinga'  →  file: ChickenTinga.html
+
+  ✗ cuisine is an array instead of a string
+      WRONG:  cuisine: ['latin']
+      RIGHT:  cuisine: 'latin'
+
+  ✗ ingredient or type is a string instead of an array
+      WRONG:  type: 'carbs'
+      RIGHT:  type: ['carbs']
+
+  ✗ recipes.js loads after nav.js in the recipe file
+      WRONG:  nav.js first, then recipes.js
+      RIGHT:  recipes.js first, then nav.js
+
+  ✗ Missing comma after the closing } of the object
+      Always end each recipe object with a comma
+      unless it is the very last one in the array.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PALATE.EXE // v1.0
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
