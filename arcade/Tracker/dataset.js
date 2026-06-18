@@ -33,6 +33,63 @@ const IGNORABLE_MODIFIERS = new Set([
     "side", "of", "a", "an", "the", "some", "bowl", "plate", "cup"
 ]);
 
+
+// ── Unknown Food Modal ─────────────────────────────────────────────
+
+const ufModal     = document.getElementById('unknown-food-modal');
+const ufFoodName  = document.getElementById('ufm-food-name');
+const ufButtons   = ufModal.querySelectorAll('.ufm-btn');
+const ufCancel    = document.getElementById('ufm-cancel');
+
+let _ufResolve = null; // holds the pending Promise resolver
+
+/**
+ * Call this wherever you currently show "food not found".
+ * Returns a Promise that resolves to:
+ *   { category, value, label }  — when the user picks an option
+ *   null                        — when the user cancels
+ */
+function promptUnknownFood(foodName) {
+    return new Promise((resolve) => {
+        _ufResolve = resolve;
+        ufFoodName.textContent = foodName;
+        ufModal.classList.add('active');
+    });
+}
+
+function closeUnknownFoodModal() {
+    ufModal.classList.remove('active');
+    _ufResolve = null;
+}
+
+// Handle option buttons
+ufButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        if (!_ufResolve) return;
+        const result = {
+            category: btn.dataset.category,
+            value:    parseInt(btn.dataset.value, 10),
+            label:    btn.querySelector(':not(.ufm-points)').textContent.trim(),
+        };
+        _ufResolve(result);
+        closeUnknownFoodModal();
+    });
+});
+
+// Handle cancel
+ufCancel.addEventListener('click', () => {
+    if (_ufResolve) _ufResolve(null);
+    closeUnknownFoodModal();
+});
+
+// Close on backdrop click
+ufModal.addEventListener('click', (e) => {
+    if (e.target === ufModal) {
+        if (_ufResolve) _ufResolve(null);
+        closeUnknownFoodModal();
+    }
+});
+
 /** Lowercase, trim, strip punctuation, normalize "&" -> "and". */
 function normalize(str) {
     if (!str) return "";
