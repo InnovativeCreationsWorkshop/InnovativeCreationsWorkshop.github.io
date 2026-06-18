@@ -288,7 +288,35 @@
     </div>
   </div>
 </div>
+<div id="unknown-food-modal" role="dialog" aria-modal="true" aria-labelledby="ufm-title">
+    <div class="ufm-box">
+        <h3 id="ufm-title">Describe this food</h3>
+        <p class="ufm-subtitle" id="ufm-subtitle">"<span id="ufm-food-name"></span>" wasn't recognised</p>
 
+        <div class="ufm-options">
+            <button class="ufm-btn" data-category="veg"     data-value="5">
+                🥦 Veg only <span class="ufm-points">+5</span>
+            </button>
+            <button class="ufm-btn" data-category="protein" data-value="10">
+                🍗 Meat / Protein only <span class="ufm-points">+10</span>
+            </button>
+            <button class="ufm-btn" data-category="combo"   data-value="15">
+                🍱 Combo (protein + veg) <span class="ufm-points">+15</span>
+            </button>
+            <button class="ufm-btn" data-category="carbs"   data-value="0">
+                🍞 Carb / Sugary drink <span class="ufm-points">0</span>
+            </button>
+            <button class="ufm-btn" data-category="hydration" data-value="2">
+                🍎 Fruit / Drink <span class="ufm-points">+2</span>
+            </button>
+            <button class="ufm-btn" data-category="dessert" data-value="-40">
+                🍰 Dessert <span class="ufm-points neg">−40</span>
+            </button>
+        </div>
+
+        <button class="ufm-cancel" id="ufm-cancel">Cancel</button>
+    </div>
+</div>
 
 <script src="script.js"></script>
 <script src="https://innovativecreationsworkshop.github.io/arcade/Tracker/dataset.js"></script>
