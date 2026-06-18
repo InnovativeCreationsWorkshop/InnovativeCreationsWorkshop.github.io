@@ -539,10 +539,34 @@ document.addEventListener("DOMContentLoaded", function () {
             xp = mealTotal;
             addXP(mealTotal);
 
-        } else {
-            alert("Food or meal not found in dataset!");
+        } 
+
+        async function handleFoodEntry(inputName) {
+    let result = lookupItem(inputName);
+
+    if (!result) {
+        // Dataset miss → ask the user instead of showing an error
+        const userChoice = await promptUnknownFood(inputName);
+
+        if (!userChoice) {
+            // User cancelled — do nothing
             return;
         }
+
+        // Build a result object that matches the shape your app expects
+        result = {
+            type:     userChoice.category === 'combo' ? 'meal' : 'food',
+            key:      inputName,              // use the raw input as the key
+            category: userChoice.category,
+            value:    userChoice.value,
+            fromQuestionnaire: true           // flag so you can handle combos if needed
+        };
+    }
+
+    // Continue with your normal point-adding logic using `result`
+    console.log('Adding points:', result.value, 'for', result.key);
+    // e.g. addPointsToTracker(result);
+}
 
         state.nutritionLogs.push({ name: input, category, xp });
 
