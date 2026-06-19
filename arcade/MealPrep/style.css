@@ -1,0 +1,357 @@
+:root {
+  --marigold: #eebf43;
+  --sage: #94b38a;
+  --terracotta: #c54f2d;
+  --cream: #f2e7cb;
+  --ink: #4a3b2a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Patrick Hand', cursive;
+  color: var(--ink);
+
+  background: var(--cream);
+  background-image:
+    radial-gradient(var(--sage) 1.5px, transparent 1.5px),
+    radial-gradient(var(--marigold) 1.5px, transparent 1.5px);
+
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  background-attachment: fixed;
+
+  padding-bottom: 2rem;
+  position: relative;
+}
+
+/* scattered botanicals */
+body::before {
+  content: "🌸 🍄 🌿 🍂 🌙 🪻 🌾 🍄 🌸 🌿";
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-between;
+  font-size: 1.6rem;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+  padding: 2rem;
+}
+
+/* ===== HEADER — unchanged, do not touch ===== */
+header {
+  text-align: center;
+  padding: 1.8rem 1rem 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+header h1 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 2.6rem;
+  letter-spacing: 1px;
+  margin: 0;
+  color: var(--terracotta);
+  text-shadow: none;
+}
+
+header p {
+  margin: 0.2rem 0 0;
+  color: var(--sage);
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+/* ===== END HEADER ===== */
+
+.chart-wrap {
+  max-width: 700px;
+  margin: 1.2rem auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* the menu — light sticker card, no hard lines */
+.menu-chart {
+  position: relative;
+  overflow: hidden;
+  background: #fffdf6;
+  border-radius: 24px;
+  padding: 1rem 1.1rem 1.3rem;
+  box-shadow: 0 6px 0 var(--terracotta), 0 10px 22px rgba(0,0,0,0.08);
+}
+
+.side-board {
+  position: relative;
+  overflow: hidden;
+  max-width: 700px;
+  margin: 1.2rem auto;
+  padding: 1rem 1.2rem;
+  border-radius: 20px;
+  z-index: 1;
+  background: #fffdf6;
+}
+
+.menu-chart::before,
+.side-board::before {
+  content: "✿";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 3rem;
+  color: var(--marigold);
+  opacity: 0.25;
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+
+.menu-chart::after {
+  content: "✿";
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  font-size: 5rem;
+  color: var(--sage);
+  opacity: 0.08;
+  transform: rotate(-20deg);
+  pointer-events: none;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1.4fr;
+  gap: 0.6rem;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.chart-header {
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--terracotta);
+  padding-bottom: 0.3rem;
+}
+
+.chart-header span {
+  text-align: center;
+}
+
+.chart-row:not(.chart-header) {
+  border-bottom: 1.5px dashed var(--sage);
+  padding-bottom: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.chart-row:not(.chart-header):nth-child(even) {
+  background: rgba(148,179,138,0.07);
+  border-radius: 10px;
+}
+
+.chart-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.day-label {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: var(--sage);
+  text-align: center;
+}
+
+.menu-chart input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed rgba(74,59,42,0.25);
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  outline: none;
+  padding: 0.2rem 0;
+  text-align: center;
+}
+
+.menu-chart input::placeholder { color: rgba(74,59,42,0.35); }
+.menu-chart input:focus { border-bottom-color: var(--marigold); }
+
+/* side boards (alt meals + grocery) */
+.alt-meals { box-shadow: 0 6px 0 var(--marigold), 0 10px 22px rgba(0,0,0,0.08); }
+.grocery-list { box-shadow: 0 6px 0 var(--sage), 0 10px 22px rgba(0,0,0,0.08); }
+
+.side-board h2 {
+  font-family: 'Caveat', cursive;
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+  color: var(--marigold);
+}
+
+.grocery-list h2 { color: var(--sage); }
+
+.add-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+}
+
+.add-row input {
+  flex: 1;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--cream);
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1rem;
+  background: var(--cream);
+  color: var(--ink);
+  outline: none;
+}
+
+.add-row input:focus { border-color: var(--marigold); }
+
+.add-row button {
+  background: var(--sage);
+  color: var(--ink);
+  border: none;
+  width: 2.4rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.add-row button:active { transform: translateY(1px); }
+
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pill-list .pill {
+  background: var(--terracotta);
+  color: white;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.pill-list .pill button {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.grocery-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.5rem;
+}
+
+.grocery-items li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+  background: #fffaf0;
+  border: 2px solid rgba(148,179,138,0.15);
+  padding: 0.45rem 0.7rem;
+  border-radius: 10px;
+}
+
+.grocery-items li.checked span {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.grocery-items li input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--sage);
+}
+
+.grocery-items li button {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--terracotta);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  header h1 { font-size: 2.2rem; }
+  .chart-row { grid-template-columns: 0.8fr 1fr 1fr; gap: 0.4rem; font-size: 0.95rem; }
+}
+
+/* settings */
+.settings {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+}
+
+.settings-btn {
+  background: #fffdf6;
+  border: none;
+  border-radius: 50%;
+  width: 2.6rem;
+  height: 2.6rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 0 var(--sage);
+}
+
+.settings-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--sage);
+}
+
+.settings-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  min-width: 180px;
+  background: #fffdf6;
+  border-radius: 14px;
+  padding: 0.5rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.settings-menu button {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 8px;
+}
+
+.settings-menu button:hover {
+  background: var(--cream);
+}
