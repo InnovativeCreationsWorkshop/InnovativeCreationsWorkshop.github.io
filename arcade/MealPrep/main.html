@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Caveat:wght@600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="settings">
+  <button class="settings-btn" onclick="toggleSettings()">⚙️</button>
+
+  <div class="settings-menu" id="settingsMenu">
+    <button onclick="resetEverything()">🧹 Reset Everything</button>
+  </div>
+</div>
+
+<header>
+  <h1>🍄 Menu 🍓</h1>
+    <p>~ fresh picks, served daily ~</p>
+</header>
+
+<main class="chart-wrap">
+  <div class="menu-chart">
+    <div class="chart-row chart-header">
+      <span>Day</span>
+      <span>Lunch</span>
+      <span>Dinner</span>
+    </div>
+    <div id="menuBody"></div>
+  </div>
+</main>
+
+<section class="side-board alt-meals">
+  <h2>🥗 Alternate Meals</h2>
+  <div class="add-row">
+    <input type="text" id="altInput" placeholder="a backup feast...">
+    <button onclick="addAlt()">+</button>
+  </div>
+  <div class="pill-list" id="altList"></div>
+</section>
+
+<section class="side-board grocery-list">
+  <h2>🌿 Grocery List</h2>
+  <div class="add-row">
+    <input type="text" id="groceryInput" placeholder="gather from the market...">
+    <button onclick="addGrocery()">+</button>
+  </div>
+  <ul class="grocery-items" id="groceryItems"></ul>
+</section>
+
+<script src="script.js"></script>
+</body>
+
+
+</html>
