@@ -66,7 +66,53 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.removeItem(STORAGE_KEY);
         }
     }
+// =============================
+// UNKNOWN FOOD MODAL
+// =============================
+const ufModal    = document.getElementById("unknown-food-modal");
+const ufFoodName = document.getElementById("ufm-food-name");
+const ufButtons  = ufModal.querySelectorAll(".ufm-btn");
+const ufCancel   = document.getElementById("ufm-cancel");
+let _ufResolve   = null;
 
+function promptUnknownFood(foodName) {
+    return new Promise((resolve) => {
+        _ufResolve = resolve;
+        ufFoodName.textContent = foodName;
+        ufModal.classList.add("active");
+    });
+}
+
+function closeUnknownFoodModal() {
+    ufModal.classList.remove("active");
+    _ufResolve = null;
+}
+
+ufButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        if (!_ufResolve) return;
+        _ufResolve({
+            category: btn.dataset.category,
+            value:    parseInt(btn.dataset.value, 10)
+        });
+        closeUnknownFoodModal();
+    });
+});
+
+ufCancel.addEventListener("click", () => {
+    if (_ufResolve) _ufResolve(null);
+    closeUnknownFoodModal();
+});
+
+ufModal.addEventListener("click", (e) => {
+    if (e.target === ufModal) {
+        if (_ufResolve) _ufResolve(null);
+        closeUnknownFoodModal();
+    }
+});
+
+
+  
     // =============================
     // REWARDS DATA
     // =============================
@@ -540,7 +586,21 @@ document.addEventListener("DOMContentLoaded", function () {
             addXP(mealTotal);
 
         } else {
-            alert("Food or meal not found in dataset!");
+            promptUnknownFood(input).then(function(choice) {
+                if (!choice) return;
+                const xp = choice.value;
+                const category = choice.category;
+                addXP(xp);
+                if (state.nutrition[category] !== undefined) {
+                    state.nutrition[category] += xp;
+                }
+                state.nutritionLogs.push({ name: input, category, xp });
+                output.textContent =
+                    `Protein: ${state.nutrition.protein} · Veg: ${state.nutrition.veg} · Hydration: ${state.nutrition.hydration} · Carbs: ${state.nutrition.carbs}`;
+                inputEl.value = "";
+                saveState();
+                updateDisplay();
+            });
             return;
         }
 
@@ -680,3 +740,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 60000);
 
 });
+
+
+
+//NEW SCORING RULES:
+// - protein: 15
+// - veg: 10
+// - combo meals: 25
+// - carb/sugar drinks: -5
+// - fruit/drink: 5
+// - desserts (non-diabetic): -30
