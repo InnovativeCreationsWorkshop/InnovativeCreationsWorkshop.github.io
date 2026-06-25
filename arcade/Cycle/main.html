@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cycle Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Menu -->
+    <div class="top-bar">
+        <div class="menu-container">
+            <button id="menuBtn" class="menu-btn">☰</button>
+            <div id="menuDropdown" class="dropdown-menu">
+                <button id="clearDataBtn">Clear All Data</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar -->
+    <div class="calendar-wrapper">
+
+        <div class="calendar-header">
+            <button id="prevMonth" class="month-nav">&#10094;</button>
+            <h1 id="monthYear">January 2026</h1>
+            <button id="nextMonth" class="month-nav">&#10095;</button>
+        </div>
+
+        <div class="days-header">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+        </div>
+
+        <div id="calendarGrid" class="calendar-grid"></div>
+
+    </div>
+
+    <!-- Day Modal -->
+    <div id="dayModal" class="modal hidden">
+        <div class="modal-content">
+
+            <h2 id="selectedDateTitle">Selected Day</h2>
+
+            <div class="action-buttons">
+                <button id="startBtn" class="action-btn">🩸 Start Period</button>
+                <button id="endBtn" class="action-btn">🩸 End Period</button>
+                <button id="eggplantBtn" class="action-btn">💗 Intimacy</button>
+                <button id="removeBtn" class="action-btn remove">Remove</button>
+            </div>
+
+            <!-- Notes -->
+            <div class="notes-section">
+                <textarea id="noteInput" class="note-input" placeholder="Write a note for this day..."></textarea>
+
+                <!-- Preset tag chips -->
+                <div class="preset-chips">
+                    <span class="preset-chip" data-tag="cramps">cramps</span>
+                    <span class="preset-chip" data-tag="bloating">bloating</span>
+                    <span class="preset-chip" data-tag="headache">headache</span>
+                    <span class="preset-chip" data-tag="tired">tired</span>
+                    <span class="preset-chip" data-tag="happy">happy</span>
+                    <span class="preset-chip" data-tag="sad">sad</span>
+                    <span class="preset-chip" data-tag="anxious">anxious</span>
+                    <span class="preset-chip" data-tag="irritable">irritable</span>
+                </div>
+
+                <!-- Custom tag input -->
+                <div class="custom-tag-row">
+                    <input id="customTagInput" class="custom-tag-input" placeholder="Add your own tag..." />
+                    <button id="addTagBtn" class="add-tag-btn">+</button>
+                </div>
+
+                <!-- Active tags -->
+                <div id="activeTags" class="active-tags"></div>
+            </div>
+
+            <button id="saveNoteBtn" class="save-note-btn">Save</button>
+            <button id="closeModal" class="close-btn">Close</button>
+
+        </div>
+    </div>
+
+    <!-- Summary Section -->
+    <div class="summary-section">
+        <h2>Tracked Data</h2>
+        <button id="viewSummaryBtn" class="summary-btn">View Summary</button>
+    </div>
+
+    <!-- Summary Page -->
+    <div id="summaryPage" class="summary-page hidden">
+        <div class="summary-content">
+
+            <div class="summary-header">
+                <h2>Cycle Summary</h2>
+                <button id="closeSummaryBtn">Back</button>
+            </div>
+
+            <!-- Stat Pills -->
+            <div class="stat-pills">
+                <div class="stat-pill rose-pill">
+                    <span class="pill-emoji">🩸</span>
+                    <span class="pill-label">Period Days</span>
+                    <span id="rainbowCount" class="pill-number">0</span>
+                </div>
+                <div class="stat-pill blue-pill">
+                    <span class="pill-emoji">💗</span>
+                    <span class="pill-label">Intimacy Days</span>
+                    <span id="eggplantCount" class="pill-number">0</span>
+                </div>
+            </div>
+
+            <!-- Heatmap -->
+            <div class="heatmap-section">
+                <h3>Activity Map</h3>
+                <div id="heatmapGrid" class="heatmap-grid"></div>
+                <div class="heatmap-legend">
+                    <span class="legend-dot dot-rose"></span> Period
+                    <span class="legend-dot dot-blue"></span> Intimacy
+                    <span class="legend-dot dot-both"></span> Both
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline-section">
+                <h3>Timeline</h3>
+                <div id="summaryDetails" class="timeline"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
