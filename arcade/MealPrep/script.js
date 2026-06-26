@@ -1,4 +1,4 @@
-const days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+const days = ["Friday","Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"];
 const menuBody = document.getElementById("menuBody");
 
 days.forEach(day => {
