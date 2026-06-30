@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Custom Rice Bowl</title>
+
+</head>
+<body data-page="RiceBowl">
+
+<div class="card">
+    <div class="left">
+        <h1>RICE BOWL</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 20–30 minutes</div>
+        <div class="meta">A customizable rice bowl built around sushi rice and your choice of toppings, proteins, and sauces for a quick, flexible meal.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>Works great with calrose or sushi rice.</li>
+                <li>Can be eaten as a bowl or wrapped into small rice rolls using seaweed snacks.</li>
+                <li>Mix and match proteins and toppings based on what you have available.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Calrose or sushi rice</li>
+                <li>Cucumber (diced or shredded)</li>
+                <li>Green onion, sliced</li>
+                <li>Seaweed snacks</li>
+                <li>Kewpie mayo</li>
+                <li>Sriracha</li>
+                <li>Rice seasoning (furikake or similar)</li>
+            </ul>
+            <ul>
+                <li>Protein of choice: canned tuna, canned eel, shrimp, chicken, beef, tofu, salmon, or tuna steak</li>
+                <li>Soy sauce (optional)</li>
+                <li>Sesame seeds (optional)</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Cook the calrose or sushi rice according to package instructions and let it steam until fluffy.</li>
+                <li>Prepare your chosen protein (or use it ready-to-eat if canned).</li>
+                <li>Slice or shred cucumber and chop green onions.</li>
+                <li>Assemble the bowl with rice as the base, then layer on protein and toppings.</li>
+                <li>Sprinkle with rice seasoning and drizzle with kewpie mayo and sriracha.</li>
+                <li>Serve as a bowl or wrap portions into seaweed snacks to make small rice rolls.</li>
+            </ol>
+
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+  if (recipe && recipe.video) {
+    window.open(recipe.video, '_blank');
+  }
+}
+
+</script>
+
+
+</body>
+</html>
