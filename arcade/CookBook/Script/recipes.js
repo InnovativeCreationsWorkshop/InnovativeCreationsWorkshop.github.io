@@ -391,18 +391,7 @@ const RECIPES = [
     type:       ['rice-bowls']
   }
 },
-  {
-  key:        'RiceBowl',
-  label:      'Rice Bowl',
-  image:      '../Image/ricebowl.jpg',
-  video:      '../Video/RiceBowl.MP4',
-  tags:       ['rice', 'customizable', 'japanese', 'quick', 'easy'],
-  categories: {
-    cuisine:    'japanese',
-    ingredient: ['rice', 'seafood', 'mixed-protein'],
-    type:       ['rice-bowls', 'customizable']
-  }
-},
+
   {
   key:        'MiniMeatballPasta',
   label:      'Mini Meatball Pasta',
@@ -532,6 +521,19 @@ const RECIPES = [
       type:       ['carbs']
     }
   },
+  
+    {
+  key:        'RiceBowl',
+  label:      'Rice Bowl',
+  image:      '../Image/ricebowl.jpg',
+  video:      '../Video/RiceBowl.MP4',
+  tags:       ['rice', 'customizable', 'japanese', 'quick', 'easy'],
+  categories: {
+    cuisine:    'japanese',
+    ingredient: ['rice', 'seafood', 'mixed-protein'],
+    type:       ['rice-bowls', 'customizable']
+  }
+},
 
   {
     key:        'UmamiSeaweedRiceRolls',
