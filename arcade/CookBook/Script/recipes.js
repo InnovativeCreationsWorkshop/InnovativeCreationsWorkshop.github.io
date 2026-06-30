@@ -392,6 +392,18 @@ const RECIPES = [
   }
 },
   {
+  key:        'RiceBowl',
+  label:      'Custom Rice Bowl',
+  image:      '../Image/tempimage_2.jpg',
+  video:      '../Video/RiceBowl.MP4',
+  tags:       ['rice', 'customizable', 'japanese', 'quick', 'easy'],
+  categories: {
+    cuisine:    'japanese',
+    ingredient: ['rice', 'seafood', 'mixed-protein'],
+    type:       ['rice-bowls', 'customizable']
+  }
+},
+  {
   key:        'MiniMeatballPasta',
   label:      'Mini Meatball Pasta',
   image:      '../Image/tempimage_2.jpg',
