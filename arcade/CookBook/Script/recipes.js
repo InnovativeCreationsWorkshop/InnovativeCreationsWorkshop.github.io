@@ -529,9 +529,9 @@ const RECIPES = [
   video:      '../Video/RiceBowl.MP4',
   tags:       ['rice', 'customizable', 'japanese', 'quick', 'easy'],
   categories: {
-    cuisine:    'japanese',
+    cuisine:    'asian',
     ingredient: ['rice', 'seafood', 'mixed-protein'],
-    type:       ['rice-bowls', 'customizable']
+    type:       ['rice', 'quick']
   }
 },
 
