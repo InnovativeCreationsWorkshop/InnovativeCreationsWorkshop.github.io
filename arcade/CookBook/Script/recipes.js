@@ -393,7 +393,7 @@ const RECIPES = [
 },
   {
   key:        'RiceBowl',
-  label:      'Custom Rice Bowl',
+  label:      'Rice Bowl',
   image:      '../Image/ricebowl.jpg',
   video:      '../Video/RiceBowl.MP4',
   tags:       ['rice', 'customizable', 'japanese', 'quick', 'easy'],
