@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Gyudon</title>
+
+</head>
+<body data-page="Gyudon">
+
+<div class="card">
+    <div class="left">
+        <h1>GYUDON</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 20–25 minutes</div>
+        <div class="meta">A classic Japanese beef rice bowl featuring tender sliced beef simmered in a sweet and savory sauce over fluffy rice.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>For extra heat, sauté sliced Thai chilies with the onions or drizzle sriracha over the finished bowl.</li>
+                <li>Thinly sliced ribeye or shaved beef works best for tender, flavorful bites.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Thinly sliced beef</li>
+                <li>Yellow onion, sliced</li>
+                <li>Soy sauce</li>
+                <li>Cooking sake</li>
+                <li>Mirin</li>
+                <li>Sugar</li>
+            </ul>
+            <ul>
+                <li>Hondashi</li>
+                <li>Garlic paste</li>
+                <li>Ginger paste</li>
+                <li>Water</li>
+                <li>Cooked white rice</li>
+                <li>Scallions, sliced</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Sauté the sliced onion in a pan over medium heat until softened.</li>
+                <li>Add the thinly sliced beef and cook until lightly browned.</li>
+                <li>Stir in the soy sauce, cooking sake, mirin, sugar, hondashi, garlic paste, ginger paste, and a splash of water.</li>
+                <li>Simmer until the sauce reduces slightly and coats the beef and onions.</li>
+                <li>Serve the beef mixture over a bowl of hot cooked rice.</li>
+                <li>Garnish with sliced scallions and add sriracha if desired.</li>
+            </ol>
+
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+  if (recipe && recipe.video) {
+    window.open(recipe.video, '_blank');
+  }
+}
+
+</script>
+
+
+</body>
+</html>
