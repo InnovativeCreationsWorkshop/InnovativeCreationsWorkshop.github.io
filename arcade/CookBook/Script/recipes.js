@@ -275,6 +275,19 @@ const RECIPES = [
   },
 
   {
+  key:        'DumplingMisoSoup',
+  label:      'Dumpling Miso Soup',
+  image:      '../Image/tempimage_2.jpg',
+  video:      '../Video/DumplingMisoSoup.MP4',
+  tags:       ['soup', 'dumplings', 'miso', 'asian', 'easy', 'comfort-food'],
+  categories: {
+    cuisine:    'asian',
+    ingredient: ['dumplings', 'mushrooms'],
+    type:       ['soups']
+  }
+},
+
+  {
     key:        'SopadeLentejas',
     label:      'Sopa de Lentejas',
     image:      '../Image/lentilsoup.jpg',
@@ -366,6 +379,30 @@ const RECIPES = [
       type:       ['no-carbs']
     }
   },
+  {
+  key:        'Gyudon',
+  label:      'Gyudon',
+  image:      '../Image/tempimage_2.jpg',
+  video:      '../Video/Gyudon.MP4',
+  tags:       ['beef', 'rice', 'japanese', 'easy', 'quick'],
+  categories: {
+    cuisine:    'japanese',
+    ingredient: ['beef', 'rice'],
+    type:       ['rice-bowls']
+  }
+},
+  {
+  key:        'MiniMeatballPasta',
+  label:      'Mini Meatball Pasta',
+  image:      '../Image/tempimage_2.jpg',
+  video:      '../Video/MiniMeatballPasta.MP4',
+  tags:       ['beef', 'sausage', 'pasta', 'italian', 'one-pan', 'comfort-food'],
+  categories: {
+    cuisine:    'italian',
+    ingredient: ['beef', 'sausage', 'pasta'],
+    type:       ['pasta', 'one-pan']
+  }
+},
 
   {
     key:        'HomemadePasta',
