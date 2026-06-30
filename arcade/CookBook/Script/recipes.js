@@ -33,7 +33,7 @@ const RECIPES = [
     tags:       ['salad', 'italian', 'mediterranean', 'vegetarian', 'easy', 'quick'],
     categories: {
       cuisine:    'mediterranean',
-      ingredient: ['quick'],
+      ingredient: ['quick', 'veg-protein'],
       type:       ['salads', 'no-carbs']
     }
   },
@@ -204,7 +204,7 @@ const RECIPES = [
     tags:       ['soup', 'italian', 'mediterranean', 'hearty'],
     categories: {
       cuisine:    'mediterranean',
-      ingredient: [],
+      ingredient: ['pork', 'beef'],
       type:       ['soups']
     }
   },
@@ -230,7 +230,7 @@ const RECIPES = [
     tags:       ['soup', 'japanese', 'asian', 'hotpot', 'comfort-food'],
     categories: {
       cuisine:    'asian',
-      ingredient: [],
+      ingredient: ['beef', 'veg-protein'],
       type:       ['soups']
     }
   },
@@ -243,7 +243,7 @@ const RECIPES = [
     tags:       ['soup', 'leek', 'nordic', 'european', 'vegetarian'],
     categories: {
       cuisine:    'european',
-      ingredient: [],
+      ingredient: ['beef','chicken','pork', 'veg-protein'],
       type:       ['soups', 'no-carbs']
     }
   },
@@ -347,7 +347,7 @@ const RECIPES = [
     tags:       ['soup', 'italian', 'hearty', 'comfort-food'],
     categories: {
       cuisine:    'mediterranean',
-      ingredient: [],
+      ingredient: ['pork', 'veg-protein'],
       type:       ['soups']
     }
   },
@@ -502,7 +502,7 @@ const RECIPES = [
     tags:       ['japanese', 'asian', 'savory-pancake', 'cabbage', 'eggs'],
     categories: {
       cuisine:    'asian',
-      ingredient: ['pork'],
+      ingredient: ['pork', 'seafood', 'veg-protein'],
       type:       ['carbs']
     }
   },
