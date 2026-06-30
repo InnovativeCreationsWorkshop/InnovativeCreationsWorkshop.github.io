@@ -277,7 +277,7 @@ const RECIPES = [
   {
   key:        'DumplingMisoSoup',
   label:      'Dumpling Miso Soup',
-  image:      '../Image/tempimage_2.jpg',
+  image:      '../Image/dumpsoup.jpg',
   video:      '../Video/DumplingMisoSoup.MP4',
   tags:       ['soup', 'dumplings', 'miso', 'asian', 'easy', 'comfort-food'],
   categories: {
@@ -394,7 +394,7 @@ const RECIPES = [
   {
   key:        'RiceBowl',
   label:      'Custom Rice Bowl',
-  image:      '../Image/tempimage_2.jpg',
+  image:      '../Image/ricebowl.jpg',
   video:      '../Video/RiceBowl.MP4',
   tags:       ['rice', 'customizable', 'japanese', 'quick', 'easy'],
   categories: {
@@ -497,7 +497,7 @@ const RECIPES = [
   {
     key:        'Okonomiyaki',
     label:      'Okonomiyaki',
-    image:      '../Image/TempImage/t_oko.jpg',
+    image:      '../Image/okonomi.jpg',
      video: '../Video/BigMacSalad.MP4',
     tags:       ['japanese', 'asian', 'savory-pancake', 'cabbage', 'eggs'],
     categories: {
@@ -601,7 +601,7 @@ const RECIPES = [
 {
   key:        'ChickenTinga',
   label:      'Chicken Tinga',
-  image:      '../Image/TempImage/t_tinga.jpg',
+  image:      '../Image/tinga.jpg',
    video: '../Video/BigMacSalad.MP4',
   tags:       ['chicken', 'mexican', 'latin', 'spicy', 'easy', 'tomato', 'chipotle'],
   categories: {
