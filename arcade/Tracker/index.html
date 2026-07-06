@@ -12,7 +12,6 @@
 <!-- ============ MAIN HOME SCREEN ============ -->
 <div id="screen-home" class="screen active">
 
-  <!-- Hamburger -->
   <div class="top-bar">
     <div class="hbtn" id="hbtn" aria-label="Menu">
       <span class="hline"></span>
@@ -31,7 +30,6 @@
       <p class="datetime" id="dateTimeDisplay"></p>
     </div>
 
-    <!-- Stat cards -->
     <div class="stats-row">
       <div class="scard scard-blue">
         <div class="s-emoji">⚡</div>
@@ -45,7 +43,6 @@
       </div>
     </div>
 
-    <!-- XP Progress bar -->
     <div class="prog-card">
       <div class="prog-top">
         <span class="prog-title">🏆 Weekly XP</span>
@@ -56,7 +53,6 @@
       </div>
     </div>
 
-    <!-- Activity nav -->
     <p class="section-label">— Activities —</p>
 
     <div class="nav-list">
@@ -84,11 +80,11 @@
         </span>
         <span class="nav-arrow">›</span>
       </button>
-      <button class="nav-row rep" data-screen="screen-repair">
-        <span class="nav-emoji">🛠️</span>
+      <button class="nav-row cycle" id="cycleBtn">
+        <span class="nav-emoji">🚴‍♀️</span>
         <span class="nav-info">
-          <span class="nav-name">Repair Quest</span>
-          <span class="nav-desc">Bonus movement challenge</span>
+          <span class="nav-name">Cycle</span>
+          <span class="nav-desc">Open cycling tracker</span>
         </span>
         <span class="nav-arrow">›</span>
       </button>
@@ -96,19 +92,16 @@
 
     <div class="divider"></div>
 
-    <!-- Bottom action buttons -->
     <div class="bot-row">
-      <button class="bot-btn achieve-btn" data-screen="screen-achievements">
-        <span class="bot-emoji">🏅</span>
-        <span class="bot-label">Achievements</span>
+      <button class="bot-btn achieve-btn" data-screen="screen-rewardshop">
+        <span class="bot-emoji">👑</span>
+        <span class="bot-label">Reward Shop</span>
       </button>
-      <button class="bot-btn shop-btn" data-screen="screen-shop">
-        <span class="bot-emoji">🛍️</span>
-        <span class="bot-label">Rewards Shop</span>
+      <button class="bot-btn shop-btn" data-screen="screen-repair">
+        <span class="bot-emoji">🛠️</span>
+        <span class="bot-label">Repair Quest</span>
       </button>
     </div>
-
-   
   </div>
 </div>
 
@@ -120,20 +113,16 @@
     <h2>🏃‍♀️ Movement</h2>
   </div>
   <div class="screen-body">
-
     <div class="info-card">
       <p class="info-label">Current Goal</p>
       <p class="info-val" id="movementGoalDisplay">Not Set</p>
     </div>
-
     <button class="action-btn btn-pink" id="movementDoneBtn">🎯 Set New Goal</button>
-
     <div class="input-group">
       <label class="input-label">Minutes to log</label>
       <input type="number" id="extraMovementInput" placeholder="Enter minutes" min="0" class="rpg-input">
       <button class="action-btn btn-blue" id="logExtraMovementBtn">➕ Log Movement</button>
     </div>
-
     <p class="output-text" id="extraMovementOutput"></p>
   </div>
 </div>
@@ -146,21 +135,17 @@
     <h2>🥗 Nutrition</h2>
   </div>
   <div class="screen-body">
-
     <div class="input-group">
       <label class="input-label">What did you eat?</label>
       <input type="text" id="nutritionInput" placeholder="Enter food or meal" class="rpg-input">
       <button class="action-btn btn-green" id="logFoodBtn">➕ Log Nutrition</button>
     </div>
-  
     <p class="output-text" id="nutritionOutput"></p>
-
     <div class="log-section">
       <p class="log-title">Today's Logs</p>
-      <div id="nutritionItems" class="log-list"></div>   
+      <div id="nutritionItems" class="log-list"></div>
     </div>
     <button class="action-btn btn-pink" onclick="window.open('https://innovativecreationsworkshop.github.io/arcade/MealPrep/main.html', '_blank')">🍱 Menu</button>
-
     <button class="action-btn btn-orange" onclick="window.open('https://innovativecreationsworkshop.github.io/arcade/CookBook/main.html', '_blank')">📖 Cookbook</button>
   </div>
 </div>
@@ -173,12 +158,10 @@
     <h2>💉 Glucose Check</h2>
   </div>
   <div class="screen-body">
-
     <div class="input-group">
       <label class="input-label">Glucose reading</label>
       <input type="number" id="glucoseInput" placeholder="Enter glucose value" class="rpg-input">
     </div>
-
     <div class="check-group">
       <label class="check-pill">
         <input type="checkbox" id="fastingCheck">
@@ -189,12 +172,9 @@
         <span>Non-Fasting</span>
       </label>
     </div>
-
     <button class="action-btn btn-blue" id="logGlucoseBtn">➕ Log Glucose</button>
-
     <p class="output-text" id="glucoseOutput"></p>
     <p class="alert-text" id="glucoseAlert"></p>
-
     <div class="log-section">
       <p class="log-title">Today's Logs</p>
       <div id="glucoseLogItems" class="log-list"></div>
@@ -205,39 +185,36 @@
 
 <!-- ============ REPAIR QUEST SCREEN ============ -->
 <div id="screen-repair" class="screen">
-  <div class="screen-header rep-header">
+  <div class="screen-header repair-header">
     <button class="back-btn" data-back="screen-home">‹</button>
     <h2>🛠️ Repair Quest</h2>
   </div>
   <div class="screen-body">
-
     <div class="quest-card">
       <p class="quest-title">⚔️ Active Quest</p>
       <p class="quest-desc">Complete +30 extra movement minutes to repair your stats!</p>
       <p class="quest-progress" id="repairProgress">Progress: 0 / 30 min</p>
     </div>
-
+    <p class="output-text" id="repairHint" style="display:none;"></p>
     <button class="action-btn btn-orange" id="acceptRepairBtn">⚔️ Accept Quest</button>
-
     <div class="input-group" id="repairInputGroup" style="display:none;">
       <label class="input-label">Log repair minutes</label>
       <input type="number" id="repairMinInput" placeholder="Enter minutes" min="0" class="rpg-input">
       <button class="action-btn btn-blue" id="logRepairBtn">➕ Log Repair Minutes</button>
     </div>
-
     <p class="output-text" id="repairOutput"></p>
   </div>
 </div>
 
-
-<!-- ============ ACHIEVEMENTS SCREEN ============ -->
-<div id="screen-achievements" class="screen">
+<!-- ============ REWARD SHOP SCREEN (formerly Achievements + Shop merged) ============ -->
+<div id="screen-rewardshop" class="screen">
   <div class="screen-header achieve-header">
     <button class="back-btn" data-back="screen-home">‹</button>
-    <h2>🏅 Achievements</h2>
+    <h2>🏅 Reward Shop</h2>
   </div>
   <div class="screen-body">
 
+    <!-- Weekly XP / Gold Converter -->
     <div class="weekly-xp-card">
       <p class="wk-label">Weekly XP Total</p>
       <p class="wk-val" id="weeklyXpBig">0</p>
@@ -249,25 +226,19 @@
 
     <button class="action-btn btn-green" id="convertGoldBtn">⚗️ Convert XP → Gold</button>
 
+    <!-- Achievements Grid -->
     <div class="achieve-grid" id="achieveGrid"></div>
-  </div>
-</div>
 
-
-<!-- ============ REWARDS SHOP SCREEN ============ -->
-<div id="screen-shop" class="screen">
-  <div class="screen-header shop-header">
-    <button class="back-btn" data-back="screen-home">‹</button>
-    <h2>🛍️ Rewards Shop</h2>
-  </div>
-  <div class="screen-body">
+    <!-- Shop Section -->
+    <div class="divider"></div>
+    <p class="section-label">— Shop —</p>
 
     <div class="shop-limit-card">
       <p>📋 Spend Limit: <strong>2 purchases per week</strong></p>
       <p id="spendCountDisplay" class="spend-count">Used: 0 / 2 this week</p>
     </div>
 
-    <p class="section-label" style="margin-top:16px;">— Pick a Tier —</p>
+    <p class="section-label" style="margin-top:4px;">— Pick a Tier —</p>
 
     <div class="tier-row">
       <button class="tier-btn tier5" id="tier5Btn">
@@ -287,14 +258,16 @@
     <div id="pendingPenaltyBanner" class="penalty-banner" style="display:none;">
       ⚠️ Spend 5 Gold to avoid -40 XP penalty!
     </div>
+
   </div>
 </div>
 
+
+<!-- ============ UNKNOWN FOOD MODAL ============ -->
 <div id="unknown-food-modal" role="dialog" aria-modal="true" aria-labelledby="ufm-title">
     <div class="ufm-box">
         <h3 id="ufm-title">Describe this food</h3>
         <p class="ufm-subtitle" id="ufm-subtitle">"<span id="ufm-food-name"></span>" wasn't recognised</p>
-
         <div class="ufm-options">
             <button class="ufm-btn" data-category="veg"     data-value="5">
                 🥦 Veg only <span class="ufm-points">+5</span>
@@ -315,11 +288,9 @@
                 🍰 Dessert <span class="ufm-points neg">−40</span>
             </button>
         </div>
-
         <button class="ufm-cancel" id="ufm-cancel">Cancel</button>
     </div>
 </div>
-  
 
 <script src="script.js"></script>
 <script src="https://innovativecreationsworkshop.github.io/arcade/Tracker/dataset.js"></script>
