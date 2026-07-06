@@ -1,47 +1,41 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // =============================
-    // CONSTANTS
-    // =============================
     function getToday() {
         return new Date().toISOString().slice(0, 10);
     }
 
     const STORAGE_KEY = "betty_rpg_state";
 
-    // =============================
-    // STATE
-    // =============================
     const state = {
-        movementGoal: 0,
-        goalXP: 0,
-        goalLocked: false,
-        goalCompleted: false,
+    movementGoal: 0,
+    goalXP: 0,
+    goalCompleted: false,
 
-        dailyMovementMinutes: 0,
-        dailyXP: 0,
-        weeklyXP: 0,
-        gold: 0,
+    dailyMovementMinutes: 0,
+    dailyXP: 0,
+    weeklyXP: 0,
+    gold: 0,
 
-        todayLocked: false,
+    glucoseLogs: [],
+    nutritionLogs: [],
 
-        glucoseLogs: [],
-        nutritionLogs: [],
+    nutrition: { protein: 0, veg: 0, hydration: 0, carbs: 0, dessert: 0 },
 
-        nutrition: { protein: 0, veg: 0, hydration: 0, carbs: 0, dessert: 0 },
+    convertThreshold: 500,
 
-        convertThreshold: 500,
+    goldSpentThisWeek: 0,
+    lastSpendReset: getToday(),
 
-        goldSpentThisWeek: 0,
-        lastSpendReset: getToday(),
+    pendingDessertPenalty: null,
+    lastMovementCheck: Date.now(),
 
-        pendingDessertPenalty: null,
-        lastMovementCheck: Date.now(),
+    repairActive: false,
+    repairMinutes: 0,
+    repairGoal: 30,
+    repairCompleted: false,
 
-        repairActive: false,
-        repairMinutes: 0,
-        repairGoal: 30
-    };
+    unlockedAchievements: []
+};
 
     // =============================
     // STORAGE
@@ -55,9 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!saved) return;
         try {
             const parsed = JSON.parse(saved);
-            if (!parsed.glucoseLogs)   parsed.glucoseLogs = [];
-            if (!parsed.nutritionLogs) parsed.nutritionLogs = [];
-            if (!parsed.nutrition)     parsed.nutrition = { protein:0, veg:0, hydration:0, carbs:0, dessert:0 };
+            if (!parsed.glucoseLogs)          parsed.glucoseLogs = [];
+            if (!parsed.nutritionLogs)        parsed.nutritionLogs = [];
+            if (!parsed.nutrition)            parsed.nutrition = { protein:0, veg:0, hydration:0, carbs:0, dessert:0 };
+            if (!parsed.unlockedAchievements) parsed.unlockedAchievements = [];
             delete parsed.repairQuest;
             delete parsed.movementPenaltyApplied;
             Object.assign(state, parsed);
@@ -66,84 +61,95 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.removeItem(STORAGE_KEY);
         }
     }
-// =============================
-// UNKNOWN FOOD MODAL
-// =============================
-const ufModal    = document.getElementById("unknown-food-modal");
-const ufFoodName = document.getElementById("ufm-food-name");
-const ufButtons  = ufModal.querySelectorAll(".ufm-btn");
-const ufCancel   = document.getElementById("ufm-cancel");
-let _ufResolve   = null;
 
-function promptUnknownFood(foodName) {
-    return new Promise((resolve) => {
-        _ufResolve = resolve;
-        ufFoodName.textContent = foodName;
-        ufModal.classList.add("active");
-    });
-}
+    // =============================
+    // UNKNOWN FOOD MODAL
+    // =============================
+    const ufModal    = document.getElementById("unknown-food-modal");
+    const ufFoodName = document.getElementById("ufm-food-name");
+    const ufButtons  = ufModal.querySelectorAll(".ufm-btn");
+    const ufCancel   = document.getElementById("ufm-cancel");
+    let _ufResolve   = null;
 
-function closeUnknownFoodModal() {
-    ufModal.classList.remove("active");
-    _ufResolve = null;
-}
-
-ufButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        if (!_ufResolve) return;
-        _ufResolve({
-            category: btn.dataset.category,
-            value:    parseInt(btn.dataset.value, 10)
+    function promptUnknownFood(foodName) {
+        return new Promise((resolve) => {
+            _ufResolve = resolve;
+            ufFoodName.textContent = foodName;
+            ufModal.classList.add("active");
         });
-        closeUnknownFoodModal();
+    }
+
+    function closeUnknownFoodModal() {
+        ufModal.classList.remove("active");
+        _ufResolve = null;
+    }
+
+    ufButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            if (!_ufResolve) return;
+            _ufResolve({
+                category: btn.dataset.category,
+                value:    parseInt(btn.dataset.value, 10)
+            });
+            closeUnknownFoodModal();
+        });
     });
-});
 
-ufCancel.addEventListener("click", () => {
-    if (_ufResolve) _ufResolve(null);
-    closeUnknownFoodModal();
-});
-
-ufModal.addEventListener("click", (e) => {
-    if (e.target === ufModal) {
+    ufCancel.addEventListener("click", () => {
         if (_ufResolve) _ufResolve(null);
         closeUnknownFoodModal();
-    }
-});
+    });
 
+    ufModal.addEventListener("click", (e) => {
+        if (e.target === ufModal) {
+            if (_ufResolve) _ufResolve(null);
+            closeUnknownFoodModal();
+        }
+    });
 
-  
     // =============================
     // REWARDS DATA
     // =============================
     const rewards = {
         5: [
-            { name: "🍫 Chocolate & Candy" },
-            { name: "🥐 Baked Desserts & Pastries" },
-            { name: "🍿 Sweet Dishes & Snack Foods" },
-            { name: "🥤 Drinks" }
+            { name: "🍨 Ice Cream" },
+            { name: "🍫 Chocolate Sweets" },
+            { name: "🍪 Cookies" },
+            { name: "🧋 Drinks" }
         ],
         10: [
-            { name: "🎂 Cakes & Desserts" },
-            { name: "🍮 Chocolate-Centric Treats" },
-            { name: "🍪 Pastries, Cookies & Specialty Sweets" },
-            { name: "🧋 Drinks, Frozen & Outings" }
+            { name: "🥐 Pastry & Cupcakes" },
+            { name: "🎂 Cakes & Specialty Sweets" },
+            { name: "🛍️ Shopping" }
         ]
     };
 
     // =============================
-    // ACHIEVEMENTS DATA
+    // ACHIEVEMENTS DATA (6 only)
     // =============================
     const achievements = [
-        { id: "first_move",    emoji: "👟", name: "First Steps",    desc: "Log your first movement",      check: () => state.dailyMovementMinutes > 0 },
-        { id: "goal_done",     emoji: "🏁", name: "Goal Getter",    desc: "Complete a movement goal",     check: () => state.goalCompleted },
-        { id: "glucose_log",   emoji: "💉", name: "Glucose Hero",   desc: "Log a glucose reading",        check: () => state.glucoseLogs.length > 0 },
-        { id: "nutrition_log", emoji: "🥗", name: "Eat Well",       desc: "Log a nutrition entry",        check: () => state.nutritionLogs.length > 0 },
-        { id: "xp_100",        emoji: "⚡", name: "XP Spark",       desc: "Earn 100 Daily XP",            check: () => state.dailyXP >= 100 },
-        { id: "gold_earned",   emoji: "🪙", name: "Gold Getter",    desc: "Convert XP to Gold once",      check: () => state.gold > 0 },
-        { id: "week_500",      emoji: "🏆", name: "Week Warrior",   desc: "Reach 500 Weekly XP",          check: () => state.weeklyXP >= 500 },
-        { id: "repair_done",   emoji: "🛠️", name: "Repaired",       desc: "Complete a Repair Quest",      check: () => state.repairMinutes >= state.repairGoal && state.repairActive }
+        { id: "first_move",    emoji: "👟", name: "First Steps",   desc: "Log your first movement",     check: () => state.dailyMovementMinutes > 0 },
+        { id: "goal_done",     emoji: "🏁", name: "Goal Getter",   desc: "Complete a movement goal",    check: () => state.goalCompleted },
+        { id: "glucose_log",   emoji: "💉", name: "Glucose Hero",  desc: "Log a glucose reading",       check: () => state.glucoseLogs.length > 0 },
+        { id: "xp_100", emoji: "⚡", name: "XP Spark", desc: "Earn 100 Daily XP", check: () => state.dailyXP >= 100 },
+        { id: "gold_earned", emoji: "🪙", name: "Gold Getter", desc: "Convert XP to Gold once", check: () => state.gold > 0 },
+        { id: "repair_done", emoji: "🛠️", name: "Repaired", desc: "Complete a Repair Quest", check: () => state.repairCompleted }
     ];
+
+    // =============================
+    // ACHIEVEMENT XP BONUS (+5 on first unlock)
+    // =============================
+    function checkAchievementUnlocks() {
+        achievements.forEach(a => {
+            if (a.check() && !state.unlockedAchievements.includes(a.id)) {
+                state.unlockedAchievements.push(a.id);
+                state.dailyXP  += 5;
+                state.weeklyXP += 5;
+                if (state.weeklyXP < 0) state.weeklyXP = 0;
+                saveState();
+            }
+        });
+    }
 
     // =============================
     // SCREEN ROUTING
@@ -157,17 +163,20 @@ ufModal.addEventListener("click", (e) => {
         }
     }
 
-    // Nav rows → screens
     document.querySelectorAll("[data-screen]").forEach(btn => {
         btn.addEventListener("click", () => showScreen(btn.dataset.screen));
     });
 
-    // Back buttons
     document.querySelectorAll("[data-back]").forEach(btn => {
         btn.addEventListener("click", () => {
             updateDisplay();
             showScreen(btn.dataset.back);
         });
+    });
+
+    // Cycle button — external link
+    document.getElementById("cycleBtn").addEventListener("click", () => {
+        window.open("https://innovativecreationsworkshop.github.io/arcade/Cycle/main.html", "_blank");
     });
 
     // =============================
@@ -190,6 +199,7 @@ ufModal.addEventListener("click", (e) => {
         state.weeklyXP += amount;
         if (state.weeklyXP < 0) state.weeklyXP = 0;
         saveState();
+        checkAchievementUnlocks();
         updateDisplay();
     }
 
@@ -222,28 +232,23 @@ ufModal.addEventListener("click", (e) => {
     // DISPLAY
     // =============================
     function updateDisplay() {
-        // DateTime
         const dtEl = document.getElementById("dateTimeDisplay");
         if (dtEl) dtEl.textContent = getFormattedDateTime();
 
-        // XP + Gold
         const xpEl   = document.getElementById("xpResult");
         const goldEl = document.getElementById("goldResult");
         if (xpEl)   xpEl.textContent   = state.dailyXP;
         if (goldEl) goldEl.textContent = state.gold;
 
-        // Gold cap
         if (state.gold > 1000) state.gold = 1000;
 
-        // Progress bar (home)
         const XP_CAP = 500;
         const fillPct = Math.min((state.weeklyXP / XP_CAP) * 100, 100);
-        const barHome = document.getElementById("xpProgressBar");
+        const barHome  = document.getElementById("xpProgressBar");
         const textHome = document.getElementById("xpProgressText");
-        if (barHome)  barHome.style.width = fillPct + "%";
-        if (textHome) textHome.textContent = `${state.weeklyXP} / ${XP_CAP}`;
+        if (barHome)  barHome.style.width   = fillPct + "%";
+        if (textHome) textHome.textContent  = `${state.weeklyXP} / ${XP_CAP}`;
 
-        // Movement goal display
         const mgEl = document.getElementById("movementGoalDisplay");
         if (mgEl) {
             mgEl.textContent = state.movementGoal
@@ -251,7 +256,6 @@ ufModal.addEventListener("click", (e) => {
                 : "Not Set";
         }
 
-        // Achievements screen progress
         const wkBig  = document.getElementById("weeklyXpBig");
         const achBar = document.getElementById("achieveBar");
         const achSub = document.getElementById("achieveSub");
@@ -259,16 +263,13 @@ ufModal.addEventListener("click", (e) => {
         if (achBar) achBar.style.width = fillPct + "%";
         if (achSub) achSub.textContent = `${state.weeklyXP} / ${XP_CAP} XP to next Gold conversion`;
 
-        // Convert button enable
         const convBtn = document.getElementById("convertGoldBtn");
         if (convBtn) convBtn.disabled = state.weeklyXP < XP_CAP;
 
-        // Shop spend count
         resetWeeklySpendIfNeeded();
         const scEl = document.getElementById("spendCountDisplay");
         if (scEl) scEl.textContent = `Used: ${state.goldSpentThisWeek} / 2 this week`;
 
-        // Glucose logs
         const glucoseListEl = document.getElementById("glucoseLogItems");
         if (glucoseListEl) {
             glucoseListEl.innerHTML = "";
@@ -284,7 +285,6 @@ ufModal.addEventListener("click", (e) => {
             });
         }
 
-        // Nutrition logs
         const nutListEl = document.getElementById("nutritionItems");
         if (nutListEl) {
             nutListEl.innerHTML = "";
@@ -296,32 +296,38 @@ ufModal.addEventListener("click", (e) => {
             });
         }
 
-        // Repair quest UI
-        const repOutput  = document.getElementById("repairOutput");
-        const repProg    = document.getElementById("repairProgress");
-        const repGroup   = document.getElementById("repairInputGroup");
-        const acceptBtn  = document.getElementById("acceptRepairBtn");
-        if (repProg) repProg.textContent = `Progress: ${state.repairMinutes} / ${state.repairGoal} min`;
-        if (repGroup) repGroup.style.display = state.repairActive ? "flex" : "none";
-        if (acceptBtn) acceptBtn.textContent = state.repairActive ? "⚔️ Quest Active" : "⚔️ Accept Quest";
+       const repProg   = document.getElementById("repairProgress");
+        const repGroup  = document.getElementById("repairInputGroup");
+        const acceptBtn = document.getElementById("acceptRepairBtn");
+        const repHint   = document.getElementById("repairHint");
 
-        // Achievements grid
+        if (repProg)  repProg.textContent = `Progress: ${state.repairMinutes} / ${state.repairGoal} min`;
+        if (repGroup) repGroup.style.display = state.repairActive ? "flex" : "none";
+
+        const repairUnlocked = state.goalCompleted || state.pendingDessertPenalty;
+
+        if (acceptBtn) {
+            acceptBtn.textContent = state.repairActive ? "⚔️ Quest Active" : "⚔️ Accept Quest";
+            acceptBtn.disabled = !repairUnlocked && !state.repairActive;
+        }
+
+        if (repHint) {
+            if (state.pendingDessertPenalty) {
+                repHint.textContent = "🍰 A Repair Quest can help offset your dessert penalty!";
+                repHint.style.display = "block";
+            } else if (!state.goalCompleted) {
+                repHint.textContent = "🔒 Complete your movement goal to unlock Repair Quest.";
+                repHint.style.display = "block";
+            } else {
+                repHint.style.display = "none";
+            }
+        }
+
         renderAchievements();
 
-        // Pending penalty banner
         const penBanner = document.getElementById("pendingPenaltyBanner");
         if (penBanner) penBanner.style.display = state.pendingDessertPenalty ? "block" : "none";
-
-        
-    }
-
-    function applyLockState() {
-        if (!state.todayLocked) return;
-        const protectedIds = new Set(["clearTodayBtn", "clearAllBtn"]);
-        document.querySelectorAll("button").forEach(btn => {
-            if (!protectedIds.has(btn.id)) btn.disabled = true;
-        });
-    }
+    }   // <-- closes updateDisplay()
 
     // =============================
     // ACHIEVEMENTS RENDER
@@ -331,13 +337,14 @@ ufModal.addEventListener("click", (e) => {
         if (!grid) return;
         grid.innerHTML = "";
         achievements.forEach(a => {
-            const unlocked = a.check();
+            const unlocked = state.unlockedAchievements.includes(a.id);
             const div = document.createElement("div");
             div.className = "achieve-badge" + (unlocked ? " unlocked" : "");
             div.innerHTML = `
                 <span class="badge-emoji">${a.emoji}</span>
                 <span class="badge-name">${a.name}</span>
                 <span class="badge-desc">${a.desc}</span>
+                ${unlocked ? '<span class="badge-bonus">+5 XP earned</span>' : ''}
             `;
             grid.appendChild(div);
         });
@@ -347,41 +354,40 @@ ufModal.addEventListener("click", (e) => {
     // XP → GOLD
     // =============================
     document.getElementById("convertGoldBtn").addEventListener("click", function () {
-        if (state.weeklyXP < state.convertThreshold) {
-            alert(`Need at least ${state.convertThreshold} XP to convert`);
-            return;
-        }
-        const goldEarned = Math.floor(state.weeklyXP / 100);
-        state.weeklyXP = state.weeklyXP % 100;
-        state.gold += goldEarned;
-        if (state.gold > 1000) state.gold = 1000;
-        saveState();
-        updateDisplay();
-        alert(`✨ Converted to ${goldEarned} Gold!`);
-    });
+    if (state.weeklyXP < state.convertThreshold) {
+        alert(`Need at least ${state.convertThreshold} XP to convert`);
+        return;
+    }
+    const goldEarned = Math.floor(state.weeklyXP / 100);
+    state.weeklyXP = state.weeklyXP % 100;
+    state.gold += goldEarned;
+    if (state.gold > 1000) state.gold = 1000;
+    saveState();
+    updateDisplay();
+    alert(`✨ Converted to ${goldEarned} Gold!`);
+});
 
     // =============================
     // MOVEMENT
     // =============================
     document.getElementById("movementDoneBtn").addEventListener("click", function () {
-        const goal = parseInt(prompt("Enter movement goal (minutes):"), 10);
-        if (isNaN(goal) || goal < 3 || goal > 600) {
-            alert("Goal must be between 3 and 600 minutes");
-            return;
-        }
-        const xp = parseInt(prompt("Enter XP reward for completing it:"), 10);
-        if (isNaN(xp) || xp <= 0) {
-            alert("Enter a valid XP reward");
-            return;
-        }
-        state.movementGoal    = goal;
-        state.goalXP          = xp;
-        state.goalLocked      = true;
-        state.goalCompleted   = false;
-        state.dailyMovementMinutes = 0;
-        saveState();
-        updateDisplay();
-    });
+    const goal = parseInt(prompt("Enter movement goal (minutes):"), 10);
+    if (isNaN(goal) || goal < 3 || goal > 600) {
+        alert("Goal must be between 3 and 600 minutes");
+        return;
+    }
+    const xp = parseInt(prompt("Enter XP reward for completing it:"), 10);
+    if (isNaN(xp) || xp <= 0) {
+        alert("Enter a valid XP reward");
+        return;
+    }
+    state.movementGoal         = goal;
+    state.goalXP               = xp;
+    state.goalCompleted        = false;
+    state.dailyMovementMinutes = 0;
+    saveState();
+    updateDisplay();
+});
 
     document.getElementById("logExtraMovementBtn").addEventListener("click", function () {
         const input  = document.getElementById("extraMovementInput");
@@ -416,7 +422,6 @@ ufModal.addEventListener("click", (e) => {
     function resetDailyMovement() {
         state.dailyMovementMinutes = 0;
         state.goalCompleted  = false;
-        state.todayLocked    = false;
         state.dailyXP        = 0;
         state.glucoseLogs    = [];
         state.nutritionLogs  = [];
@@ -426,45 +431,50 @@ ufModal.addEventListener("click", (e) => {
     // REPAIR QUEST
     // =============================
     document.getElementById("acceptRepairBtn").addEventListener("click", function () {
-        if (state.repairActive) {
-            alert("Quest already active! Log your minutes below.");
-            return;
-        }
-        state.repairActive  = true;
-        state.repairMinutes = 0;
-        saveState();
-        updateDisplay();
-    });
+    if (state.repairActive) {
+        alert("Quest already active! Log your minutes below.");
+        return;
+    }
+    if (!state.goalCompleted && !state.pendingDessertPenalty) {
+        alert("Complete your movement goal first to unlock Repair Quest!");
+        return;
+    }
+    state.repairActive  = true;
+    state.repairMinutes = 0;
+    saveState();
+    updateDisplay();
+});
 
     document.getElementById("logRepairBtn").addEventListener("click", function () {
-        const input  = document.getElementById("repairMinInput");
-        const output = document.getElementById("repairOutput");
-        const mins   = parseInt(input.value, 10);
-        if (isNaN(mins) || mins <= 0) return;
+    const input  = document.getElementById("repairMinInput");
+    const output = document.getElementById("repairOutput");
+    const mins   = parseInt(input.value, 10);
+    if (isNaN(mins) || mins <= 0) return;
 
-        state.repairMinutes += mins;
+    state.repairMinutes += mins;
 
-        if (state.repairMinutes >= state.repairGoal) {
-            const bonus = state.repairMinutes - state.repairGoal;
-            addXP(50 + bonus);
-            output.textContent = `🛠️ Quest Complete! +${50 + bonus} XP earned!`;
-            state.repairActive = false;
-        } else {
-            output.textContent = `${state.repairMinutes} / ${state.repairGoal} min`;
-        }
+    if (state.repairMinutes >= state.repairGoal) {
+        const bonus = state.repairMinutes - state.repairGoal;
+        addXP(50 + bonus);
+        output.textContent = `🛠️ Quest Complete! +${50 + bonus} XP earned!`;
+        state.repairActive = false;
+        state.repairCompleted = true;
+    } else {
+        output.textContent = `${state.repairMinutes} / ${state.repairGoal} min`;
+    }
 
-        input.value = "";
-        saveState();
-        updateDisplay();
-    });
+    input.value = "";
+    saveState();
+    updateDisplay();
+});
 
     // =============================
     // SHOP
     // =============================
-    let selectedTier = null;
+    
 
     function showRewardPreview(tier) {
-        selectedTier = tier;
+       
         const preview = document.getElementById("rewardPreview");
         if (!preview) return;
         const items = rewards[tier];
@@ -511,11 +521,10 @@ ufModal.addEventListener("click", (e) => {
         saveState();
         updateDisplay();
 
-        // Reset preview
         const preview = document.getElementById("rewardPreview");
         if (preview) preview.innerHTML = `<p class="preview-hint">Tap a tier to see rewards ✨</p>`;
         document.querySelectorAll(".tier-btn").forEach(b => b.classList.remove("selected"));
-        selectedTier = null;
+       
     }
 
     // =============================
@@ -523,36 +532,33 @@ ufModal.addEventListener("click", (e) => {
     // =============================
     const categoryValues = { protein: 20, veg: 10, hydration: 2, carbs: 0 };
 
-    const safeFoodDataset    = typeof foodDataset            !== "undefined" ? foodDataset            : {};
-    const safeMealDataset    = typeof mealDataset            !== "undefined" ? mealDataset            : {};
-    const safeDiabetic       = typeof diabeticFriendlyDesserts !== "undefined" ? diabeticFriendlyDesserts : {};
-    const safeNonDiabetic    = typeof nonDiabeticDesserts    !== "undefined" ? nonDiabeticDesserts    : {};
+    const safeFoodDataset = typeof foodDataset            !== "undefined" ? foodDataset            : {};
+    const safeMealDataset = typeof mealDataset            !== "undefined" ? mealDataset            : {};
+    const safeDiabetic    = typeof diabeticFriendlyDesserts !== "undefined" ? diabeticFriendlyDesserts : {};
+    const safeNonDiabetic = typeof nonDiabeticDesserts    !== "undefined" ? nonDiabeticDesserts    : {};
 
     document.getElementById("logFoodBtn").addEventListener("click", function () {
         const inputEl = document.getElementById("nutritionInput");
         const output  = document.getElementById("nutritionOutput");
         const input   = inputEl.value.toLowerCase().trim();
-
         if (!input) return;
 
         let xp = 0;
         let category = "unknown";
 
-        // 1. Diabetic dessert
         if (input in safeDiabetic) {
             xp = safeDiabetic[input].value;
             category = "dessert";
             addXP(xp);
             state.nutrition.dessert += xp;
 
-        // 2. Non-diabetic dessert
         } else if (input in safeNonDiabetic) {
             category = "dessert";
             if (state.gold >= 5) {
                 state.pendingDessertPenalty = { value: -40, food: input };
                 saveState();
                 updateDisplay();
-                showScreen("screen-shop");
+                showScreen("screen-rewardshop");
                 alert("⚠️ Not diabetic-friendly! Spend 5 Gold in the shop to avoid -40 XP.");
                 return;
             } else {
@@ -561,7 +567,6 @@ ufModal.addEventListener("click", (e) => {
                 state.nutrition.dessert += xp;
             }
 
-        // 3. Normal food
         } else if (input in safeFoodDataset) {
             const food = safeFoodDataset[input];
             xp = food.value;
@@ -571,7 +576,6 @@ ufModal.addEventListener("click", (e) => {
                 state.nutrition[food.category] += xp;
             }
 
-        // 4. Meal
         } else if (input in safeMealDataset) {
             const meal = safeMealDataset[input];
             let mealTotal = 0;
@@ -605,10 +609,8 @@ ufModal.addEventListener("click", (e) => {
         }
 
         state.nutritionLogs.push({ name: input, category, xp });
-
         output.textContent =
             `Protein: ${state.nutrition.protein} · Veg: ${state.nutrition.veg} · Hydration: ${state.nutrition.hydration} · Carbs: ${state.nutrition.carbs}`;
-
         inputEl.value = "";
         saveState();
         updateDisplay();
@@ -665,7 +667,6 @@ ufModal.addEventListener("click", (e) => {
 
         const outputEl = document.getElementById("glucoseOutput");
         const alertEl  = document.getElementById("glucoseAlert");
-
         if (outputEl) outputEl.textContent = `Logged: ${value} (${xp >= 0 ? "+" : ""}${xp} XP)`;
         if (alertEl) {
             alertEl.textContent = alertMessage;
@@ -673,45 +674,40 @@ ufModal.addEventListener("click", (e) => {
         }
 
         document.getElementById("glucoseInput").value = "";
-        document.getElementById("fastingCheck").checked   = false;
-        document.getElementById("postMealCheck").checked  = false;
+        document.getElementById("fastingCheck").checked  = false;
+        document.getElementById("postMealCheck").checked = false;
 
         saveState();
         updateDisplay();
     });
 
-    
-
     // =============================
-    // CLEAR TODAY (DAILY RESET)
+    // CLEAR TODAY
     // =============================
     document.getElementById("clearTodayBtn").addEventListener("click", function () {
-        dd.classList.remove("open");
+    dd.classList.remove("open");
 
-        state.dailyXP              = 0;
-        state.dailyMovementMinutes = 0;
-        state.goalCompleted        = false;
-        state.lastMovementCheck    = Date.now();
-        state.glucoseLogs          = [];
-        state.nutritionLogs        = [];
-        state.nutrition            = { protein:0, veg:0, hydration:0, carbs:0, dessert:0 };
-        state.todayLocked          = false;
-        state.repairActive         = false;
-        state.repairMinutes        = 0;
+    state.dailyXP              = 0;
+    state.dailyMovementMinutes = 0;
+    state.goalCompleted        = false;
+    state.lastMovementCheck    = Date.now();
+    state.glucoseLogs          = [];
+    state.nutritionLogs        = [];
+    state.nutrition            = { protein:0, veg:0, hydration:0, carbs:0, dessert:0 };
+    state.repairActive         = false;
+    state.repairMinutes        = 0;
 
-        // Re-enable all buttons
-        document.querySelectorAll("button").forEach(btn => btn.disabled = false);
+    document.querySelectorAll("button").forEach(btn => btn.disabled = false);
 
-        // Clear output texts
-        ["extraMovementOutput","glucoseOutput","glucoseAlert","nutritionOutput","repairOutput"].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.textContent = "";
-        });
-
-        saveState();
-        updateDisplay();
-        showScreen("screen-home");
+    ["extraMovementOutput","glucoseOutput","glucoseAlert","nutritionOutput","repairOutput"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = "";
     });
+
+    saveState();
+    updateDisplay();
+    showScreen("screen-home");
+});
 
     // =============================
     // RESET ALL
@@ -729,24 +725,13 @@ ufModal.addEventListener("click", (e) => {
     // =============================
     loadState();
     checkMovementTimeout();
+  checkAchievementUnlocks();
     updateDisplay();
     showScreen("screen-home");
 
     setInterval(() => {
         checkMovementTimeout();
-        // Update clock every minute
         const dtEl = document.getElementById("dateTimeDisplay");
         if (dtEl) dtEl.textContent = getFormattedDateTime();
     }, 60000);
-
 });
-
-
-
-//NEW SCORING RULES:
-// - protein: 15
-// - veg: 10
-// - combo meals: 25
-// - carb/sugar drinks: -5
-// - fruit/drink: 5
-// - desserts (non-diabetic): -30
