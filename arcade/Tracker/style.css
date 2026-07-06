@@ -274,10 +274,16 @@ body::before {
 .nav-row:active { transform: scale(0.97); }
 .nav-row:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
 
-.nav-row.move { background: linear-gradient(135deg, rgba(198,118,153,0.5), rgba(198,118,153,0.22)); }
+.nav-row.move { background: linear-gradient(135deg, rgba(69,117,137,0.5),
+    rgba(69,117,137,0.22)
+  ); }
 .nav-row.nutr { background: linear-gradient(135deg, rgba(111,141,107,0.5), rgba(111,141,107,0.22)); }
-.nav-row.gluc { background: linear-gradient(135deg, rgba(69,117,137,0.5), rgba(69,117,137,0.22)); }
-.nav-row.rep  { background: linear-gradient(135deg, rgba(212,136,104,0.5), rgba(212,136,104,0.22)); }
+.nav-row.gluc { background: linear-gradient(135deg, rgba(212,136,104,0.5),
+    rgba(212,136,104,0.22)
+  ); }
+.nav-row.cycle  { background: linear-gradient(135deg, rgba(198,118,153,0.5),
+    rgba(198,118,153,0.22)
+  ); }
 
 .nav-emoji { font-size: 28px; flex-shrink: 0; }
 
@@ -338,8 +344,8 @@ body::before {
 }
 .bot-btn:active { transform: scale(0.96); }
 
-.achieve-btn { background: rgba(111,141,107,0.4); }
-.shop-btn    { background: rgba(245,208,145,0.14); }
+.achieve-btn { background: rgba(245,208,145,0.3); }   /* Reward Shop  */
+.shop-btn    { background: rgba(111,141,107,0.4); }    /* Repair Quest  */
 
 .bot-emoji { font-size: 22px; }
 .bot-label {
@@ -392,9 +398,9 @@ body::before {
 .move-header   { background: rgba(198,118,153,0.22); }
 .nutr-header   { background: rgba(111,141,107,0.22); }
 .gluc-header   { background: rgba(69,117,137,0.22); }
-.rep-header    { background: rgba(212,136,104,0.22); }
+.repair-header    { background: rgba(212,136,104,0.22); }
 .achieve-header{ background: rgba(111,141,107,0.22); }
-.shop-header   { background: rgba(245,208,145,0.1); }
+
 
 .back-btn {
   width: 36px;
@@ -482,6 +488,12 @@ body::before {
 .btn-green { background: rgba(111,141,107,0.5); }
 .btn-blue  { background: rgba(69,117,137,0.5); }
 .btn-orange{ background: rgba(212,136,104,0.5); }
+
+.action-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 
 /* ==============================
    INFO CARD (MOVEMENT GOAL)
