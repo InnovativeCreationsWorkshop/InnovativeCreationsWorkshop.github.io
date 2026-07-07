@@ -100,6 +100,44 @@ function renderGrocery() {
   });
 }
 
+/* Clear just the grocery list */
+function clearGrocery() {
+  if (confirm("Clear the grocery list?")) {
+    localStorage.removeItem("groceryItems");
+    renderGrocery();
+  }
+}
+
+/* Share the grocery list as plain text */
+async function shareGrocery() {
+  const items = JSON.parse(localStorage.getItem("groceryItems") || "[]");
+  if (!items.length) {
+    alert("Your grocery list is empty!");
+    return;
+  }
+
+  const listText = "🌿 Grocery List\n" + items
+    .map(item => `${item.checked ? "✓" : "•"} ${item.text}`)
+    .join("\n");
+
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: "Grocery List",
+        text: listText
+      });
+    } catch (err) {
+      // user cancelled the share sheet — no action needed
+    }
+  } else if (navigator.clipboard) {
+    await navigator.clipboard.writeText(listText);
+    alert("Grocery list copied to clipboard!");
+  } else {
+    // very old browser fallback
+    prompt("Copy your grocery list:", listText);
+  }
+}
+
 renderGrocery();
 renderAlts();
 
@@ -115,14 +153,3 @@ function resetEverything() {
   location.reload();
 }
 
-function toggleSettings() {
-  const menu = document.getElementById("settingsMenu");
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
-
-function resetEverything() {
-  if (confirm("Clear the whole menu, alt meals, and grocery list?")) {
-    localStorage.clear();
-    location.reload();
-  }
-}
