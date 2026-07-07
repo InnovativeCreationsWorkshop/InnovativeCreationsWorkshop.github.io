@@ -15,8 +15,11 @@
   <button class="settings-btn" onclick="toggleSettings()">⚙️</button>
 
   <div class="settings-menu" id="settingsMenu">
-    <button onclick="resetEverything()">🧹 Reset Everything</button>
-  </div>
+  <button onclick="shareGrocery()">📤 Share Grocery List</button>
+  <button onclick="clearGrocery()">🧺 Clear Grocery List</button>
+  <button onclick="resetEverything()">🧹 Reset Everything</button>
+</div>
+
 </div>
 
 <header>
@@ -38,8 +41,8 @@
 <section class="side-board alt-meals">
   <h2>🥗 Alternate Meals</h2>
   <div class="add-row">
-    <input type="text" id="altInput" placeholder="a backup feast...">
-    <button onclick="addAlt()">+</button>
+  <input type="text" id="altInput" placeholder="a backup feast..." onkeydown="if(event.key === 'Enter') addAlt()">
+  <button onclick="addAlt()">+</button>
   </div>
   <div class="pill-list" id="altList"></div>
 </section>
@@ -47,8 +50,8 @@
 <section class="side-board grocery-list">
   <h2>🌿 Grocery List</h2>
   <div class="add-row">
-    <input type="text" id="groceryInput" placeholder="gather from the market...">
-    <button onclick="addGrocery()">+</button>
+    <input type="text" id="groceryInput" placeholder="gather from the market..." onkeydown="if(event.key === 'Enter') addGrocery()">
+<button onclick="addGrocery()">+</button>
   </div>
   <ul class="grocery-items" id="groceryItems"></ul>
 </section>
