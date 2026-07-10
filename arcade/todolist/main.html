@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>🏝️ Beach To Do List</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>To Do List</h1>
+  <div class="hamburger-wrap">
+    <button class="hamburger-btn" id="hamburgerBtn">☰</button>
+    <div class="dropdown" id="dropdownMenu">
+      <button id="resetAllBtn">🔄 Reset All</button>
+    </div>
+  </div>
+
+  <div class="view-toggle" id="viewToggle">
+    <button class="view-btn active" data-view="today">☀️ Today</button>
+    <button class="view-btn" data-view="lists">📋 Lists</button>
+  <button class="view-btn" data-view="both">⇄ Both</button>
+  
+  
+</div>
+</header>
+
+<main class="panels">
+  <section class="panel">
+    <div class="tabs">
+      <button class="tab active" data-cat="master">🏝️ Master</button>
+      <button class="tab" data-cat="goals">🎯 Goals</button>
+      <button class="tab" data-cat="projects">📋 Projects</button>
+    </div>
+    <div id="categoryContent"></div>
+  </section>
+
+  <section class="panel">
+    <h2>☀️ Today's Tasks</h2>
+    <div class="add-row">
+      <input id="todayInput" placeholder="Add today's task...">
+      <button id="todayAddBtn">+</button>
+    </div>
+    <ul class="task-list" id="todayList"></ul>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
