@@ -316,34 +316,34 @@ ul.task-list li span.txt{
     font-size:1.1rem;
   }
 
-  .list-card{
+.list-card{
     padding:10px 10px;
     font-size:0.82rem;
-    flex-wrap:wrap;
   }
 
   ul.task-list li{
-    padding:8px 8px;
-    flex-wrap:wrap;
+    padding:8px 10px;
+    gap:6px;
   }
   ul.task-list li span.txt{
     font-size:0.82rem;
-    flex-basis:100%;
-    order:1;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
   }
   ul.task-list li input[type=checkbox]{
     width:18px; height:18px;
-    order:0;
+    flex-shrink:0;
   }
   .mini-btn{
-    order:2;
-    font-size:0.62rem;
+    font-size:0.6rem;
     padding:4px 6px;
+    flex-shrink:0;
   }
   .del-btn{
-    order:3;
     font-size:1rem;
-    padding:3px 6px;
+    padding:3px 5px;
+    flex-shrink:0;
   }
 
   .bubble{ display:none; }
