@@ -1,407 +1,361 @@
-:root{
-  --sand:#ffe4b9;
-  --seafoam:#c0ecb8;
-  --teal:#4abbbd;
-  --ocean:#1e80a0;
-  --brightblue:#0684e5;
-  --navy:#0d2e92;
+const DEFAULT_DATA = {
+  master: [],
+  today: [],
+  goals: [],
+  projects: []
+};
+
+let data = loadData();
+let state = {
+  category:'master',
+  listId:null,
+  view:'today'
+};
+
+function loadData(){
+  const raw = localStorage.getItem('beachTodoData');
+  return raw ? JSON.parse(raw) : JSON.parse(JSON.stringify(DEFAULT_DATA));
+}
+function saveData(){
+  localStorage.setItem('beachTodoData', JSON.stringify(data));
+}
+function uid(){
+  return 't-' + Math.random().toString(36).slice(2,10);
 }
 
-*{ box-sizing:border-box; }
+// ---------- Hamburger / Reset ----------
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const dropdownMenu = document.getElementById('dropdownMenu');
+const resetAllBtn = document.getElementById('resetAllBtn');
 
-body{
-  margin:0;
-  font-family:'Baloo 2', sans-serif;
-  min-height:100vh;
-  background: linear-gradient(180deg, var(--sand) 0%, var(--seafoam) 22%, var(--teal) 55%, var(--ocean) 80%, var(--navy) 100%);
-  overflow-x:hidden;
-  position:relative;
-}
+hamburgerBtn.addEventListener('click', (e)=>{
+  e.stopPropagation();
+  dropdownMenu.classList.toggle('show');
+});
 
-/* ---------- Decorative bubbles ---------- */
-.bubble{
-  position:fixed;
-  border-radius:50%;
-  background:rgba(255,255,255,0.25);
-  animation:float 10s ease-in-out infinite;
-  pointer-events:none;
-  z-index:0;
-}
-@keyframes float{
-  0%,100%{ transform:translateY(0) translateX(0); }
-  50%{ transform:translateY(-25px) translateX(10px); }
-}
+document.addEventListener('click', (e)=>{
+  if(!hamburgerBtn.contains(e.target) && !dropdownMenu.contains(e.target)){
+    dropdownMenu.classList.remove('show');
+  }
+});
 
-/* ---------- Header ---------- */
-header{
-  position:relative;
-  text-align:center;
-  padding:24px 20px 10px;
-  z-index:2;
-}
-header h1{
-  margin:0;
-  font-size:2.2rem;
-  font-weight:800;
-  color:var(--navy);
-  text-shadow:1px 2px 0 rgba(255,255,255,0.5);
-  letter-spacing:1px;
-}
-header h1::before, header h1::after{
-  content:"🌊";
-  margin:0 10px;
-}
+resetAllBtn.addEventListener('click', (e)=>{
+  e.stopPropagation();
+  const ok = window.confirm('Reset everything? This clears all lists and tasks.');
+  if(ok){
+    data = JSON.parse(JSON.stringify(DEFAULT_DATA));
+    state.category = 'master';
+    state.listId = null;
+    saveData();
+    dropdownMenu.classList.remove('show');
+    document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+    document.querySelector('.tab[data-cat="master"]').classList.add('active');
+    renderAll();
+  }
+});
 
-/* ---------- Hamburger menu ---------- */
-.hamburger-wrap{
-  position:absolute;
-  top:20px;
-  right:24px;
-  z-index:5;
-}
-.hamburger-btn{
-  width:48px; height:48px;
-  border-radius:50%;
-  background:var(--brightblue);
-  border:3px solid white;
-  box-shadow:0 4px 10px rgba(13,46,146,0.35);
-  display:flex; align-items:center; justify-content:center;
-  cursor:pointer;
-  font-size:1.3rem;
-  color:white;
-  transition:transform .15s ease;
-}
-.hamburger-btn:hover{ transform:scale(1.08); }
+// ---------- View toggle ----------
+const viewButtons = document.querySelectorAll('.view-btn');
+const leftPanel = document.querySelector('.panels .panel:nth-child(1)');
+const rightPanel = document.querySelector('.panels .panel:nth-child(2)');
 
-.dropdown{
-  position:absolute;
-  top:56px; right:0;
-  background:white;
-  border-radius:14px;
-  box-shadow:0 6px 18px rgba(13,46,146,0.25);
-  padding:8px;
-  display:none;
-  min-width:150px;
+function applyView(){
+  leftPanel.classList.remove('hidden','full');
+  rightPanel.classList.remove('hidden','full');
+  if(state.view === 'lists'){
+    rightPanel.classList.add('hidden');
+    leftPanel.classList.add('full');
+  } else if(state.view === 'today'){
+    leftPanel.classList.add('hidden');
+    rightPanel.classList.add('full');
+  }
 }
-.dropdown.show{ display:block; }
-.dropdown button{
-  width:100%;
-  background:none;
-  border:none;
-  padding:10px 12px;
-  font-family:inherit;
-  font-size:0.95rem;
-  color:var(--navy);
-  border-radius:8px;
-  cursor:pointer;
-  text-align:left;
-  font-weight:700;
-}
-.dropdown button:hover{ background:var(--sand); }
+viewButtons.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    viewButtons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    state.view = btn.dataset.view;
+    applyView();
+  });
+});
 
-/* ---------- Panels (left/right, always side-by-side) ---------- */
-.panels{
-  display:flex;
-  position:relative;
-  z-index:2;
-  flex-direction:row;
-  flex-wrap:nowrap;
-  max-width:1100px;
-  margin:0 auto;
-  padding:10px 24px 40px;
-  gap:20px;
-  align-items:flex-start;
+// ---------- Tabs ----------
+document.querySelectorAll('.tab').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    state.category = btn.dataset.cat;
+    state.listId = null;
+    renderCategoryContent();
+  });
+});
+
+// ---------- Today's Tasks ----------
+const todayInput = document.getElementById('todayInput');
+const todayAddBtn = document.getElementById('todayAddBtn');
+
+function addToday(text){
+  if(!text.trim()) return;
+  const task = { id:uid(), text:text.trim(), done:false };
+  data.today.push(task);
+  data.master.push({ id:uid(), text:task.text, done:false });
+  saveData();
+  renderToday();
+  if(state.category==='master') renderCategoryContent();
 }
-.panel{
-  flex:1 1 50%;
-  min-width:0;
-  background:rgba(255,255,255,0.85);
-  border-radius:22px;
-  padding:18px 18px 22px;
-  box-shadow:0 8px 24px rgba(13,46,146,0.18);
-}
-.panel h2{
-  margin:4px 0 14px;
-  color:var(--navy);
-  font-size:1.3rem;
+todayAddBtn.addEventListener('click', ()=>{ addToday(todayInput.value); todayInput.value=''; });
+todayInput.addEventListener('keydown', (e)=>{
+  if(e.key==='Enter'){ addToday(todayInput.value); todayInput.value=''; }
+});
+
+function renderToday(){
+  const ul = document.getElementById('todayList');
+  ul.innerHTML='';
+  if(data.today.length===0){
+    ul.innerHTML = '<div class="empty-msg">No tasks yet — add one above 🐚</div>';
+    return;
+  }
+  data.today.forEach(task=>{
+    ul.appendChild(makeTaskRow(task, 'today', null));
+  });
 }
 
-/* ---------- Tabs ---------- */
-.tabs{
-  display:flex;
-  gap:8px;
-  margin-bottom:14px;
-}
-.tab{
-  flex:1;
-  padding:10px 6px;
-  border:none;
-  border-radius:14px;
-  background:var(--sand);
-  color:var(--navy);
-  font-family:inherit;
-  font-weight:700;
-  cursor:pointer;
-  transition:.15s ease;
-}
-.tab.active{
-  background:var(--ocean);
-  color:white;
-}
+// ---------- Task row builder ----------
+function makeTaskRow(task, context, listRef){
+  const li = document.createElement('li');
+  if(task.done) li.classList.add('done');
 
-/* ---------- Add row (input + button) ---------- */
-.add-row{
-  display:flex;
-  gap:8px;
-  margin-bottom:12px;
-}
-.add-row input{
-  flex:1;
-  padding:10px 14px;
-  border-radius:14px;
-  border:2px solid var(--seafoam);
-  font-family:inherit;
-  font-size:0.95rem;
-  outline:none;
-}
-.add-row input:focus{ border-color:var(--brightblue); }
-.add-row button{
-  background:var(--brightblue);
-  color:white;
-  border:none;
-  width:42px;
-  border-radius:14px;
-  font-size:1.3rem;
-  cursor:pointer;
-  font-weight:700;
-}
-.add-row button:hover{ background:var(--navy); }
+  const cb = document.createElement('input');
+  cb.type='checkbox';
+  cb.checked = task.done;
+  cb.addEventListener('change', ()=>{
+    task.done = cb.checked;
+    saveData();
+    li.classList.toggle('done', task.done);
+  });
+  li.appendChild(cb);
 
-/* ---------- List cards (Goals/Projects list picker) ---------- */
-.list-grid{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  margin-bottom:14px;
-}
-.list-card{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:linear-gradient(135deg, var(--seafoam), var(--teal));
-  color:var(--navy);
-  padding:12px 16px;
-  border-radius:16px;
-  cursor:pointer;
-  font-weight:700;
-  transition:transform .12s ease;
-}
-.list-card:hover{ transform:translateY(-2px); }
-.list-card span.count{
-  background:white;
-  padding:2px 10px;
-  border-radius:12px;
-  font-size:0.8rem;
-}
+  const span = document.createElement('span');
+  span.className='txt';
+  span.textContent = task.text;
+  li.appendChild(span);
 
-.back-btn{
-  background:none;
-  border:none;
-  color:var(--ocean);
-  font-weight:700;
-  cursor:pointer;
-  margin-bottom:10px;
-  font-family:inherit;
-  font-size:0.95rem;
-}
+  if(context==='sublist'){
+    const toMasterBtn = document.createElement('button');
+    toMasterBtn.className='mini-btn';
+    toMasterBtn.textContent='→ Master';
+    toMasterBtn.addEventListener('click', ()=>{
+      data.master.push({id:uid(), text:task.text, done:false});
+      saveData();
+      if(state.category==='master') renderCategoryContent();
+    });
+    li.appendChild(toMasterBtn);
 
-/* ---------- Task list ---------- */
-ul.task-list{
-  list-style:none;
-  margin:0; padding:0;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-ul.task-list li{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  background:white;
-  padding:9px 12px;
-  border-radius:14px;
-  box-shadow:0 2px 6px rgba(13,46,146,0.08);
-}
-ul.task-list li.done span.txt{
-  text-decoration:line-through;
-  opacity:0.5;
-}
-ul.task-list li input[type=checkbox]{
-  width:18px; height:18px;
-  accent-color:var(--ocean);
-  cursor:pointer;
-}
-ul.task-list li span.txt{
-  flex:1;
-  font-size:0.95rem;
-  color:var(--navy);
-  word-break:break-word;
-}
-.mini-btn{
-  border:none;
-  background:var(--sand);
-  color:var(--navy);
-  font-size:0.7rem;
-  font-weight:700;
-  padding:5px 8px;
-  border-radius:10px;
-  cursor:pointer;
-  white-space:nowrap;
-}
-.mini-btn:hover{ background:var(--teal); color:white; }
-.del-btn{
-  border:none;
-  background:none;
-  color:#e0524d;
-  font-weight:800;
-  font-size:1rem;
-  cursor:pointer;
-  padding:2px 6px;
-}
-.empty-msg{
-  color:var(--ocean);
-  font-style:italic;
-  text-align:center;
-  padding:20px 0;
-  opacity:0.8;
-}
-
-/* ================= MOBILE (≤640px) ================= */
-@media (max-width: 640px){
-
-  header{ padding:18px 16px 8px; }
-  header h1{ font-size:1.5rem; }
-  header h1::before, header h1::after{
-    font-size:1.2rem;
-    margin:0 6px;
+    const toTodayBtn = document.createElement('button');
+    toTodayBtn.className='mini-btn';
+    toTodayBtn.textContent='→ Today';
+    toTodayBtn.addEventListener('click', ()=>{
+      data.today.push({id:uid(), text:task.text, done:false});
+      data.master.push({id:uid(), text:task.text, done:false});
+      saveData();
+      renderToday();
+      if(state.category==='master') renderCategoryContent();
+    });
+    li.appendChild(toTodayBtn);
   }
 
-  .hamburger-wrap{ top:14px; right:14px; }
-  .hamburger-btn{ width:40px; height:40px; font-size:1.1rem; }
-  .dropdown{ min-width:130px; }
-
-  .panels{
-    padding:8px 8px 24px;
-    gap:8px;
-  }
-  .panel{
-    padding:12px 10px 14px;
-    border-radius:16px;
-  }
-  .panel h2{ font-size:0.95rem; }
-
-  .tabs{ gap:4px; }
-  .tab{
-    font-size:0.72rem;
-    padding:8px 3px;
-    border-radius:10px;
+  if(context==='master'){
+    const toTodayBtn = document.createElement('button');
+    toTodayBtn.className='mini-btn';
+    toTodayBtn.textContent='→ Today';
+    toTodayBtn.addEventListener('click', ()=>{
+      data.today.push({id:uid(), text:task.text, done:false});
+      saveData();
+      renderToday();
+    });
+    li.appendChild(toTodayBtn);
   }
 
-  .add-row input{
-    padding:9px 10px;
-    font-size:0.9rem;
-  }
-  .add-row button{
-    width:36px;
-    font-size:1.1rem;
-  }
+  const delBtn = document.createElement('button');
+  delBtn.className='del-btn';
+  delBtn.textContent='✕';
+  delBtn.addEventListener('click', ()=>{
+    if(context==='today'){
+      data.today = data.today.filter(t=>t.id!==task.id);
+      renderToday();
+    } else if(context==='master'){
+      data.master = data.master.filter(t=>t.id!==task.id);
+      renderCategoryContent();
+    } else if(context==='sublist'){
+      const list = data[listRef.cat].find(l=>l.id===listRef.listId);
+      list.tasks = list.tasks.filter(t=>t.id!==task.id);
+      renderCategoryContent();
+    }
+    saveData();
+  });
+  li.appendChild(delBtn);
 
-.list-card{
-    padding:10px 10px;
-    font-size:0.82rem;
-  }
-
-  ul.task-list li{
-    padding:8px 10px;
-    gap:6px;
-  }
-  ul.task-list li span.txt{
-    font-size:0.82rem;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-  }
-  ul.task-list li input[type=checkbox]{
-    width:18px; height:18px;
-    flex-shrink:0;
-  }
-  .mini-btn{
-    font-size:0.6rem;
-    padding:4px 6px;
-    flex-shrink:0;
-  }
-  .del-btn{
-    font-size:1rem;
-    padding:3px 5px;
-    flex-shrink:0;
-  }
-
-  .bubble{ display:none; }
+  return li;
 }
 
-/* ================= EXTRA-SMALL PHONES (≤380px) ================= */
-@media (max-width: 380px){
-  header h1{ font-size:1.2rem; }
-  .tab{ font-size:0.65rem; }
-  .panel{ padding:10px 8px 12px; }
+// ---------- Category / left panel rendering ----------
+function renderCategoryContent(){
+  const container = document.getElementById('categoryContent');
+  container.innerHTML='';
+
+  if(state.category==='master'){
+    const addRow = document.createElement('div');
+    addRow.className='add-row';
+    addRow.innerHTML = `<input id="masterInput" placeholder="Add task to Master..."><button id="masterAddBtn">+</button>`;
+    container.appendChild(addRow);
+
+    const ul = document.createElement('ul');
+    ul.className='task-list';
+    if(data.master.length===0){
+      ul.innerHTML = '<div class="empty-msg">Master list is empty 🐚</div>';
+    } else {
+      data.master.forEach(t=> ul.appendChild(makeTaskRow(t,'master',null)));
+    }
+    container.appendChild(ul);
+
+    const input = document.getElementById('masterInput');
+    const addBtn = document.getElementById('masterAddBtn');
+    const addFn = ()=>{
+      if(!input.value.trim()) return;
+      data.master.push({id:uid(), text:input.value.trim(), done:false});
+      saveData();
+      input.value='';
+      renderCategoryContent();
+    };
+    addBtn.addEventListener('click', addFn);
+    input.addEventListener('keydown', e=>{ if(e.key==='Enter') addFn(); });
+    return;
+  }
+
+  // goals / projects
+  const cat = state.category;
+  const catLabel = cat==='goals' ? '🎯 Goal' : '📋 Project';
+
+  if(state.listId===null){
+    const addRow = document.createElement('div');
+    addRow.className='add-row';
+    addRow.innerHTML = `<input id="newListInput" placeholder="New ${catLabel} list name..."><button id="newListBtn">+</button>`;
+    container.appendChild(addRow);
+
+    const grid = document.createElement('div');
+    grid.className='list-grid';
+    if(data[cat].length===0){
+      grid.innerHTML = `<div class="empty-msg">No ${catLabel} lists yet — create one above 🌴</div>`;
+    } else {
+      data[cat].forEach(list=>{
+        const card = document.createElement('div');
+        card.className='list-card';
+
+        const main = document.createElement('div');
+        main.className='list-main';
+        const doneCount = list.tasks.filter(t=>t.done).length;
+        main.innerHTML = `<span>${list.name}</span><span class="count">${doneCount}/${list.tasks.length}</span>`;
+        main.addEventListener('click', ()=>{
+          state.listId = list.id;
+          renderCategoryContent();
+        });
+        card.appendChild(main);
+
+        const delListBtn = document.createElement('button');
+        delListBtn.className='list-del';
+        delListBtn.textContent='✕';
+        delListBtn.title='Delete this list';
+        delListBtn.addEventListener('click', (e)=>{
+          e.stopPropagation();
+          const ok = window.confirm(`Delete "${list.name}" and all its tasks? This can't be undone.`);
+          if(ok){
+            data[cat] = data[cat].filter(l=>l.id!==list.id);
+            saveData();
+            renderCategoryContent();
+          }
+        });
+        card.appendChild(delListBtn);
+
+        grid.appendChild(card);
+      });
+    }
+    container.appendChild(grid);
+
+    const input = document.getElementById('newListInput');
+    const btn = document.getElementById('newListBtn');
+    const createFn = ()=>{
+      if(!input.value.trim()) return;
+      data[cat].push({ id:uid(), name:input.value.trim(), tasks:[] });
+      saveData();
+      input.value='';
+      renderCategoryContent();
+    };
+    btn.addEventListener('click', createFn);
+    input.addEventListener('keydown', e=>{ if(e.key==='Enter') createFn(); });
+    return;
+  }
+
+  // inside a specific list
+  const list = data[cat].find(l=>l.id===state.listId);
+  if(!list){ state.listId=null; renderCategoryContent(); return; }
+
+  const backBtn = document.createElement('button');
+  backBtn.className='back-btn';
+  backBtn.textContent = `← Back to ${catLabel} lists`;
+  backBtn.addEventListener('click', ()=>{ state.listId=null; renderCategoryContent(); });
+  container.appendChild(backBtn);
+
+  const h3 = document.createElement('h2');
+  h3.textContent = `🌊 ${list.name}`;
+  container.appendChild(h3);
+
+  const addRow = document.createElement('div');
+  addRow.className='add-row';
+  addRow.innerHTML = `<input id="subInput" placeholder="Add task..."><button id="subAddBtn">+</button>`;
+  container.appendChild(addRow);
+
+  const ul = document.createElement('ul');
+  ul.className='task-list';
+  if(list.tasks.length===0){
+    ul.innerHTML = '<div class="empty-msg">No tasks in this list yet 🐠</div>';
+  } else {
+    list.tasks.forEach(t=> ul.appendChild(makeTaskRow(t,'sublist',{cat, listId:list.id})));
+  }
+  container.appendChild(ul);
+
+  const input = document.getElementById('subInput');
+  const btn = document.getElementById('subAddBtn');
+  const addFn = ()=>{
+    if(!input.value.trim()) return;
+    list.tasks.push({id:uid(), text:input.value.trim(), done:false});
+    saveData();
+    input.value='';
+    renderCategoryContent();
+  };
+  btn.addEventListener('click', addFn);
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter') addFn(); });
 }
 
-
-/* ---------- View toggle ---------- */
-.view-toggle{
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  margin:10px auto 0;
-  max-width:400px;
-}
-.view-btn{
-  flex:1;
-  padding:8px 6px;
-  border:none;
-  border-radius:12px;
-  background:rgba(255,255,255,0.6);
-  color:var(--navy);
-  font-family:inherit;
-  font-weight:700;
-  font-size:0.8rem;
-  cursor:pointer;
-  transition:.15s ease;
-}
-.view-btn.active{
-  background:var(--brightblue);
-  color:white;
+// ---------- bubbles ----------
+function createBubbles(){
+  for(let i=0;i<10;i++){
+    const b = document.createElement('div');
+    b.className='bubble';
+    const size = 20 + Math.random()*60;
+    b.style.width = size+'px';
+    b.style.height = size+'px';
+    b.style.left = Math.random()*100+'vw';
+    b.style.top = Math.random()*100+'vh';
+    b.style.animationDuration = (8+Math.random()*8)+'s';
+    b.style.animationDelay = (Math.random()*5)+'s';
+    document.body.appendChild(b);
+  }
 }
 
-.panel.hidden{ display:none; }
-.panel.full{ flex:1 1 100%; }
-
-/* delete-list button on list cards */
-.list-card .list-del{
-  border:none;
-  background:rgba(255,255,255,0.6);
-  color:#e0524d;
-  font-weight:800;
-  font-size:0.9rem;
-  border-radius:8px;
-  padding:2px 8px;
-  cursor:pointer;
-  margin-left:8px;
+function renderAll(){
+  renderCategoryContent();
+  renderToday();
+  applyView();
 }
-.list-card .list-del:hover{ background:white; }
-.list-card .list-main{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  flex:1;
-}
+createBubbles();
+renderAll();
