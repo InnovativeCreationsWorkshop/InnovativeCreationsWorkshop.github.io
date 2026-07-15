@@ -125,6 +125,8 @@ header h1::before, header h1::after{
   color:var(--navy);
   font-size:1.3rem;
 }
+.panel.hidden{ display:none; }
+.panel.full{ flex:1 1 100%; }
 
 /* ---------- Tabs ---------- */
 .tabs{
@@ -146,6 +148,32 @@ header h1::before, header h1::after{
 }
 .tab.active{
   background:var(--ocean);
+  color:white;
+}
+
+/* ---------- View toggle ---------- */
+.view-toggle{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin:10px auto 0;
+  max-width:400px;
+}
+.view-btn{
+  flex:1;
+  padding:8px 6px;
+  border:none;
+  border-radius:12px;
+  background:rgba(255,255,255,0.6);
+  color:var(--navy);
+  font-family:inherit;
+  font-weight:700;
+  font-size:0.8rem;
+  cursor:pointer;
+  transition:.15s ease;
+}
+.view-btn.active{
+  background:var(--brightblue);
   color:white;
 }
 
@@ -203,6 +231,28 @@ header h1::before, header h1::after{
   border-radius:12px;
   font-size:0.8rem;
 }
+.list-card.dragging{
+  opacity:0.5;
+  box-shadow:0 10px 20px rgba(13,46,146,0.35);
+}
+.list-card .list-main{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex:1;
+}
+.list-card .list-del{
+  border:none;
+  background:rgba(255,255,255,0.6);
+  color:#e0524d;
+  font-weight:800;
+  font-size:0.9rem;
+  border-radius:8px;
+  padding:2px 8px;
+  cursor:pointer;
+  margin-left:8px;
+}
+.list-card .list-del:hover{ background:white; }
 
 .back-btn{
   background:none;
@@ -225,12 +275,16 @@ ul.task-list{
 }
 ul.task-list li{
   display:flex;
-  align-items:center;
-  gap:8px;
+  flex-direction:column;
+  gap:6px;
   background:white;
   padding:9px 12px;
   border-radius:14px;
   box-shadow:0 2px 6px rgba(13,46,146,0.08);
+}
+ul.task-list li.dragging{
+  opacity:0.5;
+  box-shadow:0 10px 20px rgba(13,46,146,0.35);
 }
 ul.task-list li.done span.txt{
   text-decoration:line-through;
@@ -247,6 +301,15 @@ ul.task-list li span.txt{
   color:var(--navy);
   word-break:break-word;
 }
+
+.task-row{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+/* ---------- Buttons on task rows ---------- */
 .mini-btn{
   border:none;
   background:var(--sand);
@@ -259,6 +322,18 @@ ul.task-list li span.txt{
   white-space:nowrap;
 }
 .mini-btn:hover{ background:var(--teal); color:white; }
+
+.history-btn{
+  background:var(--seafoam);
+}
+.history-btn:hover{ background:var(--teal); color:white; }
+
+.upgrade-task-btn{
+  background:var(--brightblue);
+  color:white;
+}
+.upgrade-task-btn:hover{ background:var(--navy); }
+
 .del-btn{
   border:none;
   background:none;
@@ -268,6 +343,49 @@ ul.task-list li span.txt{
   cursor:pointer;
   padding:2px 6px;
 }
+
+/* ---------- Drag handle (shared: list cards + task rows) ---------- */
+.drag-handle{
+  cursor:grab;
+  padding:4px 6px;
+  font-size:1rem;
+  color:var(--navy);
+  opacity:0.6;
+  touch-action:none;
+  user-select:none;
+  flex-shrink:0;
+}
+.drag-handle:active{ cursor:grabbing; }
+
+/* ---------- Per-task progression/history ---------- */
+.task-history-panel{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px;
+  background:rgba(196,236,184,0.35);
+  border-radius:10px;
+  padding:8px 10px;
+  font-size:0.78rem;
+  color:var(--navy);
+}
+.hist-step{
+  background:white;
+  padding:3px 9px;
+  border-radius:8px;
+  opacity:0.75;
+}
+.hist-step.hist-current{
+  background:var(--ocean);
+  color:white;
+  opacity:1;
+  font-weight:700;
+}
+.hist-arrow{
+  opacity:0.5;
+  font-size:0.75rem;
+}
+
 .empty-msg{
   color:var(--ocean);
   font-style:italic;
@@ -316,7 +434,7 @@ ul.task-list li span.txt{
     font-size:1.1rem;
   }
 
-.list-card{
+  .list-card{
     padding:10px 10px;
     font-size:0.82rem;
   }
@@ -354,54 +472,4 @@ ul.task-list li span.txt{
   header h1{ font-size:1.2rem; }
   .tab{ font-size:0.65rem; }
   .panel{ padding:10px 8px 12px; }
-}
-
-
-/* ---------- View toggle ---------- */
-.view-toggle{
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  margin:10px auto 0;
-  max-width:400px;
-}
-.view-btn{
-  flex:1;
-  padding:8px 6px;
-  border:none;
-  border-radius:12px;
-  background:rgba(255,255,255,0.6);
-  color:var(--navy);
-  font-family:inherit;
-  font-weight:700;
-  font-size:0.8rem;
-  cursor:pointer;
-  transition:.15s ease;
-}
-.view-btn.active{
-  background:var(--brightblue);
-  color:white;
-}
-
-.panel.hidden{ display:none; }
-.panel.full{ flex:1 1 100%; }
-
-/* delete-list button on list cards */
-.list-card .list-del{
-  border:none;
-  background:rgba(255,255,255,0.6);
-  color:#e0524d;
-  font-weight:800;
-  font-size:0.9rem;
-  border-radius:8px;
-  padding:2px 8px;
-  cursor:pointer;
-  margin-left:8px;
-}
-.list-card .list-del:hover{ background:white; }
-.list-card .list-main{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  flex:1;
 }
