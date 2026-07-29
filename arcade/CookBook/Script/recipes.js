@@ -368,6 +368,20 @@ const RECIPES = [
   // ── RICE, NOODLES & MAINS ─────────────────────
 
   {
+key:        'SriLankanVegetableNoodles',
+label:      'Sri Lankan Style Vegetable Noodles',
+image:      '../Image/tempimage_2.jpg',
+video:      '../Video/SriLankanVegetableNoodles.MP4',
+tags:       ['vegetarian', 'noodles', 'sri-lankan', 'easy', 'quick'],
+categories: {
+cuisine:    'sri-lankan',
+ingredient: ['vegetables', 'noodles', 'egg'],
+type:       ['noodles', 'vegetarian']
+}
+},
+
+  
+  {
     key:        'AsianMarinade',
     label:      'Asian Marinade',
     image:      '../Image/TempImage/t_AMarinade.jpg',
