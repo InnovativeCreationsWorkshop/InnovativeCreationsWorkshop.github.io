@@ -6,10 +6,6 @@
 
 const RECIPES = [
 
-
-
-
-
   // ── SALADS ───────────────────────────────────
 
   {
@@ -282,7 +278,7 @@ const RECIPES = [
   tags:       ['soup', 'dumplings', 'miso', 'asian', 'easy', 'comfort-food'],
   categories: {
     cuisine:    'asian',
-    ingredient: ['dumplings', 'mushrooms'],
+    ingredient: ['pasta-bread', 'veg-protein'],
     type:       ['soups']
   }
 },
@@ -368,19 +364,18 @@ const RECIPES = [
   // ── RICE, NOODLES & MAINS ─────────────────────
 
   {
-key:        'SriLankanVegetableNoodles',
-label:      'Sri Lankan Style Vegetable Noodles',
-image:      '../Image/tempimage_2.jpg',
-video:      '../Video/SriLankanVegetableNoodles.MP4',
-tags:       ['vegetarian', 'noodles', 'sri-lankan', 'easy', 'quick'],
-categories: {
-cuisine:    'sri-lankan',
-ingredient: ['vegetables', 'noodles', 'egg'],
-type:       ['noodles', 'vegetarian']
-}
-},
+    key:        'SriLankanVegetableNoodles',
+    label:      'Sri Lankan Style Vegetable Noodles',
+    image:      '../Image/tempimage_2.jpg',
+    video:      '../Video/SriLankanVegetableNoodles.MP4',
+    tags:       ['vegetarian', 'noodles', 'sri-lankan', 'easy', 'quick'],
+    categories: {
+      cuisine:    'south-asian',
+      ingredient: ['veg-protein', 'pasta-bread'],
+      type:       ['carbs']
+    }
+  },
 
-  
   {
     key:        'AsianMarinade',
     label:      'Asian Marinade',
@@ -400,9 +395,9 @@ type:       ['noodles', 'vegetarian']
   video:      '../Video/Gyudon.MP4',
   tags:       ['beef', 'rice', 'japanese', 'easy', 'quick'],
   categories: {
-    cuisine:    'japanese',
+    cuisine:    'asian',
     ingredient: ['beef', 'rice'],
-    type:       ['rice-bowls']
+    type:       ['carbs']
   }
 },
 
@@ -414,8 +409,8 @@ type:       ['noodles', 'vegetarian']
   tags:       ['beef', 'sausage', 'pasta', 'italian', 'one-pan', 'comfort-food'],
   categories: {
     cuisine:    'italian',
-    ingredient: ['beef', 'sausage', 'pasta'],
-    type:       ['pasta', 'one-pan']
+    ingredient: ['beef', 'pork', 'pasta-bread'],
+    type:       ['carbs']
   }
 },
 
@@ -535,8 +530,8 @@ type:       ['noodles', 'vegetarian']
       type:       ['carbs']
     }
   },
-  
-    {
+
+  {
   key:        'RiceBowl',
   label:      'Rice Bowl',
   image:      '../Image/ricebowl.jpg',
@@ -544,8 +539,8 @@ type:       ['noodles', 'vegetarian']
   tags:       ['rice', 'customizable', 'japanese', 'quick', 'easy'],
   categories: {
     cuisine:    'asian',
-    ingredient: ['rice', 'seafood', 'mixed-protein'],
-    type:       ['rice', 'quick']
+    ingredient: ['rice', 'seafood'],
+    type:       ['carbs']
   }
 },
 
@@ -648,8 +643,8 @@ type:       ['noodles', 'vegetarian']
   tags:       ['chicken', 'asian', 'spicy', 'easy', 'garlic', 'chili', 'stir-fry'],
   categories: {
     cuisine:    'asian',
-    ingredient: ['chicken'],
-    type:       ['protein']
+    ingredient: ['chicken', 'rice'],
+    type:       ['carbs']
   }
 },
 
