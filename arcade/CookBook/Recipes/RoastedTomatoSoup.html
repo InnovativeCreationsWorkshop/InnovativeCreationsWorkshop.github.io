@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Roasted Tomato Soup</title>
+
+</head>
+<body data-page="RoastedTomatoSoup">
+
+<div class="card">
+    <div class="left">
+        <h1>ROASTED TOMATO SOUP</h1>
+
+        <div class="stars"> ★★<p> Easy</p></div>
+        <div class="meta">prep time: 15 minutes | cook time: 40 minutes</div>
+        <div class="meta">A rich and creamy roasted tomato soup made with oven-roasted vegetables for deep, fresh flavor.</div>
+
+        <img src="" alt="Roasted Tomato Soup" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <li>Roasting the vegetables develops a sweeter, richer tomato flavor.</li>
+            <li>For extra sweetness, roast a carrot with the vegetables.</li>
+            <li>Add a jalapeño or pepper while roasting for a spicy version.</li>
+            <li>For an extra flavor boost, stir in a pinch of MSG if desired.</li>
+            <li>If the soup is too thick, add more broth or water. If it's still chunky, blend longer and strain for a silky smooth texture.</li>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>1 bunch tomatoes, halved or quartered</li>
+                <li>½ whole garlic bulb</li>
+                <li>½ shallot or ¼–½ sweet onion</li>
+                <li>1 carrot (optional)</li>
+                <li>1 jalapeño or pepper (optional)</li>
+                <li>Olive oil</li>
+            </ul>
+            <ul>
+                <li>Salt & pepper</li>
+                <li>Dried basil</li>
+                <li>Dried oregano</li>
+                <li>Cooking wine</li>
+                <li>Water or broth</li>
+                <li>Fresh basil, chopped</li>
+                <li>Heavy cream</li>
+                <li>Optional: butter, Parmesan cheese, onion powder, garlic powder, MSG</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Preheat oven to 400°F.</li>
+                <li>Place the tomatoes, garlic, shallot or onion, optional carrot, and optional jalapeño on a baking sheet.</li>
+                <li>Drizzle generously with olive oil and season with salt, pepper, dried basil, and oregano.</li>
+                <li>Roast for 30–40 minutes, or until the garlic is soft and the vegetables are lightly caramelized.</li>
+                <li>Transfer everything to a pot and add a splash of cooking wine. Simmer for a few minutes.</li>
+                <li>Blend until smooth, then add water or broth until the soup reaches your preferred consistency.</li>
+                <li>If needed, blend longer and strain through a fine mesh sieve for an ultra-smooth soup.</li>
+                <li>Stir in fresh chopped basil and heavy cream.</li>
+                <li>Season to taste and add butter, Parmesan cheese, onion powder, garlic powder, or MSG if desired.</li>
+            </ol>
+        </div>
+
+        <h2>SERVING IDEAS</h2>
+        <div class="directions">
+            <ul>
+                <li>Grilled cheese sandwich</li>
+                <li>Cheese sticks</li>
+                <li>Crusty bread</li>
+                <li>Garlic bread</li>
+                <li>Parmesan and fresh basil garnish</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>
