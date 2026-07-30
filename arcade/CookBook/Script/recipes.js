@@ -128,6 +128,19 @@ const RECIPES = [
   },
 
   {
+    key:        'RoastedTomatoSoup',
+    label:      'Roasted Tomato Soup',
+    image:      '../Image/TempImage/t_roastedtomatosoup.jpg',
+    video:      '../Video/RoastedTomatoSoup.MP4',
+    tags:       ['tomato', 'soup', 'vegetarian', 'creamy', 'comfort food'],
+    categories: {
+      cuisine:    'american',
+      ingredient: ['veg-protein'],
+      type:       ['soups']
+    }
+},
+
+  {
     key:        'BeefVindaloo',
     label:      'Beef Vindaloo',
     image:      '../Image/TempImage/t_beefvindaloo.jpg',
