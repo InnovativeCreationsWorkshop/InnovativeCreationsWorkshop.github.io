@@ -7,35 +7,35 @@ document.addEventListener("DOMContentLoaded", function () {
     const STORAGE_KEY = "betty_rpg_state";
 
     const state = {
-    movementGoal: 0,
-    goalXP: 0,
-    goalCompleted: false,
+        movementGoal: 0,
+        goalXP: 0,
+        goalCompleted: false,
 
-    dailyMovementMinutes: 0,
-    dailyXP: 0,
-    weeklyXP: 0,
-    gold: 0,
+        dailyMovementMinutes: 0,
+        dailyXP: 0,
+        weeklyXP: 0,
+        gold: 0,
 
-    glucoseLogs: [],
-    nutritionLogs: [],
+        glucoseLogs: [],
+        nutritionLogs: [],
 
-    nutrition: { protein: 0, veg: 0, hydration: 0, carbs: 0, dessert: 0 },
+        nutrition: { protein: 0, veg: 0, hydration: 0, carbs: 0, dessert: 0 },
 
-    convertThreshold: 500,
+        convertThreshold: 500,
 
-    goldSpentThisWeek: 0,
-    lastSpendReset: getToday(),
+        goldSpentThisWeek: 0,
+        lastSpendReset: getToday(),
 
-    pendingDessertPenalty: null,
-    lastMovementCheck: Date.now(),
+        pendingDessertPenalty: null,
 
-    repairActive: false,
-    repairMinutes: 0,
-    repairGoal: 30,
-    repairCompleted: false,
+        repairActive: false,
+        repairMinutes: 0,
+        repairGoal: 30,
+        repairCompleted: false,
 
-    unlockedAchievements: []
-};
+        unlockedAchievements: [],
+        goals: []
+    };
 
     // =============================
     // STORAGE
@@ -53,8 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!parsed.nutritionLogs)        parsed.nutritionLogs = [];
             if (!parsed.nutrition)            parsed.nutrition = { protein:0, veg:0, hydration:0, carbs:0, dessert:0 };
             if (!parsed.unlockedAchievements) parsed.unlockedAchievements = [];
+            if (!parsed.goals)                parsed.goals = [];
             delete parsed.repairQuest;
             delete parsed.movementPenaltyApplied;
+            delete parsed.lastMovementCheck;
             Object.assign(state, parsed);
         } catch (e) {
             console.warn("Load failed:", e);
@@ -136,9 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
         { id: "repair_done", emoji: "🛠️", name: "Repaired", desc: "Complete a Repair Quest", check: () => state.repairCompleted }
     ];
 
-    // =============================
-    // ACHIEVEMENT XP BONUS (+5 on first unlock)
-    // =============================
     function checkAchievementUnlocks() {
         achievements.forEach(a => {
             if (a.check() && !state.unlockedAchievements.includes(a.id)) {
@@ -174,7 +173,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Cycle button — external link
     document.getElementById("cycleBtn").addEventListener("click", () => {
         window.open("https://innovativecreationsworkshop.github.io/arcade/Cycle/main.html", "_blank");
     });
@@ -194,7 +192,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // =============================
     // UTILITIES
     // =============================
-    function addXP(amount) {
+  window.debugForceLateNight =false; //debug test
+  
+    function isLateNightPenalty() {
+        if (window.debugForceLateNight) return true;
+    return new Date().getHours() >= 21; // 9pm or later
+    }
+
+    function addXP(amount, applyLateFoodPenalty = false) {
+        if (applyLateFoodPenalty && isLateNightPenalty()) {
+            amount -= 20;
+        }
         state.dailyXP  += amount;
         state.weeklyXP += amount;
         if (state.weeklyXP < 0) state.weeklyXP = 0;
@@ -215,16 +223,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (state.lastSpendReset !== today) {
             state.goldSpentThisWeek = 0;
             state.lastSpendReset = today;
-        }
-    }
-
-    function checkMovementTimeout() {
-        const now = Date.now();
-        const hoursPassed = (now - state.lastMovementCheck) / (1000 * 60 * 60);
-        if (hoursPassed >= 24) {
-            resetDailyMovement();
-            state.lastMovementCheck = now;
-            saveState();
         }
     }
 
@@ -285,18 +283,22 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        const nutListEl = document.getElementById("nutritionItems");
-        if (nutListEl) {
-            nutListEl.innerHTML = "";
-            state.nutritionLogs.forEach(entry => {
-                const div = document.createElement("div");
-                div.className = "log-entry";
-                div.textContent = `${entry.name} (${entry.category}: ${entry.xp >= 0 ? "+" : ""}${entry.xp} XP)`;
-                nutListEl.appendChild(div);
-            });
+      const nutListEl = document.getElementById("nutritionItems");
+if (nutListEl) {
+    nutListEl.innerHTML = "";
+    state.nutritionLogs.forEach(entry => {
+        const div = document.createElement("div");
+        div.className = "log-entry";
+        if (entry.goldUsed) {
+            div.textContent = `${entry.name} (${entry.category}: Gold used penalty, +0 XP)`;
+        } else {
+            div.textContent = `${entry.name} (${entry.category}: ${entry.xp >= 0 ? "+" : ""}${entry.xp} XP)`;
         }
+        nutListEl.appendChild(div);
+    });
+}
 
-       const repProg   = document.getElementById("repairProgress");
+        const repProg   = document.getElementById("repairProgress");
         const repGroup  = document.getElementById("repairInputGroup");
         const acceptBtn = document.getElementById("acceptRepairBtn");
         const repHint   = document.getElementById("repairHint");
@@ -324,10 +326,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         renderAchievements();
+        renderGoalsList();
 
         const penBanner = document.getElementById("pendingPenaltyBanner");
         if (penBanner) penBanner.style.display = state.pendingDessertPenalty ? "block" : "none";
-    }   // <-- closes updateDisplay()
+    }
 
     // =============================
     // ACHIEVEMENTS RENDER
@@ -351,43 +354,108 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // =============================
+    // GOALS
+    // =============================
+    const goalsHeader    = document.getElementById("goalsHeader");
+    const goalsModal      = document.getElementById("goals-modal");
+    const goalsModalList  = document.getElementById("goalsModalList");
+    const newGoalInput    = document.getElementById("newGoalInput");
+
+    function renderGoalsList() {
+        const listEl = document.getElementById("goalsList");
+        if (!listEl) return;
+        listEl.innerHTML = "";
+        state.goals.forEach(g => {
+            const p = document.createElement("p");
+            p.textContent = g;
+            listEl.appendChild(p);
+        });
+    }
+
+    function renderGoalsModal() {
+        goalsModalList.innerHTML = "";
+        state.goals.forEach((g, i) => {
+            const div = document.createElement("div");
+            div.className = "goals-modal-item";
+            div.innerHTML = `<span>${g}</span><button data-idx="${i}">✕</button>`;
+            goalsModalList.appendChild(div);
+        });
+        goalsModalList.querySelectorAll("button").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const idx = parseInt(btn.dataset.idx, 10);
+                state.goals.splice(idx, 1);
+                saveState();
+                renderGoalsModal();
+                renderGoalsList();
+            });
+        });
+    }
+
+    goalsHeader.addEventListener("click", () => {
+        renderGoalsModal();
+        goalsModal.classList.add("active");
+    });
+
+    document.getElementById("goals-modal-close").addEventListener("click", () => {
+        goalsModal.classList.remove("active");
+    });
+
+    goalsModal.addEventListener("click", (e) => {
+        if (e.target === goalsModal) goalsModal.classList.remove("active");
+    });
+
+    document.getElementById("addGoalBtn").addEventListener("click", () => {
+        const val = newGoalInput.value.trim();
+        if (!val) return;
+        state.goals.push(val);
+        newGoalInput.value = "";
+        saveState();
+        renderGoalsModal();
+        renderGoalsList();
+    });
+
+    newGoalInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") document.getElementById("addGoalBtn").click();
+    });
+
+    // =============================
     // XP → GOLD
     // =============================
     document.getElementById("convertGoldBtn").addEventListener("click", function () {
-    if (state.weeklyXP < state.convertThreshold) {
-        alert(`Need at least ${state.convertThreshold} XP to convert`);
-        return;
-    }
-    const goldEarned = Math.floor(state.weeklyXP / 100);
-    state.weeklyXP = state.weeklyXP % 100;
-    state.gold += goldEarned;
-    if (state.gold > 1000) state.gold = 1000;
-    saveState();
-    updateDisplay();
-    alert(`✨ Converted to ${goldEarned} Gold!`);
-});
+        if (state.weeklyXP < state.convertThreshold) {
+            alert(`Need at least ${state.convertThreshold} XP to convert`);
+            return;
+        }
+        const goldEarned = Math.floor(state.weeklyXP / 100);
+        state.weeklyXP = state.weeklyXP % 100;
+        state.gold += goldEarned;
+        if (state.gold > 1000) state.gold = 1000;
+        saveState();
+        updateDisplay();
+        alert(`✨ Converted to ${goldEarned} Gold!`);
+    });
 
     // =============================
     // MOVEMENT
     // =============================
     document.getElementById("movementDoneBtn").addEventListener("click", function () {
-    const goal = parseInt(prompt("Enter movement goal (minutes):"), 10);
-    if (isNaN(goal) || goal < 3 || goal > 600) {
-        alert("Goal must be between 3 and 600 minutes");
-        return;
-    }
-    const xp = parseInt(prompt("Enter XP reward for completing it:"), 10);
-    if (isNaN(xp) || xp <= 0) {
-        alert("Enter a valid XP reward");
-        return;
-    }
-    state.movementGoal         = goal;
-    state.goalXP               = xp;
-    state.goalCompleted        = false;
-    state.dailyMovementMinutes = 0;
-    saveState();
-    updateDisplay();
-});
+        const goal = parseInt(prompt("Enter movement goal (minutes):"), 10);
+        if (isNaN(goal) || goal < 3 || goal > 600) {
+            alert("Goal must be between 3 and 600 minutes");
+            return;
+        }
+        const xp = parseInt(prompt("Enter XP reward for completing it:"), 10);
+        if (isNaN(xp) || xp <= 0) {
+            alert("Enter a valid XP reward");
+            return;
+        }
+        state.movementGoal         = goal;
+        state.goalXP               = xp;
+        state.goalCompleted        = false;
+        state.dailyMovementMinutes = 0;
+        saveState();
+        updateDisplay();
+    });
 
     document.getElementById("logExtraMovementBtn").addEventListener("click", function () {
         const input  = document.getElementById("extraMovementInput");
@@ -419,62 +487,51 @@ document.addEventListener("DOMContentLoaded", function () {
         updateDisplay();
     });
 
-    function resetDailyMovement() {
-        state.dailyMovementMinutes = 0;
-        state.goalCompleted  = false;
-        state.dailyXP        = 0;
-        state.glucoseLogs    = [];
-        state.nutritionLogs  = [];
-    }
-
     // =============================
     // REPAIR QUEST
     // =============================
     document.getElementById("acceptRepairBtn").addEventListener("click", function () {
-    if (state.repairActive) {
-        alert("Quest already active! Log your minutes below.");
-        return;
-    }
-    if (!state.goalCompleted && !state.pendingDessertPenalty) {
-        alert("Complete your movement goal first to unlock Repair Quest!");
-        return;
-    }
-    state.repairActive  = true;
-    state.repairMinutes = 0;
-    saveState();
-    updateDisplay();
-});
+        if (state.repairActive) {
+            alert("Quest already active! Log your minutes below.");
+            return;
+        }
+        if (!state.goalCompleted && !state.pendingDessertPenalty) {
+            alert("Complete your movement goal first to unlock Repair Quest!");
+            return;
+        }
+        state.repairActive  = true;
+        state.repairMinutes = 0;
+        saveState();
+        updateDisplay();
+    });
 
     document.getElementById("logRepairBtn").addEventListener("click", function () {
-    const input  = document.getElementById("repairMinInput");
-    const output = document.getElementById("repairOutput");
-    const mins   = parseInt(input.value, 10);
-    if (isNaN(mins) || mins <= 0) return;
+        const input  = document.getElementById("repairMinInput");
+        const output = document.getElementById("repairOutput");
+        const mins   = parseInt(input.value, 10);
+        if (isNaN(mins) || mins <= 0) return;
 
-    state.repairMinutes += mins;
+        state.repairMinutes += mins;
 
-    if (state.repairMinutes >= state.repairGoal) {
-        const bonus = state.repairMinutes - state.repairGoal;
-        addXP(50 + bonus);
-        output.textContent = `🛠️ Quest Complete! +${50 + bonus} XP earned!`;
-        state.repairActive = false;
-        state.repairCompleted = true;
-    } else {
-        output.textContent = `${state.repairMinutes} / ${state.repairGoal} min`;
-    }
+        if (state.repairMinutes >= state.repairGoal) {
+            const bonus = state.repairMinutes - state.repairGoal;
+            addXP(50 + bonus);
+            output.textContent = `🛠️ Quest Complete! +${50 + bonus} XP earned!`;
+            state.repairActive = false;
+            state.repairCompleted = true;
+        } else {
+            output.textContent = `${state.repairMinutes} / ${state.repairGoal} min`;
+        }
 
-    input.value = "";
-    saveState();
-    updateDisplay();
-});
+        input.value = "";
+        saveState();
+        updateDisplay();
+    });
 
     // =============================
     // SHOP
     // =============================
-    
-
     function showRewardPreview(tier) {
-       
         const preview = document.getElementById("rewardPreview");
         if (!preview) return;
         const items = rewards[tier];
@@ -524,7 +581,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const preview = document.getElementById("rewardPreview");
         if (preview) preview.innerHTML = `<p class="preview-hint">Tap a tier to see rewards ✨</p>`;
         document.querySelectorAll(".tier-btn").forEach(b => b.classList.remove("selected"));
-       
     }
 
     // =============================
@@ -537,84 +593,125 @@ document.addEventListener("DOMContentLoaded", function () {
     const safeDiabetic    = typeof diabeticFriendlyDesserts !== "undefined" ? diabeticFriendlyDesserts : {};
     const safeNonDiabetic = typeof nonDiabeticDesserts    !== "undefined" ? nonDiabeticDesserts    : {};
 
-    document.getElementById("logFoodBtn").addEventListener("click", function () {
-        const inputEl = document.getElementById("nutritionInput");
-        const output  = document.getElementById("nutritionOutput");
-        const input   = inputEl.value.toLowerCase().trim();
-        if (!input) return;
+   document.getElementById("logFoodBtn").addEventListener("click", function () {
+    const inputEl = document.getElementById("nutritionInput");
+    const output  = document.getElementById("nutritionOutput");
+    const input   = inputEl.value.toLowerCase().trim();
+    if (!input) return;
 
-        let xp = 0;
-        let category = "unknown";
+    let xp = 0;
+    let category = "unknown";
 
-        if (input in safeDiabetic) {
-            xp = safeDiabetic[input].value;
-            category = "dessert";
-            addXP(xp);
-            state.nutrition.dessert += xp;
+    function maybeAlertLateNight() {
+        if (isLateNightPenalty()) {
+            alert("🌙 -20 points for late night snacking!");
+        }
+    }
 
-        } else if (input in safeNonDiabetic) {
-            category = "dessert";
-            if (state.gold >= 5) {
-                state.pendingDessertPenalty = { value: -40, food: input };
-                saveState();
-                updateDisplay();
-                showScreen("screen-rewardshop");
-                alert("⚠️ Not diabetic-friendly! Spend 5 Gold in the shop to avoid -40 XP.");
-                return;
-            } else {
-                xp = -40;
-                addXP(xp);
-                state.nutrition.dessert += xp;
-            }
+    if (input in safeDiabetic) {
+        xp = safeDiabetic[input].value;
+        category = "dessert";
+        addXP(xp, true);
+        maybeAlertLateNight();
+        state.nutrition.dessert += xp;
+        state.nutritionLogs.push({ name: input, category, xp });
 
-        } else if (input in safeFoodDataset) {
-            const food = safeFoodDataset[input];
-            xp = food.value;
-            category = food.category;
-            addXP(xp);
-            if (state.nutrition[food.category] !== undefined) {
-                state.nutrition[food.category] += xp;
-            }
-
-        } else if (input in safeMealDataset) {
-            const meal = safeMealDataset[input];
-            let mealTotal = 0;
-            category = "meal";
-            meal.forEach(cat => {
-                if (!(cat in categoryValues)) return;
-                const value = categoryValues[cat];
-                state.nutrition[cat] += value;
-                mealTotal += value;
-            });
-            xp = mealTotal;
-            addXP(mealTotal);
-
-        } else {
-            promptUnknownFood(input).then(function(choice) {
-                if (!choice) return;
-                const xp = choice.value;
-                const category = choice.category;
-                addXP(xp);
-                if (state.nutrition[category] !== undefined) {
-                    state.nutrition[category] += xp;
-                }
-                state.nutritionLogs.push({ name: input, category, xp });
-                output.textContent =
-                    `Protein: ${state.nutrition.protein} · Veg: ${state.nutrition.veg} · Hydration: ${state.nutrition.hydration} · Carbs: ${state.nutrition.carbs}`;
-                inputEl.value = "";
-                saveState();
-                updateDisplay();
-            });
+    } else if (input in safeNonDiabetic) {
+        category = "dessert";
+        if (state.gold >= 5) {
+            state.pendingDessertPenalty = { value: -40, food: input };
+            state.nutritionLogs.push({ name: input, category, xp: 0, goldUsed: true });
+            saveState();
+            updateDisplay();
+            showScreen("screen-rewardshop");
+            maybeAlertLateNight();
+            alert("⚠️ Not diabetic-friendly! Spend 5 Gold in the shop to avoid -40 XP.");
             return;
+        } else {
+            xp = -40;
+            addXP(xp, true);
+            maybeAlertLateNight();
+            state.nutrition.dessert += xp;
+            state.nutritionLogs.push({ name: input, category, xp });
         }
 
+    } else if (input in safeFoodDataset) {
+        const food = safeFoodDataset[input];
+        xp = food.value;
+        category = food.category;
+        addXP(xp, true);
+        maybeAlertLateNight();
+        if (state.nutrition[food.category] !== undefined) {
+            state.nutrition[food.category] += xp;
+        }
         state.nutritionLogs.push({ name: input, category, xp });
-        output.textContent =
-            `Protein: ${state.nutrition.protein} · Veg: ${state.nutrition.veg} · Hydration: ${state.nutrition.hydration} · Carbs: ${state.nutrition.carbs}`;
-        inputEl.value = "";
-        saveState();
-        updateDisplay();
-    });
+
+    } else if (input in safeMealDataset) {
+        const meal = safeMealDataset[input];
+        let mealTotal = 0;
+        category = "meal";
+        meal.forEach(cat => {
+            if (!(cat in categoryValues)) return;
+            const value = categoryValues[cat];
+            state.nutrition[cat] += value;
+            mealTotal += value;
+        });
+        xp = mealTotal;
+        addXP(mealTotal, true);
+        maybeAlertLateNight();
+        state.nutritionLogs.push({ name: input, category, xp });
+
+    } else {
+        promptUnknownFood(input).then(function(choice) {
+            if (!choice) return;
+            const chosenCategory = choice.category;
+            const chosenValue = choice.value;
+
+            if (chosenCategory === "dessert" && chosenValue < 0) {
+                if (state.gold >= 5) {
+                    state.pendingDessertPenalty = { value: chosenValue, food: input };
+                    state.nutritionLogs.push({ name: input, category: chosenCategory, xp: 0, goldUsed: true });
+                    saveState();
+                    updateDisplay();
+                    showScreen("screen-rewardshop");
+                    maybeAlertLateNight();
+                    alert(`⚠️ Not diabetic-friendly! Spend 5 Gold in the shop to avoid ${chosenValue} XP.`);
+                    return;
+                } else {
+                    addXP(chosenValue, true);
+                    maybeAlertLateNight();
+                    state.nutrition.dessert += chosenValue;
+                    state.nutritionLogs.push({ name: input, category: chosenCategory, xp: chosenValue });
+                    output.textContent =
+                        `Protein: ${state.nutrition.protein} · Veg: ${state.nutrition.veg} · Hydration: ${state.nutrition.hydration} · Carbs: ${state.nutrition.carbs}`;
+                    inputEl.value = "";
+                    saveState();
+                    updateDisplay();
+                    return;
+                }
+            }
+
+            addXP(chosenValue, true);
+            maybeAlertLateNight();
+            if (state.nutrition[chosenCategory] !== undefined) {
+                state.nutrition[chosenCategory] += chosenValue;
+            }
+            state.nutritionLogs.push({ name: input, category: chosenCategory, xp: chosenValue });
+            output.textContent =
+                `Protein: ${state.nutrition.protein} · Veg: ${state.nutrition.veg} · Hydration: ${state.nutrition.hydration} · Carbs: ${state.nutrition.carbs}`;
+            inputEl.value = "";
+            saveState();
+            updateDisplay();
+        });
+        return;
+    }
+
+    output.textContent =
+        `Protein: ${state.nutrition.protein} · Veg: ${state.nutrition.veg} · Hydration: ${state.nutrition.hydration} · Carbs: ${state.nutrition.carbs}`;
+    inputEl.value = "";
+    saveState();
+    updateDisplay();
+});
 
     // =============================
     // GLUCOSE
@@ -640,10 +737,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (fasting) {
             type = "Fasting";
-            xp = value < 130 ? 5 : 0;
+            xp = value < 120 ? 10 : 0;
         } else if (postMeal) {
             type = "Non-Fasting";
-            xp = value < 180 ? 10 : 0;
+            xp = value < 150 ? 5 : 0;
         }
 
         let critical = false, alertMessage = "";
@@ -685,29 +782,28 @@ document.addEventListener("DOMContentLoaded", function () {
     // CLEAR TODAY
     // =============================
     document.getElementById("clearTodayBtn").addEventListener("click", function () {
-    dd.classList.remove("open");
+        dd.classList.remove("open");
 
-    state.dailyXP              = 0;
-    state.dailyMovementMinutes = 0;
-    state.goalCompleted        = false;
-    state.lastMovementCheck    = Date.now();
-    state.glucoseLogs          = [];
-    state.nutritionLogs        = [];
-    state.nutrition            = { protein:0, veg:0, hydration:0, carbs:0, dessert:0 };
-    state.repairActive         = false;
-    state.repairMinutes        = 0;
+        state.dailyXP              = 0;
+        state.dailyMovementMinutes = 0;
+        state.goalCompleted        = false;
+        state.glucoseLogs          = [];
+        state.nutritionLogs        = [];
+        state.nutrition            = { protein:0, veg:0, hydration:0, carbs:0, dessert:0 };
+        state.repairActive         = false;
+        state.repairMinutes        = 0;
 
-    document.querySelectorAll("button").forEach(btn => btn.disabled = false);
+        document.querySelectorAll("button").forEach(btn => btn.disabled = false);
 
-    ["extraMovementOutput","glucoseOutput","glucoseAlert","nutritionOutput","repairOutput"].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = "";
+        ["extraMovementOutput","glucoseOutput","glucoseAlert","nutritionOutput","repairOutput"].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = "";
+        });
+
+        saveState();
+        updateDisplay();
+        showScreen("screen-home");
     });
-
-    saveState();
-    updateDisplay();
-    showScreen("screen-home");
-});
 
     // =============================
     // RESET ALL
@@ -724,13 +820,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // INIT
     // =============================
     loadState();
-    checkMovementTimeout();
-  checkAchievementUnlocks();
+    checkAchievementUnlocks();
     updateDisplay();
     showScreen("screen-home");
 
     setInterval(() => {
-        checkMovementTimeout();
         const dtEl = document.getElementById("dateTimeDisplay");
         if (dtEl) dtEl.textContent = getFormattedDateTime();
     }, 60000);
