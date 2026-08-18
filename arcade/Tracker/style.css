@@ -886,3 +886,179 @@ body::before {
     font-size: 0.85rem;
     text-decoration: underline;
 }
+
+/* ── Goals section (home screen) ── */
+.goals-header { cursor: pointer; }
+.goals-list {
+  text-align: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: rgba(245,208,145,0.55);
+  line-height: 1.5;
+  margin: -4px 0 10px;
+}
+.goals-list p { margin: 0; }
+
+/* ── Goals Modal ── */
+#goals-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    backdrop-filter: blur(4px);
+}
+
+#goals-modal.active {
+    display: flex;
+}
+
+/* Modal card */
+#goals-modal .ufm-box {
+    width: 100%;
+    max-width: 380px;
+    background: rgba(14, 8, 30, 0.97);
+    border: 2px solid var(--border);
+    border-radius: 22px;
+    padding: 22px 18px 18px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65);
+    text-align: left;
+}
+
+/* Modal title */
+#goals-modal .ufm-box h3 {
+    margin: 0 0 16px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 22px;
+    color: var(--gold);
+    text-align: center;
+    letter-spacing: 0.3px;
+}
+
+/* Goal list */
+.goals-modal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+/* Individual goal */
+.goals-modal-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 11px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    text-align: left;
+}
+
+/* Delete goal button */
+.goals-modal-item button {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(212, 136, 104, 0.18);
+    border: 1.5px solid rgba(212, 136, 104, 0.45);
+    color: var(--coral);
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 800;
+    padding: 0;
+    transition: background 0.15s, transform 0.15s;
+}
+
+.goals-modal-item button:hover {
+    background: rgba(212, 136, 104, 0.35);
+}
+
+.goals-modal-item button:active {
+    transform: scale(0.9);
+}
+
+/* Add goal row */
+.goals-modal-add {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+/* Input */
+.goals-modal-input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 14px;
+    border-radius: 16px;
+    border: 2px solid var(--border);
+    background: rgba(255, 255, 255, 0.07);
+    color: var(--gold);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.goals-modal-input::placeholder {
+    color: rgba(245, 208, 145, 0.35);
+}
+
+.goals-modal-input:focus {
+    border-color: rgba(245, 208, 145, 0.6);
+    background: rgba(255, 255, 255, 0.09);
+}
+
+/* Add button */
+.goals-modal-addbtn {
+    padding: 10px 16px;
+    border-radius: 16px;
+    border: 2px solid rgba(245, 208, 145, 0.35);
+    background: rgba(111, 141, 107, 0.5);
+    color: var(--gold);
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s;
+}
+
+.goals-modal-addbtn:hover {
+    background: rgba(111, 141, 107, 0.7);
+}
+
+.goals-modal-addbtn:active {
+    transform: scale(0.95);
+}
+
+/* Close button */
+#goals-modal .ufm-cancel {
+    width: 100%;
+    margin-top: 2px;
+    padding: 12px;
+    border-radius: 16px;
+    border: 2px solid var(--border);
+    background: rgba(245, 208, 145, 0.08);
+    color: rgba(245, 208, 145, 0.65);
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+#goals-modal .ufm-cancel:hover {
+    background: rgba(245, 208, 145, 0.15);
+    color: var(--gold);
+}
