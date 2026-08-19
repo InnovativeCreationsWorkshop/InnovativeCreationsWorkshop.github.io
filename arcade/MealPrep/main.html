@@ -10,23 +10,18 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="settings">
+<div class="settings">
   <button class="settings-btn" onclick="toggleSettings()">⚙️</button>
-
   <div class="settings-menu" id="settingsMenu">
-  <button onclick="shareGrocery()">📤 Share Grocery List</button>
-  <button onclick="clearGrocery()">🧺 Clear Grocery List</button>
-  <button onclick="resetEverything()">🧹 Reset Everything</button>
+    <button onclick="shareGrocery()">📤 Share Grocery List</button>
+    <button onclick="clearGrocery()">🧺 Clear Grocery List</button>
+    <button onclick="resetEverything()">🧹 Reset Everything</button>
+  </div>
 </div>
-
-</div>
-
 <header>
   <h1>🍄 Menu 🍓</h1>
-    <p>~ fresh picks, served daily ~</p>
+  <p>~ fresh picks, served daily ~</p>
 </header>
-
 <main class="chart-wrap">
   <div class="menu-chart">
     <div class="chart-row chart-header">
@@ -37,27 +32,30 @@
     <div id="menuBody"></div>
   </div>
 </main>
-
 <section class="side-board alt-meals">
   <h2>🥗 Alternate Meals</h2>
   <div class="add-row">
-  <input type="text" id="altInput" placeholder="a backup feast..." onkeydown="if(event.key === 'Enter') addAlt()">
-  <button onclick="addAlt()">+</button>
+    <input type="text" id="altInput" placeholder="a backup feast..." onkeydown="if(event.key === 'Enter') addAlt()">
+    <button onclick="addAlt()">+</button>
   </div>
   <div class="pill-list" id="altList"></div>
 </section>
-
+<section class="side-board fasting-snacks">
+  <h2>🥜 Fasting Snacks</h2>
+  <div class="add-row">
+    <input type="text" id="fastingInput" placeholder="a backup feast..." onkeydown="if(event.key === 'Enter') addFasting()">
+    <button onclick="addFasting()">+</button>
+  </div>
+  <div class="pill-list" id="fastingList"></div>
+</section>
 <section class="side-board grocery-list">
   <h2>🌿 Grocery List</h2>
   <div class="add-row">
     <input type="text" id="groceryInput" placeholder="gather from the market..." onkeydown="if(event.key === 'Enter') addGrocery()">
-<button onclick="addGrocery()">+</button>
+    <button onclick="addGrocery()">+</button>
   </div>
   <ul class="grocery-items" id="groceryItems"></ul>
 </section>
-
 <script src="script.js"></script>
 </body>
-
-
 </html>
