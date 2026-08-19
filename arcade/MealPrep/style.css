@@ -185,7 +185,21 @@ header p {
 .menu-chart input::placeholder { color: rgba(74,59,42,0.35); }
 .menu-chart input:focus { border-bottom-color: var(--marigold); }
 
-/* side boards (alt meals + grocery) */
+/* side boards (fasting + alt meals + grocery) */
+
+.fasting-snacks { box-shadow: 0 6px 0 var(--terracotta), 0 10px 22px rgba(0,0,0,0.08); }
+.fasting-snacks h2 { color: var(--terracotta); }
+
+.fasting-snacks .pill-list .pill {
+  background: var(--marigold);
+  color: var(--ink);
+}
+
+.fasting-snacks .pill-list .pill button {
+  color: var(--ink);
+}
+
+
 .alt-meals { box-shadow: 0 6px 0 var(--marigold), 0 10px 22px rgba(0,0,0,0.08); }
 .grocery-list { box-shadow: 0 6px 0 var(--sage), 0 10px 22px rgba(0,0,0,0.08); }
 
@@ -197,6 +211,9 @@ header p {
   color: var(--marigold);
 }
 
+.side-board.fasting-snacks h2 {
+  color: var(--terracotta);
+}
 .grocery-list h2 { color: var(--sage); }
 
 .add-row {
