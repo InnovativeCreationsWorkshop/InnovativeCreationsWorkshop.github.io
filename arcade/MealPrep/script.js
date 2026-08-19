@@ -58,6 +58,37 @@ function renderAlts() {
   });
 }
 
+/* Fasting snacks */
+function addFasting() {
+  const input = document.getElementById("fastingInput");
+  const value = input.value.trim();
+  if (!value) return;
+  const items = JSON.parse(localStorage.getItem("fastingSnacks") || "[]");
+  items.push(value);
+  localStorage.setItem("fastingSnacks", JSON.stringify(items));
+  input.value = "";
+  renderFasting();
+}
+
+function removeFasting(i) {
+  const items = JSON.parse(localStorage.getItem("fastingSnacks") || "[]");
+  items.splice(i, 1);
+  localStorage.setItem("fastingSnacks", JSON.stringify(items));
+  renderFasting();
+}
+
+function renderFasting() {
+  const items = JSON.parse(localStorage.getItem("fastingSnacks") || "[]");
+  const list = document.getElementById("fastingList");
+  list.innerHTML = "";
+  items.forEach((a, i) => {
+    const pill = document.createElement("div");
+    pill.className = "pill";
+    pill.innerHTML = `🥜 ${a} <button onclick="removeFasting(${i})">✕</button>`;
+    list.appendChild(pill);
+  });
+}
+
 /* Grocery list */
 function addGrocery() {
   const input = document.getElementById("groceryInput");
@@ -138,9 +169,6 @@ async function shareGrocery() {
   }
 }
 
-renderGrocery();
-renderAlts();
-
 function toggleSettings() {
   const menu = document.getElementById("settingsMenu");
   menu.style.display = menu.style.display === "block" ? "none" : "block";
@@ -148,8 +176,10 @@ function toggleSettings() {
 
 function resetEverything() {
   if (!confirm("Clear everything?")) return;
-
   localStorage.clear();
   location.reload();
 }
 
+renderGrocery();
+renderAlts();
+renderFasting();
