@@ -1,0 +1,99 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Pasta al Pomodoro</title>
+
+</head>
+<body data-page="PastaAlPomodoro">
+
+<div class="card">
+    <div class="left">
+        <h1>PASTA AL POMODORO</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 20–25 minutes</div>
+        <div class="meta">Simple, bright tomato pasta with blistered cherry tomatoes, garlic, fresh basil, and melty cheese.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>Add blended carrot or a small amount of sugar to balance the acidity of the tomatoes.</li>
+                <li>Reserve some pasta water before draining so you can loosen and emulsify the sauce.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <div>
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>Olive oil</li>
+                    <li>Cherry tomatoes</li>
+                    <li>Salt</li>
+                    <li>Black pepper</li>
+                    <li>Garlic</li>
+                    <li>Fresh basil</li>
+                    <li>Spaghetti</li>
+                    <li>Fresh Parmesan</li>
+                    <li>Shredded mozzarella</li>
+                    <li>Pasta water</li>
+                    <li>Blended carrot or sugar (optional)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Heat olive oil in a large pan over medium heat.</li>
+                <li>Add the cherry tomatoes and season with salt and black pepper.</li>
+                <li>Cook until the tomatoes begin to blister and soften.</li>
+                <li>Add garlic and cook until fragrant.</li>
+                <li>Smash the softened tomatoes with a spoon to release their juices and create a chunky sauce.</li>
+                <li>Add fresh basil and stir to combine.</li>
+                <li>Cook the spaghetti and reserve some pasta water before draining.</li>
+                <li>Add the spaghetti to the tomato sauce along with a spoonful of pasta water.</li>
+                <li>Add fresh Parmesan and/or shredded mozzarella.</li>
+                <li>Sauté everything together until the cheese melts and the sauce becomes incorporated with the pasta.</li>
+                <li>Taste and adjust the seasoning. If the tomatoes are too acidic, add blended carrot or a small amount of sugar to balance the sauce.</li>
+                <li>Serve hot with additional fresh basil and Parmesan if desired.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+
+</body>
+</html>
+```
