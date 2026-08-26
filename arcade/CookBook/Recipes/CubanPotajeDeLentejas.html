@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Cuban Potaje de Lentejas</title>
+
+</head>
+<body data-page="CubanPotajeDeLentejas">
+
+<div class="card">
+    <div class="left">
+        <h1>CUBAN POTAJE DE LENTEJAS</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 1–1.5 hours</div>
+        <div class="meta">A hearty Cuban lentil stew with smoky chorizo, tender vegetables, rich tomato, and warm spices.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>Use poblano peppers instead of green bell peppers for a deeper, slightly smoky flavor.</li>
+                <li>Skip the pork shank or ham hock if you prefer. Bone broth can be used instead, but add water as well.</li>
+                <li>If using ground chorizo, cook it separately before adding it to the pot.</li>
+                <li>Serve with rice if desired.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <div>
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>Olive oil</li>
+                    <li>Yellow onion</li>
+                    <li>Poblano pepper</li>
+                    <li>Garlic</li>
+                    <li>Tomato paste</li>
+                    <li>Tomato sauce</li>
+                    <li>Dry cooking wine</li>
+                    <li>Dry lentils</li>
+                    <li>Ham hock or pork shank (optional)</li>
+                    <li>Spanish chorizo</li>
+                    <li>Carrot</li>
+                    <li>Potato</li>
+                    <li>Cumin</li>
+                    <li>Dried oregano</li>
+                    <li>Paprika</li>
+                    <li>2 bay leaves</li>
+                    <li>Salt</li>
+                    <li>Black pepper</li>
+                    <li>Chicken stock</li>
+                    <li>Water</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Heat olive oil in a large pot over medium heat.</li>
+                <li>Sauté the onion, poblano pepper, and garlic until fragrant and softened.</li>
+                <li>Add the tomato paste, bay leaves, cumin, dried oregano, and paprika. Cook down for a few minutes until the tomato paste darkens slightly and the spices become fragrant.</li>
+                <li>Add your sausage of choice. If using ground chorizo, cook it beforehand and add the browned chorizo to the pot.</li>
+                <li>Deglaze the pot with some dry cooking wine, scraping up any flavorful browned bits from the bottom.</li>
+                <li>Add the lentils, tomato sauce, carrot, potato, ham hock or pork shank if using, chicken stock, and water.</li>
+                <li>Bring to a gentle boil, then reduce the heat and simmer until the lentils are tender and the potatoes are cooked through.</li>
+                <li>Season with salt and black pepper to taste.</li>
+                <li>Remove the bay leaves and pork if used. Serve hot, with rice if desired.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+
+</body>
+</html>
