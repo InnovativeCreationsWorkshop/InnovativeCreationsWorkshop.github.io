@@ -1,0 +1,112 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Baked Loaded Potato</title>
+
+</head>
+<body data-page="BakedLoadedPotato">
+
+<div class="card">
+    <div class="left">
+        <h1>BAKED LOADED POTATO</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 1 hour 20 minutes</div>
+        <div class="meta">Crispy baked potatoes loaded with savory seasoned beef or pork, buttery potato, tomato sauce, and melted cheese.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>180°C is 350°F.</li>
+                <li>Ground beef or ground pork both work well for the filling.</li>
+                <li>Add chili flakes to taste for extra heat.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <div>
+                <h3>Baked Potatoes</h3>
+                <ul>
+                    <li>Potatoes</li>
+                    <li>Olive oil</li>
+                    <li>Salt</li>
+                    <li>Black pepper</li>
+                    <li>Butter</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Meat Filling</h3>
+                <ul>
+                    <li>Onion</li>
+                    <li>Garlic</li>
+                    <li>Ground beef or ground pork</li>
+                    <li>Tomato paste</li>
+                    <li>Crushed tomatoes</li>
+                    <li>Salt</li>
+                    <li>Sugar</li>
+                    <li>Chili flakes</li>
+                    <li>Smoked paprika</li>
+                    <li>Black pepper</li>
+                    <li>Cheese</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Preheat the oven to 350°F (180°C).</li>
+                <li>Brush the potatoes with olive oil and season generously with salt and black pepper.</li>
+                <li>Bake the potatoes for about 1 hour, or until tender all the way through.</li>
+                <li>While the potatoes bake, heat a pan over medium heat and sauté the onion and garlic until fragrant.</li>
+                <li>Add the ground beef or ground pork and cook thoroughly until browned.</li>
+                <li>Add the tomato paste and crushed tomatoes.</li>
+                <li>Season with salt, sugar, chili flakes, smoked paprika, and black pepper.</li>
+                <li>Stir everything together and cook until the filling is well combined and flavorful.</li>
+                <li>Remove the baked potatoes from the oven and carefully cut them open.</li>
+                <li>Add a piece of butter inside each potato and gently mash the inside while keeping the potato intact.</li>
+                <li>Top each potato generously with the beef or pork filling and cheese.</li>
+                <li>Return the potatoes to the oven and bake until the cheese is melted and bubbly.</li>
+                <li>Serve hot.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+
+</body>
+</html>
+```
