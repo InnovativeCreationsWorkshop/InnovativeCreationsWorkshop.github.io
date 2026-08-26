@@ -374,6 +374,34 @@ const RECIPES = [
     }
   },
 
+   {
+    key:        'BakedPotatoSoup',
+    label:      'Baked Potato Soup',
+    image:      '../Image/tempimage_2.jpg',
+    video:      '../Video/bakedpotatosoup.mp4',
+    tags:       ['potato', 'soup', 'bacon', 'american', 'easy', 'creamy', 'comfort-food'],
+    categories: {
+      cuisine:    'american',
+      ingredient: ['pork'],
+      type:       ['soups', 'no-carbs']
+    }
+  },
+
+  {
+    key:        'CubanPotajeDeLentejas',
+    label:      'Cuban Potaje de Lentejas',
+    image:      '../Image/tempimage_2.jpg',
+    video:      '../Video/cubanpotajedelentejas.mp4',
+    tags:       ['lentils', 'cuban', 'latin', 'stew', 'chorizo', 'pork', 'hearty'],
+    categories: {
+      cuisine:    'latin',
+      ingredient: ['pork', 'veg-protein'],
+      type:       ['soups', 'no-carbs']
+    }
+  },
+
+
+
   // ── RICE, NOODLES & MAINS ─────────────────────
 
   {
@@ -385,6 +413,70 @@ const RECIPES = [
     categories: {
       cuisine:    'south-asian',
       ingredient: ['veg-protein', 'pasta-bread'],
+      type:       ['carbs']
+    }
+  },
+    {
+    key:        'Sofritas',
+    label:      'Sofritas',
+    image:      '../Image/tempimage_2.jpg',
+    video:      '../Video/sofritas.mp4',
+    tags:       ['tofu', 'mexican', 'latin', 'spicy', 'vegetarian', 'vegan', 'easy', 'chipotle'],
+    categories: {
+      cuisine:    'latin',
+      ingredient: ['veg-protein'],
+      type:       ['no-carbs']
+    }
+  },
+
+   {
+    key:        'TortaDeAsada',
+    label:      'Torta de Asada',
+    image:      '../Image/tempimage_2.jpg',
+    video:      '../Video/tortadeasada.mp4',
+    tags:       ['beef', 'mexican', 'latin', 'torta', 'easy', 'avocado', 'cheese'],
+    categories: {
+      cuisine:    'latin',
+      ingredient: ['beef', 'pasta-bread'],
+      type:       ['carbs']
+    }
+  },
+
+  {
+    key:        'SausageFennelRigatoni',
+    label:      'Sausage Fennel Rigatoni',
+    image:      '../Image/tempimage_2.jpg',
+    video:      '../Video/tempvid.mp4',
+    tags:       ['sausage', 'pasta', 'italian', 'rigatoni', 'fennel', 'medium', 'creamy'],
+    categories: {
+      cuisine:    'mediterranean',
+      ingredient: ['pork', 'pasta-bread'],
+      type:       ['carbs']
+    }
+  },
+
+  {
+    key:        'PastaAlPomodoro',
+    label:      'Pasta al Pomodoro',
+    image:      '../Image/tempimage_2.jpg',
+    video:      '../Video/pastaalpommodoro.mp4',
+    tags:       ['pasta', 'italian', 'tomato', 'vegetarian', 'easy', 'quick'],
+    categories: {
+      cuisine:    'mediterranean',
+      ingredient: ['pasta-bread', 'quick'],
+      type:       ['carbs']
+    }
+  },
+
+  {
+    key:        'BakedLoadedPotato',
+    label:      'Baked Loaded Potato',
+    image:      '../Image/tempimage_2.jpg',
+    video:      '../Video/bakedloadedpotato.mp4',
+    tags:       ['potato', 'beef', 'pork', 'american', 'easy', 'cheese', 'baked'],
+    categories: {
+      cuisine:    'american',
+      ingredient: ['beef', 'pork'],
       type:       ['carbs']
     }
   },
@@ -479,18 +571,6 @@ const RECIPES = [
     }
   },
 
-  {
-    key:        'Kompot',
-    label:      'Kompot',
-    image:      '../Image/Kompot.jpg',
-     video: '../Video/BigMacSalad.MP4',
-    tags:       ['drink', 'fruit', 'eastern-european', 'easy'],
-    categories: {
-      cuisine:    'european',
-      ingredient: [],
-      type:       ['no-carbs']
-    }
-  },
 
   {
     key:        'LazyChickenBiryani',
@@ -663,6 +743,19 @@ const RECIPES = [
 
   // ── DESSERTS ──────────────────────────────────
 
+   {
+    key:        'Kompot',
+    label:      'Kompot',
+    image:      '../Image/Kompot.jpg',
+     video: '../Video/BigMacSalad.MP4',
+    tags:       ['drink', 'fruit', 'eastern-european', 'easy'],
+    categories: {
+      cuisine:    'european',
+      ingredient: [],
+      type:       ['dessert']
+    }
+  },
+  
   {
     key:        'ChocoChipCookie',
     label:      'Chocolate Chip Cookies',
