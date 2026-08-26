@@ -1,0 +1,107 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Torta de Asada</title>
+
+</head>
+<body data-page="TortaDeAsada">
+
+<div class="card">
+    <div class="left">
+        <h1>TORTA DE ASADA</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 30–40 minutes</div>
+        <div class="meta">A loaded Mexican-style steak torta with savory carne asada, creamy avocado, cotija, fresh toppings, and toasted bread.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>Use skirt steak, chopped carne asada meat, or ground beef depending on what you have.</li>
+                <li>Cover the meat while it cooks so the flavors and juices develop before finishing uncovered.</li>
+                <li>Toast both sides of the bread for a crisp exterior that holds up to the fillings.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <div>
+                <h3>Carne Asada</h3>
+                <ul>
+                    <li>Carne asada meat, chopped into cubes</li>
+                    <li>Skirt steak or ground beef</li>
+                    <li>Fajita seasoning</li>
+                    <li>Black pepper</li>
+                    <li>Paprika</li>
+                    <li>Lime juice</li>
+                    <li>Cilantro</li>
+                    <li>Onion</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Torta Assembly</h3>
+                <ul>
+                    <li>Bolillo bread or hoagie roll</li>
+                    <li>Refried beans</li>
+                    <li>Cotija cheese</li>
+                    <li>Fresh onion, diced</li>
+                    <li>Cilantro</li>
+                    <li>Shredded lettuce</li>
+                    <li>Avocado</li>
+                    <li>Crema</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Add the carne asada meat to a pan and season with fajita seasoning, black pepper, paprika, lime juice, cilantro, and onion.</li>
+                <li>Cover and cook for 15–20 minutes, allowing the meat to cook in its juices and seasonings.</li>
+                <li>Remove the cover and continue cooking for another 10 minutes, or until the liquid has cooked off and the meat is fully cooked and flavorful.</li>
+                <li>Toast the bolillo bread or hoagie roll on both sides until lightly crisp.</li>
+                <li>Smear refried beans onto the toasted bread.</li>
+                <li>Add the cooked carne asada.</li>
+                <li>Top with cotija cheese, diced fresh onion, cilantro, shredded lettuce, avocado, and crema.</li>
+                <li>Close the torta and serve immediately.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+
+</body>
+</html>
+```
