@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Sofritas</title>
+
+</head>
+<body data-page="Sofritas">
+
+<div class="card">
+    <div class="left">
+        <h1>SOFRITAS</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 30–40 minutes</div>
+        <div class="meta">Smoky, savory, and spicy tofu sofritas with roasted pepper, chipotle, and warm Mexican-inspired spices.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>Roasting the green pepper first adds extra depth and sweetness.</li>
+                <li>Dry the tofu well before crumbling so it browns instead of steaming.</li>
+                <li>Adjust the chipotle peppers and adobo sauce to control the heat.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <div>
+                <h3>Sofritas Marinade</h3>
+                <ul>
+                    <li>Green bell pepper</li>
+                    <li>Tomato</li>
+                    <li>Onion</li>
+                    <li>Water</li>
+                    <li>Chipotle peppers in adobo sauce</li>
+                    <li>2 garlic cloves</li>
+                    <li>Red wine vinegar (white vinegar can be substituted)</li>
+                    <li>Ancho chile powder</li>
+                    <li>Ground cumin</li>
+                    <li>Dried oregano</li>
+                    <li>Salt</li>
+                    <li>Black pepper</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Tofu</h3>
+                <ul>
+                    <li>Extra-firm tofu</li>
+                    <li>Olive oil</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Roast the green bell pepper until softened and lightly charred.</li>
+                <li>Sauté the onion, tomato, and garlic until fragrant and soft.</li>
+                <li>Add the roasted green pepper, sautéed onion and tomato mixture, chipotle peppers with adobo sauce, red wine vinegar, ancho chile powder, ground cumin, dried oregano, salt, and black pepper to a blender.</li>
+                <li>Add water and blend until the sauce is smooth and well combined.</li>
+                <li>Dry the tofu thoroughly, then crumble it into small pieces.</li>
+                <li>Heat olive oil in a pan over medium-high heat and fry the crumbled tofu until browned.</li>
+                <li>Pour the sofritas sauce over the browned tofu.</li>
+                <li>Sauté until the tofu is well coated and the sauce cooks into the tofu, becoming flavorful and slightly thickened.</li>
+                <li>Serve hot.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+
+</body>
+</html>
