@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Baked Potato Soup</title>
+
+</head>
+<body data-page="BakedPotatoSoup">
+
+<div class="card">
+    <div class="left">
+        <h1>BAKED POTATO SOUP</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 45–60 minutes</div>
+        <div class="meta">A rich, creamy potato soup loaded with bacon, tender vegetables, and classic baked-potato toppings.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>Bone broth can be used instead of chicken broth, but add water as needed.</li>
+                <li>Cook the bacon fully and reserve the rendered fat to sauté the vegetables for extra flavor.</li>
+                <li>Top with shredded cheese, chopped bacon, sour cream, and green onion if desired.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <div>
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>Bacon</li>
+                    <li>Onion</li>
+                    <li>Celery</li>
+                    <li>Carrots</li>
+                    <li>Garlic, minced</li>
+                    <li>Salt</li>
+                    <li>Black pepper</li>
+                    <li>Parsley</li>
+                    <li>Red pepper flakes</li>
+                    <li>Chicken broth or bone broth</li>
+                    <li>Water (if using bone broth)</li>
+                    <li>Russet potatoes, chopped</li>
+                    <li>Heavy cream</li>
+                    <li>Sour cream</li>
+                    <li>Shredded cheese</li>
+                    <li>Green onion (optional)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Add bacon to a large pot and cook until fully cooked and crisp.</li>
+                <li>Remove the bacon and set aside, leaving the rendered bacon grease in the pot.</li>
+                <li>Add onion, celery, and carrots to the bacon grease. Stir occasionally and cook for about 5 minutes, or until the vegetables begin to soften.</li>
+                <li>Add the minced garlic and cook for about 2 minutes until fragrant.</li>
+                <li>Add salt, black pepper, parsley, and red pepper flakes. Stir well to combine.</li>
+                <li>Pour in the chicken broth. If using bone broth, add water as needed.</li>
+                <li>Add the chopped russet potatoes and bring the soup to a simmer.</li>
+                <li>Cook for 15–20 minutes, stirring occasionally, until the potatoes are tender.</li>
+                <li>Remove the pot from the heat and stir in the heavy cream and sour cream.</li>
+                <li>Taste and adjust seasoning as needed.</li>
+                <li>Top with shredded cheese, chopped bacon, sour cream, and green onion if desired.</li>
+                <li>Serve hot.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+
+</body>
+</html>
