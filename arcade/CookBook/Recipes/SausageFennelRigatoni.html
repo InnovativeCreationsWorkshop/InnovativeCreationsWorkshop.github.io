@@ -1,0 +1,103 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Sausage Fennel Rigatoni</title>
+
+</head>
+<body data-page="SausageFennelRigatoni">
+
+<div class="card">
+    <div class="left">
+        <h1>SAUSAGE FENNEL RIGATONI</h1>
+
+        <div class="stars"> ★★<p> Medium</p></div>
+        <div class="meta">total time: 35–40 minutes</div>
+        <div class="meta">One-pot rigatoni with browned Italian sausage, caramelized fennel and onion, finished creamy with dijon, parmesan, and lemon zest.</div>
+
+        <img src="img/temp.jpg" alt="Sausage Fennel Rigatoni" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>If using bone broth instead of chicken broth, add a bit of extra water.</li>
+                <li>No fresh parsley on hand? Dried parsley or Italian seasoning works fine.</li>
+                <li>Whole milk can be substituted for heavy cream if needed.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <div>
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>Italian sausage</li>
+                    <li>Fennel bulb, diced</li>
+                    <li>Yellow onion, diced</li>
+                    <li>Salt, pepper</li>
+                    <li>Garlic, minced</li>
+                    <li>Crushed fennel seeds</li>
+                    <li>Red pepper flakes</li>
+                    <li>Tomato paste</li>
+                    <li>White wine</li>
+                    <li>Chicken broth</li>
+                    <li>Rigatoni</li>
+                    <li>Heavy cream</li>
+                    <li>Dijon mustard</li>
+                    <li>Grated parmesan</li>
+                    <li>Lemon (zest)</li>
+                    <li>Butter</li>
+                    <li>Fresh parsley</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Heat oil in a pot. Brown the sausage, then remove and set aside.</li>
+                <li>In the same pot, saute the onion and fennel until fragrant. Season with salt and pepper.</li>
+                <li>Add garlic, fennel seed, and red pepper flakes.</li>
+                <li>Stir in tomato paste and let it caramelize.</li>
+                <li>Stir in white wine, chicken broth, and rigatoni.</li>
+                <li>Simmer, stirring occasionally, until the noodles are tender.</li>
+                <li>Add heavy cream to thicken. Simmer until it thickens further.</li>
+                <li>Stir in dijon mustard, the browned sausage, parmesan, fresh parsley, and lemon zest. Mix until incorporated.</li>
+                <li>Garnish with parsley and serve.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+
+</body>
+</html>
+```
