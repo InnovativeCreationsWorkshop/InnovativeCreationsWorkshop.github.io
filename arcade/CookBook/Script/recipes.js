@@ -387,20 +387,7 @@ const RECIPES = [
     }
   },
 
-  {
-    key:        'CubanPotajeDeLentejas',
-    label:      'Cuban Potaje de Lentejas',
-    image:      '../Image/tempimage_2.jpg',
-    video:      '../Video/cubanpotajedelentejas.mp4',
-    tags:       ['lentils', 'cuban', 'latin', 'stew', 'chorizo', 'pork', 'hearty'],
-    categories: {
-      cuisine:    'latin',
-      ingredient: ['pork', 'veg-protein'],
-      type:       ['soups', 'no-carbs']
-    }
-  },
-
-
+  
 
   // ── RICE, NOODLES & MAINS ─────────────────────
 
