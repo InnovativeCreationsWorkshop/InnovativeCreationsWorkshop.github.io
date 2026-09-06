@@ -12,7 +12,7 @@ const RECIPES = [
     key:        'BigMacSalad',
     label:      'Big Mac Salad',
     image:      '../Image/tempimage_2.jpg',
-    video: '../Video/BigMacSalad.MP4',
+    video: "../vid/bigmacsalad.mp4",
     tags:       ['beef', 'salad', 'american', 'easy', 'quick'],
     categories: {
       cuisine:    'american',
