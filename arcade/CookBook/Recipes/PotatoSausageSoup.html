@@ -1,0 +1,99 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Potato Sausage Soup</title>
+
+</head>
+<body data-page="PotatoSausageSoup">
+
+<div class="card">
+    <div class="left">
+        <h1>POTATO SAUSAGE SOUP</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 40–45 minutes</div>
+        <div class="meta">A hearty, creamy soup loaded with tender potatoes, savory sausage, and classic vegetables. Comfort food in a bowl with a little smoky kick.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>Andouille or kielbasa both work well here. Brown the sausage first to build extra flavor, then add it back near the end.</li>
+                <li>If using bone broth, use equal parts broth and water. Finish with fresh parsley for a bright contrast to the rich, creamy soup.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Butter</li>
+                <li>Andouille or kielbasa sausage</li>
+                <li>Onion, diced</li>
+                <li>Celery, diced</li>
+                <li>Carrots, diced</li>
+                <li>Potatoes, diced</li>
+            </ul>
+            <ul>
+                <li>Garlic, minced</li>
+                <li>Paprika</li>
+                <li>Dried thyme</li>
+                <li>Flour</li>
+                <li>Salt and black pepper</li>
+                <li>Stock or broth</li>
+                <li>Heavy cream</li>
+                <li>Fresh parsley</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Dice the onion, celery, carrots, and potatoes. Set the potatoes aside.</li>
+                <li>Melt butter in a large pot over medium heat. Add the sliced or chopped sausage and cook until browned. Remove the sausage from the pot and set aside.</li>
+                <li>Add more butter to the pot if needed. Add the onion, celery, and carrots, then season with minced garlic, paprika, dried thyme, flour, salt, and black pepper.</li>
+                <li>Cook the vegetables and seasonings until fragrant and the flour is incorporated.</li>
+                <li>Add the diced potatoes and pour in the stock. If using bone broth, use equal parts bone broth and water.</li>
+                <li>Bring the soup to a simmer and cook until the potatoes and vegetables are tender.</li>
+                <li>Stir in the heavy cream and return the cooked sausage to the pot. Simmer for a few more minutes to warm everything through.</li>
+                <li>Season with additional salt and black pepper to taste.</li>
+                <li>Serve topped with fresh parsley.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+  if (recipe && recipe.video) {
+    window.open(recipe.video, '_blank');
+  }
+}
+
+</script>
+
+
+</body>
+</html>
+```
