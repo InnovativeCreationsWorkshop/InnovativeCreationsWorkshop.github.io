@@ -36,7 +36,7 @@ const RECIPES = [
   {
     key: 'NordicPotatoLeekSoup',
     label: 'Nordic Potato Leek Soup',
-    image: '../Image/NordicPotatoLeekSoup.jpg',
+    image: '../Image/leeksoup.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['potato', 'leek', 'soup', 'european', 'vegetarian'],
     categories: { cuisine: 'european', ingredient: ['veg-protein'], type: ['soups', 'carbs'] } // verify: no true protein
@@ -68,7 +68,7 @@ const RECIPES = [
   {
     key: 'DumplingMisoSoup',
     label: 'Dumpling Miso Soup',
-    image: '../Image/DumplingMisoSoup.jpg',
+    image: '../Image/dumpoup.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['dumpling', 'miso', 'soup', 'japanese', 'asian'],
     categories: { cuisine: 'asian', ingredient: ['pork', 'pasta-bread'], type: ['soups', 'carbs'] } // verify dumpling filling
@@ -108,7 +108,7 @@ const RECIPES = [
   {
     key: 'SoondubujigaeSoup',
     label: 'Soondubujigae Soup',
-    image: '../Image/SoondubujigaeSoup.jpg',
+    image: '../Image/Soondubu.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['tofu', 'soup', 'korean', 'asian', 'spicy'],
     categories: { cuisine: 'asian', ingredient: ['veg-protein', 'seafood'], type: ['soups', 'no-carbs'] } // verify seafood addition
@@ -116,7 +116,7 @@ const RECIPES = [
   {
     key: 'SopaDeLentejasSoup',
     label: 'Sopa de Lentejas Soup',
-    image: '../Image/SopaDeLentejasSoup.jpg',
+    image: '../Image/lentilsoup.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['lentil', 'soup', 'latin', 'vegetarian'],
     categories: { cuisine: 'latin', ingredient: ['veg-protein'], type: ['soups', 'no-carbs'] }
@@ -192,7 +192,7 @@ const RECIPES = [
   {
     key: 'ThaiBeefLarbSalad',
     label: 'Thai Beef Larb Salad',
-    image: '../Image/ThaiBeefLarbSalad.jpg',
+    image: '../Image/beeflarb.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['beef', 'larb', 'salad', 'thai', 'asian', 'spicy'],
     categories: { cuisine: 'asian', ingredient: ['beef'], type: ['salads', 'no-carbs'] }
@@ -266,8 +266,8 @@ const RECIPES = [
   },
   {
     key: 'PolloChileColorado',
-    label: 'Pollo Chile Colorado',
-    image: '../Image/PolloChileColorado.jpg',
+    label: 'Pollo Con Chile Colorado',
+    image: '../Image/Polloconchile.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['chicken', 'curry', 'mexican', 'latin', 'spicy'],
     categories: { cuisine: 'latin', ingredient: ['chicken'], type: ['curry'] }
@@ -352,7 +352,7 @@ const RECIPES = [
   {
     key: 'Okonomiyaki',
     label: 'Okonomiyaki',
-    image: '../Image/Okonomiyaki.jpg',
+    image: '../Image/okonomi.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['okonomiyaki', 'japanese', 'asian', 'savory pancake'],
     categories: { cuisine: 'asian', ingredient: ['pork', 'pasta-bread'], type: ['carbs'] } // verify protein
@@ -376,7 +376,7 @@ const RECIPES = [
   {
     key: 'RiceBowl',
     label: 'Rice Bowl',
-    image: '../Image/RiceBowl.jpg',
+    image: '../Image/ricebowl.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['rice', 'bowl', 'quick', 'asian'],
     categories: { cuisine: 'asian', ingredient: ['rice', 'quick'], type: ['carbs'] } // verify protein
@@ -416,7 +416,7 @@ const RECIPES = [
   {
     key: 'StreetTacos',
     label: 'Street Tacos',
-    image: '../Image/StreetTacos.jpg',
+    image: '../Image/Tacos.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['tacos', 'mexican', 'latin'],
     categories: { cuisine: 'latin', ingredient: ['beef', 'pasta-bread'], type: ['carbs'] } // verify protein
@@ -424,7 +424,7 @@ const RECIPES = [
   {
     key: 'SweetChiliChickenRiceBowl',
     label: 'Sweet Chili Chicken Rice Bowl',
-    image: '../Image/SweetChiliChickenRiceBowl.jpg',
+    image: '../Image/chilichicken.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['chicken', 'rice', 'sweet chili', 'asian'],
     categories: { cuisine: 'asian', ingredient: ['chicken', 'rice'], type: ['carbs'] }
@@ -475,7 +475,7 @@ const RECIPES = [
   {
     key: 'ChickenTinga',
     label: 'Chicken Tinga',
-    image: '../Image/ChickenTinga.jpg',
+    image: '../Image/tinga.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['chicken', 'mexican', 'latin', 'spicy', 'easy', 'tomato'],
     categories: { cuisine: 'latin', ingredient: ['chicken'], type: ['no-carbs'] } 
