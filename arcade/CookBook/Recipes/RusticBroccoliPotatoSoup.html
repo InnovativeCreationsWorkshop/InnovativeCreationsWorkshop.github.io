@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Rustic Broccoli Potato Soup</title>
+
+</head>
+<body data-page="RusticBroccoliPotatoSoup">
+
+<div class="card">
+    <div class="left">
+        <h1>RUSTIC BROCCOLI POTATO SOUP</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 35–40 minutes</div>
+        <div class="meta">A cozy, hearty soup packed with tender potatoes, broccoli, garlic, and Parmesan. Rustic, creamy, and perfect for a cold day.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>Use vegetable stock for a vegetarian version, or chicken stock if desired. For bone broth, use equal parts broth and water.</li>
+                <li>Blend the soup completely for a smooth texture, or blend only part of it to keep it rustic and chunky. Add cream for extra richness if desired.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Olive oil</li>
+                <li>1 onion, diced</li>
+                <li>Garlic, minced</li>
+                <li>Potatoes, diced</li>
+                <li>Oregano</li>
+            </ul>
+            <ul>
+                <li>Broccoli, chopped</li>
+                <li>Vegetable or chicken stock</li>
+                <li>Parmesan rind</li>
+                <li>About 1 cup Parmesan cheese, grated</li>
+                <li>Cream (optional)</li>
+                <li>Salt and black pepper</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Heat olive oil in a large pot over medium heat. Add the diced onion and garlic, then cook until fragrant and softened.</li>
+                <li>Add the diced potatoes and oregano. Cook for a few minutes, stirring occasionally.</li>
+                <li>Add the broccoli, then pour in the stock. If using bone broth, use equal parts broth and water.</li>
+                <li>Bring the soup to a boil, then reduce the heat and simmer for about 20 minutes, or until the potatoes and broccoli are tender.</li>
+                <li>Add the Parmesan rind and let it simmer in the soup for extra flavor.</li>
+                <li>Remove the Parmesan rind. Blend the soup if you prefer a smoother, creamier texture, or leave it chunky for a rustic soup.</li>
+                <li>Stir in about 1 cup of grated Parmesan cheese to thicken the soup. Add cream as desired for extra richness.</li>
+                <li>Season with salt and black pepper. Serve topped with additional Parmesan cheese.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+  if (recipe && recipe.video) {
+    window.open(recipe.video, '_blank');
+  }
+}
+
+</script>
+
+
+</body>
+</html>
