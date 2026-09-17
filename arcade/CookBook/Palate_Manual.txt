@@ -75,11 +75,16 @@ Copy this template and fill it in:
 
   TYPE (pick all that apply):
     soups         salads          carbs
-    no-carbs      dessert
+    no-carbs      dessert         curry
 
     NOTE: a recipe can be in both 'soups' and 'no-carbs' etc.
     NOTE: 'carbs' = rice, pasta, bread, wraps as the main base.
     NOTE: 'no-carbs' = protein or veg forward, no starchy base.
+    NOTE: 'curry' = any curry or curry-adjacent stew. Curry
+          recipes get 'curry' on its own and are NOT also
+          tagged 'carbs' or 'no-carbs', even if served over
+          rice or with bread — same pattern as 'soups' and
+          'salads' being their own lane.
 
 
 ── EXAMPLE (Chicken Tinga) ──────────────────────────────────
@@ -92,6 +97,20 @@ Copy this template and fill it in:
       cuisine:    'latin',
       ingredient: ['chicken'],
       type:       ['carbs']
+    }
+  },
+
+
+── EXAMPLE (Doro Wat — curry) ────────────────────────────────
+
+  {
+    key:        'DoroWat',
+    label:      'Doro Wat',
+    tags:       ['chicken', 'ethiopian', 'african', 'curry', 'spicy', 'stew'],
+    categories: {
+      cuisine:    'african',
+      ingredient: ['chicken'],
+      type:       ['curry']
     }
   },
 
@@ -187,6 +206,10 @@ COMMON MISTAKES
   ✗ Missing comma after the closing } of the object
       Always end each recipe object with a comma
       unless it is the very last one in the array.
+
+  ✗ Tagging a curry with 'carbs' or 'no-carbs'
+      WRONG:  type: ['curry', 'carbs']
+      RIGHT:  type: ['curry']
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
