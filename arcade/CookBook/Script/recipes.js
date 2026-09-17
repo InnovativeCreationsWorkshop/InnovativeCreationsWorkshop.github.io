@@ -91,7 +91,7 @@ const RECIPES = [
   },
   {
     key: 'NabeSoup',
-    label: 'Nabe Soup',
+    label: 'Nabe Cabbage Soup',
     image: '../Image/NabeSoup.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['nabe', 'hot pot', 'soup', 'japanese', 'asian'],
@@ -148,6 +148,7 @@ const RECIPES = [
     tags: ['beef', 'salad', 'american', 'easy', 'quick'],
     categories: { cuisine: 'american', ingredient: ['beef', 'quick'], type: ['salads', 'no-carbs'] }
   },
+
   {
     key: 'CapreseSalad',
     label: 'Caprese Salad',
@@ -202,15 +203,23 @@ const RECIPES = [
     image: '../Image/YamitsukiShioKyabetsu.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['cabbage', 'salad', 'japanese', 'asian', 'quick', 'vegetarian'],
-    categories: { cuisine: 'asian', ingredient: ['veg-protein', 'quick'], type: ['salads', 'no-carbs'] } // verify: no true protein
+    categories: { cuisine: 'asian', ingredient: ['veg-protein', 'quick'], type: ['salads', 'no-carbs'] } 
+  },
+    {
+    key: 'Thai Style Salad',
+    label: 'Thai Style Salad',
+    image: '../Image/YamitsukiShioKyabetsu.jpg',
+     video: "../vid/bigmacsalad.mp4",
+    tags: ['cabbage', 'salad', 'thai', 'asian', 'quick', 'vegetarian'],
+    categories: { cuisine: 'asian', ingredient: ['veg-protein', 'quick'], type: ['salads', 'no-carbs'] } 
   },
   {
     key: 'CarrotSalad',
     label: 'Carrot Salad',
     image: '../Image/CarrotSalad.jpg',
      video: "../vid/bigmacsalad.mp4",
-    tags: ['carrot', 'salad', 'quick', 'vegetarian'],
-    categories: { cuisine: 'american', ingredient: ['veg-protein', 'quick'], type: ['salads', 'no-carbs'] } // verify cuisine + no true protein
+    tags: ['carrot', 'salad', 'quick', 'vegetarian', 'asian', 'korean'],
+    categories: { cuisine: 'asian', ingredient: ['veg-protein', 'quick'], type: ['salads', 'no-carbs'] } 
   },
 
   // ── CURRY ────────────────────────────────────
@@ -222,6 +231,14 @@ const RECIPES = [
      video: "../vid/bigmacsalad.mp4",
     tags: ['beef', 'curry', 'indian', 'south-asian', 'spicy'],
     categories: { cuisine: 'south-asian', ingredient: ['beef'], type: ['curry'] }
+  },
+    {
+    key: 'ButterChickenCurry',
+    label: 'Butter Chicken Curry',
+    image: '../Image/ButterChickenCurry.jpg',
+     video: "../vid/bigmacsalad.mp4",
+    tags: ['chicken', 'curry', 'indian', 'south-asian', 'spicy'],
+    categories: { cuisine: 'south-asian', ingredient: ['chicken'], type: ['curry'] }
   },
   {
     key: 'DoroWat',
@@ -264,6 +281,8 @@ const RECIPES = [
     categories: { cuisine: 'south-asian', ingredient: ['veg-protein'], type: ['curry'] }
   },
 
+
+
   // ── CARBS ────────────────────────────────────
 
   {
@@ -290,30 +309,30 @@ const RECIPES = [
     tags: ['rice', 'fried rice', 'asian', 'quick'],
     categories: { cuisine: 'asian', ingredient: ['rice', 'quick'], type: ['carbs'] }
   },
-  {
+  /*{
     key: 'Gyudon',
     label: 'Gyudon',
     image: '../Image/Gyudon.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['beef', 'rice', 'gyudon', 'japanese', 'asian'],
     categories: { cuisine: 'asian', ingredient: ['beef', 'rice'], type: ['carbs'] }
-  },
-  {
+  },*/
+  /*{
     key: 'HomemadePasta',
     label: 'Homemade Pasta',
     image: '../Image/HomemadePasta.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['pasta', 'homemade', 'italian', 'european'],
     categories: { cuisine: 'european', ingredient: ['pasta-bread'], type: ['carbs'] }
-  },
-  {
+  },*/
+  /*{
     key: 'Kabsa',
     label: 'Kabsa',
     image: '../Image/Kabsa.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['chicken', 'rice', 'kabsa', 'arab'],
     categories: { cuisine: 'arab', ingredient: ['chicken', 'rice'], type: ['carbs'] }
-  },
+  },*/
   {
     key: 'LazyChickenBiryani',
     label: 'Lazy Chicken Biryani',
@@ -370,14 +389,14 @@ const RECIPES = [
     tags: ['rice', 'bowl', 'quick', 'easy', 'asian'],
     categories: { cuisine: 'asian', ingredient: ['rice', 'quick'], type: ['carbs'] } // verify protein
   },
-  {
+  /*{
     key: 'Roti',
     label: 'Roti',
     image: '../Image/Roti.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['roti', 'flatbread', 'indian', 'south-asian'],
     categories: { cuisine: 'south-asian', ingredient: ['pasta-bread'], type: ['carbs'] }
-  },
+  },*/
   {
     key: 'SriLankanNoodles',
     label: 'Sri Lankan Noodles',
@@ -439,11 +458,11 @@ const RECIPES = [
   },
   {
     key: 'Bokchoy',
-    label: 'Bokchoy',
+    label: 'Blanched Bokchoy With Garlic Sauce',
     image: '../Image/Bokchoy.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['bok choy', 'asian', 'vegetarian', 'quick'],
-    categories: { cuisine: 'asian', ingredient: ['veg-protein', 'quick'], type: ['no-carbs'] } // verify: no true protein
+    categories: { cuisine: 'asian', ingredient: ['veg-protein', 'quick'], type: ['no-carbs'] } 
   },
   {
     key: 'BuffaloWings',
@@ -459,7 +478,7 @@ const RECIPES = [
     image: '../Image/ChickenTinga.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['chicken', 'mexican', 'latin', 'spicy', 'easy', 'tomato'],
-    categories: { cuisine: 'latin', ingredient: ['chicken'], type: ['no-carbs'] } // manual example says 'carbs' — mismatch, see note above
+    categories: { cuisine: 'latin', ingredient: ['chicken'], type: ['no-carbs'] } 
   },
   {
     key: 'ChineseSteamedEgg',
@@ -469,14 +488,14 @@ const RECIPES = [
     tags: ['egg', 'steamed', 'chinese', 'asian'],
     categories: { cuisine: 'asian', ingredient: ['veg-protein'], type: ['no-carbs'] }
   },
-  {
+ /* {
     key: 'EthiopianBeefTibs',
     label: 'Ethiopian Beef Tibs',
     image: '../Image/EthiopianBeefTibs.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['beef', 'tibs', 'ethiopian', 'african', 'spicy'],
     categories: { cuisine: 'african', ingredient: ['beef'], type: ['no-carbs'] }
-  },
+  },*/
   {
     key: 'Sofrita',
     label: 'Sofrita',
@@ -499,18 +518,18 @@ const RECIPES = [
     image: '../Image/RoastedRedCabbage.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['cabbage', 'roasted', 'vegetarian'],
-    categories: { cuisine: 'american', ingredient: ['veg-protein'], type: ['no-carbs'] } // verify cuisine + no true protein
+    categories: { cuisine: 'american', ingredient: ['veg-protein'], type: ['no-carbs'] } 
   },
 
   // ── DESSERT ──────────────────────────────────
 
   {
     key: 'ChocoChipCookie',
-    label: 'Choco Chip Cookie',
+    label: 'Chocolate Chip Cookie',
     image: '../Image/ChocoChipCookie.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['cookie', 'chocolate chip', 'american', 'dessert'],
-    categories: { cuisine: 'american', ingredient: ['pasta-bread'], type: ['dessert'] } // verify ingredient fit
+    categories: { cuisine: 'american', ingredient: ['pasta-bread'], type: ['dessert'] } 
   },
   {
     key: 'Kompot',
@@ -518,7 +537,7 @@ const RECIPES = [
     image: '../Image/Kompot.jpg',
     video: "../vid/bigmacsalad.mp4",
     tags: ['kompot', 'fruit', 'drink', 'european', 'dessert'],
-    categories: { cuisine: 'european', ingredient: ['quick'], type: ['dessert'] } // verify ingredient fit
+    categories: { cuisine: 'european', ingredient: ['quick'], type: ['dessert'] } 
   },
 
 ];
