@@ -44,7 +44,7 @@ const RECIPES = [
   {
     key: 'RusticBroccoliPotatoSoup',
     label: 'Rustic Broccoli Potato Soup',
-    image: '../Image/RusticBroccoliPotatoSoup.jpg',
+    image: '../Image/broccolipotatosoup.png',
      video: "../vid/bigmacsalad.mp4",
     tags: ['broccoli', 'potato', 'soup', 'american', 'vegetarian'],
     categories: { cuisine: 'american', ingredient: ['veg-protein'], type: ['soups', 'carbs'] } // verify: no true protein
@@ -152,7 +152,7 @@ const RECIPES = [
   {
     key: 'CapreseSalad',
     label: 'Caprese Salad',
-    image: '../Image/CapreseSalad.jpg',
+    image: '../Image/caprese.png',
      video: "../vid/bigmacsalad.mp4",
     tags: ['tomato', 'mozzarella', 'salad', 'italian', 'mediterranean', 'quick'],
     categories: { cuisine: 'mediterranean', ingredient: ['veg-protein', 'quick'], type: ['salads', 'no-carbs'] } // verify: no true protein
@@ -184,7 +184,7 @@ const RECIPES = [
   {
     key: 'KoreanSpinachSalad',
     label: 'Korean Spinach Salad',
-    image: '../Image/KoreanSpinachSalad.jpg',
+    image: '../Image/kspinach.png',
      video: "../vid/bigmacsalad.mp4",
     tags: ['spinach', 'salad', 'korean', 'asian', 'vegetarian', 'quick'],
     categories: { cuisine: 'asian', ingredient: ['veg-protein', 'quick'], type: ['salads', 'no-carbs'] } // verify: no true protein
@@ -208,7 +208,7 @@ const RECIPES = [
     {
     key: 'Thai Style Salad',
     label: 'Thai Style Salad',
-    image: '../Image/YamitsukiShioKyabetsu.jpg',
+    image: '../Image/thaisalad.png',
      video: "../vid/bigmacsalad.mp4",
     tags: ['cabbage', 'salad', 'thai', 'asian', 'quick', 'vegetarian'],
     categories: { cuisine: 'asian', ingredient: ['veg-protein', 'quick'], type: ['salads', 'no-carbs'] } 
@@ -216,7 +216,7 @@ const RECIPES = [
   {
     key: 'CarrotSalad',
     label: 'Carrot Salad',
-    image: '../Image/CarrotSalad.jpg',
+    image: '../Image/carrotsalad.png',
      video: "../vid/bigmacsalad.mp4",
     tags: ['carrot', 'salad', 'quick', 'vegetarian', 'asian', 'korean'],
     categories: { cuisine: 'asian', ingredient: ['veg-protein', 'quick'], type: ['salads', 'no-carbs'] } 
@@ -259,7 +259,7 @@ const RECIPES = [
   {
     key: 'JapaneseCurry',
     label: 'Japanese Curry',
-    image: '../Image/JapaneseCurry.jpg',
+    image: '../Image/japcurry.png',
      video: "../vid/bigmacsalad.mp4",
     tags: ['curry', 'japanese', 'asian'],
     categories: { cuisine: 'asian', ingredient: ['chicken'], type: ['curry'] } // verify protein — beef/pork/chicken?
@@ -296,7 +296,7 @@ const RECIPES = [
   {
     key: 'Burrito',
     label: 'Burrito',
-    image: '../Image/Burrito.jpg',
+    image: '../Image/burrito.png',
      video: "../vid/bigmacsalad.mp4",
     tags: ['burrito', 'mexican', 'latin'],
     categories: { cuisine: 'latin', ingredient: ['beef', 'pasta-bread'], type: ['carbs'] } // verify protein
@@ -360,7 +360,7 @@ const RECIPES = [
   {
     key: 'PastaAlPomodoro',
     label: 'Pasta al Pomodoro',
-    image: '../Image/PastaAlPomodoro.jpg',
+    image: '../Image/pasatapomodoro.png',
      video: "../vid/bigmacsalad.mp4",
     tags: ['pasta', 'tomato', 'italian', 'european', 'quick', 'vegetarian'],
     categories: { cuisine: 'european', ingredient: ['pasta-bread', 'quick'], type: ['carbs'] }
@@ -451,7 +451,7 @@ const RECIPES = [
   {
     key: 'AsianMarinade',
     label: 'Asian Marinade',
-    image: '../Image/AsianMarinade.jpg',
+    image: '../Image/kbbq.png',
      video: "../vid/bigmacsalad.mp4",
     tags: ['marinade', 'asian', 'quick'],
     categories: { cuisine: 'asian', ingredient: ['quick'], type: ['no-carbs'] } // verify protein pairing
@@ -507,7 +507,7 @@ const RECIPES = [
   {
     key: 'ThaiChickenSatay',
     label: 'Thai Chicken Satay',
-    image: '../Image/ThaiChickenSatay.jpg',
+    image: '../Image/satay.png',
      video: "../vid/bigmacsalad.mp4",
     tags: ['chicken', 'satay', 'thai', 'asian'],
     categories: { cuisine: 'asian', ingredient: ['chicken'], type: ['no-carbs'] }
