@@ -429,18 +429,7 @@ const RECIPES = [
     }
   },
 
-  {
-    key:        'SausageFennelRigatoni',
-    label:      'Sausage Fennel Rigatoni',
-    image:      '../Image/tempimage_2.jpg',
-    video:      '../Video/tempvid.mp4',
-    tags:       ['sausage', 'pasta', 'italian', 'rigatoni', 'fennel', 'medium', 'creamy'],
-    categories: {
-      cuisine:    'mediterranean',
-      ingredient: ['pork', 'pasta-bread'],
-      type:       ['carbs']
-    }
-  },
+
 
   {
     key:        'PastaAlPomodoro',
