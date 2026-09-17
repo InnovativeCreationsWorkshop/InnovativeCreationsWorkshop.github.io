@@ -68,7 +68,7 @@ const RECIPES = [
   {
     key: 'DumplingMisoSoup',
     label: 'Dumpling Miso Soup',
-    image: '../Image/dumpoup.jpg',
+    image: '../Image/dumpsoup.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['dumpling', 'miso', 'soup', 'japanese', 'asian'],
     categories: { cuisine: 'asian', ingredient: ['pork', 'pasta-bread'], type: ['soups', 'carbs'] } // verify dumpling filling
