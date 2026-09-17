@@ -31,6 +31,7 @@ const CATEGORY_META = {
   type: [
     { key: 'soups',    label: 'SOUPS',    icon: '🍲' },
     { key: 'salads',   label: 'SALADS',   icon: '🥗' },
+    { key: 'curry',    label: 'CURRY',    icon: '🍛' },
     { key: 'carbs',    label: 'CARBS',    icon: '🍜' },
     { key: 'no-carbs', label: 'NO CARBS', icon: '🥩' },
     { key: 'dessert',  label: 'DESSERT',  icon: '🍰' },
