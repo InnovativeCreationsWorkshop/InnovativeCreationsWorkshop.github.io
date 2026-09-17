@@ -1,0 +1,93 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Roasted Red Cabbage</title>
+
+</head>
+<body data-page="RoastedRedCabbage">
+
+<div class="card">
+    <div class="left">
+        <h1>ROASTED RED CABBAGE</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 40–45 minutes</div>
+        <div class="meta">Crispy-edged red cabbage wedges roasted with garlic, mustard, and balsamic. Finished with cheese and fresh thyme for a savory, tangy side dish.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>Save some of the mustard and olive oil base before brushing the cabbage so you can turn it into the balsamic glaze later.</li>
+                <li>Let the cabbage develop dark, roasted edges before adding the final glaze. Finish with cheese and fresh thyme right before serving.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>1 red cabbage</li>
+                <li>Mustard</li>
+                <li>Olive oil</li>
+                <li>Garlic, minced</li>
+            </ul>
+            <ul>
+                <li>Balsamic vinegar</li>
+                <li>Salt and black pepper</li>
+                <li>Cheese, for topping</li>
+                <li>Fresh thyme</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Preheat the oven to 425°F.</li>
+                <li>Cut the red cabbage into wedges, keeping the wedges intact.</li>
+                <li>In a small bowl, combine mustard, olive oil, salt, black pepper, and minced garlic to make a seasoning base. Set some of the mixture aside for the glaze.</li>
+                <li>Brush or paint the cabbage wedges generously with the remaining mustard mixture, coating the cut sides.</li>
+                <li>Place the cabbage wedges on a baking sheet and roast for about 20 minutes.</li>
+                <li>While the cabbage roasts, add balsamic vinegar to the reserved mustard mixture and stir to make a dressing or glaze.</li>
+                <li>After 20 minutes, remove the cabbage from the oven and brush the balsamic mixture over the wedges.</li>
+                <li>Return the cabbage to the oven and roast for another 15 minutes, or until the edges are deeply roasted and caramelized.</li>
+                <li>Top with cheese and fresh thyme, then serve warm.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+  if (recipe && recipe.video) {
+    window.open(recipe.video, '_blank');
+  }
+}
+
+</script>
+
+
+</body>
+</html>
+```
