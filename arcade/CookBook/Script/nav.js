@@ -17,4 +17,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (nextBtn) nextBtn.href = `${nextKey}.html`;
   if (prevBtn) prevBtn.href = `${prevKey}.html`;
-});
+});  
