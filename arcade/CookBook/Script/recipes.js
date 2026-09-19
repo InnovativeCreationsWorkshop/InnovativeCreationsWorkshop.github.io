@@ -497,8 +497,8 @@ const RECIPES = [
     categories: { cuisine: 'african', ingredient: ['beef'], type: ['no-carbs'] }
   },*/
   {
-    key: 'Sofrita',
-    label: 'Sofrita',
+    key: 'Sofritas',
+    label: 'Sofritas',
     image: '../Image/Sofrita.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['sofrita', 'latin'],
