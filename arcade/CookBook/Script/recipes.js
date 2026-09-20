@@ -457,7 +457,7 @@ const RECIPES = [
     categories: { cuisine: 'asian', ingredient: ['quick'], type: ['no-carbs'] } // verify protein pairing
   },
   {
-    key: 'Bokchoy',
+    key: 'BokChoy',
     label: 'Blanched Bokchoy With Garlic Sauce',
     image: '../Image/Bokchoy.jpg',
      video: "../vid/bigmacsalad.mp4",
