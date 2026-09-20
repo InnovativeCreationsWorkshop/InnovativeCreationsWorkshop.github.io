@@ -100,7 +100,7 @@ const RECIPES = [
   {
     key: 'RoastedTomatoSoup',
     label: 'Roasted Tomato Soup',
-    image: '../Image/RoastedTomatoSoup.jpg',
+    image: '../Image/Roastedtomatosoup.png',
      video: "../vid/bigmacsalad.mp4",
     tags: ['tomato', 'soup', 'vegetarian', 'roasted'],
     categories: { cuisine: 'american', ingredient: ['veg-protein'], type: ['soups', 'no-carbs'] } // verify: no true protein
