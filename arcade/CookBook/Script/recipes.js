@@ -106,7 +106,7 @@ const RECIPES = [
     categories: { cuisine: 'american', ingredient: ['veg-protein'], type: ['soups', 'no-carbs'] } // verify: no true protein
   },
   {
-    key: 'Soondubujigae,
+    key: 'Soondubujigae',
     label: 'Soondubujigae Soup',
     image: '../Image/Soondubu.jpg',
      video: "../vid/bigmacsalad.mp4",
