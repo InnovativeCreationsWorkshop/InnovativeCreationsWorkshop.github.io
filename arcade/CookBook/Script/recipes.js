@@ -34,7 +34,7 @@ const RECIPES = [
     categories: { cuisine: 'american', ingredient: ['pork'], type: ['soups', 'carbs'] }
   },
   {
-    key: 'NordicPotatoLeekSoup',
+    key: 'NordicLeekSoup',
     label: 'Nordic Potato Leek Soup',
     image: '../Image/leeksoup.jpg',
      video: "../vid/bigmacsalad.mp4",
