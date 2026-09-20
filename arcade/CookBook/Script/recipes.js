@@ -206,7 +206,7 @@ const RECIPES = [
     categories: { cuisine: 'asian', ingredient: ['veg-protein', 'quick'], type: ['salads', 'no-carbs'] } 
   },
     {
-    key: 'Thai Style Salad',
+    key: 'ThaiStyleSalad',
     label: 'Thai Style Salad',
     image: '../Image/thaisalad.png',
      video: "../vid/bigmacsalad.mp4",
