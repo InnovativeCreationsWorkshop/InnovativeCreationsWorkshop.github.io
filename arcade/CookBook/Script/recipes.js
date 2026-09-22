@@ -245,14 +245,7 @@ const RECIPES = [
     tags: ['beef', 'curry', 'indian', 'south-asian', 'spicy'],
     categories: { cuisine: 'south-asian', ingredient: ['beef'], type: ['curry'] }
   },
-    {
-    key: 'ButterChickenCurry',
-    label: 'Butter Chicken Curry',
-    image: '../Image/ButterChickenCurry.jpg',
-     video: "../vid/bigmacsalad.mp4",
-    tags: ['chicken', 'curry', 'indian', 'south-asian', 'spicy'],
-    categories: { cuisine: 'south-asian', ingredient: ['chicken'], type: ['curry'] }
-  },
+
   {
     key: 'DoroWat',
     label: 'Doro Wat',
