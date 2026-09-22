@@ -114,7 +114,7 @@ const RECIPES = [
     categories: { cuisine: 'asian', ingredient: ['veg-protein', 'seafood'], type: ['soups', 'no-carbs'] } // verify seafood addition
   },
   {
-    key: 'SopaDeLentejas',
+    key: 'SopadeLentejas',
     label: 'Sopa de Lentejas Soup',
     image: '../Image/lentilsoup.jpg',
      video: "../vid/bigmacsalad.mp4",
