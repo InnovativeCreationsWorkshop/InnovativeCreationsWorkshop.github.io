@@ -266,12 +266,17 @@
   // ── SECTION DEFINITIONS ───────────────────────────────
   // Only touch this if adding a whole new section to the masterlist
 
+ <script>
+
+  // ── SECTION DEFINITIONS ───────────────────────────────
+  // Only touch this if adding a whole new section to the masterlist
+
   const SECTIONS = [
-    { number: '01', label: 'Salads',                 color: 'salad',   typeKey: 'salads'  },
-    { number: '02', label: 'Soups, Stews & Curries', color: 'soups',   typeKey: 'soups'   },
-    { number: '03', label: 'Rice, Noodles & Mains',  color: 'rice',    typeKey: 'carbs'   },
-    { number: '04', label: 'Low-Carb Mains', color: 'rice', typeKey: 'no-carbs' },
-    { number: '05', label: 'Desserts & Drinks',      color: 'dessert', typeKey: 'dessert' },
+    { number: '01', label: 'Salads',                 color: 'salad',   typeKey: ['salads']        },
+    { number: '02', label: 'Soups, Stews & Curries', color: 'soups',   typeKey: ['soups', 'curry'] },
+    { number: '03', label: 'Rice, Noodles & Mains',  color: 'rice',    typeKey: ['carbs']          },
+    { number: '04', label: 'Low-Carb Mains',         color: 'rice',    typeKey: ['no-carbs']       },
+    { number: '05', label: 'Desserts & Drinks',      color: 'dessert', typeKey: ['dessert']        },
   ];
 
   // ── AUTO-BUILD ────────────────────────────────────────
@@ -281,7 +286,8 @@
   SECTIONS.forEach(sec => {
     const sectionRecipes = RECIPES.filter(r => {
       const t = r.categories.type;
-      return Array.isArray(t) ? t.includes(sec.typeKey) : t === sec.typeKey;
+      const have = Array.isArray(t) ? t : [t];
+      return sec.typeKey.some(k => have.includes(k));
     });
 
     if (sectionRecipes.length === 0) return; // skip empty sections
