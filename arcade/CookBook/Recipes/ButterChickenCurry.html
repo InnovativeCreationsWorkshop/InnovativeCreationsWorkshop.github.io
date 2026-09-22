@@ -1,0 +1,102 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Butter Chicken Curry</title>
+
+</head>
+<body data-page="ButterChickenCurry">
+
+<div class="card">
+    <div class="left">
+        <h1>BUTTER CHICKEN CURRY</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 45–60 minutes</div>
+        <div class="meta">Creamy butter chicken curry served with rice or roti.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>You can use canned diced tomatoes.</li>
+                <li>You can also use butter chicken powder instead of all the spices if available.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Boneless chicken breast or thighs, diced</li>
+                <li>Kashmiri chilli powder</li>
+                <li>Turmeric</li>
+                <li>Ginger garlic paste</li>
+                <li>Salt</li>
+                <li>Yogurt</li>
+                <li>Oil</li>
+                <li>Onion</li>
+            </ul>
+            <ul>
+                <li>Tomatoes</li>
+                <li>Garlic</li>
+                <li>Garam masala</li>
+                <li>A hint of sugar</li>
+                <li>Butter</li>
+                <li>Water</li>
+                <li>Heavy whipping cream</li>
+                <li>Rice or roti</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Boneless chicken breast or thighs, diced, add Kashmiri chilli powder, turmeric, ginger garlic paste, then salt, and yogurt. Let marinade a minimum of 30 min.</li>
+                <li>Then in a pan use some oil, shallow fry the chicken, then remove from heat.</li>
+                <li>In the same pot add onion, salt, tomatoes, garlic, salt, garam masala, a hint of sugar, Kashmiri chili powder, and water. Stir well.</li>
+                <li>Note you can use canned diced tomatoes. You can also use butter chicken powder instead of all the spices if available.</li>
+                <li>Cook until tomatoes are mushy, then add butter.</li>
+                <li>Then cool it down and puree/blend the mixture.</li>
+                <li>In the same pot add butter and then the sauce that was just blended. If it's thick add water to smooth it.</li>
+                <li>Then add heavy whipping cream, then add chicken and check for salt. Simmer for 5–7 mins.</li>
+                <li>Finish with a drizzle of heavy cream.</li>
+                <li>Serve with rice or roti.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+  if (recipe && recipe.video) {
+    window.open(recipe.video, '_blank');
+  }
+}
+
+</script>
+
+
+</body>
+</html>
+```
