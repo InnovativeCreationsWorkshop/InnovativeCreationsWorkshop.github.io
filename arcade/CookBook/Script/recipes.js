@@ -286,8 +286,8 @@ const RECIPES = [
     categories: { cuisine: 'latin', ingredient: ['chicken'], type: ['curry'] }
   },
   {
-    key: 'SriLankaDahl',
-    label: 'Sri Lanka Dahl',
+    key: 'SriLankanDahl',
+    label: 'Sri Lankan Dahl',
     image: '../Image/SriLankaDahl.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['lentil', 'dahl', 'curry', 'sri lankan', 'south-asian', 'vegetarian'],
