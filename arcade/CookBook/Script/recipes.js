@@ -379,7 +379,7 @@ const RECIPES = [
     categories: { cuisine: 'european', ingredient: ['pasta-bread', 'quick'], type: ['carbs'] }
   },
   {
-    key: 'RedBeansAndRice',
+    key: 'RedBeansRice',
     label: 'Red Beans & Rice',
     image: '../Image/RedBeansAndRice.jpg',
      video: "../vid/bigmacsalad.mp4",
