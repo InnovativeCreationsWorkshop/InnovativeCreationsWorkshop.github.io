@@ -472,6 +472,17 @@ const RECIPES = [
     tags: ['chicken', 'wings', 'buffalo', 'american', 'spicy'],
     categories: { cuisine: 'american', ingredient: ['chicken'], type: ['no-carbs'] }
   },
+
+  {
+  key: 'BuffaloChickenWrap',
+  label: 'Buffalo Chicken Wrap',
+  tags: ['chicken', 'buffalo', 'american', 'spicy', 'wrap', 'ranch'],
+  categories: {
+    cuisine: 'american',
+    ingredient: ['chicken'],
+    type: ['carbs']
+  }
+},
   {
     key: 'ChickenTinga',
     label: 'Chicken Tinga',
