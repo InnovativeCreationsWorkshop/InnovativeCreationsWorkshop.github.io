@@ -404,7 +404,7 @@ const RECIPES = [
     categories: { cuisine: 'south-asian', ingredient: ['pasta-bread'], type: ['carbs'] }
   },*/
   {
-    key: 'SriLankanNoodles',
+    key: 'SriLankanVegetableNoodles',
     label: 'Sri Lankan Noodles',
     image: '../Image/SriLankanNoodles.jpg',
      video: "../vid/bigmacsalad.mp4",
