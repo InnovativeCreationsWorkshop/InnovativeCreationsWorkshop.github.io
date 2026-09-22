@@ -476,6 +476,8 @@ const RECIPES = [
   {
   key: 'BuffaloChickenWrap',
   label: 'Buffalo Chicken Wrap',
+     image: '../Image/Buffalochickenwrap.jpg',
+     video: "../vid/bigmacsalad.mp4",
   tags: ['chicken', 'buffalo', 'american', 'spicy', 'wrap', 'ranch'],
   categories: {
     cuisine: 'american',
