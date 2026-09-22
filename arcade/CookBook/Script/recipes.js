@@ -476,9 +476,22 @@ const RECIPES = [
   {
   key: 'BuffaloChickenWrap',
   label: 'Buffalo Chicken Wrap',
-     image: '../Image/Buffalochickenwrap.jpg',
+     image: '../Image/Buffalonwrap.JPEG',
      video: "../vid/bigmacsalad.mp4",
   tags: ['chicken', 'buffalo', 'american', 'spicy', 'wrap', 'ranch'],
+  categories: {
+    cuisine: 'american',
+    ingredient: ['chicken'],
+    type: ['carbs']
+  }
+},
+
+    {
+  key: 'LoadedBuffaloChickenBakedPotato',
+  label: 'Loaded Buffalo Chicken Baked Potato',
+     image: '../Image/Buffaloloadedbakedpotato.JPEG',
+     video: "../vid/bigmacsalad.mp4",
+  tags: ['chicken', 'buffalo', 'american', 'spicy', 'potato', 'ranch'],
   categories: {
     cuisine: 'american',
     ingredient: ['chicken'],
@@ -512,7 +525,7 @@ const RECIPES = [
   {
     key: 'Sofritas',
     label: 'Sofritas',
-    image: '../Image/Sofrita.jpg',
+    image: '../Image/Sofrita.JPEG',
      video: "../vid/bigmacsalad.mp4",
     tags: ['sofrita', 'latin'],
     categories: { cuisine: 'latin', ingredient: ['veg-protein'], type: ['no-carbs'] } // verify: tofu-based?
