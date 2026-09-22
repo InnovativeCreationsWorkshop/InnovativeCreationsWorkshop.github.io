@@ -190,7 +190,7 @@ const RECIPES = [
     categories: { cuisine: 'asian', ingredient: ['veg-protein', 'quick'], type: ['salads', 'no-carbs'] } // verify: no true protein
   },
   {
-    key: 'ThaiBeefLarbSalad',
+    key: 'ThaiBeefLarb',
     label: 'Thai Beef Larb Salad',
     image: '../Image/beeflarb.jpg',
      video: "../vid/bigmacsalad.mp4",
