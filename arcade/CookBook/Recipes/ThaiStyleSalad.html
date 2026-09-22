@@ -1,0 +1,92 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Thai Style Salad</title>
+
+</head>
+<body data-page="ThaiStyleSalad">
+
+<div class="card">
+    <div class="left">
+        <h1>THAI STYLE SALAD</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 10–15 minutes</div>
+        <div class="meta">Very versatile and good pairing for any Asian style dish.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>You can add chicken to it like a rotisserie or pair it with chicken satay.</li>
+                <li>Mango is optional.</li>
+                <li>Optional crispy onion and peanuts.</li>
+                <li>Very versatile and good pairing for any Asian style dish.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Shredded chicken</li>
+                <li>Green onion or chives</li>
+                <li>Red cabbage</li>
+                <li>Lettuce</li>
+                <li>Mango (optional)</li>
+            </ul>
+            <ul>
+                <li>Crispy onion (optional)</li>
+                <li>Peanuts (optional)</li>
+                <li>Cilantro</li>
+                <li>Sesame dressing</li>
+                <li>Thai style peanut dressing</li>
+                <li>Spicy Kewpie mayo dressing</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Combine shredded chicken, green onion or chives, red cabbage, lettuce, mango (optional), crispy onion (optional), peanuts (optional), and cilantro.</li>
+                <li>Use a sesame dressing or a Thai style peanut dressing, or spicy Kewpie mayo dressing for a more coleslaw type salad.</li>
+                <li>Add chicken to it like a rotisserie or pair it with chicken satay.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+  if (recipe && recipe.video) {
+    window.open(recipe.video, '_blank');
+  }
+}
+
+</script>
+
+
+</body>
+</html>
+```
