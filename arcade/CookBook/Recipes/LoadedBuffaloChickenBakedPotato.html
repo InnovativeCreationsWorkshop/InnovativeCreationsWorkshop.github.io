@@ -1,0 +1,92 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Loaded Buffalo Chicken Baked Potato</title>
+
+</head>
+<body data-page="LoadedBuffaloChickenBakedPotato">
+
+<div class="card">
+    <div class="left">
+        <h1>LOADED BUFFALO CHICKEN BAKED POTATO</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 45–60 minutes</div>
+        <div class="meta">A loaded baked potato topped with hot buffalo chicken, cheese, sour cream, and green onion or chives.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>Follow the <a href="buffalo-wings.html">Buffalo Chicken Wing Recipe</a>.</li>
+                <li>Breast and boneless thigh is best for this.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Russet potato</li>
+                <li>Butter</li>
+                <li>Hot buffalo wing</li>
+                <li>Cheese</li>
+            </ul>
+            <ul>
+                <li>Sour cream</li>
+                <li>Green onion or chives</li>
+                <li>Salt and pepper</li>
+                <li>Buffalo sauce</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Follow the <a href="buffalo-wings.html">Buffalo Chicken Wing Recipe</a>.</li>
+                <li>Bake a russet potato until tender. Note you can microwave it from 6–8 min.</li>
+                <li>Cut down the middle and squeeze the side to puff up the potato.</li>
+                <li>Add butter until melted.</li>
+                <li>Then add hot buffalo wing. Note breast and boneless thigh is best for this.</li>
+                <li>Add more sauce if you desire.</li>
+                <li>Then top with cheese and microwave for a minute to melt.</li>
+                <li>Top with sour cream, green onion or chives, salt and pepper for more flavor.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+  if (recipe && recipe.video) {
+    window.open(recipe.video, '_blank');
+  }
+}
+
+</script>
+
+
+</body>
+</html>
+```
