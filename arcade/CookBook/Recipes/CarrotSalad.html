@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Korean Style Carrot Salad</title>
+
+</head>
+<body data-page="CarrotSalad">
+
+<div class="card">
+    <div class="left">
+        <h1>KOREAN STYLE CARROT SALAD</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 10–15 minutes</div>
+        <div class="meta">A fresh, crunchy carrot salad with a bright, savory dressing.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>Add red cabbage or napa cabbage for added fiber and vegetables.</li>
+                <li>Use sliced jalapeño or a chili of choice.</li>
+                <li>Black sesame looks nice and supports heart health and digestion.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>A few large carrots</li>
+                <li>Red cabbage or napa cabbage (optional)</li>
+                <li>Jalapeño or chili of choice</li>
+                <li>Minced garlic</li>
+            </ul>
+            <ul>
+                <li>Rice vinegar</li>
+                <li>Soy sauce</li>
+                <li>Mirin</li>
+                <li>Sesame oil</li>
+                <li>Whole lemon or lime</li>
+                <li>Sesame seeds</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Take a few large carrots and shred them or cut them into ribbons.</li>
+                <li>Add red cabbage or napa cabbage for added fiber and vegetables.</li>
+                <li>Slice some jalapeño or a chili of choice.</li>
+                <li>Add the carrots, cabbage, jalapeño or chili, and minced garlic all in a bowl.</li>
+                <li>For the dressing, combine rice vinegar, soy sauce, mirin, sesame oil, and a whole lemon or lime.</li>
+                <li>Add the dressing to the salad and mix well.</li>
+                <li>Top with sesame seeds. Black sesame looks nice and supports heart health and digestion.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+  if (recipe && recipe.video) {
+    window.open(recipe.video, '_blank');
+  }
+}
+
+</script>
+
+
+</body>
+</html>
+```
