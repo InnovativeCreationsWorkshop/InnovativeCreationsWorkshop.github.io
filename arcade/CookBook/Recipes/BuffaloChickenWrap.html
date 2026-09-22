@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Buffalo Chicken Wrap</title>
+
+</head>
+<body data-page="BuffaloChickenWrap">
+
+<div class="card">
+    <div class="left">
+        <h1>BUFFALO CHICKEN WRAP</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">total time: 40–45 minutes</div>
+        <div class="meta">Crispy-edged buffalo chicken, cool ranch, fresh crunch, and melty cheese wrapped up in a warm tortilla.</div>
+
+        <img src="" alt="" class="food-image">
+        
+        <h2>NOTES</h2>
+            <div class="meta">
+                <li>Use boneless chicken thighs for a juicier wrap, or chicken breast for a leaner option. Dice the chicken into bite-sized pieces so it cooks evenly.</li>
+                <li>A burrito-size tortilla works great, but a hoagie roll, pita, or lavash can also be used. Warm the bread in the oven for a few minutes until soft and heated through, but don't let it cook or burn.</li>
+                <li>Drain excessive liquid from the chicken after the first 15 minutes so the chicken can roast instead of steam. Make sure the chicken reaches a safe internal temperature of 165°F (74°C) and is no longer pink in the center.</li>
+                <li>For extra buffalo flavor, let the sauce caramelize under the broiler until lightly charred.</li>
+            </div>
+        
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Boneless chicken thigh or chicken breast, diced</li>
+                <li>Salt, Black pepper</li>
+                <li>Garlic powder</li>
+                <li>Buffalo sauce</li>
+                <li>Ranch dressing</li>
+            </ul>
+            <ul>
+                <li>Burrito-size tortilla</li>
+                <li>Lettuce, chopped</li>
+                <li>Tomatoes, diced</li>
+                <li>White onion, diced</li>
+                <li>Cheese, shredded</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Preheat the oven to 400°F. Dice the boneless chicken thigh or chicken breast into bite-sized pieces. Season with salt, black pepper, and garlic powder.</li>
+                <li>Spread the chicken evenly in an oven-safe baking dish or on a lined baking sheet. Bake at 400°F for 15 minutes.</li>
+                <li>Remove the chicken from the oven and mix it around so the pieces cook evenly. If there is excessive liquid in the pan, carefully drain it.</li>
+                <li>Return the chicken to the oven and bake for another 15 minutes.</li>
+                <li>Check the chicken for doneness. It should reach an internal temperature of 165°F and be white and fully cooked in the center.</li>
+                <li>Remove the chicken from the oven and toss thoroughly with buffalo sauce, coating all of the pieces.</li>
+                <li>Turn the oven to broil. Place the buffalo-coated chicken back under the broiler for about 15 minutes, or until the edges are lightly charred. Watch closely so the sauce doesn't burn.</li>
+                <li>While the chicken finishes, place a burrito-size tortilla in the hot oven for a few minutes until warmed and flexible. Do not let it cook until crisp or burn. A hoagie roll, pita, or lavash can also be used.</li>
+                <li>Lay the warm tortilla flat. Add lettuce, diced tomatoes, diced onion, and shredded cheese.</li>
+                <li>Layer the buffalo chicken over the vegetables, then drizzle with ranch dressing.</li>
+                <li>Fold in the sides of the tortilla and roll it tightly into a wrap. Serve immediately.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>
