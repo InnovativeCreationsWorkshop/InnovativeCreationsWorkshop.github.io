@@ -225,6 +225,19 @@ const RECIPES = [
   // ── CURRY ────────────────────────────────────
 
   {
+  key: 'ButterChickenCurry',
+  label: 'Butter Chicken Curry',
+  image: '../Image/ButterChickenCurry.jpg',
+  video: "../vid/ButterChickenCurry.mp4",
+  tags: ['chicken', 'indian', 'south-asian', 'curry', 'creamy', 'tomato', 'spicy'],
+  categories: {
+    cuisine: 'south-asian',
+    ingredient: ['chicken'],
+    type: ['curry']
+  }
+},
+  
+  {
     key: 'BeefVindaloo',
     label: 'Beef Vindaloo',
     image: '../Image/BeefVindaloo.jpg',
