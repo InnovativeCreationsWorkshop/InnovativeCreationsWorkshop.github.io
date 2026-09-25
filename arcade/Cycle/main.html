@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cycle Tracker</title>
+
+    <!-- Standalone home-screen app support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Cycle">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,6 +22,10 @@
             <button id="menuBtn" class="menu-btn">☰</button>
             <div id="menuDropdown" class="dropdown-menu">
     <button id="clearDataBtn">Clear All Data</button>
+    <button onclick="exportData()">💾 Backup Data</button>
+    <label class="dropdown-import">📥 Restore Backup
+        <input type="file" accept="application/json" onchange="importData(event)" style="display:none">
+    </label>
     <button onclick="window.location.href='https://innovativecreationsworkshop.github.io/arcade/Tracker/index.html'">
         Back to Betty's
     </button>
