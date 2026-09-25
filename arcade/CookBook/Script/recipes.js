@@ -37,7 +37,7 @@ const RECIPES = [
     key: 'NordicLeekSoup',
     label: 'Nordic Potato Leek Soup',
     image: '../Image/leeksoup.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1MMftROoZsvhU30rnLFKpUpcbsZ3rOS4J/view?usp=drive_link",
     tags: ['potato', 'leek', 'soup', 'european', 'vegetarian'],
     categories: { cuisine: 'european', ingredient: ['veg-protein'], type: ['soups', 'carbs'] } // verify: no true protein
   },
@@ -52,7 +52,7 @@ const RECIPES = [
   {
     key: 'BeefStew',
     label: 'Beef Stew',
-    image: '../Image/BeefStew.jpg',
+    image: 'https://drive.google.com/file/d/1utLsPXzWEx7kST6xhHgVu8w0vtD8-siD/view?usp=drive_link',
      video: "../vid/bigmacsalad.mp4",
     tags: ['beef', 'stew', 'american', 'hearty'],
     categories: { cuisine: 'american', ingredient: ['beef'], type: ['soups', 'no-carbs'] }
@@ -77,7 +77,7 @@ const RECIPES = [
     key: 'GoldenChickenSoup',
     label: 'Golden Chicken Soup',
     image: '../Image/GoldenChickenSoup.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1E_aM8FR7iXEjLMS3Nr5viDLd96KEmogw/view?usp=drive_link",
     tags: ['chicken', 'soup', 'american', 'comfort'],
     categories: { cuisine: 'american', ingredient: ['chicken'], type: ['soups', 'no-carbs'] }
   },
@@ -93,7 +93,7 @@ const RECIPES = [
     key: 'NabeSoup',
     label: 'Nabe Cabbage Soup',
     image: '../Image/NabeSoup.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1lSsRIjcF-2rb6nJwrLGjsKJu8aHDPn5n/view?usp=drive_link",
     tags: ['nabe', 'hot pot', 'soup', 'japanese', 'asian'],
     categories: { cuisine: 'asian', ingredient: ['chicken', 'veg-protein'], type: ['soups', 'no-carbs'] } // verify protein mix
   },
@@ -101,7 +101,7 @@ const RECIPES = [
     key: 'RoastedTomatoSoup',
     label: 'Roasted Tomato Soup',
     image: '../Image/tomatosoup.png',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1ws6iJq_ERSX-rVnxcoYd-a61_FNmgCny/view?usp=drive_link",
     tags: ['tomato', 'soup', 'vegetarian', 'roasted'],
     categories: { cuisine: 'american', ingredient: ['veg-protein'], type: ['soups', 'no-carbs'] } // verify: no true protein
   },
@@ -109,7 +109,7 @@ const RECIPES = [
     key: 'Soondubujigae',
     label: 'Soondubujigae Soup',
     image: '../Image/Soondubu.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1ZlMFZBMPMGQc_pWfzOplq8NbsxZdr2AY/view?usp=drive_link",
     tags: ['tofu', 'soup', 'korean', 'asian', 'spicy'],
     categories: { cuisine: 'asian', ingredient: ['veg-protein', 'seafood'], type: ['soups', 'no-carbs'] } // verify seafood addition
   },
@@ -117,7 +117,7 @@ const RECIPES = [
     key: 'SopadeLentejas',
     label: 'Sopa de Lentejas Soup',
     image: '../Image/lentilsoup.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1O8K9Re0casPX4TypNH3xPvY_uSzSJZO4/view?usp=drive_link",
     tags: ['lentil', 'soup', 'latin', 'vegetarian'],
     categories: { cuisine: 'latin', ingredient: ['veg-protein'], type: ['soups', 'no-carbs'] }
   },
@@ -125,7 +125,7 @@ const RECIPES = [
     key: 'TuscanSoup',
     label: 'Tuscan Soup',
     image: '../Image/TuscanSoup.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1YRXicPbv3r9zPWGAaLy98cAPBIDoymYk/view?usp=drive_link",
     tags: ['sausage', 'potato', 'soup', 'italian', 'european'],
     categories: { cuisine: 'european', ingredient: ['pork'], type: ['soups', 'carbs'] } // verify sausage/potato
   },
@@ -144,7 +144,7 @@ const RECIPES = [
     key: 'BigMacSalad',
     label: 'Big Mac Salad',
     image: '../Image/tempimage_2.jpg',
-    video: '../vid/bigmacsalad.mp4',
+    video: 'https://drive.google.com/file/d/16pBJVXgDKZZCAxiukAA2y2dGZ6KYMvnl/view?usp=drive_link',
     tags: ['beef', 'salad', 'american', 'easy', 'quick'],
     categories: { cuisine: 'american', ingredient: ['beef', 'quick'], type: ['salads', 'no-carbs'] }
   },
@@ -177,7 +177,7 @@ const RECIPES = [
     key: 'KoreanSalad',
     label: 'Korean Salad',
     image: '../Image/KoreanSalad.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1xF_a42i1ks0rh6KIHeM35c18Rzk1-26Q/view?usp=drive_link",
     tags: ['salad', 'korean', 'asian'],
     categories: { cuisine: 'asian', ingredient: ['veg-protein'], type: ['salads', 'no-carbs'] } // verify main ingredient
   },
@@ -241,7 +241,7 @@ const RECIPES = [
     key: 'BeefVindaloo',
     label: 'Beef Vindaloo',
     image: '../Image/BeefVindaloo.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1EZ5h69Wr7d0XZranz1_VrMBzMzkQbcwq/view?usp=drive_link",
     tags: ['beef', 'curry', 'indian', 'south-asian', 'spicy'],
     categories: { cuisine: 'south-asian', ingredient: ['beef'], type: ['curry'] }
   },
@@ -258,7 +258,7 @@ const RECIPES = [
     key: 'EggCurry',
     label: 'Egg Curry',
     image: '../Image/EggCurry.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1MuM4D8y2ylrMzcdsu5SnZAK8FPpW4pve/view?usp=drive_link",
     tags: ['egg', 'curry', 'indian', 'south-asian'],
     categories: { cuisine: 'south-asian', ingredient: ['veg-protein'], type: ['curry'] }
   },
@@ -274,7 +274,7 @@ const RECIPES = [
     key: 'PolloChileColorado',
     label: 'Pollo Con Chile Colorado',
     image: '../Image/Polloconchile.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1wp1nggeoYxGhfQrVuDrfMBIyq7L8rV-7/view?usp=drive_link",
     tags: ['chicken', 'curry', 'mexican', 'latin', 'spicy'],
     categories: { cuisine: 'latin', ingredient: ['chicken'], type: ['curry'] }
   },
@@ -343,7 +343,7 @@ const RECIPES = [
     key: 'LazyChickenBiryani',
     label: 'Lazy Chicken Biryani',
     image: '../Image/LazyChickenBiryani.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1ccgI5NbTDhDMkRYEx3e9S_381mK2DHpM/view?usp=drive_link",
     tags: ['chicken', 'rice', 'biryani', 'indian', 'south-asian', 'quick', 'easy'],
     categories: { cuisine: 'south-asian', ingredient: ['chicken', 'rice', 'quick'], type: ['carbs'] }
   },
@@ -375,7 +375,7 @@ const RECIPES = [
     key: 'RedBeansRice',
     label: 'Red Beans & Rice',
     image: '../Image/RedBeansAndRice.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1l7vfcgkazselljuAOTi3FiVfroA_9aGe/view?usp=drive_link",
     tags: ['beans', 'rice', 'american', 'cajun'],
     categories: { cuisine: 'american', ingredient: ['rice', 'veg-protein'], type: ['carbs'] }
   },
@@ -508,7 +508,7 @@ const RECIPES = [
     key: 'ChickenTinga',
     label: 'Chicken Tinga',
     image: '../Image/tinga.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1t6y7O2fFq_Kwk5GZn_XNrl57wTCkPj90/view?usp=drive_link",
     tags: ['chicken', 'mexican', 'latin', 'spicy', 'easy', 'tomato'],
     categories: { cuisine: 'latin', ingredient: ['chicken'], type: ['no-carbs'] } 
   },
@@ -559,7 +559,7 @@ const RECIPES = [
     key: 'ChocoChipCookie',
     label: 'Chocolate Chip Cookie',
     image: '../Image/ChocoChipCookie.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1WUuG0uYTEMXKcP04_kgZEUxcV_a4esOa/view?usp=drive_link",
     tags: ['cookie', 'chocolate chip', 'american', 'dessert'],
     categories: { cuisine: 'american', ingredient: ['pasta-bread'], type: ['dessert'] } 
   },
