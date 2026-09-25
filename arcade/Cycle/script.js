@@ -627,6 +627,90 @@ closeSummaryBtn.addEventListener("click", () => {
     summaryPage.classList.add("hidden");
 });
 
+// ==========================
+// CYCLE REPORT (CSV EXPORT)
+// ==========================
+
+function formatLabel(dateKey) {
+    return keyToDate(dateKey).toLocaleDateString("default", {
+        month: "short", day: "numeric", year: "numeric"
+    });
+}
+
+function csvEscape(value) {
+    const str = String(value ?? "");
+    if (/[",\n]/.test(str)) {
+        return `"${str.replace(/"/g, '""')}"`;
+    }
+    return str;
+}
+
+function buildCycleRows() {
+    // Group all dated entries by which cycle (phaseCycle) they belong to
+    const cycles = {}; // startKey -> [{ key, item }]
+
+    Object.keys(trackerData)
+        .filter(key => !key.startsWith("__"))
+        .sort()
+        .forEach(key => {
+            const item = trackerData[key];
+            const cycleKey = item.phaseCycle;
+            if (!cycleKey) return; // not part of any tracked cycle
+            if (!cycles[cycleKey]) cycles[cycleKey] = [];
+            cycles[cycleKey].push({ key, item });
+        });
+
+    const activeStart = trackerData.__activeRainbowStart;
+
+    return Object.keys(cycles).sort().map(startKey => {
+        const days = cycles[startKey];
+
+        // End date = last day actually marked as a period (rainbow) day
+        const periodDays = days.filter(d => d.item.rainbow).map(d => d.key);
+        const endKey = periodDays.length ? periodDays[periodDays.length - 1] : null;
+        const isActive = startKey === activeStart;
+
+        const notes = [];
+        days.forEach(({ key, item }) => {
+            const parts = [];
+            if (item.note && item.note.trim()) parts.push(item.note.trim());
+            if (item.tags && item.tags.length) parts.push(item.tags.join(", "));
+            if (item.eggplant) parts.push("Intimacy");
+            if (item.phase === "💕") parts.push("Ovulation");
+            // Follicular (🦋) and Luteal (🌑) never contribute a note on their own
+            if (parts.length) notes.push(`${formatLabel(key)}: ${parts.join(", ")}`);
+        });
+
+        return {
+            start: formatLabel(startKey),
+            end: isActive ? "In progress" : (endKey ? formatLabel(endKey) : formatLabel(startKey)),
+            notes: notes.join("; ")
+        };
+    });
+}
+
+function exportCycleCSV() {
+    const rows = buildCycleRows();
+    if (!rows.length) {
+        alert("No cycle data to export yet.");
+        return;
+    }
+
+    const header = ["Start Date", "End Date", "Notes"];
+    const lines = [header.map(csvEscape).join(",")];
+    rows.forEach(row => {
+        lines.push([row.start, row.end, row.notes].map(csvEscape).join(","));
+    });
+
+    const csvContent = lines.join("\r\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `cycle-report-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+}
 
 // ==========================
 // INIT
