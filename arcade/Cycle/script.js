@@ -46,21 +46,50 @@ const PHASES = [
 let currentDate    = new Date();
 let selectedDateKey= null;
 let currentTags    = [];
-
-let trackerData = JSON.parse(
-    localStorage.getItem("emojiCalendarData")
-) || {};
-
+let trackerData    = {};
 
 // ==========================
-// SAVE
+// STORAGE (IndexedDB)
 // ==========================
+
+const DB_NAME    = "cycleTrackerDB";
+const STORE_NAME = "kv";
+const DATA_KEY   = "emojiCalendarData";
+
+function openDB() {
+    return new Promise((resolve, reject) => {
+        const req = indexedDB.open(DB_NAME, 1);
+        req.onupgradeneeded = () => req.result.createObjectStore(STORE_NAME);
+        req.onsuccess = () => resolve(req.result);
+        req.onerror   = () => reject(req.error);
+    });
+}
+
+async function idbGet(key) {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+        const tx  = db.transaction(STORE_NAME, "readonly");
+        const req = tx.objectStore(STORE_NAME).get(key);
+        req.onsuccess = () => resolve(req.result);
+        req.onerror   = () => reject(req.error);
+    });
+}
+
+async function idbSet(key, value) {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, "readwrite");
+        tx.objectStore(STORE_NAME).put(value, key);
+        tx.oncomplete = () => resolve();
+        tx.onerror    = () => reject(tx.error);
+    });
+}
 
 function saveData() {
-    localStorage.setItem(
-        "emojiCalendarData",
-        JSON.stringify(trackerData)
-    );
+    idbSet(DATA_KEY, trackerData).catch(err => {
+        console.error("Save failed:", err);
+        alert("Your last change may not have saved. Check your device storage and try again.");
+    });
 }
 
 
@@ -155,41 +184,6 @@ function stampPhases(startKey, endKey = null) {
     });
 }
 
-
-// ==========================
-// START PERIOD
-// ==========================
-
-startBtn.addEventListener("click", () => {
-    if (!selectedDateKey) return;
-
-    // Clear any prior provisional stamps from a
-    // previous Start that never got an End
-    const prevStart = trackerData.__activeRainbowStart;
-    if (prevStart) {
-        Object.keys(trackerData).forEach(key => {
-            if (
-                !key.startsWith("__") &&
-                trackerData[key].phaseCycle === prevStart
-            ) {
-                delete trackerData[key].phase;
-                delete trackerData[key].phaseCycle;
-                delete trackerData[key].rainbow;
-                // Clean up empty entries
-                if (!Object.keys(trackerData[key]).length) {
-                    delete trackerData[key];
-                }
-            }
-        });
-    }
-
-    trackerData.__activeRainbowStart = selectedDateKey;
-    stampPhases(selectedDateKey); // no endKey = 2 days only
-
-    saveData();
-    renderCalendar();
-    closeModal();
-});
 
 // ==========================
 // RENDER CALENDAR
@@ -381,12 +375,28 @@ saveNoteBtn.addEventListener("click", () => {
 startBtn.addEventListener("click", () => {
     if (!selectedDateKey) return;
 
-    // Clear any previous phase stamps from old cycle
-    // that started from this key
-    trackerData.__activeRainbowStart = selectedDateKey;
+    // Clear any prior provisional stamps from a
+    // previous Start that never got an End
+    const prevStart = trackerData.__activeRainbowStart;
+    if (prevStart) {
+        Object.keys(trackerData).forEach(key => {
+            if (
+                !key.startsWith("__") &&
+                trackerData[key].phaseCycle === prevStart
+            ) {
+                delete trackerData[key].phase;
+                delete trackerData[key].phaseCycle;
+                delete trackerData[key].rainbow;
+                // Clean up empty entries
+                if (!Object.keys(trackerData[key]).length) {
+                    delete trackerData[key];
+                }
+            }
+        });
+    }
 
-    // Stamp phases based on default 5-day menstrual
-    stampPhases(selectedDateKey);
+    trackerData.__activeRainbowStart = selectedDateKey;
+    stampPhases(selectedDateKey); // no endKey = 2 days only
 
     saveData();
     renderCalendar();
@@ -491,9 +501,43 @@ document.addEventListener("click", e => {
 clearDataBtn.addEventListener("click", () => {
     if (!confirm("Delete all tracked data?")) return;
     trackerData = {};
-    localStorage.removeItem("emojiCalendarData");
+    idbSet(DATA_KEY, trackerData).catch(err => console.error("Clear failed:", err));
     renderCalendar();
 });
+
+
+// ==========================
+// BACKUP / RESTORE
+// ==========================
+
+function exportData() {
+    const blob = new Blob([JSON.stringify(trackerData, null, 2)], { type: "application/json" });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement("a");
+    a.href     = url;
+    a.download = `cycle-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+function importData(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+        try {
+            const imported = JSON.parse(reader.result);
+            trackerData = { ...trackerData, ...imported };
+            saveData();
+            renderCalendar();
+            alert("Backup restored!");
+        } catch (e) {
+            alert("That file doesn't look like a valid backup.");
+        }
+    };
+    reader.readAsText(file);
+    event.target.value = ""; // allow re-selecting the same file later
+}
 
 
 // ==========================
@@ -588,4 +632,15 @@ closeSummaryBtn.addEventListener("click", () => {
 // INIT
 // ==========================
 
-renderCalendar();
+async function initData() {
+    try {
+        const saved = await idbGet(DATA_KEY);
+        trackerData = saved || {};
+    } catch (err) {
+        console.error("Load failed:", err);
+        trackerData = {};
+    }
+    renderCalendar();
+}
+
+initData();
