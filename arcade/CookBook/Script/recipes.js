@@ -76,7 +76,7 @@ const RECIPES = [
   {
     key: 'GoldenChickenSoup',
     label: 'Golden Chicken Soup',
-    image: '../Image/GoldenChickenSoup.jpg',
+    image: '../Image/goldenchickensoup.png',
      video: "https://drive.google.com/file/d/1E_aM8FR7iXEjLMS3Nr5viDLd96KEmogw/view?usp=drive_link",
     tags: ['chicken', 'soup', 'american', 'comfort'],
     categories: { cuisine: 'american', ingredient: ['chicken'], type: ['soups', 'no-carbs'] }
@@ -84,7 +84,7 @@ const RECIPES = [
   {
     key: 'ItalianWeddingSoup',
     label: 'Italian Wedding Soup',
-    image: '../Image/ItalianWeddingSoup.jpg',
+    image: '../Image/weddingsoup.jpg',
      video: "../vid/bigmacsalad.mp4",
     tags: ['meatball', 'soup', 'italian', 'european'],
     categories: { cuisine: 'european', ingredient: ['beef', 'pasta-bread'], type: ['soups', 'carbs'] }
@@ -465,7 +465,7 @@ const RECIPES = [
   {
     key: 'BokChoy',
     label: 'Blanched Bokchoy With Garlic Sauce',
-    image: '../Image/Bokchoy.jpg',
+    image: '../Image/bokchoy.png',
      video: "../vid/bigmacsalad.mp4",
     tags: ['bok choy', 'asian', 'vegetarian', 'quick'],
     categories: { cuisine: 'asian', ingredient: ['veg-protein', 'quick'], type: ['no-carbs'] } 
@@ -507,7 +507,7 @@ const RECIPES = [
   {
     key: 'ChickenTinga',
     label: 'Chicken Tinga',
-    image: '../Image/tinga.jpg',
+    image: '../Image/chickentinga.jpg',
      video: "https://drive.google.com/file/d/1t6y7O2fFq_Kwk5GZn_XNrl57wTCkPj90/view?usp=drive_link",
     tags: ['chicken', 'mexican', 'latin', 'spicy', 'easy', 'tomato'],
     categories: { cuisine: 'latin', ingredient: ['chicken'], type: ['no-carbs'] } 
