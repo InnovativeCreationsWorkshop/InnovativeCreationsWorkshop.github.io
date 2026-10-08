@@ -84,7 +84,7 @@ const RECIPES = [
   {
     key: 'ItalianWeddingSoup',
     label: 'Italian Wedding Soup',
-    image: '../Image/weddingsoup.jpg',
+    image: '../Image/weddingsoup.png',
      video: "../vid/bigmacsalad.mp4",
     tags: ['meatball', 'soup', 'italian', 'european'],
     categories: { cuisine: 'european', ingredient: ['beef', 'pasta-bread'], type: ['soups', 'carbs'] }
