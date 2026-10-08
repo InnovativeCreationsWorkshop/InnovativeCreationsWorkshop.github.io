@@ -452,6 +452,22 @@ const RECIPES = [
     categories: { cuisine: 'latin', ingredient: ['beef', 'pasta-bread'], type: ['carbs'] }
   },
 
+  {
+  key: 'MapoTofu',
+  label: 'Mapo Tofu',
+  image: '../Image/MapoTofu.jpg',
+  tags: ['tofu', 'chinese', 'asian', 'sichuan', 'spicy', 'mushroom', 'rice'],
+  categories: { cuisine: 'asian', ingredient: ['veg-protein', 'rice'], type: ['carbs'] }
+},
+  {
+  key: 'EggplantMushroomTopping',
+  label: 'Eggplant and Mushroom Topping',
+  image: '../Image/EggplantMushroomTopping.jpg',
+  tags: ['eggplant', 'mushroom', 'japanese', 'asian', 'vegetarian', 'rice', 'quick', 'sweet-savory'],
+  categories: { cuisine: 'asian', ingredient: ['rice', 'quick'], type: ['carbs'] }
+},
+
+
   // ── NO CARB ──────────────────────────────────
 
   {
@@ -462,6 +478,8 @@ const RECIPES = [
     tags: ['marinade', 'asian', 'quick'],
     categories: { cuisine: 'asian', ingredient: ['quick'], type: ['no-carbs'] } // verify protein pairing
   },
+
+  
   {
     key: 'BokChoy',
     label: 'Blanched Bokchoy With Garlic Sauce',
