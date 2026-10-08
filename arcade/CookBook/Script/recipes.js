@@ -367,7 +367,7 @@ const RECIPES = [
     key: 'PastaAlPomodoro',
     label: 'Pasta al Pomodoro',
     image: '../Image/pasatapomodoro.png',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1nlgoe_tML-7erwGBDJZIE1Sbk7pqbrTV/view?usp=drive_link",
     tags: ['pasta', 'tomato', 'italian', 'european', 'quick', 'vegetarian'],
     categories: { cuisine: 'european', ingredient: ['pasta-bread', 'quick'], type: ['carbs'] }
   },
@@ -447,7 +447,7 @@ const RECIPES = [
     key: 'tortadeasada',
     label: 'Torta de Asada',
     image: '../Image/TortaDeAsada.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1Lo-RljJ3NbPmxmJG1n3My6tLJ4kreBqq/view?usp=drive_link",
     tags: ['torta', 'carne asada', 'beef', 'sandwich', 'mexican', 'latin'],
     categories: { cuisine: 'latin', ingredient: ['beef', 'pasta-bread'], type: ['carbs'] }
   },
