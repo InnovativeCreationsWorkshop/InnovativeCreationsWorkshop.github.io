@@ -1,0 +1,106 @@
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Eggplant and Mushroom Topping</title>
+
+</head>
+<body data-page="EggplantMushroomTopping">
+
+<div class="card">
+    <div class="left">
+        <h1>EGGPLANT AND MUSHROOM TOPPING</h1>
+
+        <div class="stars"> ★<p> Easy</p></div>
+        <div class="meta">prep time: 15 minutes</div>
+        <div class="meta">Pan-fried eggplant and mushrooms cooked in a sweet and savory Japanese-style sauce, served over rice.</div>
+
+        <img src="" alt="Eggplant and Mushroom Topping" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <li>Soaking the eggplant in salted water helps prepare it for cooking and keeps the texture tender.</li>
+            <li>Use a generous amount of oil and high heat to lightly brown the eggplant before adding the mushrooms.</li>
+            <li>Dark soy sauce is mainly used for color, so add only enough to deepen the appearance of the sauce.</li>
+            <li>Serve over rice and garnish with sliced scallions and sesame seeds.</li>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Eggplant (cut into sticks)</li>
+                <li>Mushrooms (diced)</li>
+                <li>Oil</li>
+                <li>Sake</li>
+                <li>Mirin</li>
+            </ul>
+            <ul>
+                <li>Soy sauce</li>
+                <li>Sugar</li>
+                <li>Dark soy sauce</li>
+                <li>Steamed rice</li>
+                <li>Sesame seeds</li>
+                <li>Scallions (sliced)</li>
+                <li>Salt</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Dice the mushrooms and cut the eggplant into sticks.</li>
+                <li>Soak the eggplant in salted water for a short time.</li>
+                <li>When ready to cook, rinse the eggplant thoroughly and drain well.</li>
+                <li>Heat a generous amount of oil in a pan over high heat. Fry the eggplant until slightly browned.</li>
+                <li>Add the diced mushrooms and cook for a few more minutes.</li>
+                <li>Add the sake, mirin, soy sauce, sugar, and dark soy sauce. Stir to coat the eggplant and mushrooms.</li>
+                <li>Continue cooking until the sauce has reduced and the eggplant is fully cooked through.</li>
+                <li>Serve over steamed rice and garnish with sesame seeds and sliced scallions.</li>
+            </ol>
+        </div>
+
+        <h2>USES</h2>
+        <div class="directions">
+            <ul>
+                <li>Rice bowls</li>
+                <li>Japanese-style meals</li>
+                <li>Vegetarian meals</li>
+                <li>Easy weeknight meals</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn"> Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key    = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>
+```
