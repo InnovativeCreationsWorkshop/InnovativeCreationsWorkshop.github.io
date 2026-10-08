@@ -455,14 +455,16 @@ const RECIPES = [
   {
   key: 'MapoTofu',
   label: 'Mapo Tofu',
-  image: '../Image/MapoTofu.jpg',
+  image: '../Image/mapotofu.png',
+    video: "../vid/bigmacsalad.mp4",
   tags: ['tofu', 'chinese', 'asian', 'sichuan', 'spicy', 'mushroom', 'rice'],
   categories: { cuisine: 'asian', ingredient: ['veg-protein', 'rice'], type: ['carbs'] }
 },
   {
   key: 'EggplantMushroomTopping',
   label: 'Eggplant and Mushroom Topping',
-  image: '../Image/EggplantMushroomTopping.jpg',
+  image: '../Image/eggplantmushroom.png',
+    video: "../vid/bigmacsalad.mp4",
   tags: ['eggplant', 'mushroom', 'japanese', 'asian', 'vegetarian', 'rice', 'quick', 'sweet-savory'],
   categories: { cuisine: 'asian', ingredient: ['rice', 'quick'], type: ['carbs'] }
 },
