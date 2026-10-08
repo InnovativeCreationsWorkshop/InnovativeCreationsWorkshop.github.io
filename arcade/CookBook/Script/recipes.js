@@ -464,7 +464,7 @@ const RECIPES = [
   key: 'EggplantMushroomTopping',
   label: 'Eggplant and Mushroom Topping',
   image: '../Image/eggplantmushroom.png',
-    video: "../vid/bigmacsalad.mp4",
+    video: "https://drive.google.com/file/d/1HqDLA-VbPVt4Afix3XvgT0OdtZXbZmSa/view?usp=drive_link",
   tags: ['eggplant', 'mushroom', 'japanese', 'asian', 'vegetarian', 'rice', 'quick', 'sweet-savory'],
   categories: { cuisine: 'asian', ingredient: ['rice', 'quick'], type: ['carbs'] }
 },
