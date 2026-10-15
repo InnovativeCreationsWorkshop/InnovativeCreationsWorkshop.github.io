@@ -483,7 +483,7 @@ const RECIPES = [
   key: 'MapoTofu',
   label: 'Mapo Tofu',
   image: '../Image/mapotofu.png',
-    video: "https://drive.google.com/file/d/1FG4pUgvwtbbb-sralWf5Ky8rioIr792e/view?usp=drive_link",
+  video: "https://drive.google.com/file/d/1FG4pUgvwtbbb-sralWf5Ky8rioIr792e/view?usp=sharing",
   tags: ['tofu', 'chinese', 'asian', 'sichuan', 'spicy', 'mushroom', 'rice'],
   categories: { cuisine: 'asian', ingredient: ['veg-protein', 'rice'], type: ['carbs'] }
 },
