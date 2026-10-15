@@ -1,0 +1,110 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Cold Soba Noodles</title>
+
+</head>
+<body data-page="coldsoba">
+
+<div class="card">
+    <div class="left">
+        <h1>COLD SOBA NOODLES</h1>
+
+        <div class="stars"> ★<p>Easy</p></div>
+        <div class="meta">prep time: 10 minutes | cook time: 5 minutes</div>
+        <div class="meta">Refreshing Japanese-style cold buckwheat noodles served with a savory, lightly sweet dipping sauce and fresh garnishes.</div>
+
+        <img src="" alt="Cold soba noodles with dipping sauce and nori" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <li>Follow the cooking time on your soba noodle package, as different brands may require different cooking times.</li>
+            <li>Rinsing the noodles under cold running water after the ice bath helps remove excess starch and keeps them from sticking.</li>
+            <li>Prepare the dipping sauce ahead of time and chill it in the refrigerator for a refreshing meal.</li>
+            <li>Add sliced chili for heat, or adjust the sugar and soy sauce to taste.</li>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Soba noodles (buckwheat noodles)</li>
+                <li>Water, for boiling</li>
+                <li>Salt, for boiling water</li>
+                <li>Ice, for the ice bath</li>
+                <li>Scallions, thinly sliced</li>
+            </ul>
+            <ul>
+                <li>Nori, finely sliced</li>
+                <li>Sesame seeds</li>
+                <li>Fresh chili, thinly sliced (optional)</li>
+                <li>Water (for dipping sauce)</li>
+                <li>Soy sauce</li>
+                <li>Mirin</li>
+                <li>Dashi powder</li>
+                <li>Sugar</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Bring a pot of water to a boil and add a little salt.</li>
+                <li>Add the soba noodles and cook according to the package instructions, usually around 4–5 minutes.</li>
+                <li>Drain the noodles and immediately transfer them to an ice bath to stop the cooking process.</li>
+                <li>Rinse the noodles under cold running water to remove excess starch. Drain thoroughly and set aside.</li>
+                <li>To make the dipping sauce, combine water, soy sauce, mirin, dashi powder, and sugar in a saucepan.</li>
+                <li>Bring the sauce to a gentle boil, stirring until the sugar and dashi powder dissolve and the ingredients are well combined.</li>
+                <li>Remove the sauce from the heat and cool it in an ice bath or refrigerate until chilled.</li>
+                <li>Thinly slice the scallions and chili, if using. Finely slice the nori into delicate strips.</li>
+                <li>Arrange the chilled soba noodles on a plate or in a shallow serving dish. Garnish with nori and sesame seeds.</li>
+                <li>Serve the chilled dipping sauce in a separate bowl, topped with scallions and sliced chili to taste.</li>
+                <li>To eat, pick up a portion of noodles and dip them into the sauce before enjoying.</li>
+            </ol>
+        </div>
+
+        <h2>GARNISHES</h2>
+        <div class="directions">
+            <ul>
+                <li>Thinly sliced scallions</li>
+                <li>Finely sliced nori</li>
+                <li>Sesame seeds</li>
+                <li>Fresh sliced chili for spice</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn">Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>
+```
