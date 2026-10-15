@@ -17,6 +17,14 @@ const RECIPES = [
     tags: ['potato', 'soup', 'american', 'bacon', 'creamy'],
     categories: { cuisine: 'american', ingredient: ['pork'], type: ['soups', 'carbs'] } // verify bacon
   },
+   {
+    key: 'PumpkinSoup',
+    label: 'Pumpkin Soup',
+    image: '../Image/pumpkinsoup.png',
+     video: "https://drive.google.com/file/d/1ta19D76dt3w6UV3zQKecfiquQu7g224k/view?usp=drive_link",
+    tags: ['potato', 'soup', 'american', 'bacon', 'creamy'],
+    categories: { cuisine: 'american', ingredient: ['pork'], type: ['soups', 'carbs'] } // verify bacon
+  },
   {
     key: 'CajunSausagePotatoSoup',
     label: 'Cajun Sausage Potato Soup',
@@ -185,7 +193,7 @@ const RECIPES = [
     key: 'KoreanSpinachSalad',
     label: 'Korean Spinach Salad',
     image: '../Image/kspinach.png',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1X6joEhgGwNItWzJShZUZMn2ddS2UOq3i/view?usp=drive_link",
     tags: ['spinach', 'salad', 'korean', 'asian', 'vegetarian', 'quick'],
     categories: { cuisine: 'asian', ingredient: ['veg-protein', 'quick'], type: ['salads', 'no-carbs'] } // verify: no true protein
   },
@@ -193,7 +201,7 @@ const RECIPES = [
     key: 'ThaiBeefLarb',
     label: 'Thai Beef Larb Salad',
     image: '../Image/beeflarb.jpg',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/19YPI_eIzHUJn-XSlKnfGSFLgR1y4klOx/view?usp=drive_link",
     tags: ['beef', 'larb', 'salad', 'thai', 'asian', 'spicy'],
     categories: { cuisine: 'asian', ingredient: ['beef'], type: ['salads', 'no-carbs'] }
   },
@@ -240,7 +248,7 @@ const RECIPES = [
   {
     key: 'BeefVindaloo',
     label: 'Beef Vindaloo',
-    image: '../Image/BeefVindaloo.jpg',
+    image: '../Image/beefvindaloo.png',
      video: "https://drive.google.com/file/d/1EZ5h69Wr7d0XZranz1_VrMBzMzkQbcwq/view?usp=drive_link",
     tags: ['beef', 'curry', 'indian', 'south-asian', 'spicy'],
     categories: { cuisine: 'south-asian', ingredient: ['beef'], type: ['curry'] }
