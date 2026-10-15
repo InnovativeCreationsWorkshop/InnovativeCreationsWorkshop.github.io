@@ -22,8 +22,8 @@ const RECIPES = [
     label: 'Pumpkin Soup',
     image: '../Image/pumpkinsoup.png',
      video: "https://drive.google.com/file/d/1ta19D76dt3w6UV3zQKecfiquQu7g224k/view?usp=drive_link",
-    tags: ['potato', 'soup', 'american', 'bacon', 'creamy'],
-    categories: { cuisine: 'american', ingredient: ['pork'], type: ['soups', 'carbs'] } // verify bacon
+    tags: ['pumpkin', 'soup', 'american', 'tomato', 'creamy'],
+    categories: { cuisine: 'american', ingredient: ['pork'], type: ['soups', 'carbs'] } 
   },
   {
     key: 'CajunSausagePotatoSoup',
