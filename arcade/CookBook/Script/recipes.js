@@ -17,14 +17,20 @@ const RECIPES = [
     tags: ['potato', 'soup', 'american', 'bacon', 'creamy'],
     categories: { cuisine: 'american', ingredient: ['pork'], type: ['soups', 'carbs'] } // verify bacon
   },
-   {
+
+{
     key: 'PumpkinSoup',
     label: 'Pumpkin Soup',
     image: '../Image/pumpkinsoup.png',
-     video: "https://drive.google.com/file/d/1ta19D76dt3w6UV3zQKecfiquQu7g224k/view?usp=drive_link",
-    tags: ['pumpkin', 'soup', 'american', 'tomato', 'creamy'],
-    categories: { cuisine: 'american', ingredient: ['pork'], type: ['soups', 'carbs'] } 
-  },
+    video: 'pumpkinsoup.mp4',
+    tags: ['pumpkin', 'soup', 'american', 'tomato', 'creamy', 'roasted', 'vegetarian', 'garlic'],
+    categories: {
+        cuisine: 'american',
+        ingredient: ['veg-protein'],
+        type: ['soups']
+    }
+},
+
   {
     key: 'CajunSausagePotatoSoup',
     label: 'Cajun Sausage Potato Soup',
