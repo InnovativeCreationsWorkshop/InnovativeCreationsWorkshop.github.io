@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Roasted Pumpkin Soup</title>
+
+</head>
+<body data-page="PumpkinSoup">
+
+<div class="card">
+    <div class="left">
+        <h1>ROASTED PUMPKIN SOUP</h1>
+
+        <div class="stars"> ★<p>Easy</p></div>
+        <div class="meta">prep time: 15 minutes</div>
+        <div class="meta">Roasted pumpkin and vegetables blended into a smooth, creamy soup with garlic, herbs, and a hint of spice.</div>
+
+        <img src="" alt="Roasted pumpkin soup" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <li>Roast the vegetables until the pumpkin is fork-tender and slightly caramelized for deeper flavor.</li>
+            <li>Strain the blended soup through a sieve for an extra-smooth texture.</li>
+            <li>Adjust the consistency with additional water or bone broth as needed.</li>
+            <li>For extra heat, add chili powder or cayenne pepper to taste.</li>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>1 pie pumpkin, peeled, seeded, and cubed</li>
+                <li>Tomatoes</li>
+                <li>Bell pepper</li>
+                <li>Carrots</li>
+                <li>Red onion</li>
+                <li>Whole garlic cloves</li>
+            </ul>
+            <ul>
+                <li>Olive oil</li>
+                <li>Salt and black pepper</li>
+                <li>Bone broth</li>
+                <li>Water</li>
+                <li>Heavy cream</li>
+                <li>Chili powder or cayenne pepper</li>
+                <li>Fresh parsley or other fresh herbs (optional)</li>
+                <li>Pumpkin seeds (optional)</li>
+                <li>Parmesan cheese (optional)</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Preheat the oven to 425°F (220°C).</li>
+                <li>Cut the pie pumpkin into cubes and remove the seeds and stringy insides. Peel the pumpkin if desired.</li>
+                <li>Place the pumpkin, tomatoes, bell pepper, carrots, red onion, and whole garlic cloves in an oven-safe pan.</li>
+                <li>Drizzle with olive oil and season with salt and black pepper. Toss to coat evenly.</li>
+                <li>Roast for approximately 35 minutes, or until the pumpkin and other vegetables are tender.</li>
+                <li>Transfer the roasted vegetables to a blender. Add bone broth and water, then blend until smooth. Work in batches if needed, and follow your blender's instructions for hot liquids.</li>
+                <li>For an extra-smooth soup, pour the puree through a fine-mesh sieve into a pot.</li>
+                <li>Bring the soup to a gentle simmer. Add more water or bone broth if needed to reach your desired consistency.</li>
+                <li>Stir in heavy cream and season with additional salt, black pepper, and chili powder or cayenne pepper to taste.</li>
+                <li>Let simmer gently for a few minutes, stirring occasionally. Avoid boiling after adding the cream.</li>
+                <li>Serve warm and garnish with fresh herbs, pumpkin seeds, a drizzle of heavy cream, or grated Parmesan cheese.</li>
+            </ol>
+        </div>
+
+        <h2>GARNISH IDEAS</h2>
+        <div class="directions">
+            <ul>
+                <li>Fresh parsley or other fresh herbs</li>
+                <li>Roasted pumpkin seeds</li>
+                <li>A swirl of heavy cream</li>
+                <li>Freshly grated Parmesan cheese</li>
+                <li>A pinch of cayenne pepper</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn">Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>
+```
