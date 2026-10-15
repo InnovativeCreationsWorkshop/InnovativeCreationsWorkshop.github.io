@@ -480,7 +480,7 @@ const RECIPES = [
   },
 
   {
-  key: 'MapoTofu',
+  key: 'mapotofu',
   label: 'Mapo Tofu',
   image: '../Image/mapotofu.png',
     video: "https://drive.google.com/file/d/1FG4pUgvwtbbb-sralWf5Ky8rioIr792e/view?usp=drive_link",
