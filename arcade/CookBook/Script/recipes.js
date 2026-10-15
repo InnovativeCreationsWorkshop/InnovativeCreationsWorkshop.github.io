@@ -99,7 +99,7 @@ const RECIPES = [
     key: 'ItalianWeddingSoup',
     label: 'Italian Wedding Soup',
     image: '../Image/weddingsoup.png',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1U7FY87NZ-OjAMHk1-rtoTLUwS1zOmgrY/view?usp=drive_link",
     tags: ['meatball', 'soup', 'italian', 'european'],
     categories: { cuisine: 'european', ingredient: ['beef', 'pasta-bread'], type: ['soups', 'carbs'] }
   },
@@ -223,7 +223,7 @@ const RECIPES = [
     key: 'ThaiStyleSalad',
     label: 'Thai Style Salad',
     image: '../Image/thaisalad.png',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1t69B95LYa7dZ_fIpo55UmvKDGl_q25-i/view?usp=drive_link",
     tags: ['cabbage', 'salad', 'thai', 'asian', 'quick', 'vegetarian'],
     categories: { cuisine: 'asian', ingredient: ['veg-protein', 'quick'], type: ['salads', 'no-carbs'] } 
   },
@@ -321,6 +321,19 @@ const RECIPES = [
     tags: ['burrito', 'mexican', 'latin'],
     categories: { cuisine: 'latin', ingredient: ['beef', 'pasta-bread'], type: ['carbs'] } // verify protein
   },
+  
+{
+    key: 'ColdSobaNoodles',
+    label: 'Cold Soba Noodles',
+    image: '../Image/coldsobanoodles.png',
+    video: 'https://drive.google.com/file/d/1dRzCxeF0Ea_oZ4xKj2ZzmbvBVxhfST7d/view?usp=drive_link',
+    tags: ['soba', 'noodles', 'japanese', 'asian', 'buckwheat', 'cold', 'mentsuyu', 'dipping-sauce', 'vegetarian'],
+    categories: {
+        cuisine: 'asian',
+        ingredient: ['pasta-bread'],
+        type: ['carbs']
+    }
+},
   {
     key: 'FriedRice',
     label: 'Fried Rice',
@@ -574,7 +587,7 @@ const RECIPES = [
     key: 'ThaiChickenSatay',
     label: 'Thai Chicken Satay',
     image: '../Image/satay.png',
-     video: "../vid/bigmacsalad.mp4",
+     video: "https://drive.google.com/file/d/1ffGWaj58k6sRTyA9x-HlAAvEMKemyBQb/view?usp=drive_link",
     tags: ['chicken', 'satay', 'thai', 'asian'],
     categories: { cuisine: 'asian', ingredient: ['chicken'], type: ['no-carbs'] }
   },
