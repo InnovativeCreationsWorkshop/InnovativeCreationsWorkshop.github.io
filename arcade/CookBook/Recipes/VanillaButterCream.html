@@ -1,0 +1,102 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="..\Template\temp_style.css">
+<title>Vanilla Buttercream</title>
+
+</head>
+<body data-page="VanillaButtercream">
+
+<div class="card">
+    <div class="left">
+        <h1>VANILLA BUTTERCREAM</h1>
+
+        <div class="stars"> ★<p>Easy</p></div>
+        <div class="meta">prep time: 15–20 minutes</div>
+        <div class="meta">A smooth, creamy vanilla buttercream made with butter, powdered sugar, heavy cream, and vanilla. Perfect for frosting cakes, cupcakes, and other desserts.</div>
+
+        <img src="" alt="Vanilla buttercream frosting" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <ul>
+                <li>Use room-temperature butter for the smoothest consistency.</li>
+                <li>Whipping the butter thoroughly helps create a lighter, whiter buttercream.</li>
+                <li>Add powdered sugar gradually to prevent it from spilling out of the bowl.</li>
+                <li>The finished buttercream should be smooth and creamy, with a texture similar to softened cream cheese.</li>
+                <li>Mix on low at the end to reduce air bubbles for a smoother frosting finish.</li>
+            </ul>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>1 cup unsalted butter (2 sticks), at room temperature</li>
+                <li>3 cups powdered sugar</li>
+                <li>3 tbsp heavy cream</li>
+            </ul>
+            <ul>
+                <li>2 tbsp vanilla extract</li>
+                <li>Pinch of salt</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Add room-temperature butter to a mixing bowl.</li>
+                <li>Whisk on high speed for at least 10 minutes, until the butter becomes pale, fluffy, and smooth.</li>
+                <li>Gradually add the powdered sugar, one cup at a time, mixing on high speed until incorporated before adding the next cup.</li>
+                <li>Add the heavy cream, vanilla extract, and a pinch of salt.</li>
+                <li>Mix until everything is fully combined and the buttercream is smooth and creamy.</li>
+                <li>Finish by mixing on low speed to remove excess air bubbles and create a smoother texture.</li>
+            </ol>
+        </div>
+
+        <h2>USES</h2>
+        <div class="directions">
+            <ul>
+                <li>Cake frosting and filling</li>
+                <li>Cupcake frosting</li>
+                <li>Cookie decoration</li>
+                <li>Layer cakes</li>
+                <li>Brownies and dessert bars</li>
+                <li>Piping decorations</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn">Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="..\Script\recipes.js"></script>
+<script src="..\Script\nav.js"></script>
+<script>
+  const key = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>
+```
