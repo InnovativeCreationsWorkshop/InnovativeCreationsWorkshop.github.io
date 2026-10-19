@@ -152,6 +152,21 @@ const RECIPES = [
     categories: { cuisine: 'asian', ingredient: ['veg-protein'], type: ['soups', 'no-carbs'] }
   },
 
+  
+{
+  key: 'BeefBrothySoup',
+  label: 'Beef Brothy Soup',
+  image: '../Image/beefnoodlesoup.png',
+  video: "https://drive.google.com/file/d/1yAICe2fgTo1QXiCvz-_rE_4GvORmIGl4/view?usp=drive_link",
+  tags: ['beef', 'soup', 'thai', 'asian', 'red-curry', 'coconut-milk', 'rice', 'noodles', 'broth', 'spicy', 'savory'],
+  categories: {
+    cuisine: 'asian',
+    ingredient: ['beef'],
+    type: ['soups']
+  }
+},
+
+
   // ── SALADS ───────────────────────────────────
 
   {
@@ -182,8 +197,8 @@ const RECIPES = [
   {
     key: 'GreekChickpeaSalad',
     label: 'Greek Chickpea Salad',
-    image: '../Image/GreekChickpeaSalad.jpg',
-     video: "../vid/bigmacsalad.mp4",
+    image: '../Image/chickpeasalad.png',
+     video: "https://drive.google.com/file/d/1Zw0hSlSrEU-sr6_kci9JRZbZvun-oQqj/view?usp=drive_link",
     tags: ['chickpea', 'salad', 'greek', 'mediterranean', 'vegetarian'],
     categories: { cuisine: 'mediterranean', ingredient: ['veg-protein'], type: ['salads', 'no-carbs'] }
   },
