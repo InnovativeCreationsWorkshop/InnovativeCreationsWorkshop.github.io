@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="../Template/temp_style.css">
+<title>Beef Brothy Soup</title>
+
+</head>
+<body data-page="BeefBrothySoup">
+
+<div class="card">
+    <div class="left">
+        <h1>BEEF BORTHY SOUP</h1>
+
+        <div class="stars"> ★<p>Easy</p></div>
+        <div class="meta">prep time: 15 minutes</div>
+        <div class="meta">cook time: 30 minutes–2 hours</div>
+        <div class="meta">A rich, savory beef soup with red curry paste, aromatic ingredients, and creamy coconut broth, served over rice or noodles.</div>
+
+        <img src="" alt="Beef Brothy Soup with coconut curry broth and fresh garnishes" class="food-image">
+
+        <h2>NOTES</h2>
+        <div class="meta">
+            <ul>
+                <li>The recipe calls for rice, but you can use your noodles of choice, such as soba, udon, or ramen.</li>
+                <li>Beef short ribs are recommended, but any convenient cut of beef works. Cut the beef into chunks for easier cooking.</li>
+                <li>Beef stock can be substituted with bone broth, chicken stock, or vegetable stock. Add water as needed to adjust the broth quantity and flavor.</li>
+                <li>Cooking time depends on the size and cut of beef. Smaller pieces may take around 30 minutes, while short ribs or larger chunks may need up to 2 hours to become tender.</li>
+                <li>Garnish with Thai basil, sliced scallions, and sesame seeds before serving.</li>
+            </ul>
+        </div>
+
+        <button class="video-btn" onclick="openVideo()">Watch Video</button>
+    </div>
+
+    <div class="right">
+        <h2>INGREDIENTS</h2>
+        <div class="ingredients">
+            <ul>
+                <li>Beef short ribs or beef of choice, cut into chunks</li>
+                <li>Salt, to taste</li>
+                <li>Red curry paste</li>
+                <li>Shallot, sliced</li>
+                <li>Ginger, sliced or minced</li>
+                <li>Garlic, minced</li>
+            </ul>
+            <ul>
+                <li>Soy sauce</li>
+                <li>Beef stock, bone broth, chicken stock, or vegetable stock</li>
+                <li>Fish sauce</li>
+                <li>Brown sugar</li>
+                <li>Coconut milk</li>
+                <li>Rice or noodles of choice</li>
+                <li>Thai basil, for garnish</li>
+                <li>Scallions, sliced, for garnish</li>
+                <li>Sesame seeds, for garnish</li>
+            </ul>
+        </div>
+
+        <h2>DIRECTIONS</h2>
+        <div class="directions">
+            <ol>
+                <li>Season the beef generously with salt.</li>
+                <li>Heat oil in a pot over medium-high heat. Sear the beef on all sides until nicely browned. Remove the beef and set aside.</li>
+                <li>In the same pot, add the red curry paste, shallot, ginger, and garlic. Stir and cook until fragrant.</li>
+                <li>Return the beef to the pot. Add soy sauce, beef stock, fish sauce, and brown sugar. Stir to combine.</li>
+                <li>Bring the broth to a gentle simmer. Cover partially and cook until the beef is tender, approximately 30 minutes to 2 hours depending on the cut and size. Add more stock or water as needed to keep the beef sufficiently submerged.</li>
+                <li>While the beef cooks, prepare the rice or noodles according to their package instructions.</li>
+                <li>Once the beef is tender, remove it from the pot and set aside.</li>
+                <li>Strain the broth to remove the shallot, ginger, garlic, and other aromatics. Return the strained broth to the pot.</li>
+                <li>Stir the coconut milk into the broth and heat gently until warmed through. Avoid boiling vigorously.</li>
+                <li>Place the cooked beef over rice or noodles in serving bowls. Ladle the coconut curry broth over the beef to your liking.</li>
+                <li>Garnish with Thai basil, sliced scallions, and sesame seeds. Serve hot and enjoy!</li>
+            </ol>
+        </div>
+
+        <h2>USES</h2>
+        <div class="directions">
+            <ul>
+                <li>Rice bowls</li>
+                <li>Soba noodle bowls</li>
+                <li>Udon soup</li>
+                <li>Ramen bowls</li>
+                <li>Comforting beef and coconut curry soup</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="next-container">
+    <a href="#" class="prev-btn">← Previous</a>
+    <a href="../main.html" class="home-btn">Home</a>
+    <a href="#" class="next-btn">Next Recipe →</a>
+</div>
+
+<script src="../recipes.js"></script>
+<script src="../Recipes/nav.js"></script>
+<script>
+  const key = document.body.dataset.page;
+  const recipe = RECIPES.find(r => r.key === key);
+
+  if (recipe && recipe.image) {
+    document.querySelector('.food-image').src = recipe.image;
+  }
+
+  function openVideo() {
+    if (recipe && recipe.video) {
+      window.open(recipe.video, '_blank');
+    }
+  }
+</script>
+
+</body>
+</html>
