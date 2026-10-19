@@ -66,8 +66,8 @@ const RECIPES = [
   {
     key: 'BeefStew',
     label: 'Beef Stew',
-    image: 'https://drive.google.com/file/d/1utLsPXzWEx7kST6xhHgVu8w0vtD8-siD/view?usp=drive_link',
-     video: "../vid/bigmacsalad.mp4",
+    image: '../Image/beefstew.png',
+     video: "https://drive.google.com/file/d/1utLsPXzWEx7kST6xhHgVu8w0vtD8-siD/view?usp=drive_link",
     tags: ['beef', 'stew', 'american', 'hearty'],
     categories: { cuisine: 'american', ingredient: ['beef'], type: ['soups', 'no-carbs'] }
   },
