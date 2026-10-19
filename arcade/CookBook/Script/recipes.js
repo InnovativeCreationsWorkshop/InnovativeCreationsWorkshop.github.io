@@ -618,5 +618,17 @@ const RECIPES = [
     tags: ['kompot', 'fruit', 'drink', 'european', 'dessert'],
     categories: { cuisine: 'european', ingredient: ['quick'], type: ['dessert'] } 
   },
+  {
+  key: 'VanillaButtercream',
+  label: 'Vanilla Buttercream',
+  image: '../Image/buttercream.png',
+  video: "https://drive.google.com/file/d/118iY9o4cO12JWMRQD-66neHeyG2eDQib/view?usp=drive_link",
+  tags: ['vanilla', 'buttercream', 'frosting', 'dessert', 'baking', 'sweet', 'creamy', 'easy'],
+  categories: {
+    cuisine: 'american',
+    ingredient: ['butter'],
+    type: ['dessert']
+  }
+},
 
 ];
