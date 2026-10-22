@@ -569,7 +569,7 @@ const RECIPES = [
   {
     key: 'ChickenTinga',
     label: 'Chicken Tinga',
-    image: '../Image/chickentinga.jpg',
+    image: '../Image/chickentinga.png',
      video: "https://drive.google.com/file/d/1t6y7O2fFq_Kwk5GZn_XNrl57wTCkPj90/view?usp=drive_link",
     tags: ['chicken', 'mexican', 'latin', 'spicy', 'easy', 'tomato'],
     categories: { cuisine: 'latin', ingredient: ['chicken'], type: ['no-carbs'] } 
